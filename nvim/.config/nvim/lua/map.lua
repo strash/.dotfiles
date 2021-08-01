@@ -1,20 +1,20 @@
 local map, g = vim.api.nvim_set_keymap, vim.g
-local silent = { silent = true }
+local options = { noremap = true, silent = true }
 
 -- leader key
 g.mapleader = " "
 
 -- next buffer
-map("n", "<Tab>", "<Cmd>bn<CR>", silent)
+map("n", "<Tab>", "<Cmd>bn<CR>", options)
 -- previous buffer
-map("n", "<S-Tab>", "<Cmd>bp<CR>", silent)
+map("n", "<S-Tab>", "<Cmd>bp<CR>", options)
 -- delete buffer
-map("n", "<leader>d", "<Cmd>bd<CR>", silent)
+map("n", "<leader>d", "<Cmd>bd<CR>", options)
 -- nuke buffer
-map("n", "<leader>w", "<Cmd>bw<CR>", silent)
+map("n", "<leader>w", "<Cmd>bw<CR>", options)
 -- show all buffers
-map("n", "<leader>l", "<Cmd>ls!<CR>", silent)
+map("n", "<leader>l", "<Cmd>ls!<CR>", options)
 -- open a file
-map("n", "<leader>f", ":e **/", { silent = false })
+map("n", "<leader>f", ":e **/", { noremap = true, silent = false })
 -- toggle file tree
-map("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>", { silent = false })
+map("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = false })
