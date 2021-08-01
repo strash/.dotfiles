@@ -20,10 +20,7 @@ end
 function StatusString()
 	local persent_sign = "%%"
 	local status_string = " %%-10.(:b %%n%%m%%) %%<%%f : %s    [%s] %%= %%L (%%p%s) | %%c "
-	return string.format(status_string,
-											 FugitiveInfo(),
-											 LspInfo(),
-											 persent_sign)
+	return string.format(status_string, FugitiveInfo(), LspInfo(), persent_sign)
 end
 
 vim.o.statusline = "%!v:lua.StatusString()"
