@@ -16,4 +16,4 @@ alias server="devd -A 127.0.0.1 -p 8080 ./ -X"
 alias png="oxipng -o 3 -i 0 -q --strip safe **/*.png"
 
 # npm
-alias cocka="sudo npm update -g"
+alias cocka="npm update -g"
