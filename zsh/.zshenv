@@ -9,7 +9,7 @@ alias booba="bubo && bruh"
 alias jino="ssh -p 49436 strash@ovz2.strash.pr46m.vps.myjino.ru"
 
 # che stage
-alias che="deploy@167.86.105.20"
+alias che="ssh deploy@167.86.105.20"
 
 # devd
 alias server_slow="devd -A 127.0.0.1 -p 8080 -d 114 -u 51 -n 275 ./ -X"
