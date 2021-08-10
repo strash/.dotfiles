@@ -24,7 +24,6 @@ local function LspInfo()
 
 	local error_group, warnings_group, hints_and_info_group
 
---StatusLine   cterm=reverse ctermfg=239 ctermbg=223 gui=reverse guifg=#504945 guibg=#ebdbb2
 	if errors > 0 and active_buffer_number == buffer_number then
 		cmd("hi StrErr ctermfg=167 guifg=#fb4934 ctermbg=239 guibg=#504945")
 		error_group = "%#StrErr#"
