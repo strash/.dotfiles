@@ -15,6 +15,7 @@ end
 local function LspInfo()
 	local active_buffer_number = tostring(api.nvim_get_var("actual_curbuf"))
 	local buffer_number = tostring(api.nvim_get_current_buf())
+	-- statusline_winid не работает
 	--local active_buffer_number = tostring(api.nvim_get_var("statusline_winid"))
 	--local buffer_number = tostring(api.nvim_win_get_number(api.nvim_get_current_win()))
 
@@ -53,7 +54,13 @@ function StatusString()
 	local left_side = string.format(" :b %%n%%m | %s%%=", LspInfo())
 	local center = string.format("%%f | %s%%=", FugitiveInfo())
 	local right_side = string.format("%%L (%%p%s) | %%c ", persent_sign)
-	return left_side .. center .. right_side
+
+	local buffer_name = string.find(api.nvim_buf_get_name(0), "NvimTree")
+	if buffer_name then
+		return "NvimTree"
+	else
+		return " " .. left_side .. center .. right_side
+	end
 end
 
 opt.statusline = "%{%v:lua.StatusString()%}"
