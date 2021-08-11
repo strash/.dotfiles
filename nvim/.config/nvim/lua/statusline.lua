@@ -57,7 +57,7 @@ function StatusString()
 
 	local buffer_name = string.find(api.nvim_buf_get_name(0), "NvimTree")
 	if buffer_name then
-		return "NvimTree"
+		return string.format("%%=%s%%=", "NvimTree")
 	else
 		return " " .. left_side .. center .. right_side
 	end
