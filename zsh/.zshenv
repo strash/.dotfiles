@@ -1,4 +1,4 @@
-export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Command/:~/nvim-osx64/bin:~/Library/Python/3.x/bin:~/lua-5.4.3/src:~/flutter/bin
+export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/nvim-osx64/bin:~/Library/Python/3.x/bin:~/lua-5.4.3/src:~/flutter/bin
 
 # brew
 alias bubo="brew update && brew outdated"
