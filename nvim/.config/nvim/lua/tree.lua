@@ -31,35 +31,35 @@ g.nvim_tree_update_cwd = 1
 
 -- List of filenames that gets highlighted with NvimTreeSpecialFile
 --g.nvim_tree_special_files = { "README.md" = 1, "Makefile" = 1, "MAKEFILE" = 1, }
-g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1, }
+g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1, folder_arrows = 1, }
 
 g.nvim_tree_icons = {
 	default = "",
-	symlink = "⧁ ",
+	symlink = "⧁",
 	git = {
-		unstaged = "⊗ ",
-		staged = "✓ ",
-		unmerged = "⊘ ",
-		renamed = "➜ ",
-		untracked = "⊕ ",
-		deleted = "⊖ ",
-		ignored = "◌ "
+		unstaged = "⊗",
+		staged = "✓",
+		unmerged = "⊘",
+		renamed = "➜",
+		untracked = "⊕",
+		deleted = "⊖",
+		ignored = "◌"
 	},
 	folder = {
 		arrow_open = "↳",
 		arrow_closed = "→",
-		default = " ",
-		open = " ",
-		empty = " ",
-		empty_open = " ",
+		default = "",
+		open = "",
+		empty = "",
+		empty_open = "",
 		symlink = "⧁ ",
 		symlink_open = "⧁ ",
 	},
 	lsp = {
-		hint = "H ",
-		info = "I ",
-		warning = "W ",
-		error = "E ",
+		hint = "H",
+		info = "I",
+		warning = "W",
+		error = "E",
 	}
 }
 
