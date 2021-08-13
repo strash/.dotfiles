@@ -74,7 +74,7 @@ nvim_lsp.stylelint_lsp.setup {
 
 
 local pid = vim.fn.getpid()
-local omnisharp_bin = "/Users/strash/.cache/omnisharp-vim/omnisharp-roslyn"
+local omnisharp_bin = "/Users/strash/omnisharp-osx/run"
 nvim_lsp.omnisharp.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
