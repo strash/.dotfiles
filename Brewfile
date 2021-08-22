@@ -38,3 +38,7 @@ cask "iina"
 cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Web browser focusing on security
+cask "tor-browser"
