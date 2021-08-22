@@ -26,7 +26,15 @@ brew "stow"
 brew "tmux"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Application uninstaller
+cask "appcleaner"
+# Download manager with a torrent client
+cask "folx"
+# 2D and 3D game engine
+cask "godot-mono"
 # Free and open-source media player
 cask "iina"
+# Free and open-source painting and sketching program
+cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"

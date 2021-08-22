@@ -6,6 +6,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=true
 alias bubo="brew update && brew outdated"
 alias bruh="brew upgrade --greedy && brew cleanup"
 alias booba="bubo && bruh"
+alias bdump="brew bundle dump --describe -f"
 
 # jino
 alias jino="ssh -p 49436 strash@ovz2.strash.pr46m.vps.myjino.ru"
