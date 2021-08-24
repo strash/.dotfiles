@@ -38,8 +38,17 @@ opt.number = true
 opt.relativenumber = true
 opt.shortmess = "aoOstTWI"
 opt.showcmd = true
-opt.smartindent = true
-opt.smarttab = true
+opt.splitbelow = true
+opt.splitright = true
 opt.wildmenu = true
 opt.wrap = true
+
+opt.autoindent = true
+opt.copyindent = false
+opt.expandtab = false
+--opt.shiftwidth = 2
+opt.smartindent = true
+opt.smarttab = true
+--opt.softtabstop = 0
+--opt.tabstop = 8
 
