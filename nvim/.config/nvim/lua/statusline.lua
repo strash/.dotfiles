@@ -24,21 +24,34 @@ local function LspInfo()
 	local hints_and_info = lsp.diagnostic.get_count(0, "Hint") + lsp.diagnostic.get_count(0, "Information")
 
 	local error_group, warnings_group, hints_and_info_group
+	-- gruvbox colors
+	local bg_gruvbox = "guibg=#504945"
+	local err_gruvbox = "guifg=#fb4934"
+	local warn_gruvbox = "guifg=#fabd2f"
+	local info_gruvbox = "guifg=#8ec07c"
+	-- rose-pine colors
+	local bg_rose_pine = "guibg=#1f1d2e"
+	local err_rose_pine = "guifg=#eb6f92"
+	local warn_rose_pine = "guifg=#f6c177"
+	local info_rose_pine = "guifg=#c4a7e7"
 
 	if errors > 0 and active_buffer_number == buffer_number then
-		cmd("hi StrErr ctermfg=167 guifg=#fb4934 ctermbg=239 guibg=#504945")
+		--cmd("hi StrErr " .. err_gruvbox .. " " .. bg_gruvbox)
+		cmd("hi StrErr " .. err_rose_pine .. " " .. bg_rose_pine)
 		error_group = "%#StrErr#"
 	else
 		error_group = ""
 	end
 	if warnings > 0 and active_buffer_number == buffer_number then
-		cmd("hi StrWarning ctermfg=214 guifg=#fabd2f ctermbg=239 guibg=#504945")
+		--cmd("hi StrWarning " .. warn_gruvbox .. " " .. bg_gruvbox)
+		cmd("hi StrWarning " .. warn_rose_pine .. " " .. bg_rose_pine)
 		warnings_group = "%#StrWarning#"
 	else
 		warnings_group = ""
 	end
 	if hints_and_info > 0 and active_buffer_number == buffer_number then
-		cmd("hi StrHint ctermfg=108 guifg=#8ec07c ctermbg=239 guibg=#504945")
+		--cmd("hi StrHint " .. info_gruvbox .. " " .. bg_gruvbox)
+		cmd("hi StrHint " .. info_rose_pine .. " " .. bg_rose_pine)
 		hints_and_info_group = "%#StrHint#"
 	else
 		hints_and_info_group = ""
