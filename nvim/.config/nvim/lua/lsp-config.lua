@@ -53,12 +53,26 @@ nvim_lsp.dartls.setup {
 	capabilities = capabilities,
 	init_options = {
 		allowAnalytics = false,
+		autoImportCompletions = true,
+		automaticCommentSlashes = "tripleSlash",
 		closingLabels = true,
 		devToolsBrowser = "default",
+		enableSdkFormatter = true,
 		enableServerSnippets = true,
+		enableSnippets = true,
+		flutterGutterIcons = true,
 		flutterHotReloadOnSave = "always",
+		flutterHotRestartOnSave = true,
+		flutterOutline = true,
+		hotReloadProgress = "notification",
 		lineLength = 140,
+		promptToGetPackages = true,
+		promptToRunIfErrors = true,
+		runPubGetOnPubspecChanges = true,
+		showMainCodeLens = true,
+		showTodos = true,
 		triggerSignatureHelpAutomatically = true,
+		updateImportsOnRename = true,
 	}
 }
 

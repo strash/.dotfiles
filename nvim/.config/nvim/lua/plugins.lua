@@ -21,6 +21,10 @@ return require('packer').startup(function()
     "dense-analysis/ale",
     ft = { "cs" },
   }
+  use {
+    "akinsho/flutter-tools.nvim",
+    requires = "nvim-lua/plenary.nvim"
+  }
 
 end)
 
