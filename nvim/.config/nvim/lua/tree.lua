@@ -15,14 +15,14 @@ g.nvim_tree_highlight_opened_files = 1
 -- This is the default. See :help filename-modifiers for more options
 g.nvim_tree_root_folder_modifier = ":~"
 g.nvim_tree_tab_open = 1
-g.nvim_tree_auto_resize = 1
+g.nvim_tree_auto_resize = 0
 g.nvim_tree_disable_netrw = 0
 g.nvim_tree_hijack_netrw = 1
 g.nvim_tree_add_trailing = 1
 g.nvim_tree_group_empty = 0
 -- 0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
 g.nvim_tree_lsp_diagnostics = 1
-g.nvim_tree_disable_window_picker = 0
+g.nvim_tree_disable_window_picker = 1
 g.nvim_tree_hijack_cursor = 0
 g.nvim_tree_icon_padding = ""
 g.nvim_tree_update_cwd = 1
