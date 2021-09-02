@@ -68,9 +68,12 @@ function StatusString()
 	local center = string.format("%%f | %s%%=", FugitiveInfo())
 	local right_side = string.format("%%L (%%p%s) | %%c ", persent_sign)
 
-	local buffer_name = string.find(api.nvim_buf_get_name(0), "NvimTree")
-	if buffer_name then
+	local buffer_name_nvimtree = string.find(api.nvim_buf_get_name(0), "NvimTree")
+	local buffer_name_packer = string.find(api.nvim_buf_get_name(0), "packer")
+	if buffer_name_nvimtree then
 		return string.format("%%=%s%%=", "NvimTree")
+	elseif buffer_name_packer then
+		return string.format("%%=%s%%=", "Packer")
 	else
 		return " " .. left_side .. center .. right_side
 	end
