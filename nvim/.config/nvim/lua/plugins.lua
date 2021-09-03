@@ -7,8 +7,6 @@ return require("packer").startup(function()
   use {
     "rose-pine/neovim", as = "rose-pine"
   }
-  use "folke/tokyonight.nvim"
-
   use "kyazdani42/nvim-tree.lua"
   use "neovim/nvim-lspconfig"
   use {
