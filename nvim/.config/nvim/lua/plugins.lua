@@ -1,12 +1,14 @@
 vim.cmd([[packadd packer.nvim]])
 
-return require('packer').startup(function()
+return require("packer").startup(function()
 
-  use 'wbthomason/packer.nvim'
+  use "wbthomason/packer.nvim"
   use "gruvbox-community/gruvbox"
   use {
-    'rose-pine/neovim', as = 'rose-pine'
+    "rose-pine/neovim", as = "rose-pine"
   }
+  use "folke/tokyonight.nvim"
+
   use "kyazdani42/nvim-tree.lua"
   use "neovim/nvim-lspconfig"
   use {
