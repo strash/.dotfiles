@@ -47,34 +47,51 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
--- dart
-nvim_lsp.dartls.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	init_options = {
-		allowAnalytics = false,
-		autoImportCompletions = true,
-		automaticCommentSlashes = "tripleSlash",
-		closingLabels = true,
-		devToolsBrowser = "default",
-		enableSdkFormatter = true,
-		enableServerSnippets = true,
-		enableSnippets = true,
-		flutterGutterIcons = true,
-		flutterHotReloadOnSave = "always",
-		flutterHotRestartOnSave = true,
-		flutterOutline = true,
-		hotReloadProgress = "notification",
-		lineLength = 140,
-		promptToGetPackages = true,
-		promptToRunIfErrors = true,
-		runPubGetOnPubspecChanges = true,
-		showMainCodeLens = true,
-		showTodos = true,
-		triggerSignatureHelpAutomatically = true,
-		updateImportsOnRename = true,
+-- Flutter tools
+require("flutter-tools").setup{
+	closing_tags = {
+		highlight = "NonText", -- highlight for the closing tag
+		prefix = "- ", -- character to use for close tag e.g. > Widget
+		enabled = true -- set to false to disable
+	},
+	lsp = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+		settings = {
+			showTodos = true,
+			completeFunctionCalls = true,
+			--analysisExcludedFolders = {<path-to-flutter-sdk-packages>}
+		}
 	}
 }
+-- dart
+--nvim_lsp.dartls.setup {
+--	on_attach = on_attach,
+--	capabilities = capabilities,
+--	init_options = {
+--		allowAnalytics = false,
+--		autoImportCompletions = true,
+--		automaticCommentSlashes = "tripleSlash",
+--		closingLabels = true,
+--		devToolsBrowser = "default",
+--		enableSdkFormatter = true,
+--		enableServerSnippets = true,
+--		enableSnippets = true,
+--		flutterGutterIcons = true,
+--		flutterHotReloadOnSave = "always",
+--		flutterHotRestartOnSave = true,
+--		flutterOutline = true,
+--		hotReloadProgress = "notification",
+--		lineLength = 140,
+--		promptToGetPackages = true,
+--		promptToRunIfErrors = true,
+--		runPubGetOnPubspecChanges = true,
+--		showMainCodeLens = true,
+--		showTodos = true,
+--		triggerSignatureHelpAutomatically = true,
+--		updateImportsOnRename = true,
+--	}
+--}
 
 -- style lint
 nvim_lsp.stylelint_lsp.setup {
