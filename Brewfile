@@ -28,6 +28,8 @@ brew "tmux"
 cask "alacritty"
 # Application uninstaller
 cask "appcleaner"
+# UI toolkit for building applications for mobile, web and desktop
+cask "flutter"
 # Download manager with a torrent client
 cask "folx"
 # 2D and 3D game engine
