@@ -2,6 +2,9 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
+tap "qmk/qmk"
 # Local webserver for developers
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
@@ -24,6 +27,8 @@ brew "postgresql", restart_service: true
 brew "stow"
 # Terminal multiplexer
 brew "tmux"
+# Quantum Mechanical Keyboard (QMK) Firmware
+brew "qmk/qmk/qmk"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Application uninstaller
