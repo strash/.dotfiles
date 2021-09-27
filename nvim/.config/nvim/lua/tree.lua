@@ -1,17 +1,5 @@
 local g = vim.g
 
-require("nvim-tree").setup({
-	lsp_diagnostics = true,
-	update_focused_file = {
-		enable = true,
-	},
-	update_cwd = true,
-	view = {
-		width = 40,
-	}
-})
-
-
 g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
 g.nvim_tree_gitignore = 1
 g.nvim_tree_quit_on_open = 1
@@ -25,7 +13,12 @@ g.nvim_tree_group_empty = 0
 g.nvim_tree_disable_window_picker = 1
 g.nvim_tree_icon_padding = ""
 
-g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1, folder_arrows = 1, }
+g.nvim_tree_show_icons = {
+	git = 0,
+	folders = 1,
+	files = 0,
+	folder_arrows = 1,
+}
 
 g.nvim_tree_icons = {
 	default = "",
@@ -56,5 +49,17 @@ g.nvim_tree_icons = {
 		error = "E",
 	}
 }
+
+require("nvim-tree").setup({
+	lsp_diagnostics = true,
+	update_focused_file = {
+		enable = true,
+	},
+	update_cwd = true,
+	view = {
+		width = 45,
+	}
+})
+
 
 
