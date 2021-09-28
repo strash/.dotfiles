@@ -9,10 +9,13 @@ xcode-select --install
 # installing brew
 echo "> installing brew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/strash/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew analytics off
 
 # installing formulae and casks from brew bundle /wo generating a lock file (guess I don't need it)
 echo "> installing formulae and casks from brew bundle /wo generating a lock file (guess I don't need it)"
-brew bundle istall --no-lock
+brew bundle install --no-lock
 
 # installing oh my zsh
 echo "> installing oh my zsh"
