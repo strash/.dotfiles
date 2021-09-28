@@ -1,3 +1,7 @@
 **/.DS_Store
 *.vim
+godot/Library/Application\ Support/Godot/projects
+godot/Library/Application\ Support/Godot/script_templates/empty.gd
+godot/Library/Application\ Support/Godot/script_templates/no_comments.gd
+
 
