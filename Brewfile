@@ -6,6 +6,8 @@ tap "homebrew/services"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # Local webserver for developers
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
