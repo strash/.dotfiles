@@ -17,9 +17,11 @@ brew analytics off
 echo "> installing formulae and casks from brew bundle /wo generating a lock file (guess I don't need it)"
 brew bundle install --no-lock
 
+flutter config --no-analytics
+
 # installing oh my zsh
 echo "> installing oh my zsh"
-curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # remove init.vim because full lua
 echo "> removing init.vim for the sake of full lua"
