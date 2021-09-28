@@ -8,7 +8,7 @@ xcode-select --install
 
 # installing brew
 echo "> installing brew"
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # installing formulae and casks from brew bundle /wo generating a lock file (guess I don't need it)
 echo "> installing formulae and casks from brew bundle /wo generating a lock file (guess I don't need it)"
