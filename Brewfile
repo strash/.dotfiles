@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "osx-cross/arm"
@@ -37,14 +38,16 @@ cask "appcleaner"
 cask "flutter"
 # Download manager with a torrent client
 cask "folx"
-# 2D and 3D game engine
-cask "godot-mono"
+# Game development engine
+cask "godot"
 # Free and open-source media player
 cask "iina"
 # Free and open-source painting and sketching program
 cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Web browser focusing on security
