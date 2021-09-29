@@ -1,10 +1,10 @@
-export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/nvim-osx64/bin:~/Library/Python/3.x/bin:~/lua-5.x.x/src:~/usr/local/Caskroom/flutter/2.x.x/flutter/bin/
+export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/nvim-osx64/bin:~/Library/Python/3.x/bin:~/lua-5.x.x/src:~/usr/local/Caskroom/flutter/2.x.x/flutter/bin/:/opt/homebrew/bin
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # brew
-alias bubo="brew update && brew outdated"
-alias bruh="brew upgrade --greedy && brew cleanup"
+alias bubo="arch -arm64 brew update && arch -arm64 brew outdated"
+alias bruh="arch -arm64 brew upgrade --greedy && arch -arm64 brew cleanup"
 alias booba="bubo && bruh"
 alias bdump="brew bundle dump --describe -f"
 
