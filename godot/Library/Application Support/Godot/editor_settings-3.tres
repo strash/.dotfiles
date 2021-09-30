@@ -127,7 +127,6 @@ text_editor/files/trim_trailing_whitespace_on_save = true
 text_editor/completion/add_type_hints = true
 editors/3d/navigation/invert_y_axis = true
 editors/3d/navigation/invert_x_axis = true
-run/output/always_open_output_on_play = false
 project_manager/sorting_order = 2
 asset_library/available_urls = {
 "godotengine.org": "https://godotengine.org/asset-library/api",
