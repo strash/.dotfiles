@@ -48,6 +48,8 @@ cask "iina"
 cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Software for Anne Pro and Anne Pro 2
+cask "obinskit"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
 # Messaging app with a focus on speed and security
