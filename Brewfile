@@ -26,6 +26,8 @@ brew "node"
 brew "oxipng"
 # Object-relational database system
 brew "postgresql", restart_service: true
+# Object-relational database system
+brew "postgresql@13"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
@@ -48,8 +50,6 @@ cask "iina"
 cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
-# Software for Anne Pro and Anne Pro 2
-cask "obinskit"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
 # Messaging app with a focus on speed and security
