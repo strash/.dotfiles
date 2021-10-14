@@ -234,4 +234,5 @@ mono/editor/external_editor = 0
 mono/builds/build_tool = 3
 mono/assembly_watch_interval_sec = 0.5
 projects/::Users::strash::GAMEDEV::chevostik_snake = "/Users/strash/GAMEDEV/chevostik_snake"
+projects/::Users::strash::APPDEV::chevostik_app = "/Users/strash/APPDEV/chevostik_app"
 shortcuts = [ "editor/close_scene", SubResource( 1 ), "editor/editor_help", SubResource( 2 ), "editor/project_settings", SubResource( 3 ), "file_dialog/toggle_hidden_files", SubResource( 4 ), "filesystem_dock/rename", SubResource( 5 ), "scene_tree/rename", SubResource( 6 ), "script_editor/close_file", SubResource( 7 ), "script_editor/window_move_down", SubResource( 8 ), "script_editor/window_move_up", SubResource( 9 ), "script_text_editor/goto_line", SubResource( 10 ), "script_text_editor/indent_left", SubResource( 11 ), "script_text_editor/indent_right", SubResource( 12 ), "script_text_editor/move_down", SubResource( 13 ), "script_text_editor/move_up", SubResource( 14 ), "script_text_editor/redo", SubResource( 15 ), "script_text_editor/toggle_comment", SubResource( 16 ) ]
