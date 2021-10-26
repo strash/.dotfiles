@@ -36,6 +36,8 @@ brew "tmux"
 brew "qmk/qmk/qmk"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Tools for building Android applications
+cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
 # UI toolkit for building applications for mobile, web and desktop
