@@ -2,7 +2,7 @@ local opt = vim.opt
 
 opt.autoindent = true
 opt.copyindent = true
-opt.expandtab = true
+opt.expandtab = false
 opt.shiftwidth = 4
 opt.smartindent = true
 opt.smarttab = true
