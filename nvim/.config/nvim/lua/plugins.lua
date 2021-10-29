@@ -13,7 +13,9 @@ return require("packer").startup(function()
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "hrsh7th/nvim-compe"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/nvim-cmp"
   use "sheerun/vim-polyglot"
   use "tpope/vim-fugitive"
   use "OmniSharp/omnisharp-vim"
