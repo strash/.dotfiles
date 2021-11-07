@@ -3,9 +3,8 @@ export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # brew
-alias bubo="arch -arm64 brew update && arch -arm64 brew outdated"
-alias bruh="arch -arm64 brew upgrade --greedy && arch -arm64 brew cleanup"
-alias booba="bubo && bruh"
+alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && arch -arm64 brew cleanup"
+alias boocka="booba && cocka"
 alias bdump="brew bundle dump --describe -f"
 
 # jino
