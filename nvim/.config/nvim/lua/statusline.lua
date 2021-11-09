@@ -36,22 +36,22 @@ local function LspInfo()
 	local info_rose_pine = "guifg=#c4a7e7"
 
 	if errors > 0 and active_buffer_number == buffer_number then
-		cmd("hi StrErr " .. err_gruvbox .. " " .. bg_gruvbox)
-		--cmd("hi StrErr " .. err_rose_pine .. " " .. bg_rose_pine)
+		--cmd("hi StrErr " .. err_gruvbox .. " " .. bg_gruvbox)
+		cmd("hi StrErr " .. err_rose_pine .. " " .. bg_rose_pine)
 		error_group = "%#StrErr#"
 	else
 		error_group = ""
 	end
 	if warnings > 0 and active_buffer_number == buffer_number then
-		cmd("hi StrWarning " .. warn_gruvbox .. " " .. bg_gruvbox)
-		--cmd("hi StrWarning " .. warn_rose_pine .. " " .. bg_rose_pine)
+		--cmd("hi StrWarning " .. warn_gruvbox .. " " .. bg_gruvbox)
+		cmd("hi StrWarning " .. warn_rose_pine .. " " .. bg_rose_pine)
 		warnings_group = "%#StrWarning#"
 	else
 		warnings_group = ""
 	end
 	if hints_and_info > 0 and active_buffer_number == buffer_number then
-		cmd("hi StrHint " .. info_gruvbox .. " " .. bg_gruvbox)
-		--cmd("hi StrHint " .. info_rose_pine .. " " .. bg_rose_pine)
+		--cmd("hi StrHint " .. info_gruvbox .. " " .. bg_gruvbox)
+		cmd("hi StrHint " .. info_rose_pine .. " " .. bg_rose_pine)
 		hints_and_info_group = "%#StrHint#"
 	else
 		hints_and_info_group = ""
