@@ -4,9 +4,9 @@ return require("packer").startup(function()
 
 	use "wbthomason/packer.nvim"
 	use "gruvbox-community/gruvbox"
-	use {
-		"rose-pine/neovim", as = "rose-pine"
-	}
+	--use {
+	--	"rose-pine/neovim", as = "rose-pine"
+	--}
 	use "kyazdani42/nvim-tree.lua"
 	use "neovim/nvim-lspconfig"
 	use {
