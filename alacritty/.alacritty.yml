@@ -36,5 +36,5 @@ key_bindibngs:
   { key: S, mods: Shift|Option, mode: ~Search, action: ToggleViMode }
 
 import:
-  - ~/rose-pine/rose-pine-moon.yml
+  - ~/gruvbox/gruvbox.yml
 
