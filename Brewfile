@@ -28,10 +28,14 @@ brew "oxipng"
 brew "postgresql", restart_service: true
 # Object-relational database system
 brew "postgresql@13"
+# Substitute for classic 'make' tool with autoconf/automake functionality
+brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
 brew "tmux"
+# Modular BSD reimplementation of NASM
+brew "yasm"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # GPU-accelerated terminal emulator
@@ -40,6 +44,8 @@ cask "alacritty"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
+# Developer platform
+cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 # Download manager with a torrent client

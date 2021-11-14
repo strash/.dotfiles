@@ -69,13 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ale = {
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/opt/ale",
-    url = "https://github.com/dense-analysis/ale"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -131,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -144,13 +132,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType cs ++once lua require("packer.load")({'ale'}, { ft = "cs" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)
