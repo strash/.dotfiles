@@ -19,7 +19,7 @@ alias server_slow="devd -A 127.0.0.1 -p 8080 -d 114 -u 51 -n 275 ./ -X"
 alias server="devd -A 127.0.0.1 -p 8080 ./ -X"
 
 # oxipng
-alias png="oxipng -o 3 -i 0 -q --strip safe **/*.png"
+alias png="oxipng **/*.png -q -a -i 1 -o max -r --strip all -D"
 
 # npm
 alias cocka="npm update -g"
