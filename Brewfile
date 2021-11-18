@@ -22,8 +22,6 @@ brew "ncdu"
 brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
-# Multithreaded PNG optimizer written in Rust
-brew "oxipng"
 # Object-relational database system
 brew "postgresql", restart_service: true
 # Object-relational database system
