@@ -3,12 +3,13 @@ export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # source .zshenv
-alias sz="source ~/.dotfiles/zsh/.zshenv && echo '~/.dotfiles/zsh/.zshenv reloaded'"
+alias sz="source ~/.dotfiles/zsh/.zshenv && echo '~/.dotfiles/zsh/.zshenv sourced'"
 
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && arch -arm64 brew cleanup"
 alias boocka="booba && cocka"
-alias bdump="brew bundle dump --describe -f"
+alias bdump="brew bundle dump --describe -f" # create bundle
+alias bdinstall="arch -arm64 brew bundle --no-lock" # install from dump
 
 # jino
 alias jino="ssh -p 49436 strash@ovz2.strash.pr46m.vps.myjino.ru"
