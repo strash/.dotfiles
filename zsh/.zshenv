@@ -1,4 +1,4 @@
-export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/nvim-osx64/bin:~/Library/Python/3.x/bin:~/lua-5.x.x/src:~/usr/local/Caskroom/flutter/2.x.x/flutter/bin/:/opt/homebrew/bin:/Users/strash/.dotnet/tools:~/imageoptim-cli/dist
+export PATH=~/.dotfiles:~/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/nvim-osx64/bin:~/Library/Python/3.x/bin:~/lua-5.x.x/src:~/usr/local/Caskroom/flutter/2.x.x/flutter/bin/:/opt/homebrew/bin:~/.dotnet/tools:~/imageoptim-cli/dist
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
