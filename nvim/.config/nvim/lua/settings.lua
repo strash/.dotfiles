@@ -10,19 +10,6 @@ g.gruvbox_contrast_dark = "hard" -- soft, medium, hard
 g.gruvbox_invert_selection = 0
 g.colors_name = "gruvbox"
 
-g.rose_pine_variant = "moon" -- base, moon, dawn
-g.rose_pine_disable_italics = false
-g.rose_pine_disable_background = false
---g.colors_name = "rose-pine"
-
-g.OmniSharp_server_use_mono = 1
-g.OmniSharp_diagnostic_showid = 1
-
-g.ale_linters = {
-	cs = { "omnisharp" },
-}
-
-
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
 cmd("syntax enable")
