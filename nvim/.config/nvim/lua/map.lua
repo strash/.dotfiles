@@ -17,4 +17,4 @@ map("n", "<leader>l", "<Cmd>ls!<CR>", options)
 -- open a file
 map("n", "<leader>f", ":e **/", { noremap = true, silent = false })
 -- toggle file tree
-map("n", "<leader>n", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = false })
+map("n", "<leader>n", ":Explore<CR>", options)

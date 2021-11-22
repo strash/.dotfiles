@@ -12,5 +12,3 @@ require("treeshitter-config")
 require("compe-config")
 -- Status line
 require("statusline")
--- Tree view
-require("tree")

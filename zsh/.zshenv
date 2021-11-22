@@ -35,3 +35,5 @@ alias png="imageoptim -a -S '**/*.png'"
 
 # npm
 alias cocka="npm update -g"
+
+alias nvim="nvim -c Explore"
