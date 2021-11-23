@@ -6,7 +6,7 @@ return require("packer").startup(function()
 	use "neovim/nvim-lspconfig"
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		run = ":!arch -arm64 nvim -c TSUpdate",
 	}
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-buffer"
