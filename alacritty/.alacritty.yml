@@ -4,7 +4,7 @@
 window:
   dimensions:
     columns: 170
-    lines: 53
+    lines: 54
 
   position:
     x: 778
@@ -15,7 +15,7 @@ window:
     y: 0
 
   dynamic_padding: false
-  decorations: full
+  decorations: none
   startup_mode: Windowed
   dynamic_title: true
 
