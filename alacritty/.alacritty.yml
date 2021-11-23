@@ -2,13 +2,21 @@
 #  TERM: alacritty
 
 window:
+  dimensions:
+    columns: 170
+    lines: 53
+
+  position:
+    x: 778
+    y: 0
+
   padding:
     x: 0
     y: 0
 
   dynamic_padding: false
   decorations: full
-  startup_mode: Fullscreen
+  startup_mode: Windowed
   dynamic_title: true
 
 scrolling:
