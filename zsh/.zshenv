@@ -33,4 +33,4 @@ alias png="imageoptim -a -S '**/*.png'"
 alias cocka="npm update -g"
 
 # nvim
-alias nvim="nvim -c Explore"
+alias nvim="arch -arm64 nvim -c Explore"
