@@ -8,7 +8,12 @@ opt.background = "dark"
 
 g.gruvbox_contrast_dark = "hard" -- soft, medium, hard
 g.gruvbox_invert_selection = 0
-g.colors_name = "gruvbox"
+--g.colors_name = "gruvbox"
+
+g.rose_pine_variant = "moon" -- base, moon, dawn
+g.rose_pine_disable_italics = true
+g.rose_pine_disable_background = false
+g.colors_name = "rose-pine"
 
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
