@@ -8,12 +8,15 @@ opt.background = "dark"
 
 g.gruvbox_contrast_dark = "hard" -- soft, medium, hard
 g.gruvbox_invert_selection = 0
-cmd([[ colorscheme gruvbox ]])
+--cmd("colorscheme gruvbox")
 
 g.rose_pine_variant = "moon" -- base, moon, dawn
 g.rose_pine_disable_italics = true
 g.rose_pine_disable_background = false
---cmd([[ colorscheme rose-pine ]])
+--cmd("colorscheme rose-pine")
+
+g.vscode_style = "dark"
+cmd("colorscheme vscode")
 
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
