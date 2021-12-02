@@ -41,7 +41,7 @@ opt.showcmd = true
 opt.splitbelow = true
 opt.splitright = true
 opt.wildmenu = true
-opt.wrap = true
+opt.wrap = false
 
 opt.autoindent = true
 opt.copyindent = false
