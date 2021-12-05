@@ -41,6 +41,7 @@ opt.cursorcolumn = true
 opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
+opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = true
 opt.inccommand = "split"
 opt.linebreak = true
