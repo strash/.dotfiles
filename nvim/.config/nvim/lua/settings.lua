@@ -23,25 +23,50 @@ cmd("filetype plugin indent on")
 cmd("syntax enable")
 cmd("syntax on")
 
+cmd([[
+augroup vimrc-incsearch-highlight
+	autocmd!
+	autocmd CmdlineEnter /,\? :set hlsearch
+	autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+]])
+
 
 opt.autowrite = true
 opt.autowriteall = true
-opt.completeopt = { "menuone", "noinsert", "noselect" }
+opt.breakindent = false
+opt.bufhidden = "wipe"
+opt.completeopt = { "menu", "preview", "noinsert", "noselect" }
+opt.cursorcolumn = true
+opt.cursorline = true
+opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
-opt.guicursor = { a = "blinkon0" }
-opt.hidden = true
+opt.hlsearch = true
+opt.inccommand = "split"
+opt.linebreak = true
 opt.list = true
-opt.listchars = { tab = "--", trail = "~" }
-opt.hlsearch = false
-opt.swapfile = false
+	opt.listchars = {
+	tab = "--",
+	trail = "~",
+	eol = "\\u21b5",
+	space = "·",
+	lead = ".",
+	precedes = "<",
+	nbsp = "%",
+}
+opt.menuitems = 35
+opt.mouse = "a"
+opt.mousefocus = true
 opt.number = true
 opt.relativenumber = true
 opt.shortmess = "aoOstTWI"
-opt.showcmd = true
+opt.showbreak = ">>"
 opt.splitbelow = true
 opt.splitright = true
+opt.swapfile = false
 opt.wildmenu = true
-opt.wrap = false
+opt.wrap = true
+opt.wrapmargin = 0
 
 opt.autoindent = true
 opt.copyindent = false
