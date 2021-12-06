@@ -51,7 +51,7 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
 		on_attach = on_attach,
 		capabilities = capabilities,
-		flags = flags
+		flags = flags,
 	}
 end
 

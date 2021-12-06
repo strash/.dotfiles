@@ -9,12 +9,12 @@ map("n", "<Tab>", "<Cmd>bn<CR>", options)
 -- previous buffer
 map("n", "<S-Tab>", "<Cmd>bp<CR>", options)
 -- delete buffer
-map("n", "<leader>d", "<Cmd>bd<CR>", options)
+--map("n", "<leader>d", "<Cmd>bd<CR>", options)
 -- nuke buffer
 map("n", "<leader>w", "<Cmd>bw<CR>", options)
 -- show all buffers
 map("n", "<leader>l", "<Cmd>ls!<CR>", options)
 -- open a file
-map("n", "<leader>f", ":e **/", { noremap = true, silent = false })
+--map("n", "<leader>f", ":e **/", { noremap = true, silent = false })
 -- toggle file tree
 map("n", "<leader>n", ":Explore<CR>", options)
