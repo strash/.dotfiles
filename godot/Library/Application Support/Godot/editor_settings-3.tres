@@ -1,4 +1,4 @@
-[gd_resource type="EditorSettings" load_steps=35 format=2]
+[gd_resource type="EditorSettings" load_steps=17 format=2]
 
 [sub_resource type="InputEventKey" id=1]
 meta = true
@@ -15,111 +15,12 @@ meta = true
 command = true
 scancode = 80
 
-[sub_resource type="InputEventKey" id=17]
-meta = true
-command = true
-scancode = 78
-unicode = 78
-
-[sub_resource type="InputEventKey" id=18]
-meta = true
-command = true
-scancode = 16777220
-unicode = 16777220
-
-[sub_resource type="InputEventKey" id=19]
-meta = true
-command = true
-scancode = 68
-unicode = 68
-
-[sub_resource type="InputEventKey" id=20]
-alt = true
-scancode = 16777231
-unicode = 16777231
-
-[sub_resource type="InputEventKey" id=21]
-alt = true
-scancode = 16777233
-unicode = 16777233
-
-[sub_resource type="InputEventKey" id=22]
-alt = true
-scancode = 16777232
-unicode = 16777232
-
-[sub_resource type="InputEventKey" id=23]
-meta = true
-command = true
-scancode = 16777234
-unicode = 16777234
-
-[sub_resource type="InputEventKey" id=24]
-meta = true
-command = true
-scancode = 16777232
-unicode = 16777232
-
-[sub_resource type="InputEventKey" id=25]
-scancode = 16777248
-unicode = 16777248
-
-[sub_resource type="InputEventKey" id=26]
-alt = true
-scancode = 70
-unicode = 70
-
 [sub_resource type="InputEventKey" id=4]
 alt = true
 scancode = 72
 
-[sub_resource type="InputEventKey" id=27]
-alt = true
-scancode = 86
-unicode = 86
-
 [sub_resource type="InputEventKey" id=5]
 scancode = 16777221
-
-[sub_resource type="InputEventKey" id=28]
-meta = true
-command = true
-scancode = 69
-unicode = 69
-
-[sub_resource type="InputEventKey" id=29]
-meta = true
-command = true
-scancode = 73
-unicode = 73
-
-[sub_resource type="InputEventKey" id=30]
-meta = true
-command = true
-scancode = 78
-unicode = 78
-
-[sub_resource type="InputEventKey" id=31]
-meta = true
-command = true
-scancode = 16777220
-unicode = 16777220
-
-[sub_resource type="InputEventKey" id=32]
-scancode = 16777245
-unicode = 16777245
-
-[sub_resource type="InputEventKey" id=33]
-meta = true
-command = true
-scancode = 82
-unicode = 82
-
-[sub_resource type="InputEventKey" id=34]
-meta = true
-command = true
-scancode = 83
-unicode = 83
 
 [sub_resource type="InputEventKey" id=6]
 scancode = 16777221
@@ -180,8 +81,9 @@ command = true
 scancode = 47
 
 [resource]
-interface/editor/main_font_size = 13
-interface/editor/code_font_size = 13.0
+interface/editor/main_font_size = 15
+interface/editor/code_font_size = 15
+interface/editor/font_hinting = 3
 interface/editor/separate_distraction_mode = true
 interface/editor/quit_confirmation = false
 interface/theme/preset = "Arc"
@@ -349,4 +251,4 @@ editors/3d_gizmos/gizmo_colors/portal_edge = Color( 0, 0, 0, 0.3 )
 editors/3d_gizmos/gizmo_colors/portal_arrow = Color( 1, 1, 1, 1 )
 editors/3d_gizmos/gizmo_colors/occluder = Color( 1, 0, 1, 1 )
 network/language_server/remote_host = "127.0.0.1"
-shortcuts = [ "editor/close_scene", SubResource( 1 ), "editor/editor_help", SubResource( 2 ), "editor/project_settings", SubResource( 3 ), "file_dialog/create_folder", SubResource( 17 ), "file_dialog/delete", SubResource( 18 ), "file_dialog/focus_path", SubResource( 19 ), "file_dialog/go_back", SubResource( 20 ), "file_dialog/go_forward", SubResource( 21 ), "file_dialog/go_up", SubResource( 22 ), "file_dialog/move_favorite_down", SubResource( 23 ), "file_dialog/move_favorite_up", SubResource( 24 ), "file_dialog/refresh", SubResource( 25 ), "file_dialog/toggle_favorite", SubResource( 26 ), "file_dialog/toggle_hidden_files", SubResource( 4 ), "file_dialog/toggle_mode", SubResource( 27 ), "filesystem_dock/rename", SubResource( 5 ), "project_manager/edit_project", SubResource( 28 ), "project_manager/import_project", SubResource( 29 ), "project_manager/new_project", SubResource( 30 ), "project_manager/remove_project", SubResource( 31 ), "project_manager/rename_project", SubResource( 32 ), "project_manager/run_project", SubResource( 33 ), "project_manager/scan_projects", SubResource( 34 ), "scene_tree/rename", SubResource( 6 ), "script_editor/close_file", SubResource( 7 ), "script_editor/window_move_down", SubResource( 8 ), "script_editor/window_move_up", SubResource( 9 ), "script_text_editor/goto_line", SubResource( 10 ), "script_text_editor/indent_left", SubResource( 11 ), "script_text_editor/indent_right", SubResource( 12 ), "script_text_editor/move_down", SubResource( 13 ), "script_text_editor/move_up", SubResource( 14 ), "script_text_editor/redo", SubResource( 15 ), "script_text_editor/toggle_comment", SubResource( 16 ) ]
+shortcuts = [ "editor/close_scene", SubResource( 1 ), "editor/editor_help", SubResource( 2 ), "editor/project_settings", SubResource( 3 ), "file_dialog/toggle_hidden_files", SubResource( 4 ), "filesystem_dock/rename", SubResource( 5 ), "scene_tree/rename", SubResource( 6 ), "script_editor/close_file", SubResource( 7 ), "script_editor/window_move_down", SubResource( 8 ), "script_editor/window_move_up", SubResource( 9 ), "script_text_editor/goto_line", SubResource( 10 ), "script_text_editor/indent_left", SubResource( 11 ), "script_text_editor/indent_right", SubResource( 12 ), "script_text_editor/move_down", SubResource( 13 ), "script_text_editor/move_up", SubResource( 14 ), "script_text_editor/redo", SubResource( 15 ), "script_text_editor/toggle_comment", SubResource( 16 ) ]
