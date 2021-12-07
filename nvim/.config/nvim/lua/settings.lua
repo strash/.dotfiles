@@ -34,7 +34,7 @@ opt.fileencoding = "utf-8"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.linebreak = true
+opt.linebreak = false
 opt.list = true
 	opt.listchars = {
 	tab = "--",
