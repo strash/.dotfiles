@@ -25,16 +25,15 @@ cmd("syntax on")
 
 opt.autowrite = true
 opt.autowriteall = true
-opt.breakindent = false
 opt.bufhidden = "wipe"
 opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
+opt.formatoptions = "cqMjp"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.linebreak = false
 opt.list = true
 	opt.listchars = {
 	tab = "--",
@@ -52,9 +51,9 @@ opt.showbreak = ">>"
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
+opt.textwidth = 0
 opt.wildmenu = true
 opt.wrap = true
-opt.wrapmargin = 0
 
 opt.autoindent = true
 opt.copyindent = false
