@@ -51,7 +51,7 @@ opt.showbreak = ">>"
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
-opt.textwidth = 0
+opt.textwidth = 80
 opt.wildmenu = true
 opt.wrap = true
 
