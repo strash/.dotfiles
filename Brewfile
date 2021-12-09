@@ -25,7 +25,7 @@ brew "node"
 # Object-relational database system
 brew "postgresql", restart_service: true
 # Object-relational database system
-brew "postgresql@13"
+brew "postgresql@13", restart_service: true
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -42,8 +42,6 @@ cask "alacritty"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
-# Developer platform
-cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 # Download manager with a torrent client

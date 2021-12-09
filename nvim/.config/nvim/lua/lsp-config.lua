@@ -34,7 +34,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = {
 	"bashls",
 	"cssls",
-	"csharp_ls",
 	"gdscript",
 	"html",
 	"jsonls",
@@ -54,6 +53,15 @@ for _, lsp in ipairs(servers) do
 		flags = flags,
 	}
 end
+
+local pid = vim.fn.getpid()
+local omnisharp_bin = "/Users/strash/omnisharp-osx/run"
+nvim_lsp.omnisharp.setup {
+	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = flags,
+}
 
 require("flutter-tools").setup {
 	closing_tags = {

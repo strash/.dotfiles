@@ -35,7 +35,7 @@ opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
 opt.list = true
-	opt.listchars = {
+opt.listchars = {
 	tab = "--",
 	trail = "~",
 	eol = "\\u21b5",
