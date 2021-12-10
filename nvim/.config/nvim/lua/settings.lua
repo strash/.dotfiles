@@ -30,7 +30,7 @@ opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
-opt.formatoptions = "cqMjp"
+opt.formatoptions = "cqjp"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"

@@ -22,9 +22,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<leader>cn", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
   buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  --buf_set_keymap("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  --buf_set_keymap("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  --buf_set_keymap("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
 end
 
 
@@ -34,6 +31,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = {
 	"bashls",
 	"cssls",
+	"csharp_ls",
 	"gdscript",
 	"html",
 	"jsonls",
@@ -54,15 +52,6 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/Users/strash/omnisharp-osx/run"
-nvim_lsp.omnisharp.setup {
-	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-	on_attach = on_attach,
-	capabilities = capabilities,
-	flags = flags,
-}
-
 require("flutter-tools").setup {
 	closing_tags = {
 		highlight = "NonText",
@@ -77,5 +66,29 @@ require("flutter-tools").setup {
 			completeFunctionCalls = true,
 		}
 	}
+}
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+nvim_lsp.sumneko_lua.setup {
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+				path = runtime_path,
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
 }
 

@@ -16,6 +16,8 @@ brew "hblock"
 brew "httpie"
 # Save disk space by cleaning non-essential files from software projects
 brew "kondo"
+# Language Server for the Lua language
+brew "lua-language-server"
 # NCurses Disk Usage
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -42,6 +44,8 @@ cask "alacritty"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
+# Developer platform
+cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 # Download manager with a torrent client
