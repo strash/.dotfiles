@@ -58,6 +58,8 @@ cask "iina"
 cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# VPN client focusing on security
+cask "protonvpn"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
 # Messaging app with a focus on speed and security
