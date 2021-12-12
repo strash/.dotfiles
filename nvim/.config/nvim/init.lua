@@ -12,3 +12,5 @@ require("treeshitter-config")
 require("compe-config")
 -- Status line
 require("statusline")
+-- Telescope
+require("telepoop")

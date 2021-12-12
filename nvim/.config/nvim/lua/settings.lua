@@ -38,9 +38,6 @@ opt.list = true
 opt.listchars = {
 	tab = "--",
 	trail = "~",
-	eol = "\\u21b5",
-	space = "·",
-	lead = ".",
 	precedes = "<",
 	nbsp = "%",
 }

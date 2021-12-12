@@ -1,4 +1,4 @@
-vim.cmd([[packadd packer.nvim]])
+vim.cmd("packadd packer.nvim")
 
 return require("packer").startup(function()
 	use "wbthomason/packer.nvim"
@@ -18,7 +18,10 @@ return require("packer").startup(function()
 	use "tpope/vim-fugitive"
 	use {
 		"akinsho/flutter-tools.nvim",
-		requires = "nvim-lua/plenary.nvim"
+		requires = "nvim-lua/plenary.nvim",
+	}
+	use {
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim_lua/plenary.nvim",
 	}
 end)
-
