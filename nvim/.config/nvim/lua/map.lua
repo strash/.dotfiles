@@ -41,7 +41,7 @@ function MAP.set_lsp_map(_, bufnr)
 	}
 
 	for _, key in ipairs(lsp_map) do
-		api.nvim_buf_set_keymap(bufnr, "n", key.key, "<Cmd>" .. key.func .. "<CR>", options)
+		api.nvim_buf_set_keymap(bufnr, "n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 	end
 
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
