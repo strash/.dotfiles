@@ -12,6 +12,8 @@ brew "cocoapods"
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
 brew "hblock"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Save disk space by cleaning non-essential files from software projects
@@ -50,8 +52,6 @@ cask "dotnet-sdk"
 cask "flutter"
 # Download manager with a torrent client
 cask "folx"
-# Game development engine
-cask "godot"
 # Free and open-source media player
 cask "iina"
 # Free and open-source painting and sketching program
