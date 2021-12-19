@@ -4,12 +4,14 @@ local function FugitiveInfo()
 	local active_buffer_number = tostring(api.nvim_get_var("actual_curbuf"))
 	local buffer_number = tostring(api.nvim_get_current_buf())
 	local branch = vim.fn.FugitiveHead()
-
+	local result
 	if branch ~= "" or branch and active_buffer_number == buffer_number then
-		return "git(" .. branch .. ")"
+		result = branch
 	else
-		return "not a git"
+		result = "not a git"
 	end
+
+	return string.format("[%s]", result)
 end
 
 local function GetHlGroupColor(group, color)
@@ -51,18 +53,26 @@ end
 function StatusString()
 	local persent_sign = "%%"
 	local left_side = string.format(" :b %%n%%m | %s%%=", LspInfo())
-	local center = string.format("%%f | %s%%=", FugitiveInfo())
+	local center = string.format("%s - %%f%%=", FugitiveInfo())
 	local right_side = string.format("%%L (%%p%s) | %%c ", persent_sign)
 
 	local buffer_name_nvimtree = string.find(api.nvim_buf_get_name(0), "NvimTree")
-	local buffer_name_packer = string.find(api.nvim_buf_get_name(0), "packer")
+	local buffer_name_packer = string.match(api.nvim_buf_get_name(0), "%[%w-%]$")
+	local buffer_name_doc = string.find(api.nvim_buf_get_name(0), "/doc/") and string.find(api.nvim_buf_get_name(0), ".txt")
+	local buffer_name_fugitive = string.find(api.nvim_buf_get_name(0), ".git/index")
+	local string_format = "%%=%s%%="
 	if buffer_name_nvimtree then
-		return string.format("%%=%s%%=", "NvimTree")
+		return string.format(string_format, "NvimTree")
+	elseif buffer_name_doc then
+		return string.format("%%=help - %s%%=", string.match(api.nvim_buf_get_name(0), "[%s%w_]-%.%w-$")) .. right_side
 	elseif buffer_name_packer then
-		return string.format("%%=%s%%=", "Packer")
+		return string.format(string_format, "Packer")
+	elseif buffer_name_fugitive then
+		return string.format(string_format, "Fugitive")
 	else
 		return " " .. left_side .. center .. right_side
 	end
+	--return api.nvim_buf_get_name(0)
 end
 
 opt.statusline = "%{%v:lua.StatusString()%}"
