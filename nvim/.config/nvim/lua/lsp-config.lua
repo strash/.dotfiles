@@ -5,9 +5,8 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = {
-	"bashls",
 	"cssls",
-	"csharp_ls",
+	--"csharp_ls",
 	"gdscript",
 	"html",
 	"jsonls",
@@ -28,6 +27,30 @@ for _, lsp in ipairs(servers) do
 		flags = flags,
 	}
 end
+
+-- bashls
+nvim_lsp.bashls.setup {
+	cmd = { "bash-language-server", "start" },
+	cmd_env = {
+		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
+	},
+	filetypes = { "sh", "zsh" },
+	root_dir = nvim_lsp.util.find_git_ancestor,
+	single_file_support = true,
+	on_attach = map.set_lsp_map,
+	capabilities = capabilities,
+	flags = flags,
+}
+
+-- omnisharp
+nvim_lsp.omnisharp.setup{
+	cmd = {
+		"/Users/strash/.cache/omnisharp-vim/omnisharp-roslyn/run",
+		"--languageserver",
+		"--hostPID",
+		tostring(vim.fn.getpid()),
+	};
+}
 
 -- flutter
 require("flutter-tools").setup {
