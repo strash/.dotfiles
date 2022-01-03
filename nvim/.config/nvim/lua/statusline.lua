@@ -1,4 +1,4 @@
-local api, lsp, cmd, opt = vim.api, vim.lsp, vim.cmd, vim.opt
+local api, cmd, opt, diag = vim.api, vim.cmd, vim.opt, vim.diagnostic
 
 local function FugitiveInfo()
 	local active_buffer_number = tostring(api.nvim_get_var("actual_curbuf"))
@@ -22,32 +22,47 @@ end
 local function LspInfo()
 	local active_buffer_number = tostring(api.nvim_get_var("actual_curbuf"))
 	local buffer_number = tostring(api.nvim_get_current_buf())
-	local errors = lsp.diagnostic.get_count(0, "Error")
-	local warnings = lsp.diagnostic.get_count(0, "Warning")
-	local hints_and_info = lsp.diagnostic.get_count(0, "Hint") + lsp.diagnostic.get_count(0, "Information")
+	local errors = diag.get(0, { severity = diag.severity.ERROR })
+	local warnings = diag.get(0, { severity = diag.severity.WARN })
+	local hints = diag.get(0, { severity = diag.severity.HINT })
+	local infos = diag.get(0, { severity = diag.severity.INFO })
 
 	local error_group, warnings_group, hints_and_info_group
 
-	if errors > 0 and active_buffer_number == buffer_number then
+	local err, warn, info
+
+	if #errors > 0 and active_buffer_number == buffer_number then
 		cmd("hi StrErr cterm=bold guifg=" .. GetHlGroupColor("DiagnosticError", "foreground") .. " guibg=" .. GetHlGroupColor("StatusLine", "background"))
 		error_group = "%#StrErr#"
+		err = #errors .. " (" .. errors[1].lnum + 1 .. ")"
 	else
 		error_group = ""
+		err = 0
 	end
-	if warnings > 0 and active_buffer_number == buffer_number then
+	if #warnings > 0 and active_buffer_number == buffer_number then
 		cmd("hi StrWarning cterm=bold guifg=" .. GetHlGroupColor("DiagnosticWarn", "foreground") .. " guibg=" .. GetHlGroupColor("StatusLine", "background"))
 		warnings_group = "%#StrWarning#"
+		warn = #warnings .. " (" .. warnings[1].lnum + 1 .. ")"
 	else
 		warnings_group = ""
+		warn = 0
 	end
-	if hints_and_info > 0 and active_buffer_number == buffer_number then
+	if #hints > 0 and active_buffer_number == buffer_number or #infos > 0 and active_buffer_number == buffer_number then
 		cmd("hi StrInfo cterm=bold guifg=" .. GetHlGroupColor("DiagnosticInfo", "foreground") .. " guibg=" .. GetHlGroupColor("StatusLine", "background"))
 		hints_and_info_group = "%#StrInfo#"
+		if #hints > 0 and #infos > 0 and hints[1].lnum < infos[1].lnum then
+			info = #hints + #infos .. " (" .. hints[1].lnum .. ")"
+		elseif #hints > 0 and #infos == 0 then
+			info = #hints .. " (" .. hints[1].lnum + 1 .. ")"
+		elseif #hints == 0 and #infos > 0 then
+			info = #infos .. " (" .. infos[1].lnum + 1 .. ")"
+		end
 	else
 		hints_and_info_group = ""
+		info = 0
 	end
 
-	return error_group .. errors .. "%*, " .. warnings_group .. warnings .. "%*, " .. hints_and_info_group .. hints_and_info .. "%*"
+	return error_group .. err .. "%*, " .. warnings_group .. warn .. "%*, " .. hints_and_info_group .. info .. "%*"
 end
 
 function StatusString()

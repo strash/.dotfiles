@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 
 local options = {
 	noremap = true,
-	silent = true
+	silent = true,
 }
 
 -- Global
