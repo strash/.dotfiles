@@ -46,6 +46,8 @@ cask "alacritty"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
+# Voice and text chat software
+cask "discord"
 # Developer platform
 cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
@@ -62,6 +64,10 @@ cask "monitorcontrol"
 cask "protonvpn"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
+# Video game digital distribution service
+cask "steam"
+# Mux and tag mp4 files
+cask "subler"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Web browser focusing on security
