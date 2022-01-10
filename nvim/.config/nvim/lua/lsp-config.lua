@@ -49,7 +49,10 @@ nvim_lsp.omnisharp.setup{
 		"--languageserver",
 		"--hostPID",
 		tostring(vim.fn.getpid()),
-	};
+	},
+	on_attach = map.set_lsp_map,
+	capabilities = capabilities,
+	flags = flags,
 }
 
 -- flutter
