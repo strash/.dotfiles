@@ -14,7 +14,7 @@ local global_map = {
 	{ key = "<Tab>",     cmd = "bn" },
 	{ key = "<S-Tab>",   cmd = "bp" },
 	{ key = "<leader>w", cmd = "bw" },
-	{ key = "<leader>l", cmd = "ls!" },
+	--{ key = "<leader>l", cmd = "ls!" },
 	{ key = "<leader>n", cmd = "Explore" },
 }
 
@@ -24,20 +24,20 @@ end
 
 
 -- LSP
-local lsp_prefix = "s"
+local lsp_prefix = "<leader>s"
 function MAP.set_lsp_map(_, bufnr)
 
 	local lsp_map = {
-		{ key = "<leader>" .. lsp_prefix .. "h", cmd = "lua vim.lsp.buf.hover()" },
-		{ key = "<leader>" .. lsp_prefix .. "r", cmd = "lua vim.lsp.buf.rename()" },
-		{ key = "<leader>" .. lsp_prefix .. "a", cmd = "lua vim.lsp.buf.code_action()" },
-		{ key = "<leader>" .. lsp_prefix .. "g", cmd = "lua vim.lsp.buf.declaration()" },
-		{ key = "<leader>" .. lsp_prefix .. "d", cmd = "lua vim.lsp.buf.definition()" },
-		{ key = "<leader>" .. lsp_prefix .. "i", cmd = "lua vim.lsp.buf.implementation()" },
-		{ key = "<leader>" .. lsp_prefix .. "f", cmd = "lua vim.lsp.buf.formatting()" },
-		{ key = "<leader>" .. lsp_prefix .. "s", cmd = "lua vim.lsp.diagnostic.show_line_diagnostics()" },
-		{ key = "<leader>" .. lsp_prefix .. "p", cmd = "lua vim.lsp.diagnostic.goto_prev()" },
-		{ key = "<leader>" .. lsp_prefix .. "n", cmd = "lua vim.lsp.diagnostic.goto_next()" },
+		{ key = lsp_prefix .. "h", cmd = "lua vim.lsp.buf.hover()" },
+		{ key = lsp_prefix .. "r", cmd = "lua vim.lsp.buf.rename()" },
+		{ key = lsp_prefix .. "a", cmd = "lua vim.lsp.buf.code_action()" },
+		{ key = lsp_prefix .. "g", cmd = "lua vim.lsp.buf.declaration()" },
+		{ key = lsp_prefix .. "d", cmd = "lua vim.lsp.buf.definition()" },
+		{ key = lsp_prefix .. "i", cmd = "lua vim.lsp.buf.implementation()" },
+		{ key = lsp_prefix .. "f", cmd = "lua vim.lsp.buf.formatting()" },
+		{ key = lsp_prefix .. "s", cmd = "lua vim.lsp.diagnostic.show_line_diagnostics()" },
+		{ key = lsp_prefix .. "p", cmd = "lua vim.lsp.diagnostic.goto_prev()" },
+		{ key = lsp_prefix .. "n", cmd = "lua vim.lsp.diagnostic.goto_next()" },
 	}
 
 	for _, key in ipairs(lsp_map) do
@@ -49,9 +49,15 @@ end
 
 
 -- Telescope
-local telescope_prefix = "t"
+local telescope_prefix = "<leader>t"
 local telescope_map = {
-	{ key = "<leader>" .. telescope_prefix .. "t", cmd = "lua require('telescope.builtin').find_files()" },
+	{ key = telescope_prefix .. "f", cmd = "lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })" },
+	{ key = telescope_prefix .. "t", cmd = "lua require('telescope.builtin').treesitter()" },
+	{ key = telescope_prefix .. "c", cmd = "lua require('telescope.builtin').current_buffer_fuzzy_find()" },
+	{ key = telescope_prefix .. "g", cmd = "lua require('telescope.builtin').git_branches()" },
+	{ key = telescope_prefix .. "h", cmd = "lua require('telescope.builtin').command_history()" },
+	{ key = telescope_prefix .. "b", cmd = "lua require('telescope.builtin').buffers({ show_all_buffers = true, ignore_current_buffer = false, sort_lastused = true, sort_mru = true, })" },
+	{ key = telescope_prefix .. "r", cmd = "lua require('telescope.builtin').registers()" },
 }
 
 for _, key in ipairs(telescope_map) do
