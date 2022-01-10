@@ -13,8 +13,7 @@ local options = {
 local global_map = {
 	{ key = "<Tab>",     cmd = "bn" },
 	{ key = "<S-Tab>",   cmd = "bp" },
-	{ key = "<leader>w", cmd = "bw" },
-	--{ key = "<leader>l", cmd = "ls!" },
+	{ key = "<leader>w", cmd = "bd" },
 	{ key = "<leader>n", cmd = "Explore" },
 }
 
