@@ -34,7 +34,7 @@ function MAP.set_lsp_map(_, bufnr)
 		{ key = lsp_prefix .. "d", cmd = "lua vim.lsp.buf.definition()" },
 		{ key = lsp_prefix .. "i", cmd = "lua vim.lsp.buf.implementation()" },
 		{ key = lsp_prefix .. "f", cmd = "lua vim.lsp.buf.formatting()" },
-		{ key = lsp_prefix .. "s", cmd = "lua vim.diagnostic.show()" },
+		{ key = lsp_prefix .. "s", cmd = "lua vim.diagnostic.open_float()" },
 		{ key = lsp_prefix .. "p", cmd = "lua vim.diagnostic.goto_prev()" },
 		{ key = lsp_prefix .. "n", cmd = "lua vim.diagnostic.goto_next()" },
 	}

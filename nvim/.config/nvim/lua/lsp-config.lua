@@ -5,6 +5,7 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = {
+	"clangd",
 	"cssls",
 	--"csharp_ls",
 	"gdscript",
