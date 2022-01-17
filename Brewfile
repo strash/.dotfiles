@@ -1,11 +1,14 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
+# Generate compilation database for clang tooling
+brew "bear"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # Local webserver for developers
@@ -29,7 +32,7 @@ brew "node"
 # Object-relational database system
 brew "postgresql", restart_service: true
 # Object-relational database system
-brew "postgresql@13", restart_service: true
+brew "postgresql@13"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -60,6 +63,8 @@ cask "iina"
 cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
+cask "mouse-fix"
 # VPN client focusing on security
 cask "protonvpn"
 # Toolbox companion for QMK Firmware
