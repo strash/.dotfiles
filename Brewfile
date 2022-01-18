@@ -49,14 +49,14 @@ cask "alacritty"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
+# App for testing HTTP/REST endpoints
+cask "cocoarestclient"
 # Voice and text chat software
 cask "discord"
 # Developer platform
 cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
-# Download manager with a torrent client
-cask "folx"
 # Free and open-source media player
 cask "iina"
 # Free and open-source painting and sketching program
@@ -77,3 +77,5 @@ cask "subler"
 cask "telegram"
 # Web browser focusing on security
 cask "tor-browser"
+# Open-source BitTorrent client
+cask "transmission"
