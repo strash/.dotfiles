@@ -49,6 +49,8 @@ cask "alacritty"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
+# Web browser focusing on privacy
+cask "brave-browser"
 # App for testing HTTP/REST endpoints
 cask "cocoarestclient"
 # Voice and text chat software
