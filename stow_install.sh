@@ -2,26 +2,30 @@
 
 # alacritty
 rm ~/.alacritty.yml
-stow -v alacritty
+stow -R alacritty
+
+# wezterm
+rm ~/.config/wezterm/wezterm.lua
+stow -R wezterm
 
 # git
 rm ~/.gitconfig
-stow -v git
+stow -R git
 
 # neovim
 rm ~/.config/nvim/init.lua
 rm -rf ~/.config/nvim/lua
-stow -v nvim
+stow -R nvim
 
 # tmux
 rm ~/.tmux.conf
-stow -v tmux
+stow -R tmux
 
 # zsh
 rm ~/.zshenv ~/.zshrc
-stow -v zsh
+stow -R zsh
 
 # godot
 rm ~/Library/Application\ Support/Godot/editor_settings-3.tres
 rm ~/Library/Application\ Support/Godot/script_templates/blocks.gd
-stow -v godot
+stow -R godot

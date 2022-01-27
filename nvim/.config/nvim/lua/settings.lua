@@ -23,11 +23,14 @@ cmd("filetype plugin indent on")
 cmd("syntax enable")
 cmd("syntax on")
 
+cmd("highlight Normal guibg=none")
+cmd("highlight NonText guibg=none")
+
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
 opt.completeopt = { "menu", "noinsert", "noselect" }
-opt.cursorline = true
+opt.cursorline = false
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
 opt.formatoptions = "cqjp"
