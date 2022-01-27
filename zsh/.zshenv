@@ -3,7 +3,7 @@ export PATH=/opt/homebrew/bin:~/.dotfiles:/usr/local/bin:/usr/bin:/bin:/usr/sbin
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # source .zshenv
-alias sz="source ~/.dotfiles/zsh/.zshenv && echo '~/.dotfiles/zsh/.zshenv sourced'"
+alias sz="source ~/.dotfiles/zsh/.zshenv && source ~/.dotfiles/zsh/.zshrc && echo '~/.dotfiles/zsh/.zshenv and .zshrc sourced'"
 
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && arch -arm64 brew cleanup"
