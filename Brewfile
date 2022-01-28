@@ -7,10 +7,9 @@ tap "homebrew/services"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
+tap "wez/wezterm"
 # Generate compilation database for clang tooling
 brew "bear"
-# Dependency manager for Cocoa projects
-brew "cocoapods"
 # Local webserver for developers
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
@@ -81,3 +80,5 @@ cask "telegram"
 cask "tor-browser"
 # Open-source BitTorrent client
 cask "transmission"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
