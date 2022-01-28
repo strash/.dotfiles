@@ -61,6 +61,9 @@ alias cocka="npm update -g"
 # nvim
 alias nvim="arch -arm64 nvim"
 
+# luamake
+alias luamake=/Users/strash/lua-language-server/3rd/luamake/luamake
+
 ###-begin-flutter-completion-###
 if type complete &>/dev/null; then
   __flutter_completion() {
