@@ -8,7 +8,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+#ZSH_THEME="minimal"
 CASE_SENSITIVE="true"
 export UPDATE_ZSH_DAYS=7
 ENABLE_CORRECTION="true"
@@ -120,3 +120,16 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+# This line obtains information from the vcs.
+zstyle ':vcs_info:git*' formats "- (%b) "
+precmd() {
+    vcs_info
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+# Config for the prompt. PS1 synonym.
+prompt='%2/ ${vcs_info_msg_0_}> '
