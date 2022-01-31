@@ -2,7 +2,7 @@
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/strash/.oh-my-zsh"
+#export ZSH="/Users/strash/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -16,9 +16,9 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
-plugins=(git dotnet httpie pod)
+plugins=(git dotnet osx tmux httpie pod)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
