@@ -10,6 +10,8 @@ tap "qmk/qmk"
 tap "wez/wezterm"
 # Generate compilation database for clang tooling
 brew "bear"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # Local webserver for developers
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
@@ -42,8 +44,6 @@ brew "tmux"
 brew "yasm"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Tools for building Android applications
 cask "android-studio"
 # Application uninstaller
@@ -58,6 +58,8 @@ cask "discord"
 cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
+# Game development engine
+cask "godot"
 # Free and open-source media player
 cask "iina"
 # Free and open-source painting and sketching program
