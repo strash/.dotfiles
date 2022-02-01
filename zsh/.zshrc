@@ -120,16 +120,17 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Prompt theme
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-# This line obtains information from the vcs.
-zstyle ':vcs_info:git*' formats "- (%b) "
-precmd() {
-    vcs_info
-}
-
-# Enable substitution in the prompt.
+zstyle ':vcs_info:*' actionformats '[%F{white}%b|%a%f %F{red}%u%F{yellow}%c%f] '
+zstyle ':vcs_info:*' formats '[%F{white}%b%f %F{red}%u%F{yellow}%c%f] '
+zstyle ':vcs_info:*' branchformat '[%F{white}%b:%r%f] '
+zstyle ':vcs_info:*' hgrevformat '[%F{white}%r:%h%f] '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' get-revision true
+zstyle ':vcs_info:*' stagedstr ●
+zstyle ':vcs_info:*' unstagedstr ●
+precmd() { vcs_info }
 setopt prompt_subst
+PS1='%F{white}%Bstrash%b %f %~ ${vcs_info_msg_0_}$ '
 
-# Config for the prompt. PS1 synonym.
-prompt='%2/ ${vcs_info_msg_0_}> '
