@@ -122,10 +122,10 @@ compinit
 
 # Prompt theme
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '[%F{white}%b|%a%f %F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' formats '[%F{white}%b%f %F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' branchformat '[%F{white}%b:%r%f] '
-zstyle ':vcs_info:*' hgrevformat '[%F{white}%r:%h%f] '
+zstyle ':vcs_info:*' actionformats '[%F{white}%b|%a%f%F{red}%u%F{yellow}%c%f] '
+zstyle ':vcs_info:*' formats '[%F{white}%b%f%F{red}%u%F{yellow}%c%f] '
+zstyle ':vcs_info:*' branchformat '[%F{white}%b:%r%f%F{red}%u%F{yellow}%c%f] '
+zstyle ':vcs_info:*' hgrevformat '[%F{white}%r:%h%f%F{red}%u%F{yellow}%c%f] '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' stagedstr ●
