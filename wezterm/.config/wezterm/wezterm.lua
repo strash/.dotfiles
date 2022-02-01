@@ -18,6 +18,7 @@ return {
 		top = 0,
 		bottom = 0,
 	},
+	window_close_confirmation = "NeverPrompt",
 	native_macos_fullscreen_mode = true,
 	launch_menu = {
 		{
