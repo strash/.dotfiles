@@ -50,8 +50,6 @@ cask "android-studio"
 cask "appcleaner"
 # Web browser focusing on privacy
 cask "brave-browser"
-# App for testing HTTP/REST endpoints
-cask "cocoarestclient"
 # Voice and text chat software
 cask "discord"
 # Developer platform
@@ -62,6 +60,8 @@ cask "flutter"
 cask "godot"
 # Free and open-source media player
 cask "iina"
+# HTTP and GraphQL Client
+cask "insomnia"
 # Free and open-source painting and sketching program
 cask "krita"
 # Tool to control external monitor brightness & volume
