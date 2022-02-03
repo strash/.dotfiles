@@ -134,5 +134,5 @@ zstyle ':vcs_info:*' stagedstr ●
 zstyle ':vcs_info:*' unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{white}%Bstrash%b %f %~ ${vcs_info_msg_0_}$ '
+PS1='%F{white}%Bstrash%b %f %~ ${vcs_info_msg_0_}'
 
