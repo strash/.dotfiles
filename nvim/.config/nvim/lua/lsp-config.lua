@@ -56,23 +56,6 @@ nvim_lsp.omnisharp.setup{
 	flags = flags,
 }
 
--- flutter
-require("flutter-tools").setup {
-	closing_tags = {
-		highlight = "NonText",
-		prefix = "- ",
-		enabled = true
-	},
-	lsp = {
-		on_attach = map.set_lsp_map,
-		capabilities = capabilities,
-		settings = {
-			showTodos = true,
-			completeFunctionCalls = true,
-		}
-	}
-}
-
 -- sumneko lua
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")

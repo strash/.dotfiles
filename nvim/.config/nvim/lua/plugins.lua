@@ -14,11 +14,7 @@ return require("packer").startup(function()
 	use "hrsh7th/nvim-cmp"
 	use "tpope/vim-fugitive"
 	use {
-		"akinsho/flutter-tools.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	}
-	use {
 		"nvim-telescope/telescope.nvim",
-		requires = "nvim_lua/plenary.nvim",
+		requires = "nvim-lua/plenary.nvim",
 	}
 end)

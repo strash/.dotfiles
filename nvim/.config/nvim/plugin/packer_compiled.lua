@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["flutter-tools.nvim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
-    url = "https://github.com/akinsho/flutter-tools.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nvim-cmp",
