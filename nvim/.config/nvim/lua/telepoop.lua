@@ -29,6 +29,16 @@ local settings = {
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		prefilter_sorter = require("telescope.sorters").prefilter,
 		file_ignore_patterns = { ".git/" },
+		--mappings = {
+		--	n = {
+		--		["<C-m>"] = require("telescope.actions").toggle_selection,
+		--		["<CR>"] = require("telescope.actions.set").edit,
+		--	},
+		--	i = {
+		--		["<C-m>"] = require("telescope.actions").toggle_selection,
+		--		["<C-CR>"] = require("telescope.actions.set").edit,
+		--	},
+		--},
   },
 }
 
