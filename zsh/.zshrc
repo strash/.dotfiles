@@ -46,6 +46,8 @@ alias server="devd -A 127.0.0.1 -p 8080 ./ -X"
 
 alias l="ls -la"
 
+alias cd="pushd"
+
 # png minification
 # установка imageoptim-cli
 # cd
