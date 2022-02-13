@@ -8,9 +8,9 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	color_scheme = "GitHub Dark",
 	use_fancy_tab_bar = false,
-	window_background_image = "./wallpappers/iu.jpeg",
+	window_background_image = "./wallpappers/04.jpg",
 	window_background_image_hsb = {
-		brightness = 0.08,
+		brightness = 0.10,
 	},
 	window_padding = {
 		left = 0,
