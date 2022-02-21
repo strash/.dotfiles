@@ -50,6 +50,8 @@ cask "android-studio"
 cask "appcleaner"
 # Web browser focusing on privacy
 cask "brave-browser"
+# Offline toolbox for developers
+cask "devutils"
 # Voice and text chat software
 cask "discord"
 # Developer platform
