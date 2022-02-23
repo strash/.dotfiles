@@ -8,8 +8,6 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "wez/wezterm"
-# Generate compilation database for clang tooling
-brew "bear"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # Local webserver for developers
