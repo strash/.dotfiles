@@ -14,12 +14,6 @@ brew "cocoapods"
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
 brew "hblock"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
-# User-friendly cURL replacement (command-line HTTP client)
-brew "httpie"
-# Save disk space by cleaning non-essential files from software projects
-brew "kondo"
 # Language Server for the Lua language
 brew "lua-language-server"
 # NCurses Disk Usage
@@ -32,6 +26,8 @@ brew "node"
 brew "postgresql", restart_service: true
 # Object-relational database system
 brew "postgresql@13"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
