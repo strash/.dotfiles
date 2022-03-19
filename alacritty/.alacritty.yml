@@ -1,7 +1,7 @@
 import:
-  #- ~/gruvbox/gruvbox.yml
-  #- ~/tokio-night/tokio-night.yaml
-  - ~/github-theme/github-dark.yml
+  #- ~/alacritt_themes/gruvbox/gruvbox.yml
+  #- ~/alacritt_themes/tokio-night/tokio-night.yaml
+  - ~/alacritt_themes/github-theme/github-dark.yml
 
 #env:
 #TERM: xterm-256color
