@@ -8,8 +8,6 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "wez/wezterm"
-# Dependency manager for Cocoa projects
-brew "cocoapods"
 # Local webserver for developers
 brew "devd"
 # Adblocker that creates a hosts file from multiple sources
@@ -38,8 +36,6 @@ brew "tmux"
 brew "yasm"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
-# Tools for building Android applications
-cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
 # Web browser focusing on privacy
@@ -48,8 +44,6 @@ cask "brave-browser"
 cask "discord"
 # Developer platform
 cask "dotnet-sdk"
-# UI toolkit for building applications for mobile, web and desktop
-cask "flutter"
 # Game development engine
 cask "godot"
 # Free and open-source media player
