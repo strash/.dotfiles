@@ -14,6 +14,7 @@ local servers = {
 	"prismals",
 	"pylsp",
 	"tsserver",
+	"sourcekit",
 }
 
 local flags = {
