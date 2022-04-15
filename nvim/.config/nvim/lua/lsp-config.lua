@@ -19,16 +19,16 @@ local servers = {
 }
 
 local flags = {
-	debounce_text_changes = 150,
+	--debounce_text_changes = 150,
 }
 
 -- all lsps
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup {
+	nvim_lsp[lsp].setup({
 		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
-	}
+	})
 end
 
 -- godot
