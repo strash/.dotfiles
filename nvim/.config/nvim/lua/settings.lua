@@ -25,6 +25,7 @@ cmd("syntax on")
 
 cmd("highlight Normal guibg=none")
 cmd("highlight NonText guibg=none")
+cmd("highlight WinSeparator guibg=none")
 
 opt.autowrite = true
 opt.autowriteall = true
@@ -37,6 +38,7 @@ opt.formatoptions = "cqjp"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
+opt.laststatus = 3
 opt.list = true
 opt.listchars = {
 	tab = "--",
