@@ -15,6 +15,8 @@ local global_map = {
 	{ key = "<S-Tab>",   cmd = "bp" },
 	{ key = "<leader>w", cmd = "bd" },
 	{ key = "<leader>n", cmd = "Explore" },
+	{ key = "<leader>cn", cmd = "cn" },
+	{ key = "<leader>cp", cmd = "cp" },
 }
 
 for _, key in ipairs(global_map) do
