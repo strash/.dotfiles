@@ -54,6 +54,8 @@ local telescope_prefix = "<leader>t"
 local telescope_map = {
 	{ key = telescope_prefix .. "f", cmd = "lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })" },
 	{ key = telescope_prefix .. "t", cmd = "lua require('telescope.builtin').treesitter()" },
+	{ key = telescope_prefix .. "s", cmd = "lua require('telescope.builtin').lsp_document_symbols({ ignore_symbols = {'variable', 'field', 'property'}})" },
+	{ key = telescope_prefix .. "a", cmd = "lua require('telescope.builtin').lsp_code_actions()" },
 	{ key = telescope_prefix .. "c", cmd = "lua require('telescope.builtin').current_buffer_fuzzy_find()" },
 	{ key = telescope_prefix .. "g", cmd = "lua require('telescope.builtin').git_branches()" },
 	{ key = telescope_prefix .. "h", cmd = "lua require('telescope.builtin').command_history()" },
