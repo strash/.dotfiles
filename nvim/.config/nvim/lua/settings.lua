@@ -58,11 +58,11 @@ opt.wildmenu = true
 opt.wrap = true
 
 opt.autoindent = true
-opt.copyindent = false
+opt.copyindent = true
 opt.expandtab = false
---opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
 opt.smarttab = true
---opt.softtabstop = 0
---opt.tabstop = 8
+opt.softtabstop = 4
+opt.tabstop = 4
 
