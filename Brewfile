@@ -38,6 +38,8 @@ brew "yasm"
 brew "qmk/qmk/qmk"
 # Application uninstaller
 cask "appcleaner"
+# 3D creation suite
+cask "blender"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Voice and text chat software
