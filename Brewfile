@@ -66,6 +66,8 @@ cask "qmk-toolbox"
 cask "steam"
 # Mux and tag mp4 files
 cask "subler"
+# Xcode Extension for reformatting Swift code
+cask "swiftformat-for-xcode"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Web browser focusing on security
