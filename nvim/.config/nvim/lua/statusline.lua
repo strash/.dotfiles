@@ -3,15 +3,15 @@ local api, cmd, opt, diag = vim.api, vim.cmd, vim.opt, vim.diagnostic
 local function FugitiveInfo()
 	local active_buffer_number = tostring(api.nvim_get_var("actual_curbuf"))
 	local buffer_number = tostring(api.nvim_get_current_buf())
-	local branch = vim.fn.FugitiveHead()
+	local branch = vim.fn.FugitiveStatusline()
 	local result
 	if branch ~= "" or branch and active_buffer_number == buffer_number then
-		result = branch
+		result = string.sub(branch, 6, string.len(branch) - 2)
 	else
 		result = "not a git"
 	end
 
-	return string.format("[%s]", result)
+	return string.format("[ %s ]", result)
 end
 
 local function GetHlGroupColor(group, color)
