@@ -28,17 +28,7 @@ local settings = {
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		prefilter_sorter = require("telescope.sorters").prefilter,
-		file_ignore_patterns = { ".git/", "node_modules/" },
-		--mappings = {
-		--	n = {
-		--		["<C-m>"] = require("telescope.actions").toggle_selection,
-		--		["<CR>"] = require("telescope.actions.set").edit,
-		--	},
-		--	i = {
-		--		["<C-m>"] = require("telescope.actions").toggle_selection,
-		--		["<C-CR>"] = require("telescope.actions.set").edit,
-		--	},
-		--},
+		file_ignore_patterns = { ".git/", "node_modules/", "dist/", "prisma/migrations/" },
   },
 }
 

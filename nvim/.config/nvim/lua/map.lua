@@ -11,8 +11,8 @@ local options = {
 
 -- Global
 local global_map = {
-	{ key = "<Tab>",     cmd = "bn" },
-	{ key = "<S-Tab>",   cmd = "bp" },
+	{ key = "<Tab>", cmd = "bn" },
+	{ key = "<S-Tab>", cmd = "bp" },
 	{ key = "<leader>w", cmd = "bd" },
 	{ key = "<leader>n", cmd = "Explore" },
 	{ key = "<leader>cn", cmd = "cn" },
@@ -27,7 +27,6 @@ end
 -- LSP
 local lsp_prefix = "<leader>s"
 function MAP.set_lsp_map(_, bufnr)
-
 	local lsp_map = {
 		{ key = lsp_prefix .. "h", cmd = "lua vim.lsp.buf.hover()" },
 		{ key = lsp_prefix .. "r", cmd = "lua vim.lsp.buf.rename()" },
@@ -48,14 +47,12 @@ function MAP.set_lsp_map(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
-
 -- Telescope
 local telescope_prefix = "<leader>t"
 local telescope_map = {
 	{ key = telescope_prefix .. "f", cmd = "lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })" },
 	{ key = telescope_prefix .. "t", cmd = "lua require('telescope.builtin').treesitter()" },
 	{ key = telescope_prefix .. "s", cmd = "lua require('telescope.builtin').lsp_document_symbols({ ignore_symbols = {'variable', 'field', 'property'}})" },
-	{ key = telescope_prefix .. "a", cmd = "lua require('telescope.builtin').lsp_code_actions()" },
 	{ key = telescope_prefix .. "c", cmd = "lua require('telescope.builtin').current_buffer_fuzzy_find()" },
 	{ key = telescope_prefix .. "g", cmd = "lua require('telescope.builtin').git_branches()" },
 	{ key = telescope_prefix .. "h", cmd = "lua require('telescope.builtin').command_history()" },
@@ -68,4 +65,3 @@ for _, key in ipairs(telescope_map) do
 end
 
 return MAP
-
