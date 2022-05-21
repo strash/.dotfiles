@@ -20,27 +20,4 @@ return {
 	},
 	window_close_confirmation = "NeverPrompt",
 	native_macos_fullscreen_mode = true,
-	launch_menu = {
-		{
-			label = "DOTFILES",
-			cwd = wezterm.home_dir .. "/.dotfiles",
-			args = {"echo", wezterm.home_dir},
-		},
-		{
-			label = "QMK",
-			cwd = wezterm.home_dir .. "/.qmk_firmware",
-			args = {"echo " .. wezterm.home_dir},
-		},
-		{
-			label = "CHEVOSTIK APP",
-			cwd = wezterm.home_dir .. "/APPDEV/chevostik_app",
-		},
-		{
-			label = "TRAINING DIARY",
-			cwd = wezterm.home_dir .. "/APPDEV/training_diary_flutter",
-		},
-	},
-	keys = {
-		{ key = "h", mods = "ALT", action = "ShowLauncher" },
-	},
 }
