@@ -1,4 +1,4 @@
-local opt, g, cmd = vim.opt, vim.g, vim.cmd
+local opt, g, cmd, api = vim.opt, vim.g, vim.cmd, vim.api
 
 if not opt.termguicolors or opt.termguicolors ~= nil then
 	opt.termguicolors = true
@@ -26,6 +26,11 @@ cmd("syntax on")
 cmd("highlight Normal guibg=none")
 cmd("highlight NonText guibg=none")
 cmd("highlight WinSeparator guibg=none")
+
+api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", },
+	command = "EslintFixAll",
+})
 
 opt.autowrite = true
 opt.autowriteall = true
