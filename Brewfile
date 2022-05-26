@@ -20,6 +20,8 @@ brew "ncdu"
 brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
+# 📦🚀 Fast, disk space efficient package manager
+brew "pnpm"
 # Object-relational database system
 brew "postgresql", restart_service: true
 # Object-relational database system
@@ -48,8 +50,6 @@ cask "discord"
 cask "dotnet-sdk"
 # Game development engine
 cask "godot"
-# Free and open-source media player
-cask "iina"
 # HTTP and GraphQL Client
 cask "insomnia"
 # Free and open-source painting and sketching program
@@ -62,8 +62,6 @@ cask "mouse-fix"
 cask "protonvpn"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
-# Video game digital distribution service
-cask "steam"
 # Mux and tag mp4 files
 cask "subler"
 # Xcode Extension for reformatting Swift code
