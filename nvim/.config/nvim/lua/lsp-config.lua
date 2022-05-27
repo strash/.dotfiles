@@ -8,6 +8,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = {
 	"clangd",
 	"cssls",
+	"eslint",
 	--"csharp_ls",
 	--"gdscript",
 	"html",
