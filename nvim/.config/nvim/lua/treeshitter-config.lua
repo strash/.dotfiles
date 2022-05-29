@@ -1,12 +1,20 @@
 require("nvim-treesitter.configs").setup {
-	ensure_installed = nil,
-	sync_install = false,
+	ensure_installed = { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css",
+	"dart", "dockerfile", "gdscript", "glsl", "go", "html",
+	"javascript", "jsdoc", "json", "lua", "prisma", "pug", "python", "regex",
+	"rust", "scheme", "svelte", "swift", "todotxt", "tsx", "typescript", "vim", },
 	highlight = {
-		enable = true, -- false will disable the whole extension
 		additional_vim_regex_highlighting = false,
-	},
-	incrmmental_selection = {
 		enable = true,
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn",
+			node_decremental = "grm",
+			node_incremental = "grn",
+			scope_incremental = "grc"
+		},
 	},
 	indent = {
 		enable = true,
