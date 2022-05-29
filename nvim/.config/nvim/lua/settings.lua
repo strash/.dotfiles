@@ -1,4 +1,4 @@
-local opt, g, cmd, api = vim.opt, vim.g, vim.cmd, vim.api
+local opt, cmd, api, g = vim.opt, vim.cmd, vim.api, vim.g
 
 if not opt.termguicolors or opt.termguicolors ~= nil then
 	opt.termguicolors = true
@@ -6,17 +6,12 @@ end
 
 opt.background = "dark"
 
-g.gruvbox_contrast_dark = "hard" -- soft, medium, hard
-g.gruvbox_invert_selection = 0
---cmd("colorscheme gruvbox")
-
-g.rose_pine_variant = "moon" -- base, moon, dawn
-g.rose_pine_disable_italics = true
-g.rose_pine_disable_background = false
---cmd("colorscheme rose-pine")
-
 g.vscode_style = "dark"
+g.vscode_transparent = 0
+g.vscode_italic_comment = 1
 cmd("colorscheme vscode")
+
+--cmd("colorscheme zenbones")
 
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
@@ -46,8 +41,8 @@ opt.inccommand = "split"
 opt.laststatus = 3
 opt.list = true
 opt.listchars = {
-	tab = "--",
-	trail = "~",
+	tab = "∙ ",
+	trail = "✕",
 	precedes = "<",
 	nbsp = "%",
 }
@@ -70,4 +65,3 @@ opt.smartindent = true
 opt.smarttab = true
 opt.softtabstop = 4
 opt.tabstop = 4
-

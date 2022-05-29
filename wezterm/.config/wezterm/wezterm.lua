@@ -4,14 +4,12 @@ return {
 	dpi = 144.0,
 	font = wezterm.font("SF Mono", { weight = "Regular", italic = false }),
 	font_size = 17.0,
-	forse_reverse_video_cursor = true,
+	forse_reverse_video_cursor = false,
+	text_background_opacity = 1.0,
 	hide_tab_bar_if_only_one_tab = true,
 	color_scheme = "GitHub Dark",
 	use_fancy_tab_bar = false,
-	--window_background_image = "./wallpappers/5.jpg",
-	window_background_image_hsb = {
-		brightness = 0.06,
-	},
+	window_background_opacity = 0.9,
 	window_padding = {
 		left = 0,
 		right = 0,

@@ -11,7 +11,7 @@ local settings = {
 				width = 0.6
 			},
 		},
-		winblend = 10,
+		winblend = 0,
 		prompt_prefix = "/ ",
 		selection_caret = "> ",
 		entry_prefix = "  ",
