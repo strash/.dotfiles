@@ -4,7 +4,7 @@ return {
 	dpi = 144.0,
 	font = wezterm.font("SF Mono", { weight = "Regular", italic = false }),
 	font_size = 17.0,
-	forse_reverse_video_cursor = false,
+	forse_reverse_video_cursor = true,
 	text_background_opacity = 1.0,
 	hide_tab_bar_if_only_one_tab = true,
 	color_scheme = "GitHub Dark",
