@@ -8,7 +8,7 @@ opt.background = "dark"
 
 g.vscode_style = "dark"
 g.vscode_transparent = 0
-g.vscode_italic_comment = 1
+g.vscode_italic_comment = 0
 cmd("colorscheme vscode")
 
 --cmd("colorscheme zenbones")
