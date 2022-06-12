@@ -44,7 +44,7 @@ alias jino="ssh -p 49436 strash@ovz2.strash.pr46m.vps.myjino.ru"
 alias server_slow="devd -A 127.0.0.1 -p 8080 -d 114 -u 51 -n 275 ./ -X"
 alias server="devd -A 127.0.0.1 -p 8080 ./ -X"
 
-alias l="ls -la"
+alias l="ls -laG"
 
 alias cd="pushd"
 
