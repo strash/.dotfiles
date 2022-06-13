@@ -97,6 +97,7 @@ local statusline_group = api.nvim_create_augroup("StatuslineGroup", {
 })
 
 api.nvim_create_autocmd({
+	"BufAdd",
 	"BufEnter",
 	"BufWritePost",
 	"FocusGained",
