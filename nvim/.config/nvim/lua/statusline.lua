@@ -64,9 +64,9 @@ local function get_lsp_info()
 	return error_group .. err .. "%*, " .. warnings_group .. warn .. "%*, " .. hints_and_info_group .. info .. "%*"
 end
 
-local function get_statusline_content()
+local function set_statusline_content()
 	local persent_sign = "%%"
-	local left_side = string.format(":b %%n%%m | %s%%=", get_lsp_info())
+	local left_side = string.format("b %%M%%n | %s%%=", get_lsp_info())
 	local center = string.format("%s - %%f%%=", get_git_branch())
 	local right_side = string.format("%%L (%%p%s) | %%c ", persent_sign)
 
@@ -89,7 +89,7 @@ local function get_statusline_content()
 		content = " " .. left_side .. center .. right_side
 	end
 
-	vim.b.statusline_content = content
+	opt.statusline = content
 end
 
 local statusline_group = api.nvim_create_augroup("StatuslineGroup", {
@@ -97,17 +97,14 @@ local statusline_group = api.nvim_create_augroup("StatuslineGroup", {
 })
 
 api.nvim_create_autocmd({
-	"BufAdd",
-	"BufNew",
 	"BufEnter",
 	"BufWritePost",
-	"CursorMoved",
-	"ColorScheme",
 	"FocusGained",
-	"InsertLeave",
+	"ColorScheme",
+	"DiagnosticChanged",
 }, {
-	callback = get_statusline_content,
+	callback = set_statusline_content,
+	pattern = "*",
 	group = statusline_group,
 })
 
-opt.statusline = [[ %{%get(b:, "statusline_content", "")%}]]

@@ -11,8 +11,8 @@ g.vscode_transparent = 0
 g.vscode_italic_comment = 0
 --cmd("colorscheme vscode")
 
---cmd("colorscheme zenbones")
-cmd("colorscheme zenwritten")
+cmd("colorscheme zenbones")
+--cmd("colorscheme zenwritten")
 
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
