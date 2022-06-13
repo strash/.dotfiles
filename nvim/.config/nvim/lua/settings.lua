@@ -1,4 +1,4 @@
-local opt, cmd, api, g = vim.opt, vim.cmd, vim.api, vim.g
+local opt, cmd, g = vim.opt, vim.cmd, vim.api
 
 if not opt.termguicolors or opt.termguicolors ~= nil then
 	opt.termguicolors = true
@@ -9,23 +9,19 @@ opt.background = "dark"
 g.vscode_style = "dark"
 g.vscode_transparent = 0
 g.vscode_italic_comment = 0
-cmd("colorscheme vscode")
+--cmd("colorscheme vscode")
 
 --cmd("colorscheme zenbones")
+cmd("colorscheme zenwritten")
 
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
 cmd("syntax enable")
 cmd("syntax on")
 
-cmd("highlight Normal guibg=none")
-cmd("highlight NonText guibg=none")
-cmd("highlight WinSeparator guibg=none")
-
-api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", },
-	command = "EslintFixAll",
-})
+--cmd("highlight Normal guibg=none")
+--cmd("highlight NonText guibg=none")
+--cmd("highlight WinSeparator guibg=none")
 
 opt.autowrite = true
 opt.autowriteall = true

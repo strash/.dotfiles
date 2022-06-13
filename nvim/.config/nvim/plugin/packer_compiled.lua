@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -133,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/vscode.nvim",
     url = "https://github.com/Mofiqul/vscode.nvim"
+  },
+  ["zenbones.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
+    url = "https://github.com/mcchrish/zenbones.nvim"
   }
 }
 

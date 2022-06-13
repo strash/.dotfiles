@@ -3,6 +3,10 @@ vim.cmd("packadd packer.nvim")
 return require("packer").startup(function()
 	use "wbthomason/packer.nvim"
 	use "Mofiqul/vscode.nvim"
+	use {
+		"mcchrish/zenbones.nvim",
+		requires = "rktjmp/lush.nvim"
+	}
 	use "neovim/nvim-lspconfig"
 	use {
 		"nvim-treesitter/nvim-treesitter",
