@@ -105,7 +105,6 @@ api.nvim_create_autocmd({
 	"DiagnosticChanged",
 }, {
 	callback = set_statusline_content,
-	pattern = "*",
 	group = statusline_group,
 })
 

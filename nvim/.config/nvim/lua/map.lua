@@ -9,6 +9,16 @@ local options = {
 	silent = true,
 }
 
+MAP.background_color = "dark"
+function MAP.toggle_background_color()
+	if MAP.background_color == "dark" then
+		MAP.background_color = "light"
+	else
+		MAP.background_color = "dark"
+	end
+	vim.cmd("set background=" .. MAP.background_color)
+end
+
 -- Global
 local global_map = {
 	{ key = "<Tab>", cmd = "bn" },
@@ -17,6 +27,7 @@ local global_map = {
 	{ key = "<leader>n", cmd = "Explore" },
 	{ key = "<leader>cn", cmd = "cn" },
 	{ key = "<leader>cp", cmd = "cp" },
+	{ key = "<leader>bb", cmd = "lua require('MAP').toggle_background_color()" },
 }
 
 for _, key in ipairs(global_map) do
@@ -50,13 +61,16 @@ end
 -- Telescope
 local telescope_prefix = "<leader>t"
 local telescope_map = {
-	{ key = telescope_prefix .. "f", cmd = "lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })" },
+	{ key = telescope_prefix .. "f",
+		cmd = "lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })" },
 	{ key = telescope_prefix .. "t", cmd = "lua require('telescope.builtin').treesitter()" },
-	{ key = telescope_prefix .. "s", cmd = "lua require('telescope.builtin').lsp_document_symbols({ ignore_symbols = {'variable', 'field', 'property'}})" },
+	{ key = telescope_prefix .. "s",
+		cmd = "lua require('telescope.builtin').lsp_document_symbols({ ignore_symbols = {'variable', 'field', 'property'}})" },
 	{ key = telescope_prefix .. "c", cmd = "lua require('telescope.builtin').current_buffer_fuzzy_find()" },
 	{ key = telescope_prefix .. "g", cmd = "lua require('telescope.builtin').git_branches()" },
 	{ key = telescope_prefix .. "h", cmd = "lua require('telescope.builtin').command_history()" },
-	{ key = telescope_prefix .. "b", cmd = "lua require('telescope.builtin').buffers({ show_all_buffers = true, ignore_current_buffer = false, sort_lastused = true, sort_mru = true, })" },
+	{ key = telescope_prefix .. "b",
+		cmd = "lua require('telescope.builtin').buffers({ show_all_buffers = true, ignore_current_buffer = false, sort_lastused = true, sort_mru = true, })" },
 	{ key = telescope_prefix .. "r", cmd = "lua require('telescope.builtin').registers()" },
 }
 
@@ -65,3 +79,4 @@ for _, key in ipairs(telescope_map) do
 end
 
 return MAP
+
