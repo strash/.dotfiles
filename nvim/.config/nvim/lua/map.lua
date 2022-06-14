@@ -27,7 +27,7 @@ local global_map = {
 	{ key = "<leader>n", cmd = "Explore" },
 	{ key = "<leader>cn", cmd = "cn" },
 	{ key = "<leader>cp", cmd = "cp" },
-	{ key = "<leader>bb", cmd = "lua require('MAP').toggle_background_color()" },
+	{ key = "<leader>bb", cmd = "lua require('map').toggle_background_color()" },
 }
 
 for _, key in ipairs(global_map) do
