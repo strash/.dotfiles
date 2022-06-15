@@ -21,13 +21,17 @@ end
 
 -- Global
 local global_map = {
-	{ key = "<Tab>", cmd = "bn" },
-	{ key = "<S-Tab>", cmd = "bp" },
-	{ key = "<leader>w", cmd = "bd" },
-	{ key = "<leader>n", cmd = "Explore" },
-	{ key = "<leader>cn", cmd = "cn" },
-	{ key = "<leader>cp", cmd = "cp" },
-	{ key = "<leader>bb", cmd = "lua require('map').toggle_background_color()" },
+	{ key = "<Tab>", cmd = "bn" }, -- next buffer
+	{ key = "<S-Tab>", cmd = "bp" }, -- prev buffer
+	{ key = "<leader>w", cmd = "w" }, -- write buffer
+	{ key = "<leader>bd", cmd = "bd" }, -- delete buffer
+	{ key = "<leader>bw", cmd = "bw" }, -- wipe buffer
+	{ key = "<leader>n", cmd = "Explore" }, -- open netrw
+	{ key = "<leader>fg", cmd = "G" }, -- fugitive
+	{ key = "<leader>cn", cmd = "cn" }, -- next entry point form the quicklist
+	{ key = "<leader>cp", cmd = "cp" }, -- prew entry point form the quicklist
+	{ key = "<leader>bb", cmd = "lua require('map').toggle_background_color()" }, -- toggle background color
+	{ key = "<leader>r", cmd = "so %" }, -- source nvim config
 }
 
 for _, key in ipairs(global_map) do
@@ -45,7 +49,9 @@ function MAP.set_lsp_map(_, bufnr)
 		{ key = lsp_prefix .. "g", cmd = "lua vim.lsp.buf.declaration()" },
 		{ key = lsp_prefix .. "d", cmd = "lua vim.lsp.buf.definition()" },
 		{ key = lsp_prefix .. "i", cmd = "lua vim.lsp.buf.implementation()" },
+		{ key = lsp_prefix .. "c", cmd = "lua vim.lsp.buf.references()" },
 		{ key = lsp_prefix .. "f", cmd = "lua vim.lsp.buf.formatting()" },
+		{ key = lsp_prefix .. "e", cmd = "lua vim.lsp.buf.signature_help()" },
 		{ key = lsp_prefix .. "s", cmd = "lua vim.diagnostic.open_float()" },
 		{ key = lsp_prefix .. "p", cmd = "lua vim.diagnostic.goto_prev()" },
 		{ key = lsp_prefix .. "n", cmd = "lua vim.diagnostic.goto_next()" },

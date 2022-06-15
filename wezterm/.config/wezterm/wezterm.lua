@@ -6,7 +6,7 @@ return {
 		weight = "Regular",
 		italic = false
 	}),
-	font_size = 12.0,
+	font_size = 13.0,
 	forse_reverse_video_cursor = true,
 	text_background_opacity = 1.0,
 	hide_tab_bar_if_only_one_tab = true,
