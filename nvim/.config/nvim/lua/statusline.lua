@@ -18,6 +18,14 @@ end
 
 set_colors()
 
+local max_zeroes_count = 3
+
+local function get_formatted_buffer_number()
+	local buffer_number = api.nvim_get_current_buf()
+	local zeroes = string.rep("0", max_zeroes_count - #string.format("%s", buffer_number))
+	return zeroes .. buffer_number
+end
+
 local function get_git_branch()
 	local branch = ""
 	if vim.fn.isdirectory ".git" ~= 0 then
@@ -58,8 +66,8 @@ end
 
 local function set_statusline_content()
 	local persent_sign = "%%"
-	local left_side = " b %M%n"
-	local right_side = string.format("%%L (%%p%s) | %%c ", persent_sign)
+	local left_side = " b %M" .. get_formatted_buffer_number()
+	local right_side = string.format("↓ %%p%s | → %%c | %%L LOC ", persent_sign)
 
 	local buffer_name = api.nvim_buf_get_name(0)
 	local buffer_name_nvimtree = string.find(buffer_name, "NvimTree")
