@@ -16,7 +16,7 @@ function MAP.toggle_background_color()
 	else
 		MAP.background_color = "dark"
 	end
-	vim.cmd("set background=" .. MAP.background_color)
+	vim.opt.background = MAP.background_color
 end
 
 -- Global
