@@ -1,4 +1,4 @@
-local MAP = {}
+local M = {}
 local api = vim.api
 
 -- leader key
@@ -9,14 +9,14 @@ local options = {
 	silent = true,
 }
 
-MAP.background_color = "dark"
-function MAP.toggle_background_color()
-	if MAP.background_color == "dark" then
-		MAP.background_color = "light"
+M.background_color = "dark"
+function M.toggle_background_color()
+	if M.background_color == "dark" then
+		M.background_color = "light"
 	else
-		MAP.background_color = "dark"
+		M.background_color = "dark"
 	end
-	vim.opt.background = MAP.background_color
+	vim.opt.background = M.background_color
 end
 
 -- Global
@@ -41,7 +41,7 @@ end
 
 -- LSP
 local lsp_prefix = "<leader>s"
-function MAP.set_lsp_map(_, bufnr)
+function M.set_lsp_map(_, bufnr)
 	local lsp_map = {
 		{ key = lsp_prefix .. "h", cmd = "lua vim.lsp.buf.hover()" },
 		{ key = lsp_prefix .. "r", cmd = "lua vim.lsp.buf.rename()" },
@@ -84,5 +84,4 @@ for _, key in ipairs(telescope_map) do
 	api.nvim_set_keymap("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 end
 
-return MAP
-
+return M
