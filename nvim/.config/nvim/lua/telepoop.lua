@@ -29,7 +29,20 @@ local settings = {
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		prefilter_sorter = require("telescope.sorters").prefilter,
 		file_ignore_patterns = { ".git/", ".import/", "node_modules/", "dist/", "prisma/migrations/" },
-  },
+	},
 }
 
 require("telescope").setup(settings)
+
+local telepoop_group = vim.api.nvim_create_augroup("TelepoopGroup", {
+	clear = true
+})
+
+vim.api.nvim_create_autocmd({
+	"VimEnter",
+}, {
+	callback = function()
+		require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })
+	end,
+	group = telepoop_group,
+})
