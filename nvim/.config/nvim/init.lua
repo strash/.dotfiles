@@ -10,7 +10,7 @@ require("lsp-config")
 require("treeshitter-config")
 -- Compe config
 require("compe-config")
--- Status line
-require("statusline")
+-- Everybody wants that line
+require("everybody-wants-that-line")
 -- Telescope
 require("telepoop")

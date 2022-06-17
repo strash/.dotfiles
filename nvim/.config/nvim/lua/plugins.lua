@@ -12,6 +12,7 @@ return require("packer").startup(function()
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	}
+	use "strash/everybody-wants-that-line.nvim"
 	use "OmniSharp/omnisharp-vim"
 	use "L3MON4D3/LuaSnip"
 	use "saadparwaiz1/cmp_luasnip"

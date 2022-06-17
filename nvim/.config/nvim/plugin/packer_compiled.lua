@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["everybody-wants-that-line.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/everybody-wants-that-line.nvim",
+    url = "https://github.com/strash/everybody-wants-that-line.nvim"
+  },
   ["lush.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/lush.nvim",
