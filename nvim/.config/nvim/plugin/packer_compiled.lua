@@ -92,7 +92,7 @@ _G.packer_plugins = {
   ["everybody-wants-that-line.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/everybody-wants-that-line.nvim",
-    url = "https://github.com/strash/everybody-wants-that-line.nvim"
+    url = "/Users/strash/FOSS/everybody-wants-that-line.nvim"
   },
   ["lush.nvim"] = {
     loaded = true,

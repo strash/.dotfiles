@@ -1,27 +1,52 @@
 vim.cmd("packadd packer.nvim")
 
-return require("packer").startup(function()
-	use "wbthomason/packer.nvim"
-	use "Mofiqul/vscode.nvim"
-	use {
+local packer_autogroup = vim.api.nvim_create_augroup("StrPackerGroup", {
+	clear = true
+})
+
+vim.api.nvim_create_autocmd({
+	"BufWritePost",
+}, {
+	pattern = "*/plugins.lua",
+	command = "source % | PackerSync",
+	group = packer_autogroup
+})
+
+return require("packer").startup(function(use)
+	-- Packer
+	use("wbthomason/packer.nvim")
+
+	-- Colorschemes
+	use("Mofiqul/vscode.nvim")
+	use({
 		"mcchrish/zenbones.nvim",
 		requires = "rktjmp/lush.nvim"
-	}
-	use "neovim/nvim-lspconfig"
-	use {
+	})
+
+	-- Core
+	use("neovim/nvim-lspconfig")
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-	}
-	use "strash/everybody-wants-that-line.nvim"
-	use "OmniSharp/omnisharp-vim"
-	use "L3MON4D3/LuaSnip"
-	use "saadparwaiz1/cmp_luasnip"
-	use "hrsh7th/cmp-nvim-lsp"
-	use "hrsh7th/cmp-buffer"
-	use "hrsh7th/nvim-cmp"
-	use "tpope/vim-fugitive"
-	use {
+	})
+
+	-- Plugins
+	--use("strash/everybody-wants-that-line.nvim")
+	use("/Users/strash/FOSS/everybody-wants-that-line.nvim")
+
+	use("OmniSharp/omnisharp-vim")
+
+	use("L3MON4D3/LuaSnip")
+
+	use("saadparwaiz1/cmp_luasnip")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/nvim-cmp")
+
+	use("tpope/vim-fugitive")
+
+	use({
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
-	}
+	})
 end)
