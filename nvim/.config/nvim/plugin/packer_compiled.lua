@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  ["no-one-wants-to-restart.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/no-one-wants-to-restart.nvim",
+    url = "/Users/strash/FOSS/no-one-wants-to-restart.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nvim-cmp",
