@@ -11,6 +11,6 @@ require("treeshitter-config")
 -- Compe config
 require("compe-config")
 -- Everybody wants that line
-require("everybody-wants-that-line")
+require("that-line")
 -- Telescope
 require("telepoop")
