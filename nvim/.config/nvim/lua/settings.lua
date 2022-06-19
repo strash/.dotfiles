@@ -1,4 +1,4 @@
-local opt, cmd, g = vim.opt, vim.cmd, vim.api
+local opt, cmd = vim.opt, vim.cmd
 
 if not opt.termguicolors or opt.termguicolors ~= nil then
 	opt.termguicolors = true
