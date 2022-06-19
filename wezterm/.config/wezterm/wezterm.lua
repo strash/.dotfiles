@@ -3,7 +3,7 @@ local wezterm = require("wezterm");
 return {
 	dpi = 144.0,
 	font = wezterm.font("SF Mono", {
-		weight = "Regular",
+		--weight = "Regular",
 		italic = false
 	}),
 	font_size = 13.0,
