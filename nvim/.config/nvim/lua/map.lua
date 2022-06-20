@@ -80,15 +80,16 @@ end
 
 -- Telescope
 local telescope_prefix = "<leader>t"
+local r_t = "require('telescope.builtin')"
 local telescope_map = {
-	{ key = "f", cmd = "lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })" },
-	{ key = "t", cmd = "lua require('telescope.builtin').treesitter()" },
-	{ key = "s", cmd = "lua require('telescope.builtin').lsp_document_symbols({ ignore_symbols = {'variable', 'field', 'property'}})" },
-	{ key = "c", cmd = "lua require('telescope.builtin').current_buffer_fuzzy_find()" },
-	{ key = "g", cmd = "lua require('telescope.builtin').git_branches()" },
-	{ key = "h", cmd = "lua require('telescope.builtin').command_history()" },
-	{ key = "b", cmd = "lua require('telescope.builtin').buffers({ show_all_buffers = true, ignore_current_buffer = false, sort_lastused = true, sort_mru = true, })" },
-	{ key = "r", cmd = "lua require('telescope.builtin').registers()" },
+	{ key = "f", cmd = "lua " .. r_t .. ".find_files({ hidden = true, no_ignore = true, })" },
+	{ key = "t", cmd = "lua " .. r_t .. ".treesitter()" },
+	{ key = "s", cmd = "lua " .. r_t .. ".lsp_document_symbols({ ignore_symbols = {'variable', 'field', 'property'}})" },
+	{ key = "c", cmd = "lua " .. r_t .. ".current_buffer_fuzzy_find()" },
+	{ key = "g", cmd = "lua " .. r_t .. ".git_branches()" },
+	{ key = "h", cmd = "lua " .. r_t .. ".command_history()" },
+	{ key = "b", cmd = "lua " .. r_t .. ".buffers({ show_all_buffers = true, ignore_current_buffer = false, sort_lastused = true, sort_mru = true })" },
+	{ key = "r", cmd = "lua " .. r_t .. ".registers()" },
 }
 
 for _, key in ipairs(telescope_map) do
