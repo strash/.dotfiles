@@ -1,6 +1,8 @@
-local that_line = require("everybody-wants-that-line")
-
---that_line.setup({
---	buffer_number_symbol_count = 5,
+require("everybody-wants-that-line")
+--require("everybody-wants-that-line").setup({
+--	buffer = {
+--		max_symbols = 5,
+--		symbol = "0",
+--	},
 --	separator = "│",
 --})

@@ -34,15 +34,15 @@ local settings = {
 
 require("telescope").setup(settings)
 
-local telepoop_group = vim.api.nvim_create_augroup("TelepoopGroup", {
-	clear = true
-})
+--local telepoop_group = vim.api.nvim_create_augroup("TelepoopGroup", {
+--	clear = true
+--})
 
-vim.api.nvim_create_autocmd({
-	"VimEnter",
-}, {
-	callback = function()
-		require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })
-	end,
-	group = telepoop_group,
-})
+--vim.api.nvim_create_autocmd({
+--	"VimEnter",
+--}, {
+--	callback = function()
+--		require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })
+--	end,
+--	group = telepoop_group,
+--})
