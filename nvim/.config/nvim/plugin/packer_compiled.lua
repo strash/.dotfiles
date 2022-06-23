@@ -94,15 +94,35 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/everybody-wants-that-line.nvim",
     url = "/Users/strash/FOSS/everybody-wants-that-line.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lush.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  neovim = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
+  },
   ["no-one-wants-to-restart.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/no-one-wants-to-restart.nvim",
     url = "/Users/strash/FOSS/no-one-wants-to-restart.nvim"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
+  },
+  nvim = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -124,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/omnisharp-vim",
     url = "https://github.com/OmniSharp/omnisharp-vim"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -138,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyodark.nvim"] = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/tokyodark.nvim",
+    url = "https://github.com/tiagovla/tokyodark.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,

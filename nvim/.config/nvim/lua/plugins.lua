@@ -17,11 +17,17 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Colorschemes
-	use("Mofiqul/vscode.nvim")
 	use({
 		"mcchrish/zenbones.nvim",
 		requires = "rktjmp/lush.nvim"
 	})
+	use("catppuccin/nvim")
+	use("rose-pine/neovim")
+	use("Mofiqul/vscode.nvim")
+	use("shaunsingh/nord.nvim")
+	use("navarasu/onedark.nvim")
+	use("rebelot/kanagawa.nvim")
+	use("tiagovla/tokyodark.nvim")
 
 	-- Core
 	use("neovim/nvim-lspconfig")
