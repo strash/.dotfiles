@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
   },
+  neogit = {
+    loaded = true,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
+  },
   neovim = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neovim",
