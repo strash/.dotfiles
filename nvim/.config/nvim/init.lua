@@ -1,5 +1,5 @@
 -- Plugins
-require("plugins")
+require("plugins.plugins")
 -- Settings
 require("settings")
 -- Key mapping
@@ -9,8 +9,10 @@ require("lsp-config")
 -- Treesitter config
 require("treeshitter-config")
 -- Compe config
-require("compe-config")
+require("plugins.compe-config")
 -- Everybody wants that line
-require("that-line")
+require("plugins.that-line")
 -- Telescope
-require("telepoop")
+require("plugins.telepoop")
+-- Neogit
+require("plugins.neogit")

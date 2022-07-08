@@ -34,7 +34,8 @@ local global_map = {
 	{ key = "<leader>gr", cmd = "so %" }, -- source nvim config
 	{ key = "<leader>bb", cmd = "lua require('map').toggle_background_color()" }, -- toggle background color
 
-	{ key = "<leader>gg", cmd = "G" }, -- fugitive
+	--{ key = "<leader>gg", cmd = "G" }, -- fugitive
+	{ key = "<leader>gg", cmd = "lua require('plugins.neogit').open()" }, -- fugitive
 }
 
 for _, key in ipairs(global_map) do
