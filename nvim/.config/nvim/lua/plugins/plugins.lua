@@ -55,7 +55,7 @@ return require("packer").startup(function(use)
 		"TimUntersberger/neogit",
 		requires = "nvim-lua/plenary.nvim"
 	})
-	use("tpope/vim-fugitive")
+	--use("tpope/vim-fugitive")
 
 	use({
 		"nvim-telescope/telescope.nvim",

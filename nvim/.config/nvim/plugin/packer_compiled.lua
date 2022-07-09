@@ -174,11 +174,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/tokyodark.nvim",
     url = "https://github.com/tiagovla/tokyodark.nvim"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
-  },
   ["vscode.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/vscode.nvim",
