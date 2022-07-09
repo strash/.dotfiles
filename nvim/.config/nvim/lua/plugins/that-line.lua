@@ -4,5 +4,9 @@ require("everybody-wants-that-line").setup({
 		symbol = "0",
 		max_symbols = 5,
 	},
+	filepath = {
+		path = "relative",
+		shorten = false,
+	},
 	separator = "│",
 })
