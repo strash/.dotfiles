@@ -13,10 +13,10 @@ M.background_color = "dark"
 function M.toggle_background_color()
 	if M.background_color == "dark" then
 		M.background_color = "light"
-		print("- setted light background -")
+		print(" + light is on +")
 	else
 		M.background_color = "dark"
-		print("- setted dark background -")
+		print(" - light is off -")
 	end
 	vim.opt.background = M.background_color
 end
