@@ -10,12 +10,14 @@ tap "qmk/qmk"
 tap "wez/wezterm"
 # Local webserver for developers
 brew "devd"
+# View disk space usage and delete unwanted data, fast
+brew "dua-cli"
 # Adblocker that creates a hosts file from multiple sources
 brew "hblock"
 # Language Server for the Lua language
 brew "lua-language-server"
-# NCurses Disk Usage
-brew "ncdu"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Platform built on V8 to build network applications
@@ -44,8 +46,6 @@ cask "appcleaner"
 cask "blender"
 # Web browser focusing on privacy
 cask "brave-browser"
-# Voice and text chat software
-cask "discord"
 # Developer platform
 cask "dotnet-sdk"
 # Game development engine
