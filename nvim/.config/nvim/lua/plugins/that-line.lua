@@ -8,5 +8,8 @@ require("everybody-wants-that-line").setup({
 		path = "relative",
 		shorten = false,
 	},
+	filesize = {
+		metric = "decimal",
+	},
 	separator = "│",
 })
