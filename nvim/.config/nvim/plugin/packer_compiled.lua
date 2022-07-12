@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
   },
-  ["no-one-wants-to-restart.nvim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/no-one-wants-to-restart.nvim",
-    url = "/Users/strash/FOSS/no-one-wants-to-restart.nvim"
-  },
   ["nord.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nord.nvim",

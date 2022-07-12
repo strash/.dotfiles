@@ -40,7 +40,7 @@ return require("packer").startup(function(use)
 	--use("strash/everybody-wants-that-line.nvim")
 	use("/Users/strash/FOSS/everybody-wants-that-line.nvim")
 	--use("strash/no-one-wants-to-restart.nvim")
-	use("/Users/strash/FOSS/no-one-wants-to-restart.nvim")
+	--use("/Users/strash/FOSS/no-one-wants-to-restart.nvim")
 
 	use("OmniSharp/omnisharp-vim")
 
