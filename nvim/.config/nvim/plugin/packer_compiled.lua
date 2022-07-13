@@ -114,6 +114,13 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["no-one-wants-to-restart.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/opt/no-one-wants-to-restart.nvim",
+    url = "/Users/strash/FOSS/no-one-wants-to-restart.nvim"
+  },
   ["nord.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nord.nvim",
@@ -140,8 +147,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["omnisharp-vim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/omnisharp-vim",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim",
     url = "https://github.com/OmniSharp/omnisharp-vim"
   },
   ["onedark.nvim"] = {
@@ -182,6 +191,27 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType lua ++once lua require("packer.load")({'no-one-wants-to-restart.nvim'}, { ft = "lua" }, _G.packer_plugins)]]
+vim.cmd [[au FileType csproj ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "csproj" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cs ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "cs" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sln ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "sln" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], true)
+vim.cmd [[source /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]]
+time([[Sourcing ftdetect script at: /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/cake.vim]], false)
+time([[Sourcing ftdetect script at: /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], true)
+vim.cmd [[source /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]]
+time([[Sourcing ftdetect script at: /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/csx.vim]], false)
+time([[Sourcing ftdetect script at: /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], true)
+vim.cmd [[source /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]]
+time([[Sourcing ftdetect script at: /Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim/ftdetect/omnisharplog.vim]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

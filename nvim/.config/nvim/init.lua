@@ -1,5 +1,5 @@
 -- Plugins
-require("plugins.plugins")
+require("plugins")
 -- Settings
 require("settings")
 -- Key mapping
