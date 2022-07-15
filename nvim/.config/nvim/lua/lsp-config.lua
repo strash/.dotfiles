@@ -9,14 +9,14 @@ local servers = {
 	"clangd",
 	"cssls",
 	"eslint",
-	--"csharp_ls",
-	--"gdscript",
 	"html",
 	"jsonls",
 	"prismals",
 	"pylsp",
-	"tsserver",
 	"sourcekit",
+	"tsserver",
+	--"csharp_ls",
+	--"gdscript",
 }
 
 local flags = {
@@ -31,6 +31,27 @@ for _, lsp in ipairs(servers) do
 		flags = flags,
 	})
 end
+
+nvim_lsp.rust_analyzer.setup({
+	on_attach = map.set_lsp_map,
+	capabilities = capabilities,
+	flags = flags,
+	["rust-analyzer"] = {
+		checkOnSave = {
+			command = "clippy"
+		},
+		assist = {
+			importGranularity = "module",
+			importPrefix = "self",
+		},
+		cargo = {
+			loadOutDirsFromCheck = true
+		},
+		procMacro = {
+			enable = true
+		},
+	}
+})
 
 -- godot
 nvim_lsp.gdscript.setup({
@@ -101,4 +122,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", },
 	command = "EslintFixAll",
 })
-

@@ -20,11 +20,20 @@ cmp.setup({
 		{ name = "nvim_lsp", group_index = 1 },
 		{ name = "luasnip", group_index = 2 },
 		{ name = "buffer", group_index = 3 },
+		{ name = "calc", group_index = 4 },
+		{ name = "nvim_lsp_signature_help", group_index = 5 },
 	}),
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
 		end
+	}
+})
+
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "cmdline" }
 	}
 })
 
