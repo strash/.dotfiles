@@ -7,6 +7,7 @@ return {
 		italic = false
 	}),
 	font_size = 13.0,
+	line_height = 1.0,
 	forse_reverse_video_cursor = true,
 	text_background_opacity = 1.0,
 	hide_tab_bar_if_only_one_tab = true,
@@ -16,8 +17,8 @@ return {
 	use_fancy_tab_bar = false,
 	--window_background_opacity = 0.9,
 	window_padding = {
-		left = "15px",
-		right = "15px",
+		left = "0px",
+		right = "0px",
 		top = "0px",
 		bottom = "0px",
 	},

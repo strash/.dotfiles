@@ -78,6 +78,9 @@ zstyle ':completion:*' use-compctl false
 zstyle :compinstall filename '/Users/strash/.zshrc'
 
 autoload -Uz compinit
+
+fpath+=~/.zfunc
+
 compinit
 # End of lines added by compinstall
 
