@@ -28,7 +28,15 @@ local settings = {
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		prefilter_sorter = require("telescope.sorters").prefilter,
-		file_ignore_patterns = { ".git/", ".import/", "node_modules/", "dist/", "prisma/migrations/" },
+		file_ignore_patterns = {
+			".DS_Store",
+			".git/",
+			".import/",
+			"node_modules/",
+			"dist/",
+			"prisma/migrations/",
+			"target/",
+		},
 	},
 }
 
