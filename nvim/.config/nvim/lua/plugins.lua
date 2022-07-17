@@ -22,13 +22,14 @@ return require("packer").startup({
 			"mcchrish/zenbones.nvim",
 			requires = "rktjmp/lush.nvim"
 		})
-		use("Mofiqul/vscode.nvim")
 		use("catppuccin/nvim")
+		use("mofiqul/vscode.nvim")
 		use("navarasu/onedark.nvim")
 		use("rebelot/kanagawa.nvim")
 		use("rose-pine/neovim")
 		use("shaunsingh/nord.nvim")
 		use("tiagovla/tokyodark.nvim")
+		use("yazeed1s/minimal.nvim")
 
 		-- Core
 		use("neovim/nvim-lspconfig")
