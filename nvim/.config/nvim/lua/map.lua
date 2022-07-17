@@ -10,6 +10,7 @@ local options = {
 }
 
 M.background_color = "dark"
+
 function M.toggle_background_color()
 	if M.background_color == "dark" then
 		M.background_color = "light"
@@ -106,5 +107,14 @@ local packer_map = {
 for _, key in ipairs(packer_map) do
 	api.nvim_set_keymap("n", packer_prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 end
+
+vim.api.nvim_create_autocmd({
+	"VimEnter",
+	"SourcePost",
+}, {
+	callback = function()
+		M.background_color = vim.o.background
+	end,
+})
 
 return M

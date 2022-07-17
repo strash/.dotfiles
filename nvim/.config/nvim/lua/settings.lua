@@ -6,8 +6,7 @@ end
 
 opt.background = "dark"
 
---cmd("colorscheme zenwritten")
-cmd("colorscheme catppuccin")
+cmd("colorscheme zenwritten")
 
 cmd("filetype plugin on")
 cmd("filetype plugin indent on")
