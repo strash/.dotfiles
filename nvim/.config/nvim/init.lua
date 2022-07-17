@@ -9,7 +9,7 @@ require("lsp-config")
 -- Treesitter config
 require("treeshitter-config")
 -- Compe config
-require("plugins.compe-config")
+require("plugins.cmp")
 -- Everybody wants that line
 require("plugins.that-line")
 -- Telescope
