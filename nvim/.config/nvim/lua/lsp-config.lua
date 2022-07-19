@@ -32,6 +32,7 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
+-- rust
 nvim_lsp.rust_analyzer.setup({
 	on_attach = map.set_lsp_map,
 	capabilities = capabilities,
@@ -69,7 +70,7 @@ nvim_lsp.bashls.setup({
 	cmd_env = {
 		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
 	},
-	filetypes = { "sh", "zsh" },
+	filetypes = { "zsh", "sh" },
 	root_dir = nvim_lsp.util.find_git_ancestor,
 	single_file_support = true,
 	on_attach = map.set_lsp_map,

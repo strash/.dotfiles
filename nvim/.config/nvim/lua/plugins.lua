@@ -23,12 +23,12 @@ return require("packer").startup({
 			requires = "rktjmp/lush.nvim"
 		})
 		use("catppuccin/nvim")
-		use("mofiqul/vscode.nvim")
-		use("navarasu/onedark.nvim")
+		--use("mofiqul/vscode.nvim")
+		--use("navarasu/onedark.nvim")
 		use("rebelot/kanagawa.nvim")
-		use("rose-pine/neovim")
-		use("shaunsingh/nord.nvim")
-		use("tiagovla/tokyodark.nvim")
+		--use("rose-pine/neovim")
+		--use("shaunsingh/nord.nvim")
+		--use("tiagovla/tokyodark.nvim")
 		use("yazeed1s/minimal.nvim")
 
 		-- Core
@@ -57,7 +57,7 @@ return require("packer").startup({
 		use("saadparwaiz1/cmp_luasnip")
 		use("hrsh7th/cmp-buffer")
 		use("hrsh7th/cmp-calc")
-		use("hrsh7th/cmp-cmdline")
+		--use("hrsh7th/cmp-cmdline")
 		use("hrsh7th/cmp-nvim-lsp")
 		use("hrsh7th/cmp-nvim-lsp-signature-help")
 		use("hrsh7th/nvim-cmp")

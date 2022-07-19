@@ -33,7 +33,7 @@ alias sz="source ~/.dotfiles/zsh/.zshenv && source ~/.dotfiles/zsh/.zshrc && ech
 
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && arch -arm64 brew cleanup"
-alias boocka="booba && cocka"
+alias boocka="booba && cocka && rustup update"
 alias bdump="brew bundle dump --describe -f" # create bundle
 alias bdinstall="arch -arm64 brew bundle --no-lock" # install from dump
 

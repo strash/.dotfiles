@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp-calc",
     url = "https://github.com/hrsh7th/cmp-calc"
   },
-  ["cmp-cmdline"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -129,22 +124,12 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
-  neovim = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["no-one-wants-to-restart.nvim"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/opt/no-one-wants-to-restart.nvim",
     url = "/Users/strash/FOSS/no-one-wants-to-restart.nvim"
-  },
-  ["nord.nvim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/nord.nvim",
-    url = "https://github.com/shaunsingh/nord.nvim"
   },
   nvim = {
     loaded = true,
@@ -173,11 +158,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/opt/omnisharp-vim",
     url = "https://github.com/OmniSharp/omnisharp-vim"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -193,16 +173,6 @@ _G.packer_plugins = {
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyodark.nvim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/tokyodark.nvim",
-    url = "https://github.com/tiagovla/tokyodark.nvim"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/Users/strash/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/mofiqul/vscode.nvim"
-  },
   ["zenbones.nvim"] = {
     loaded = true,
     path = "/Users/strash/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
@@ -215,10 +185,10 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType cs ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "cs" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sln ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "sln" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'no-one-wants-to-restart.nvim'}, { ft = "lua" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sln ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "sln" }, _G.packer_plugins)]]
 vim.cmd [[au FileType csproj ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "csproj" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cs ++once lua require("packer.load")({'omnisharp-vim'}, { ft = "cs" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
