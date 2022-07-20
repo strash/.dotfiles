@@ -26,10 +26,13 @@ return require("packer").startup({
 		--use("mofiqul/vscode.nvim")
 		--use("navarasu/onedark.nvim")
 		use("rebelot/kanagawa.nvim")
-		--use("rose-pine/neovim")
+		use({
+			"rose-pine/neovim",
+			as = "rose-pine",
+		})
 		--use("shaunsingh/nord.nvim")
 		--use("tiagovla/tokyodark.nvim")
-		use("yazeed1s/minimal.nvim")
+		--use("yazeed1s/minimal.nvim")
 
 		-- Core
 		use("neovim/nvim-lspconfig")

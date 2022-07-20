@@ -1,7 +1,7 @@
 require("everybody-wants-that-line").setup({
 	buffer = {
 		show = true,
-		prefix = "b",
+		prefix = "B:",
 		symbol = "0",
 		max_symbols = 5,
 	},
@@ -10,7 +10,7 @@ require("everybody-wants-that-line").setup({
 		shorten = false,
 	},
 	filesize = {
-		metric = "decimal",
+		metric = "binary",
 	},
 	separator = "│",
 })
