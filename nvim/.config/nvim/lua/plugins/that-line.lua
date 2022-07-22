@@ -10,7 +10,7 @@ require("everybody-wants-that-line").setup({
 		shorten = false,
 	},
 	filesize = {
-		metric = "binary",
+		metric = "decimal"
 	},
 	separator = "│",
 })
