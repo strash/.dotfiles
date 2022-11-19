@@ -1,0 +1,19 @@
+[user]
+	email =14233263+Strash@users.noreply.github.com
+	name = Dmitry Poyarkov
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[pull]
+	rebase = false
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+	editor = nvim
+[diff]
+	tool = nvimdiff
