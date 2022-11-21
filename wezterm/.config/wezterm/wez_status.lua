@@ -44,6 +44,12 @@ wez.on("update-status", function(window, pane)
 	local minutes = wez.strftime("%M ")
 	--local seconds = wez.strftime("%S")
 
+	window:set_left_status(wez.format({
+		{ Background = { Color = EL.color.status.bg } },
+		{ Foreground = { Color = EL.color.status.fg_date } },
+		{ Text = " STRASH " },
+	}))
+
 	window:set_right_status(wez.format({
 		{ Background = { Color = EL.color.status.bg } },
 		{ Foreground = { Color = EL.color.status.fg_date } },
