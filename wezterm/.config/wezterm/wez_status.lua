@@ -47,6 +47,7 @@ wez.on("update-status", function(window, pane)
 	window:set_left_status(wez.format({
 		{ Background = { Color = EL.color.status.bg } },
 		{ Foreground = { Color = EL.color.status.fg_date } },
+		{ Attribute = { Intensity = "Bold" } },
 		{ Text = " STRASH " },
 	}))
 
