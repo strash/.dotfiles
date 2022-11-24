@@ -8,11 +8,11 @@ local settings = {
 			horizontal = {
 				height = 0.8,
 				prompt_position = "top",
-				width = 0.6
-			},
+				width = 0.5
+ 			},
 		},
 		winblend = 0,
-		prompt_prefix = "/ ",
+		prompt_prefix = " ",
 		selection_caret = "> ",
 		entry_prefix = "  ",
 		multi_icon = "+ ",
@@ -25,9 +25,9 @@ local settings = {
 		preview = false,
 		set_env = nil,
 		color_devicons = false,
-		file_sorter = require("telescope.sorters").get_fuzzy_file,
-		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-		prefilter_sorter = require("telescope.sorters").prefilter,
+		--file_sorter = require("telescope.sorters").get_fuzzy_file,
+		--generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+		--prefilter_sorter = require("telescope.sorters").prefilter,
 		file_ignore_patterns = {
 			".DS_Store",
 			".git/",
@@ -39,20 +39,16 @@ local settings = {
 			"target/",
 			"mini.nvim",
 		},
+		pickers = {
+			buffers = {
+				mappings = {
+					i = {
+						["<C-d>"] = require("telescope.actions").delete_buffer,
+					},
+				}
+			},
+		}
 	},
 }
 
 require("telescope").setup(settings)
-
---local telepoop_group = vim.api.nvim_create_augroup("TelepoopGroup", {
---	clear = true
---})
-
---vim.api.nvim_create_autocmd({
---	"VimEnter",
---}, {
---	callback = function()
---		require('telescope.builtin').find_files({ hidden = true, no_ignore = true, })
---	end,
---	group = telepoop_group,
---})
