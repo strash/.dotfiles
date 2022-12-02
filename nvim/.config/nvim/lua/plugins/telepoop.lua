@@ -33,6 +33,7 @@ local settings = {
 			".git/",
 			".import/",
 			".godot/",
+			".android/build/",
 			"node_modules/",
 			"dist/",
 			"prisma/migrations/",
