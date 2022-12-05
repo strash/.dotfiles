@@ -20,3 +20,8 @@ require("plugins.neogit")
 require("mini.bufremove").setup({})
 -- treeshitter-context
 require("plugins.treeshitter-context")
+-- buffer manager
+require("buffer_manager").setup({
+	width = 120,
+	height = 12,
+})
