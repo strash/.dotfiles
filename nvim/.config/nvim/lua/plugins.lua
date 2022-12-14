@@ -58,10 +58,10 @@ return require("packer").startup({
 		--	ft = "lua",
 		--})
 
-		use({
-			"OmniSharp/omnisharp-vim",
-			ft = { "cs", "sln", "csproj" },
-		})
+		--use({
+		--	"OmniSharp/omnisharp-vim",
+		--	ft = { "cs", "sln", "csproj" },
+		--})
 
 		use("L3MON4D3/LuaSnip")
 
