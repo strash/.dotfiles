@@ -72,8 +72,6 @@ return require("packer").startup({
 		use("hrsh7th/cmp-nvim-lsp-signature-help")
 		use("hrsh7th/nvim-cmp")
 
-		use("nvim-treesitter/nvim-treesitter-context")
-
 		use({
 			"TimUntersberger/neogit",
 			requires = "nvim-lua/plenary.nvim"
@@ -83,8 +81,6 @@ return require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",
 		})
-
-		use("echasnovski/mini.bufremove")
 
 		use({
 			"j-morano/buffer_manager.nvim",

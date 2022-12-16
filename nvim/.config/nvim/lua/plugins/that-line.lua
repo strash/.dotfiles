@@ -1,7 +1,7 @@
 require("everybody-wants-that-line").setup({
 	buffer = {
 		show = true,
-		prefix = "B:",
+		prefix = "",
 		symbol = "0",
 		max_symbols = 5,
 	},

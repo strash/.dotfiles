@@ -16,10 +16,6 @@ require("plugins.that-line")
 require("plugins.telepoop")
 -- Neogit
 require("plugins.neogit")
--- mini.bufremove
-require("mini.bufremove").setup({})
--- treeshitter-context
-require("plugins.treeshitter-context")
 -- buffer manager
 require("buffer_manager").setup({
 	width = 120,
