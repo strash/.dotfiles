@@ -26,11 +26,9 @@ local global_map = {
 	{ key = "<Tab>", cmd = "bn" }, -- next buffer
 	{ key = "<S-Tab>", cmd = "bp" }, -- prev buffer
 	{ key = "<leader>w", cmd = "w" }, -- write buffer
-	--{ key = "<leader>bd", cmd = "bd" }, -- delete buffer
-	--{ key = "<leader>bw", cmd = "bw" }, -- wipe buffer
-	{ key = "<leader>bd", cmd = function() return MiniBufremove.delete() end }, -- delete buffer
+	{ key = "<leader>bd", cmd = "bd" }, -- delete buffer
+	{ key = "<leader>bw", cmd = "bw" }, -- wipe buffer
 	{ key = "<leader>bm", cmd = function() return require("buffer_manager.ui").toggle_quick_menu() end }, -- open buffer manager
-	{ key = "<leader>bw", cmd = function() return MiniBufremove.wipeout() end }, -- wipe buffer
 	{ key = "<leader>gn", cmd = "Explore" }, -- open netrw
 	{ key = "<leader>cn", cmd = "cn" }, -- next entry point form the quicklist
 	{ key = "<leader>cp", cmd = "cp" }, -- prew entry point form the quicklist
