@@ -33,7 +33,7 @@ cmd.filetype("plugin indent on")
 cmd.syntax("enable")
 cmd.syntax("on")
 
-vim.g.ts_highlight_lua = true
+--vim.g.ts_highlight_lua = true
 
 opt.autowrite = true
 opt.autowriteall = true
