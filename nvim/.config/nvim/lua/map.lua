@@ -44,6 +44,7 @@ for _, key in ipairs(global_map) do
 	else
 		vim.keymap.set("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 	end
+	vim.keymap.set("i", "<C-c>", "<Esc>", options)
 end
 
 -- LSP
@@ -73,7 +74,6 @@ function M.set_lsp_map(_, bufnr)
 	local lsp_map = {
 		{ key = "h", cmd = function() return vim.lsp.buf.hover() end },
 		{ key = "r", cmd = function() return vim.lsp.buf.rename() end },
-		{ key = "a", cmd = function() return vim.lsp.buf.code_action() end },
 		{ key = "g", cmd = function() return vim.lsp.buf.declaration() end },
 		{ key = "d", cmd = function() return vim.lsp.buf.definition() end },
 		{ key = "i", cmd = function() return vim.lsp.buf.implementation() end },
@@ -91,6 +91,7 @@ function M.set_lsp_map(_, bufnr)
 	for _, key in ipairs(lsp_map) do
 		vim.keymap.set("n", lsp_prefix .. key.key, key.cmd, opts)
 	end
+	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", vim.lsp.buf.code_action, opts)
 
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
