@@ -35,7 +35,7 @@ local global_map = {
 	{ key = "<leader>gr", cmd = "so %" }, -- source nvim config
 	{ key = "<leader>bb", cmd = function() return require('map').toggle_background_color() end }, -- toggle background color
 
-	{ key = "<leader>gg", cmd = "lua require('plugins.neogit').open()" }, -- neogit
+	{ key = "<leader>gg", cmd = "lua require('neogit').open()" }, -- neogit
 }
 
 for _, key in ipairs(global_map) do
@@ -140,10 +140,10 @@ for _, key in ipairs(telescope_map) do
 	vim.keymap.set("n", telescope_prefix .. key.key, key.cmd, options)
 end
 
--- Packer
+-- Package manager
 local packer_prefix = "<leader>p"
 local packer_map = {
-	{ key = "s", cmd = "PackerSync" }
+	{ key = "s", cmd = "Lazy sync" }
 }
 
 for _, key in ipairs(packer_map) do
