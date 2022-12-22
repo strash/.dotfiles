@@ -7,7 +7,7 @@
   "cmp-nvim-lsp-signature-help": { "branch": "main", "commit": "d2768cb1b83de649d57d967085fe73c5e01f8fd7" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "kanagawa.nvim": { "branch": "master", "commit": "fb733c1043a462155b52cd97efd920f1dd72d33a" },
-  "lazy.nvim": { "branch": "main", "commit": "28f1511e0a19d41f9c5e53a64ece257449681b4d" },
+  "lazy.nvim": { "branch": "main", "commit": "210d1703ecc695878f942e594450196b26cf389f" },
   "lush.nvim": { "branch": "main", "commit": "4cc81a12731fbefce1582a940b755691eb3eb6d1" },
   "neogit": { "branch": "master", "commit": "0d6002c6af432343937283fb70791fc76fa7227c" },
   "nvim-cmp": { "branch": "main", "commit": "8868cf9a09e5f3c2612a22ccb82dcc6d9f0d0d35" },
