@@ -9,12 +9,6 @@ vim.api.nvim_create_autocmd({
 	command = "source % | Lazy sync",
 	group = pack_autogroup
 })
-vim.api.nvim_create_autocmd({
-	"VimEnter",
-}, {
-	callback = function() require("lazy").sync() end,
-	group = pack_autogroup
-})
 
 
 return {

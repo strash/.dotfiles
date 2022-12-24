@@ -13,7 +13,7 @@ vim.g.zenbones = {
 	transparent_background = false,
 }
 
---cmd.colo("zenbones")
+cmd.colo("zenbones")
 
 require("kanagawa").setup({
 	commentStyle = { italic = false },
