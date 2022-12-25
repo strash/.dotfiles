@@ -25,8 +25,6 @@ brew "node"
 brew "pnpm"
 # Object-relational database system
 brew "postgresql@13"
-# Experimental Rust compiler front-end for IDEs
-brew "rust-analyzer"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -37,12 +35,14 @@ brew "qmk/qmk/qmk"
 cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
-# Web browser focusing on privacy
-cask "brave-browser"
+# 3D creation suite
+cask "blender"
 # Game development engine
 cask "godot"
 # HTTP and GraphQL Client
 cask "insomnia"
+# Free and open-source painting and sketching program
+cask "krita"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
 # Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
