@@ -36,7 +36,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
-		cmd = "TSUpdate",
+		cmd = "TSUpdateSync",
 		lazy = false,
 	},
 
