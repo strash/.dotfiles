@@ -7,13 +7,13 @@ end
 opt.background = "dark"
 
 -- comment
-vim.g.zenbones = {
-	italic_comments = false,
-	colorize_diagnostic_underline_text = true,
-	transparent_background = false,
-}
+--vim.g.zenbones = {
+--	italic_comments = false,
+--	colorize_diagnostic_underline_text = true,
+--	transparent_background = false,
+--}
 
-cmd.colo("zenbones")
+--cmd.colo("zenbones")
 
 require("kanagawa").setup({
 	commentStyle = { italic = false },

@@ -14,10 +14,10 @@ vim.api.nvim_create_autocmd({
 return {
 	"rebelot/kanagawa.nvim",
 
-	{
-		"mcchrish/zenbones.nvim",
-		dependencies = "rktjmp/lush.nvim"
-	},
+	--{
+	--	"mcchrish/zenbones.nvim",
+	--	dependencies = "rktjmp/lush.nvim"
+	--},
 	--"catppuccin/nvim",
 	--"mofiqul/vscode.nvim",
 	--"navarasu/onedark.nvim",
