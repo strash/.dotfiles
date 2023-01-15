@@ -12,7 +12,10 @@ vim.api.nvim_create_autocmd({
 
 
 return {
-	"rebelot/kanagawa.nvim",
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+	},
 
 	--{
 	--	"mcchrish/zenbones.nvim",
@@ -33,10 +36,13 @@ return {
 	-- CORE
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		cmd = "TSUpdateSync",
+		lazy = false,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			vim.cmd("TSUpdateSync")
+		end,
 		lazy = false,
 	},
 
@@ -45,6 +51,7 @@ return {
 	{
 		"strash/everybody-wants-that-line.nvim",
 		dev = true,
+		lazy = false,
 	},
 	{
 		"strash/no-one-wants-to-restart.nvim",
