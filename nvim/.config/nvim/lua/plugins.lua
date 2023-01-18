@@ -26,22 +26,24 @@ return {
 			globalStatus = true,
 		},
 		config = function()
-			vim.cmd.colo("kanagawa")
+			--vim.cmd.colo("kanagawa")
 		end
 	},
 
-	--{
-	--	"mcchrish/zenbones.nvim",
-	--	dependencies = "rktjmp/lush.nvim",
-	--	config = function()
-	--		vim.g.zenbones = {
-	--			italic_comments = false,
-	--			colorize_diagnostic_underline_text = true,
-	--			transparent_background = false,
-	--		}
-	--		vim.cmd.colo("zenbones")
-	--	end
-	--},
+	{
+		"mcchrish/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		config = function()
+			local variant = "zenwritten"
+			vim.g[variant] = {
+				--darkness = "stark",
+				italic_comments = false,
+				colorize_diagnostic_underline_text = true,
+				transparent_background = false,
+			}
+			vim.cmd.colo(variant)
+		end
+	},
 
 	--"catppuccin/nvim",
 
