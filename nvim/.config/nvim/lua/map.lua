@@ -108,31 +108,35 @@ local symbol_highlights = {
 
 local telescope_map = {
 	{ key = "f", cmd = function() return require("telescope.builtin").find_files(
-		{
-			hidden = true,
-			no_ignore = true,
-		}
-	) end },
+			{
+				hidden = true,
+				no_ignore = true,
+			}
+		)
+	end },
 	{ key = "t", cmd = function() return require("telescope.builtin").treesitter(
-		{
-			symbol_highlights = symbol_highlights,
-		}
-	) end },
+			{
+				symbol_highlights = symbol_highlights,
+			}
+		)
+	end },
 	{ key = "s", cmd = function() return require("telescope.builtin").lsp_document_symbols(
-		{
-			symbol_highlights = symbol_highlights,
-		}
-	) end },
+			{
+				symbol_highlights = symbol_highlights,
+			}
+		)
+	end },
 	{ key = "c", cmd = function() return require("telescope.builtin").current_buffer_fuzzy_find() end },
 	{ key = "h", cmd = function() return require("telescope.builtin").command_history() end },
 	{ key = "b", cmd = function() return require("telescope.builtin").buffers(
-		{
-			show_all_buffers = true,
-			ignore_current_buffer = false,
-			sort_lastused = true,
-			sort_mru = true
-		}
-	) end },
+			{
+				show_all_buffers = true,
+				ignore_current_buffer = false,
+				sort_lastused = true,
+				sort_mru = true
+			}
+		)
+	end },
 	{ key = "r", cmd = function() return require("telescope.builtin").registers() end },
 }
 

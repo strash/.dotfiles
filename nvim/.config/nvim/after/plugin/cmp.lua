@@ -43,13 +43,6 @@ cmp.setup({
 	}
 })
 
---cmp.setup.cmdline(":", {
---	mapping = cmp.mapping.preset.cmdline(),
---	sources = {
---		{ name = "cmdline", priority = 6 }
---	}
---})
-
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {

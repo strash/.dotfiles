@@ -6,28 +6,6 @@ end
 
 opt.background = "dark"
 
--- comment
---vim.g.zenbones = {
---	italic_comments = false,
---	colorize_diagnostic_underline_text = true,
---	transparent_background = false,
---}
-
---cmd.colo("zenbones")
-
-require("kanagawa").setup({
-	commentStyle = { italic = false },
-	keywordStyle = { italic = false },
-	statementStyle = { bold = true },
-	variablebuiltinStyle = { italic = false },
-	specialReturn = true,
-	specialException = true,
-	transparent = false,
-	globalStatus = true,
-})
-
-cmd.colo("kanagawa")
-
 cmd.filetype("plugin on")
 cmd.filetype("plugin indent on")
 cmd.syntax("enable")
@@ -71,5 +49,5 @@ opt.expandtab = false
 opt.shiftwidth = 4
 opt.smartindent = true
 opt.smarttab = true
-opt.softtabstop = 4
+opt.softtabstop = 0
 opt.tabstop = 4
