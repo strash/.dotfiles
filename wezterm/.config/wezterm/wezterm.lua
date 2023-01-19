@@ -76,7 +76,7 @@ M.colors = {
 
 -- panes
 M.inactive_pane_hsb = {
-	brightness = 0.7,
+	brightness = 1.0,
 }
 
 M.alternate_buffer_wheel_scroll_speed = 1
