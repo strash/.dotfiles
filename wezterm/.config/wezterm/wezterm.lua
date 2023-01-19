@@ -54,7 +54,7 @@ M.status_update_interval = 10000
 -- window
 M.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 M.window_close_confirmation = "NeverPrompt"
-M.force_reverse_video_cursor = true
+M.force_reverse_video_cursor = false
 M.native_macos_fullscreen_mode = true
 M.show_update_window = false
 M.exit_behavior = "Hold"
