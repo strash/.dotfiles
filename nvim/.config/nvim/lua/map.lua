@@ -8,15 +8,31 @@ local options = {
 	silent = true,
 }
 
-M.background_color = "dark"
+local group = vim.api.nvim_create_augroup("StrMapGroup", {
+	clear = true
+})
+
+-- close buffer manager with <C-c>
+vim.api.nvim_create_autocmd({
+	"FileType",
+}, {
+	callback = function(args)
+		if args.match == "buffer_manager" then
+			vim.keymap.set({ "i", "n" }, "<C-c>", function() require("buffer_manager.ui").toggle_quick_menu() end, { buffer = true })
+		end
+	end,
+	group = group
+})
+
+M.background_color = vim.opt.background
 
 function M.toggle_background_color()
 	if M.background_color == "dark" then
 		M.background_color = "light"
-		print(" + light is on +")
+		print(" lights on +")
 	else
 		M.background_color = "dark"
-		print(" - light is off -")
+		print(" lights off -")
 	end
 	vim.opt.background = M.background_color
 end
@@ -28,14 +44,14 @@ local global_map = {
 	{ key = "<leader>w", cmd = "w" }, -- write buffer
 	{ key = "<leader>bd", cmd = "bd" }, -- delete buffer
 	{ key = "<leader>bw", cmd = "bw" }, -- wipe buffer
-	{ key = "<leader>bm", cmd = function() return require("buffer_manager.ui").toggle_quick_menu() end }, -- open buffer manager
+	{ key = "<leader>bm", cmd = function() require("buffer_manager.ui").toggle_quick_menu() end }, -- open buffer manager
 	{ key = "<leader>gn", cmd = "Explore" }, -- open netrw
 	{ key = "<leader>cn", cmd = "cn" }, -- next entry point form the quicklist
 	{ key = "<leader>cp", cmd = "cp" }, -- prew entry point form the quicklist
 	{ key = "<leader>gr", cmd = "so %" }, -- source nvim config
-	{ key = "<leader>bb", cmd = function() return require('map').toggle_background_color() end }, -- toggle background color
+	{ key = "<leader>bb", cmd = function() require('map').toggle_background_color() end }, -- toggle background color
 
-	{ key = "<leader>gg", cmd = "lua require('neogit').open()" }, -- neogit
+	{ key = "<leader>gg", cmd = function() require('neogit').open() end }, -- neogit
 }
 
 for _, key in ipairs(global_map) do
@@ -72,20 +88,20 @@ function M.set_lsp_map(_, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	local lsp_map = {
-		{ key = "h", cmd = function() return vim.lsp.buf.hover() end },
-		{ key = "r", cmd = function() return vim.lsp.buf.rename() end },
-		{ key = "g", cmd = function() return vim.lsp.buf.declaration() end },
-		{ key = "d", cmd = function() return vim.lsp.buf.definition() end },
-		{ key = "i", cmd = function() return vim.lsp.buf.implementation() end },
-		{ key = "c", cmd = function() return vim.lsp.buf.references() end },
-		{ key = "f", cmd = function() return vim.lsp.buf.format({
+		{ key = "h", cmd = function() vim.lsp.buf.hover() end },
+		{ key = "r", cmd = function() vim.lsp.buf.rename() end },
+		{ key = "g", cmd = function() vim.lsp.buf.declaration() end },
+		{ key = "d", cmd = function() vim.lsp.buf.definition() end },
+		{ key = "i", cmd = function() vim.lsp.buf.implementation() end },
+		{ key = "c", cmd = function() vim.lsp.buf.references() end },
+		{ key = "f", cmd = function() vim.lsp.buf.format({
 				async = true
 			})
 		end },
-		{ key = "e", cmd = function() return vim.lsp.buf.signature_help() end },
-		{ key = "s", cmd = function() return vim.diagnostic.open_float() end },
-		{ key = "p", cmd = function() return vim.diagnostic.goto_prev() end },
-		{ key = "n", cmd = function() return vim.diagnostic.goto_next() end },
+		{ key = "e", cmd = function() vim.lsp.buf.signature_help() end },
+		{ key = "s", cmd = function() vim.diagnostic.open_float() end },
+		{ key = "p", cmd = function() vim.diagnostic.goto_prev() end },
+		{ key = "n", cmd = function() vim.diagnostic.goto_next() end },
 	}
 
 	for _, key in ipairs(lsp_map) do
@@ -107,14 +123,14 @@ local symbol_highlights = {
 }
 
 local telescope_map = {
-	{ key = "f", cmd = function() return require("telescope.builtin").find_files(
+	{ key = "f", cmd = function() require("telescope.builtin").find_files(
 			{
 				hidden = true,
 				no_ignore = true,
 			}
 		)
 	end },
-	{ key = "t", cmd = function() return require("telescope.builtin").treesitter(
+	{ key = "t", cmd = function() require("telescope.builtin").treesitter(
 			{
 				symbol_highlights = symbol_highlights,
 			}
@@ -126,9 +142,9 @@ local telescope_map = {
 			}
 		)
 	end },
-	{ key = "c", cmd = function() return require("telescope.builtin").current_buffer_fuzzy_find() end },
-	{ key = "h", cmd = function() return require("telescope.builtin").command_history() end },
-	{ key = "b", cmd = function() return require("telescope.builtin").buffers(
+	{ key = "c", cmd = function() require("telescope.builtin").current_buffer_fuzzy_find() end },
+	{ key = "h", cmd = function() require("telescope.builtin").command_history() end },
+	{ key = "b", cmd = function() require("telescope.builtin").buffers(
 			{
 				show_all_buffers = true,
 				ignore_current_buffer = false,
@@ -137,7 +153,7 @@ local telescope_map = {
 			}
 		)
 	end },
-	{ key = "r", cmd = function() return require("telescope.builtin").registers() end },
+	{ key = "r", cmd = function() require("telescope.builtin").registers() end },
 }
 
 for _, key in ipairs(telescope_map) do
