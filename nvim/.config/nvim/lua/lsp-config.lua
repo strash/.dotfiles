@@ -65,31 +65,18 @@ nvim_lsp.gdscript.setup({
 })
 
 -- bashls
---nvim_lsp.bashls.setup({
---	cmd = { "bash-language-server", "start" },
---	cmd_env = {
---		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
---	},
---	filetypes = { "zsh", "sh" },
---	root_dir = nvim_lsp.util.find_git_ancestor,
---	single_file_support = true,
---	on_attach = map.set_lsp_map,
---	capabilities = capabilities,
---	flags = flags,
---})
-
--- omnisharp
---nvim_lsp.omnisharp.setup({
---	cmd = {
---		"/Users/strash/.cache/omnisharp-vim/omnisharp-roslyn/run",
---		"--languageserver",
---		"--hostPID",
---		tostring(vim.fn.getpid()),
---	},
---	on_attach = map.set_lsp_map,
---	capabilities = capabilities,
---	flags = flags,
---})
+nvim_lsp.bashls.setup({
+	cmd = { "bash-language-server", "start" },
+	cmd_env = {
+		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
+	},
+	filetypes = { "zsh", "sh" },
+	root_dir = nvim_lsp.util.find_git_ancestor,
+	single_file_support = true,
+	on_attach = map.set_lsp_map,
+	capabilities = capabilities,
+	flags = flags,
+})
 
 -- sumneko lua
 local runtime_path = vim.split(package.path, ";")
@@ -111,6 +98,7 @@ nvim_lsp.sumneko_lua.setup({
 			},
 			workspace = {
 				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
 			},
 			telemetry = {
 				enable = false,

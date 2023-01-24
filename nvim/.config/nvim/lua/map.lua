@@ -8,22 +8,6 @@ local options = {
 	silent = true,
 }
 
-local group = vim.api.nvim_create_augroup("StrMapGroup", {
-	clear = true
-})
-
--- close buffer manager with <C-c>
-vim.api.nvim_create_autocmd({
-	"FileType",
-}, {
-	callback = function(args)
-		if args.match == "buffer_manager" then
-			vim.keymap.set({ "i", "n" }, "<C-c>", function() require("buffer_manager.ui").toggle_quick_menu() end, { buffer = true })
-		end
-	end,
-	group = group
-})
-
 M.background_color = vim.opt.background
 
 function M.toggle_background_color()

@@ -26,7 +26,7 @@ return {
 			globalStatus = true,
 		},
 		config = function()
-			--vim.cmd.colo("kanagawa")
+			vim.cmd.colo("kanagawa")
 		end
 	},
 
@@ -36,13 +36,12 @@ return {
 		config = function()
 			local variant = "zenwritten"
 			vim.g[variant] = {
-				--darkness = "stark",
 				italic_comments = false,
 				colorize_diagnostic_underline_text = true,
 				transparent_background = false,
 			}
-			vim.cmd.colo(variant)
-		end
+			--vim.cmd.colo(variant)
+		end,
 	},
 
 	--"catppuccin/nvim",
@@ -70,9 +69,7 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-		config = function()
-			vim.cmd("TSUpdateSync")
-		end,
+		build = ":TSUpdateSync",
 		lazy = false,
 	},
 
@@ -81,28 +78,14 @@ return {
 	{
 		"strash/everybody-wants-that-line.nvim",
 		dev = true,
-		opts = {
-			buffer = {
-				show = true,
-				prefix = "",
-				symbol = "0",
-				max_symbols = 5,
-			},
-			filepath = {
-				path = "relative", -- tail, relative, full
-				shorten = false,
-			},
-			filesize = {
-				metric = "decimal"
-			},
-			separator = "│",
-		},
-	},
-
-	{
-		"strash/no-one-wants-to-restart.nvim",
-		dev = true,
-		enabled = false,
+		config = function()
+			require("everybody-wants-that-line").setup({
+				buffer = {
+					prefix = "",
+					symbol = "·",
+				},
+			})
+		end,
 	},
 
 	{
@@ -136,6 +119,24 @@ return {
 			height = 12,
 			focus_alternate_buffer = true,
 		},
+		init = function()
+			local group = vim.api.nvim_create_augroup("StrMapGroup", {
+				clear = true
+			})
+
+			-- close buffer manager with <C-c>
+			vim.api.nvim_create_autocmd({
+				"FileType",
+			}, {
+				callback = function(args)
+					if args.match == "buffer_manager" then
+						vim.keymap.set({ "i", "n" }, "<C-c>", function() require("buffer_manager.ui").toggle_quick_menu() end,
+							{ buffer = true })
+					end
+				end,
+				group = group
+			})
+		end
 	},
 
 	{

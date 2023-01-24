@@ -19,7 +19,7 @@ require("lazy").setup("plugins", {
 		pattern = { "nvim" },
 	},
 	change_detection = {
-		enabled = false,
-		notify = false,
+		enabled = true,
+		notify = true,
 	},
 })
