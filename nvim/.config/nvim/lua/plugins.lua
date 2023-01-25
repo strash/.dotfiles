@@ -69,7 +69,12 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdateSync",
+		build = function()
+			vim.cmd("TSUpdateSync")
+		end,
+		config = function ()
+			vim.cmd("TSUpdateSync")
+		end,
 		lazy = false,
 	},
 
@@ -120,10 +125,6 @@ return {
 			focus_alternate_buffer = true,
 		},
 		init = function()
-			local group = vim.api.nvim_create_augroup("StrMapGroup", {
-				clear = true
-			})
-
 			-- close buffer manager with <C-c>
 			vim.api.nvim_create_autocmd({
 				"FileType",
@@ -134,7 +135,9 @@ return {
 							{ buffer = true })
 					end
 				end,
-				group = group
+				group = vim.api.nvim_create_augroup("StrMapGroup", {
+					clear = true
+				})
 			})
 		end
 	},
