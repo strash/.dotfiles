@@ -10,6 +10,7 @@ M.proj_dirs = {
 	"GAMEDEV",
 	"RUST",
 	"WEBDEV",
+	"Unity",
 }
 
 M.config = {

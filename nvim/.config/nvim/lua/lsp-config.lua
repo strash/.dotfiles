@@ -10,13 +10,13 @@ local lsp_servers = {
 	"csharp_ls",
 	"cssls",
 	"eslint",
-	--"gdscript",
 	"html",
 	"jsonls",
+	"tsserver",
+	--"gdscript",
 	--"prismals",
 	--"pylsp",
 	--"sourcekit",
-	"tsserver",
 }
 
 local flags = {
