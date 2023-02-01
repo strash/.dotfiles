@@ -15,33 +15,13 @@ return {
 	-- COLORS
 	{
 		"rebelot/kanagawa.nvim",
-		opts = {
-			commentStyle = { italic = false },
-			keywordStyle = { italic = false },
-			statementStyle = { bold = true },
-			variablebuiltinStyle = { italic = false },
-			specialReturn = true,
-			specialException = true,
-			transparent = false,
-			globalStatus = true,
-		},
-		config = function()
-			vim.cmd.colo("kanagawa")
-		end
+		lazy = false
 	},
 
 	{
 		"mcchrish/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
-		config = function()
-			local variant = "zenwritten"
-			vim.g[variant] = {
-				italic_comments = false,
-				colorize_diagnostic_underline_text = true,
-				transparent_background = false,
-			}
-			--vim.cmd.colo(variant)
-		end,
+		lazy = false,
 	},
 
 	--"catppuccin/nvim",
@@ -124,22 +104,6 @@ return {
 			height = 12,
 			focus_alternate_buffer = true,
 		},
-		--init = function()
-		--	-- close buffer manager with <C-c>
-		--	vim.api.nvim_create_autocmd({
-		--		"FileType",
-		--	}, {
-		--		callback = function(args)
-		--			if args.match == "buffer_manager" then
-		--				vim.keymap.set({ "i", "n" }, "<C-c>", function() require("buffer_manager.ui").toggle_quick_menu() end,
-		--					{ buffer = true })
-		--			end
-		--		end,
-		--		group = vim.api.nvim_create_augroup("StrMapGroup", {
-		--			clear = true
-		--		})
-		--	})
-		--end
 	},
 
 	{

@@ -6,6 +6,30 @@ end
 
 opt.background = "dark"
 
+local colo = "kanagawa"
+
+-- COLO KANAGAWA
+require("kanagawa").setup({
+	commentStyle = { italic = false },
+	keywordStyle = { italic = false },
+	statementStyle = { bold = true },
+	variablebuiltinStyle = { italic = false },
+	specialReturn = true,
+	specialException = true,
+	transparent = false,
+	globalStatus = true,
+})
+
+-- COLO ZENBONES
+local variant = "zenwritten"
+vim.g[variant] = {
+	italic_comments = false,
+	colorize_diagnostic_underline_text = true,
+	transparent_background = false,
+}
+--colo = variant
+vim.cmd.colo(colo)
+
 cmd.filetype("plugin on")
 cmd.filetype("plugin indent on")
 cmd.syntax("enable")

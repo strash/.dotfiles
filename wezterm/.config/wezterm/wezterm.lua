@@ -62,7 +62,7 @@ M.window_background_opacity = 1.0
 M.default_cwd = wez.home_dir .. "/.dotfiles"
 
 -- colorscheme
-M.color_scheme = "GitHub Dark"
+--M.color_scheme = "GitHub Dark"
 M.colors = {
 	tab_bar = {
 		background = EL.color.tab_bg,
