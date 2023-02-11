@@ -1,0 +1,19 @@
+theme = "kanagawa"
+
+[editor]
+shell = ["zsh", "-c"]
+line-number = "relative"
+true-color = true
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "workspace-diagnostics"]
+center = ["file-name", "diagnostics"]
+right = ["selections", "position-percentage", "total-line-numbers", "file-encoding"]
+separator = "│"
+
+[editor.indent-guides]
+render = true
+
+[editor.file-picker]
+hidden = false

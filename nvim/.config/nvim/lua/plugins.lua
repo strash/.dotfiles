@@ -24,7 +24,11 @@ return {
 		lazy = false,
 	},
 
-	--"catppuccin/nvim",
+	--{
+	--	"catppuccin/nvim",
+	--	name = "catppuccin",
+	--	lazy = false,
+	--},
 
 	--"mofiqul/vscode.nvim",
 

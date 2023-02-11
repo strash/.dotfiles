@@ -13,3 +13,4 @@ $HOME/.dotnet/tools:\
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp:\
 $HOME/Library/pnpm
 
+. "$HOME/.cargo/env"

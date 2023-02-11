@@ -11,12 +11,8 @@ tap "qmk/qmk"
 brew "angband"
 # View disk space usage and delete unwanted data, fast
 brew "dua-cli"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Language Server for the Lua language
 brew "lua-language-server"
-# Package manager for the Lua programming language
-brew "luarocks"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Platform built on V8 to build network applications
@@ -25,6 +21,10 @@ brew "node"
 brew "pnpm"
 # Object-relational database system
 brew "postgresql@13"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Experimental Rust compiler front-end for IDEs
+brew "rust-analyzer"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -37,6 +37,8 @@ cask "android-studio"
 cask "appcleaner"
 # 3D creation suite
 cask "blender"
+# Web browser focusing on privacy
+cask "brave-browser"
 # Game development engine
 cask "godot"
 # HTTP and GraphQL Client
