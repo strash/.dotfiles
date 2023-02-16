@@ -6,142 +6,124 @@ vim.api.nvim_create_autocmd({
 	"BufWritePost",
 }, {
 	pattern = "*/plugins.lua",
-	command = "source % | Lazy sync",
+	command = "source % | PackerSync",
 	group = plug_autogroup
 })
 
+vim.cmd [[packadd packer.nvim]]
 
-return {
-	-- COLORS
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false
+
+return require("packer").startup({
+	config = {
+		compile_path = require("packer.util").join_paths(vim.fn.stdpath('config'), 'packer_compiled.lua'),
+		autoremove = true,
 	},
-
-	{
-		"mcchrish/zenbones.nvim",
-		dependencies = "rktjmp/lush.nvim",
-		lazy = false,
-	},
-
-	--{
-	--	"catppuccin/nvim",
-	--	name = "catppuccin",
-	--	lazy = false,
-	--},
-
-	--"mofiqul/vscode.nvim",
-
-	--"navarasu/onedark.nvim",
-
-	--{
-	--	"rose-pine/neovim",
-	--	as = "rose-pine",
-	--},
-
-	--"shaunsingh/nord.nvim",
-
-	--"tiagovla/tokyodark.nvim",
-
-	--"yazeed1s/minimal.nvim",
+	function(use)
+		use("wbthomason/packer.nvim")
 
 
-	-- CORE
-	{
-		"neovim/nvim-lspconfig",
-	},
+		-- COLORS
+		use("rebelot/kanagawa.nvim")
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = function()
-			vim.cmd("TSUpdateSync")
-		end,
-		config = function ()
-			vim.cmd("TSUpdateSync")
-		end,
-		lazy = false,
-	},
+		use({
+			"mcchrish/zenbones.nvim",
+			requires = "rktjmp/lush.nvim",
+		})
 
 
-	-- PLUGINS
-	{
-		"strash/everybody-wants-that-line.nvim",
-		dev = true,
-		config = function()
-			require("everybody-wants-that-line").setup({
-				buffer = {
-					prefix = "",
-					symbol = "·",
-				},
-			})
-		end,
-	},
+		-- CORE
+		use("neovim/nvim-lspconfig")
 
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-calc",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"L3MON4D3/LuaSnip",
-		},
-		lazy = false,
-	},
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdateSync",
+		})
 
-	{
-		"TimUntersberger/neogit",
-		dependencies = "nvim-lua/plenary.nvim",
-		opts = {
-			kind = "split",
-			disable_commit_confirmation = true,
-			disable_insert_on_commit = true,
-		},
-	},
 
-	{
-		"j-morano/buffer_manager.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		opts = {
-			width = 120,
-			height = 12,
-			focus_alternate_buffer = true,
-		},
-	},
-
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		opts = {
-			defaults = {
-				sorting_strategy = "ascending",
-				layout_config = {
-					horizontal = {
-						height = 0.8,
-						prompt_position = "top",
-						width = 0.5
+		-- PLUGINS
+		use({
+			"~/FOSS/everybody-wants-that-line.nvim",
+			config = function()
+				require("everybody-wants-that-line").setup({
+					buffer = {
+						prefix = "",
+						symbol = "·",
 					},
-				},
-				prompt_prefix = " ",
-				path_display = { "absolute" },
-				history = false,
-				cache_picker = false,
-				preview = false,
-				color_devicons = false,
-				file_ignore_patterns = {
-					".DS_Store",
-					".git/",
-					".import/",
-					".godot/",
-					".android/build/",
-					"node_modules/",
-					"dist/",
-					"prisma/migrations/",
-					"target/",
-					"mini.nvim",
-				},
+				})
+			end
+		})
+
+		use({
+			"hrsh7th/nvim-cmp",
+			requires = {
+				"saadparwaiz1/cmp_luasnip",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-calc",
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-nvim-lsp-signature-help",
+				"L3MON4D3/LuaSnip",
 			},
-		},
-	},
-}
+		})
+
+		use({
+			"TimUntersberger/neogit",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("neogit").setup({
+					kind = "split",
+					disable_commit_confirmation = true,
+					disable_insert_on_commit = true,
+				})
+			end
+		})
+
+		use({
+			"j-morano/buffer_manager.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("buffer_manager").setup({
+					width = 120,
+					height = 12,
+					focus_alternate_buffer = true,
+				})
+			end
+		})
+
+		use({
+			"nvim-telescope/telescope.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("telescope").setup({
+					defaults = {
+						sorting_strategy = "ascending",
+						layout_config = {
+							horizontal = {
+								height = 0.8,
+								prompt_position = "top",
+								width = 0.5
+							},
+						},
+						prompt_prefix = " ",
+						path_display = { "absolute" },
+						history = false,
+						cache_picker = false,
+						preview = false,
+						color_devicons = false,
+						file_ignore_patterns = {
+							".DS_Store",
+							".git/",
+							".import/",
+							".godot/",
+							".android/build/",
+							"node_modules/",
+							"dist/",
+							"prisma/migrations/",
+							"target/",
+							"mini.nvim",
+						},
+					},
+				})
+			end
+		})
+	end
+})

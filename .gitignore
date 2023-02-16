@@ -5,6 +5,7 @@ godot/Library/Application\ Support/Godot/app_userdata
 godot/Library/Application\ Support/Godot/script_templates/empty.gd
 godot/Library/Application\ Support/Godot/script_templates/no_comments.gd
 godot/Library/Application Support/Godot/templates/
+nvim/.config/nvim/packer_compiled.lua
 nvim/.config/nvim/plugin/packer_compiled.lua
 nvim/.config/nvim/lazy-lock.json
 

@@ -22,12 +22,13 @@ require("kanagawa").setup({
 
 -- COLO ZENBONES
 local variant = "zenwritten"
+--colo = variant
 vim.g[variant] = {
 	italic_comments = false,
 	colorize_diagnostic_underline_text = true,
 	transparent_background = false,
 }
---colo = variant
+
 vim.cmd.colo(colo)
 
 cmd.filetype("plugin on")

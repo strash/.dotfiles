@@ -147,7 +147,7 @@ end
 -- Package manager
 local packer_prefix = "<leader>p"
 local packer_map = {
-	{ key = "s", cmd = "Lazy sync" }
+	{ key = "s", cmd = "PackerSync" }
 }
 
 for _, key in ipairs(packer_map) do

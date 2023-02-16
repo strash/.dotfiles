@@ -1,5 +1,5 @@
--- Lazy.nvim package manager
-require("lazy_nvim")
+-- package manager
+require("plugins")
 
 -- Settings
 require("settings")
