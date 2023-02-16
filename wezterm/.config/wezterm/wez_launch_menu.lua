@@ -10,7 +10,6 @@ M.proj_dirs = {
 	"GAMEDEV",
 	"RUST",
 	"WEBDEV",
-	"Unity",
 }
 
 M.config = {
@@ -18,10 +17,6 @@ M.config = {
 		{
 			label = ".dotfiles",
 			cwd = home .. "/.dotfiles",
-		},
-		{
-			label = "qmk",
-			cwd = home .. "/qmk_firmware",
 		},
 	}
 }

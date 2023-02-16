@@ -7,5 +7,3 @@ require("settings")
 require("map")
 -- LSP setup
 require("lsp-config")
--- Treesitter config
-require("treeshitter-config")

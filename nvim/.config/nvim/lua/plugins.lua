@@ -1,3 +1,5 @@
+require("_packer_compiled")
+
 local plug_autogroup = vim.api.nvim_create_augroup("StrPackGroup", {
 	clear = true
 })
@@ -10,12 +12,9 @@ vim.api.nvim_create_autocmd({
 	group = plug_autogroup
 })
 
-vim.cmd [[packadd packer.nvim]]
-
-
 return require("packer").startup({
 	config = {
-		compile_path = require("packer.util").join_paths(vim.fn.stdpath('config'), 'packer_compiled.lua'),
+		compile_path = vim.fn.stdpath("config") .. "/lua/_packer_compiled.lua",
 		autoremove = true,
 	},
 	function(use)
