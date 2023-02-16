@@ -82,7 +82,7 @@ return require("packer").startup({
 			requires = "nvim-lua/plenary.nvim",
 			config = function()
 				require("buffer_manager").setup({
-					width = 120,
+					width = 100,
 					height = 12,
 					focus_alternate_buffer = true,
 				})
