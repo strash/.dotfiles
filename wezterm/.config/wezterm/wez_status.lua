@@ -1,5 +1,4 @@
 local wez = require("wezterm")
-local UU = require("wez_util")
 local EL = require("wez_el")
 
 local M = {}
@@ -20,8 +19,6 @@ wez.on("change_background", function(window, _)
 			{
 				source = { File = home .. "/.config/wezterm/img/img_" .. wez.GLOBAL.background_image_idx .. ".jpg" },
 				attachment = "Fixed",
-				--width = "Contain",
-				--height = "Contain",
 				opacity = 0.4,
 				hsb = { hue = 1.0, saturation = 1.0, brightness = 0.3 },
 				repeat_x = "NoRepeat",
@@ -32,13 +29,12 @@ wez.on("change_background", function(window, _)
 		}
 	else
 		config = nil
-		--config.background[2]["source"]["File"] = home .. "/.config/wezterm/img/img_" .. wez.GLOBAL.background_image_idx .. ".jpg"
 	end
 	window:set_config_overrides(config)
 	return false
 end)
 
-wez.on("update-status", function(window, pane)
+wez.on("update-status", function(window, _)
 	local date = wez.strftime(" %a %b %d ")
 	local hours = wez.strftime("%H")
 	local minutes = wez.strftime("%M ")
@@ -59,15 +55,6 @@ wez.on("update-status", function(window, pane)
 		{ Foreground = { Color = EL.color.status.fg_time } },
 		{ Text = hours .. ":" .. minutes },
 	}))
-
-	--local m = tonumber(seconds)
-	--if m % 5 == 0 then
-	--	if wez.GLOBAL.background_image_current_minute ~= m then
-	--		wez.GLOBAL.background_image_current_minute = m
-	--		wez.GLOBAL.background_image_idx = UU.wrapi(wez.GLOBAL.background_image_idx + 1, 1, 314)
-	--		wez.emit("change_background", window, pane)
-	--	end
-	--end
 end)
 
 return M

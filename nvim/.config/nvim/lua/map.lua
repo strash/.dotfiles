@@ -23,9 +23,9 @@ end
 
 -- Global
 local global_map = {
-	{ key = "<Tab>", cmd = "bn" }, -- next buffer
-	{ key = "<S-Tab>", cmd = "bp" }, -- prev buffer
-	{ key = "<leader>w", cmd = "w" }, -- write buffer
+	{ key = "<Tab>",      cmd = "bn" }, -- next buffer
+	{ key = "<S-Tab>",    cmd = "bp" }, -- prev buffer
+	{ key = "<leader>w",  cmd = "w" }, -- write buffer
 	{ key = "<leader>bd", cmd = "bd" }, -- delete buffer
 	{ key = "<leader>bw", cmd = "bw" }, -- wipe buffer
 	{ key = "<leader>bm", cmd = function() require("buffer_manager.ui").toggle_quick_menu() end }, -- open buffer manager
@@ -78,7 +78,8 @@ function M.set_lsp_map(_, bufnr)
 		{ key = "d", cmd = function() vim.lsp.buf.definition() end },
 		{ key = "i", cmd = function() vim.lsp.buf.implementation() end },
 		{ key = "c", cmd = function() vim.lsp.buf.references() end },
-		{ key = "f", cmd = function() vim.lsp.buf.format({
+		{ key = "f", cmd = function()
+			vim.lsp.buf.format({
 				async = true
 			})
 		end },
@@ -107,20 +108,23 @@ local symbol_highlights = {
 }
 
 local telescope_map = {
-	{ key = "f", cmd = function() require("telescope.builtin").find_files(
+	{ key = "f", cmd = function()
+		require("telescope.builtin").find_files(
 			{
 				hidden = true,
 				no_ignore = true,
 			}
 		)
 	end },
-	{ key = "t", cmd = function() require("telescope.builtin").treesitter(
+	{ key = "t", cmd = function()
+		require("telescope.builtin").treesitter(
 			{
 				symbol_highlights = symbol_highlights,
 			}
 		)
 	end },
-	{ key = "s", cmd = function() return require("telescope.builtin").lsp_document_symbols(
+	{ key = "s", cmd = function()
+		return require("telescope.builtin").lsp_document_symbols(
 			{
 				symbol_highlights = symbol_highlights,
 			}
@@ -128,7 +132,8 @@ local telescope_map = {
 	end },
 	{ key = "c", cmd = function() require("telescope.builtin").current_buffer_fuzzy_find() end },
 	{ key = "h", cmd = function() require("telescope.builtin").command_history() end },
-	{ key = "b", cmd = function() require("telescope.builtin").buffers(
+	{ key = "b", cmd = function()
+		require("telescope.builtin").buffers(
 			{
 				show_all_buffers = true,
 				ignore_current_buffer = false,

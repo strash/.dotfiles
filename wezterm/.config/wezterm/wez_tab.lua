@@ -3,11 +3,11 @@ local EL = require("wez_el")
 local M = {}
 
 local hex_to_char = function(x)
-  return string.char(tonumber(x, 16))
+	return string.char(tonumber(x, 16))
 end
 
 local unescape = function(url)
-  return url:gsub("%%(%x%x)", hex_to_char)
+	return url:gsub("%%(%x%x)", hex_to_char)
 end
 
 function M.get_cwd(tab)

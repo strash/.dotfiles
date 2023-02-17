@@ -11,17 +11,17 @@ cmp.setup({
 		ghost_text = true,
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-b>"] = cmp.mapping.scroll_docs( -4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<TAB>"] = cmp.mapping.complete({ reason = "auto" }),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp", group_index = 1, priority = 1 },
-		{ name = "luasnip", group_index = 2, priority = 3 },
-		{ name = "buffer", group_index = 3, priority = 4 },
-		{ name = "calc", group_index = 4, priority = 5 },
+		{ name = "nvim_lsp",                group_index = 1, priority = 1 },
+		{ name = "luasnip",                 group_index = 2, priority = 3 },
+		{ name = "buffer",                  group_index = 3, priority = 4 },
+		{ name = "calc",                    group_index = 4, priority = 5 },
 		{ name = "nvim_lsp_signature_help", group_index = 5, priority = 2 },
 	}),
 	snippet = {

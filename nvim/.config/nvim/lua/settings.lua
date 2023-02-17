@@ -9,16 +9,22 @@ opt.background = "dark"
 local colo = "kanagawa"
 
 -- COLO KANAGAWA
-require("kanagawa").setup({
-	commentStyle = { italic = false },
-	keywordStyle = { italic = false },
-	statementStyle = { bold = true },
-	variablebuiltinStyle = { italic = false },
-	specialReturn = true,
-	specialException = true,
-	transparent = false,
+local kanagawa_config = {
 	globalStatus = true,
-})
+	transparent = false,
+	specialException = true,
+	specialReturn = true,
+	commentStyle = { italic = false },
+	colors = {
+		sumiInk0 = "#22222b",
+		sumiInk1 = "#19191f",
+		sumiInk3 = "#1b202d",
+	},
+}
+for _, value in ipairs({ "functionStyle", "keywordStyle", "statementStyle", "typeStyle", "variablebuiltinStyle" }) do
+	kanagawa_config[value] = { bold = true, italic = false }
+end
+require("kanagawa").setup(kanagawa_config)
 
 -- COLO ZENBONES
 local variant = "zenwritten"
@@ -29,14 +35,11 @@ vim.g[variant] = {
 	transparent_background = false,
 }
 
-vim.cmd.colo(colo)
-
+cmd.colo(colo)
 cmd.filetype("plugin on")
 cmd.filetype("plugin indent on")
 cmd.syntax("enable")
 cmd.syntax("on")
-
-vim.g.ts_highlight_lua = true
 
 opt.autowrite = true
 opt.autowriteall = true

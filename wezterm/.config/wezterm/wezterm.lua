@@ -23,7 +23,7 @@ M.text_blink_rate = 0
 M.text_blink_rate_rapid = 0
 M.text_background_opacity = 1.0
 M.font = wez.font_with_fallback({
-	{ family = ff_main, weight = "Regular", italic = false },
+	{ family = ff_main,     weight = "Regular", italic = false },
 	{ family = ff_fallback, weight = "Regular", italic = false },
 })
 M.font_rules = {

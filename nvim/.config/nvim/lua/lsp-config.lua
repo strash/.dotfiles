@@ -107,7 +107,10 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
+local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*.tsx", "*.ts", "*.jsx", },
 	command = "EslintFixAll",
+	group = auto_group,
 })
