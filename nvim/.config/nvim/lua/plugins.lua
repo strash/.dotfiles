@@ -119,6 +119,8 @@ return require("packer").startup({
 							"prisma/migrations/",
 							"target/",
 							"mini.nvim",
+							"obj/",
+							"bin/",
 						},
 					},
 				})
