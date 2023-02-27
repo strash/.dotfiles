@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css",
-		"dart", "dockerfile", "gdscript", "glsl", "go", "html",
+		"dart", "dockerfile", "fish", "gdscript", "glsl", "go", "html",
 		"javascript", "jsdoc", "json", "lua", "prisma", "pug", "python", "regex",
 		"rust", "scheme", "svelte", "swift", "todotxt", "tsx", "typescript", "vim", },
 	highlight = {
