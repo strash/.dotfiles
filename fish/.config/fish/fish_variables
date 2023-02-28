@@ -26,6 +26,7 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:normal
@@ -40,4 +41,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/strash/\x2edotnet/tools\x1e/Applications/Xcode\x2eapp/Contents/Developer/Toolchains/XcodeDefault\x2exctoolchain/usr/bin\x1e/Users/strash/Library/pnpm\x1e/Users/strash/\x2ecargo/bin\x1e/Users/strash/Library/Android/sdk/platform\x2dtools\x1e/Users/strash/\x2edotfiles\x1e/opt/homebrew/bin
