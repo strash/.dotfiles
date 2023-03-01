@@ -19,3 +19,6 @@
 	tool = nvimdiff
 [merge]
 	tool = nvimdiff
+[mergetool "vimdiff"]
+	layout = LOCAL,BASE,REMOTE / MERGED
+

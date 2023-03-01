@@ -6,7 +6,7 @@ end
 
 opt.background = "dark"
 
-local colo = "kanagawa"
+local colo = "visual_studio_code"
 
 -- COLO KANAGAWA
 local kanagawa_config = {
@@ -34,6 +34,10 @@ vim.g[variant] = {
 	colorize_diagnostic_underline_text = true,
 	transparent_background = false,
 }
+
+require("visual_studio_code").setup({
+	mode = "dark"
+})
 
 cmd.colo(colo)
 cmd.filetype("plugin on")

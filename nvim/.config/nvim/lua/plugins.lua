@@ -29,6 +29,8 @@ return require("packer").startup({
 			requires = "rktjmp/lush.nvim",
 		})
 
+		use("askfiy/visual_studio_code")
+
 
 		-- CORE
 		use("neovim/nvim-lspconfig")
