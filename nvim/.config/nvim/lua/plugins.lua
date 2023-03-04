@@ -22,7 +22,10 @@ return require("packer").startup({
 
 
 		-- COLORS
-		use("rebelot/kanagawa.nvim")
+		use({
+			"rebelot/kanagawa.nvim",
+			run = ":KanagawaCompile",
+		})
 
 		use({
 			"mcchrish/zenbones.nvim",

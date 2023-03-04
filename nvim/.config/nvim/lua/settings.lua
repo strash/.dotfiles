@@ -15,11 +15,17 @@ local kanagawa_config = {
 	specialException = true,
 	specialReturn = true,
 	commentStyle = { italic = false },
-	colors = {
-		sumiInk0 = "#22222b",
-		sumiInk1 = "#19191f",
-		sumiInk3 = "#1b202d",
+	background = {
+		dark = "dragon", -- wave, dragon
+		light = "lotus", -- lotus
 	},
+	--colors = {
+	--	palette = {
+	--		sumiInk0 = "#22222b",
+	--		sumiInk1 = "#19191f",
+	--		sumiInk3 = "#1b202d",
+	--	},
+	--},
 }
 for _, value in ipairs({ "functionStyle", "keywordStyle", "statementStyle", "typeStyle", "variablebuiltinStyle" }) do
 	kanagawa_config[value] = { bold = true, italic = false }
