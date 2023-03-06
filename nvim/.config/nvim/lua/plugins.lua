@@ -16,6 +16,11 @@ return require("packer").startup({
 	config = {
 		compile_path = vim.fn.stdpath("config") .. "/lua/_packer_compiled.lua",
 		autoremove = true,
+		display = {
+			open_fn = function()
+				return require("packer.util").float({ border = "rounded" })
+			end
+		}
 	},
 	function(use)
 		use("wbthomason/packer.nvim")
