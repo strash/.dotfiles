@@ -10,7 +10,7 @@ local options = {
 
 M.background_color = vim.opt.background
 
-function M.toggle_background_color()
+local toggle_background_color = function()
 	if M.background_color == "dark" then
 		M.background_color = "light"
 		print(" lights on +")
@@ -21,21 +21,44 @@ function M.toggle_background_color()
 	vim.opt.background = M.background_color
 end
 
+local delete_wipe_window = function(cmd)
+	local mode = vim.fn.mode()
+	if type(mode) == "string" then
+		if (mode == "t" or mode:sub(0, 1) == "n") and vim.o.buftype == "terminal" then
+			vim.cmd(cmd .. "!")
+		else
+			vim.cmd(cmd)
+		end
+	end
+end
+
+local toggle_buffer_manager = function()
+	require("buffer_manager.ui").toggle_quick_menu()
+end
+
+local open_neogit_window = function()
+	require("neogit").open()
+end
+
+local open_terminal = function()
+	vim.cmd("split | startinsert | terminal")
+end
+
 -- Global
 local global_map = {
-	{ key = "<Tab>",      cmd = "bn" }, -- next buffer
-	{ key = "<S-Tab>",    cmd = "bp" }, -- prev buffer
-	{ key = "<leader>w",  cmd = "w" }, -- write buffer
-	{ key = "<leader>bd", cmd = "bd" }, -- delete buffer
-	{ key = "<leader>bw", cmd = "bw" }, -- wipe buffer
-	{ key = "<leader>bm", cmd = function() require("buffer_manager.ui").toggle_quick_menu() end }, -- open buffer manager
-	{ key = "<leader>gn", cmd = "Explore" }, -- open netrw
-	{ key = "<leader>cn", cmd = "cn" }, -- next entry point form the quicklist
-	{ key = "<leader>cp", cmd = "cp" }, -- prew entry point form the quicklist
-	{ key = "<leader>gr", cmd = "so %" }, -- source nvim config
-	{ key = "<leader>bb", cmd = function() require('map').toggle_background_color() end }, -- toggle background color
-
-	{ key = "<leader>gg", cmd = function() require('neogit').open() end }, -- neogit
+	{ key = "<Tab>",      cmd = "bn" },                                  -- next buffer
+	{ key = "<S-Tab>",    cmd = "bp" },                                  -- prev buffer
+	{ key = "<leader>w",  cmd = "w" },                                   -- write buffer
+	{ key = "<leader>bd", cmd = function() delete_wipe_window("bd") end }, -- delete buffer
+	{ key = "<leader>bw", cmd = function() delete_wipe_window("bw") end }, -- wipe buffer
+	{ key = "<leader>bm", cmd = function() toggle_buffer_manager() end }, -- open buffer manager
+	{ key = "<leader>gn", cmd = "Explore" },                             -- open netrw
+	{ key = "<leader>cn", cmd = "cn" },                                  -- next entry point form the quicklist
+	{ key = "<leader>cp", cmd = "cp" },                                  -- prew entry point form the quicklist
+	{ key = "<leader>gr", cmd = "so %" },                                -- source nvim config
+	{ key = "<leader>gt", cmd = function() open_terminal() end },        -- open terminal window
+	{ key = "<leader>bb", cmd = function() toggle_background_color() end }, -- toggle background color
+	{ key = "<leader>gg", cmd = function() open_neogit_window() end },   -- open neogit
 }
 
 for _, key in ipairs(global_map) do
@@ -44,7 +67,8 @@ for _, key in ipairs(global_map) do
 	else
 		vim.keymap.set("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 	end
-	vim.keymap.set("i", "<C-c>", "<Esc>", options)
+	vim.keymap.set("i", "<C-C>", "<Esc>", options)     -- exit enstert mode
+	vim.keymap.set("t", "<C-C>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
 end
 
 -- LSP
@@ -78,11 +102,7 @@ function M.set_lsp_map(_, bufnr)
 		{ key = "d", cmd = function() vim.lsp.buf.definition() end },
 		{ key = "i", cmd = function() vim.lsp.buf.implementation() end },
 		{ key = "c", cmd = function() vim.lsp.buf.references() end },
-		{ key = "f", cmd = function()
-			vim.lsp.buf.format({
-				async = true
-			})
-		end },
+		{ key = "f", cmd = function() vim.lsp.buf.format({ async = true }) end },
 		{ key = "e", cmd = function() vim.lsp.buf.signature_help() end },
 		{ key = "s", cmd = function() vim.diagnostic.open_float() end },
 		{ key = "p", cmd = function() vim.diagnostic.goto_prev() end },
@@ -100,48 +120,60 @@ end
 -- Telescope
 local telescope_prefix = "<leader>t"
 local symbol_highlights = {
-	["string"] = "String",
-	["function"] = "Function",
-	["var"] = "@variable",
-	["associated"] = "Constant",
-	["parameter"] = "@attribute",
+		["string"] = "String",
+		["function"] = "Function",
+		["var"] = "@variable",
+		["associated"] = "Constant",
+		["parameter"] = "@attribute",
 }
 
 local telescope_map = {
-	{ key = "f", cmd = function()
-		require("telescope.builtin").find_files(
-			{
-				hidden = true,
-				no_ignore = true,
-			}
-		)
-	end },
-	{ key = "t", cmd = function()
-		require("telescope.builtin").treesitter(
-			{
-				symbol_highlights = symbol_highlights,
-			}
-		)
-	end },
-	{ key = "s", cmd = function()
-		return require("telescope.builtin").lsp_document_symbols(
-			{
-				symbol_highlights = symbol_highlights,
-			}
-		)
-	end },
+	{
+		key = "f",
+		cmd = function()
+			require("telescope.builtin").find_files(
+				{
+					hidden = true,
+					no_ignore = true,
+				}
+			)
+		end
+	},
+	{
+		key = "t",
+		cmd = function()
+			require("telescope.builtin").treesitter(
+				{
+					symbol_highlights = symbol_highlights,
+				}
+			)
+		end
+	},
+	{
+		key = "s",
+		cmd = function()
+			return require("telescope.builtin").lsp_document_symbols(
+				{
+					symbol_highlights = symbol_highlights,
+				}
+			)
+		end
+	},
 	{ key = "c", cmd = function() require("telescope.builtin").current_buffer_fuzzy_find() end },
 	{ key = "h", cmd = function() require("telescope.builtin").command_history() end },
-	{ key = "b", cmd = function()
-		require("telescope.builtin").buffers(
-			{
-				show_all_buffers = true,
-				ignore_current_buffer = false,
-				sort_lastused = true,
-				sort_mru = true
-			}
-		)
-	end },
+	{
+		key = "b",
+		cmd = function()
+			require("telescope.builtin").buffers(
+				{
+					show_all_buffers = true,
+					ignore_current_buffer = false,
+					sort_lastused = true,
+					sort_mru = true
+				}
+			)
+		end
+	},
 	{ key = "r", cmd = function() require("telescope.builtin").registers() end },
 }
 
