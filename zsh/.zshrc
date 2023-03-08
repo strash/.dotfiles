@@ -1,13 +1,11 @@
 # dotnet telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
-plugins=(git dotnet osx)
-
 # Compilation flags
 #export ARCHFLAGS="-arch -arm64"
 
 # source .zshenv and .zshrc
-alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo '$HOME/.dotfiles/zsh/.zshenv and .zshrc sourced'"
+alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo "$HOME/.dotfiles/zsh/.zshenv and .zshrc sourced""
 
 # pnpm
 alias cocka="pnpm update -g"
@@ -31,13 +29,26 @@ alias l="ls -laG"
 alias cd="pushd"
 
 # The following lines were added by compinstall
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' menu select=1
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle :compinstall filename '$HOME/.zshrc'
+zstyle ":completion:*" completer _expand _complete _ignored _correct _approximate
+#zstyle ":completion:*" list-colors ""
+zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ":completion:*" menu select
+zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
+zstyle ":completion:*" use-compctl false
+zstyle ":completion:*" complete-options true
+
+zstyle ":completion:*:*:*:*:descriptions" format "%F{green}%D %d%f"
+zstyle ":completion:*:*:*:*:corrections" format "%F{yellow}%d (errors: %e)%f"
+zstyle ":completion:*:*:*:*:messages" format " %F{purple}%d%f"
+zstyle ":completion:*:*:*:*:warnings" format " %F{red}fuck you%f"
+zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
+
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' keep-prefix true
+
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 
@@ -48,17 +59,17 @@ compinit
 
 # Prompt theme
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '[%F{white}%b|%a%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' formats '[%F{white}%b%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' branchformat '[%F{white}%b:%r%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' hgrevformat '[%F{white}%r:%h%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' get-revision true
-zstyle ':vcs_info:*' stagedstr ●
-zstyle ':vcs_info:*' unstagedstr ●
+zstyle ":vcs_info:*" actionformats "[%F{white}%b|%a%f%F{red}%u%F{yellow}%c%f] "
+zstyle ":vcs_info:*" formats "[%F{white}%b%f%F{red}%u%F{yellow}%c%f] "
+zstyle ":vcs_info:*" branchformat "[%F{white}%b:%r%f%F{red}%u%F{yellow}%c%f] "
+zstyle ":vcs_info:*" hgrevformat "[%F{white}%r:%h%f%F{red}%u%F{yellow}%c%f] "
+zstyle ":vcs_info:*" check-for-changes true
+zstyle ":vcs_info:*" get-revision true
+zstyle ":vcs_info:*" stagedstr ●
+zstyle ":vcs_info:*" unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{white}%Bstrash%b %f %~ ${vcs_info_msg_0_}'
+PS1="%F{white}%Bstrash%b %f %~ ${vcs_info_msg_0_}"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
