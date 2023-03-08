@@ -47,17 +47,7 @@ return require("packer").startup({
 
 
 		-- PLUGINS
-		use({
-			"~/FOSS/everybody-wants-that-line.nvim",
-			config = function()
-				require("everybody-wants-that-line").setup({
-					buffer = {
-						prefix = "",
-						symbol = "·",
-					},
-				})
-			end
-		})
+		use("~/FOSS/everybody-wants-that-line.nvim")
 
 		use({
 			"hrsh7th/nvim-cmp",
