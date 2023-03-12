@@ -80,6 +80,16 @@ nvim_lsp.bashls.setup({
 
 -- lua
 local runtime_path = vim.split(package.path, ";")
+local runtime_file = vim.api.nvim_get_runtime_file("", true)
+local idxs = {}
+for i, v in ipairs(runtime_file) do
+	if v:find("everybody-wants-that-line.nvim", 0, true) or v:match(".local/share/nvim/site$") then
+		table.insert(idxs, i)
+	end
+end
+for i = #idxs, 1, -1 do
+	table.remove(runtime_file, idxs[i])
+end
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
@@ -89,19 +99,26 @@ nvim_lsp.lua_ls.setup({
 	flags = flags,
 	settings = {
 		Lua = {
-			runtime = {
-				version = "LuaJIT",
-				path = runtime_path,
+			completion = {
+				callSnippet = "Both",
 			},
 			diagnostics = {
 				globals = { "vim" },
 			},
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false,
+			runtime = {
+				version = "LuaJIT",
+				path = runtime_path,
 			},
 			telemetry = {
 				enable = false,
+			},
+			window = {
+				progressBar = false,
+				statusBar = false,
+			},
+			workspace = {
+				library = runtime_file,
+				checkThirdParty = false,
 			},
 		},
 	},
