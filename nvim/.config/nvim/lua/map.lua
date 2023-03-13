@@ -44,6 +44,15 @@ local open_terminal = function()
 	vim.cmd("split | startinsert | terminal")
 end
 
+local grep_word_under_cursor = function()
+	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$")
+	if filetype then
+		vim.api.nvim_input([["xyiw:vim <C-R>x **/*]] .. filetype .. [[<CR>:cope<CR>]])
+	else
+		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
+	end
+end
+
 -- Global
 local global_map = {
 	{ key = "<Tab>",      cmd = "bn" },                                  -- next buffer
@@ -67,8 +76,9 @@ for _, key in ipairs(global_map) do
 	else
 		vim.keymap.set("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 	end
-	vim.keymap.set("i", "<C-C>", "<Esc>", options)     -- exit enstert mode
-	vim.keymap.set("t", "<C-C>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
+	vim.keymap.set("i", "<C-C>", "<Esc>", options)                                           -- exit enstert mode
+	vim.keymap.set("t", "<C-C>", [[<C-\><C-N>]], options)                                    -- exit insert mode in terminal
+	vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- exit insert mode in terminal
 end
 
 -- LSP
@@ -120,11 +130,11 @@ end
 -- Telescope
 local telescope_prefix = "<leader>t"
 local symbol_highlights = {
-		["string"] = "String",
-		["function"] = "Function",
-		["var"] = "@variable",
-		["associated"] = "Constant",
-		["parameter"] = "@attribute",
+	["string"] = "String",
+	["function"] = "Function",
+	["var"] = "@variable",
+	["associated"] = "Constant",
+	["parameter"] = "@attribute",
 }
 
 local telescope_map = {
