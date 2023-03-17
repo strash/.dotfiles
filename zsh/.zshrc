@@ -73,5 +73,3 @@ PS1='%F{white}%B%n%b %f %~ ${vcs_info_msg_0_}%(?00%F{red}feck %f)'
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

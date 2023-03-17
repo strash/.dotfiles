@@ -65,18 +65,18 @@ nvim_lsp.gdscript.setup({
 })
 
 -- bashls
-nvim_lsp.bashls.setup({
-	cmd = { "bash-language-server", "start" },
-	cmd_env = {
-		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
-	},
-	filetypes = { "zsh", "sh" },
-	root_dir = nvim_lsp.util.find_git_ancestor,
-	single_file_support = true,
-	on_attach = map.set_lsp_map,
-	capabilities = capabilities,
-	flags = flags,
-})
+--nvim_lsp.bashls.setup({
+--	cmd = { "bash-language-server", "start" },
+--	cmd_env = {
+--		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
+--	},
+--	filetypes = { "zsh", "sh" },
+--	root_dir = nvim_lsp.util.find_git_ancestor,
+--	single_file_support = true,
+--	on_attach = map.set_lsp_map,
+--	capabilities = capabilities,
+--	flags = flags,
+--})
 
 -- lua
 local runtime_path = vim.split(package.path, ";")
