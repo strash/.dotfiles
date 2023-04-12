@@ -10,4 +10,7 @@ $HOME/Library/Android/sdk/platform-tools:\
 $HOME/Library/Python/3.x/bin:\
 $HOME/.dotnet/tools:\
 /opt/homebrew/Cellar/lua-language-server/3.x.x/libexec/bin/macOS/lua-language-server:\
-$HOME/Library/pnpm
+/opt/homebrew/opt/postgresql@15/bin:\
+$HOME/Library/pnpm:\
+$HOME/go/bin:\
+

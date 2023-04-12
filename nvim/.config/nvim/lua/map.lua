@@ -77,8 +77,8 @@ for _, key in ipairs(global_map) do
 		vim.keymap.set("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 	end
 	vim.keymap.set("i", "<C-C>", "<Esc>", options)                                           -- exit enstert mode
-	vim.keymap.set("t", "<C-C>", [[<C-\><C-N>]], options)                                    -- exit insert mode in terminal
-	vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- exit insert mode in terminal
+	vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options)                                  -- exit insert mode in terminal
+	vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
 end
 
 -- LSP

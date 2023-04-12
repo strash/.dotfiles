@@ -11,7 +11,7 @@ alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshr
 alias cocka="pnpm update -g"
 
 # nvim
-alias nvim="arch -arm64 nvim"
+#alias nvim="arch -arm64 nvim"
 
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && brew cleanup -s"

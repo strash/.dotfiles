@@ -19,13 +19,6 @@ local kanagawa_config = {
 		dark = "dragon", -- wave, dragon
 		light = "lotus", -- lotus
 	},
-	--colors = {
-	--	palette = {
-	--		sumiInk0 = "#22222b",
-	--		sumiInk1 = "#19191f",
-	--		sumiInk3 = "#1b202d",
-	--	},
-	--},
 }
 for _, value in ipairs({ "functionStyle", "keywordStyle", "statementStyle", "typeStyle", "variablebuiltinStyle" }) do
 	kanagawa_config[value] = { bold = true, italic = false }
@@ -85,3 +78,5 @@ opt.smartindent = true
 opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
+
+opt.statuscolumn = "%@SignCb@%s%=%@NumCb@%r "

@@ -10,6 +10,7 @@ local lsp_servers = {
 	"csharp_ls",
 	"cssls",
 	"eslint",
+	"gopls",
 	"html",
 	"jsonls",
 	"tsserver",
@@ -129,5 +130,13 @@ local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*.tsx", "*.ts", "*.jsx", },
 	command = "EslintFixAll",
+	group = auto_group,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.go", "*.lua" },
+	callback = function()
+		vim.lsp.buf.format()
+	end,
 	group = auto_group,
 })
