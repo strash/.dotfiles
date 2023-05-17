@@ -14,35 +14,14 @@ UU.merge_config(LM, M)
 UU.merge_config(KM, M)
 
 -- font
-local ff_main = "SF Mono"
-local ff_fallback = "JetBrains Mono"
-M.font_size = 15
-M.line_height = 1.0
+M.font_size = 13
+M.line_height = 1.03
 M.dpi = 144.0
 M.text_blink_rate = 0
 M.text_blink_rate_rapid = 0
 M.text_background_opacity = 1.0
-M.font = wez.font_with_fallback({
-	{ family = ff_main,     weight = "Regular", italic = false },
-	{ family = ff_fallback, weight = "Regular", italic = false },
-})
-M.font_rules = {
-	{
-		intensity = "Normal",
-		italic = true,
-		font = wez.font({ family = ff_main, weight = "Regular" })
-	},
-	{
-		intensity = "Half",
-		italic = true,
-		font = wez.font({ family = ff_main, weight = "DemiBold" })
-	},
-	{
-		intensity = "Bold",
-		italic = true,
-		font = wez.font({ family = ff_main, weight = "Bold" })
-	}
-}
+M.font = wez.font({ family = "JetBrains Mono", italic = false })
+M.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 -- tabbar
 M.hide_tab_bar_if_only_one_tab = false

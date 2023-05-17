@@ -67,6 +67,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
 opt.textwidth = 80
+opt.colorcolumn = "+1"
 opt.wildmenu = true
 opt.wrap = true
 
@@ -79,4 +80,4 @@ opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
 
-opt.statuscolumn = "%@SignCb@%s%=%@NumCb@%r "
+opt.statuscolumn = " %s%=%{v:relnum?v:relnum:v:lnum} "

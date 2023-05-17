@@ -13,6 +13,7 @@ local lsp_servers = {
 	"gopls",
 	"html",
 	"jsonls",
+	"sqlls",
 	"tsserver",
 	--"gdscript",
 	--"prismals",

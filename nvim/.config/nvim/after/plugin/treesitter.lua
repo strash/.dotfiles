@@ -24,6 +24,7 @@ require("nvim-treesitter.configs").setup({
 		"regex",
 		"rust",
 		"scheme",
+		"sql",
 		"svelte",
 		"swift",
 		"todotxt",

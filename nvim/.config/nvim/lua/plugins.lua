@@ -81,6 +81,8 @@ return require("packer").startup({
 					width = 100,
 					height = 12,
 					focus_alternate_buffer = true,
+					short_file_names = true,
+					short_term_names = true,
 				})
 			end
 		})
