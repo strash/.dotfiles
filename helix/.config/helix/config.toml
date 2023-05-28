@@ -1,19 +1,30 @@
 theme = "kanagawa"
 
 [editor]
+scrolloff = 3
+cursorline = true
 shell = ["zsh", "-c"]
 line-number = "relative"
-true-color = true
 color-modes = true
+rulers = [80]
 
 [editor.statusline]
-left = ["mode", "spinner", "workspace-diagnostics"]
-center = ["file-name", "diagnostics"]
-right = ["selections", "position-percentage", "total-line-numbers", "file-encoding"]
-separator = "│"
+left = ["mode", "spinner", "version-control", "workspace-diagnostics"]
+center = ["file-name", "file-modification-indicator"]
+right = ["primary-selection-length", "selections", "separator", "position-percentage", "total-line-numbers"]
+separator = "│ "
+
+[editor.lsp]
+display-inlay-hints = false
 
 [editor.indent-guides]
 render = true
 
 [editor.file-picker]
 hidden = false
+
+[editor.soft-wrap]
+enable = true
+
+[keys.insert]
+C-c = "normal_mode"

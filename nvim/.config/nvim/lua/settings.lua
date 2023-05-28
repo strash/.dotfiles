@@ -16,7 +16,7 @@ local kanagawa_config = {
 	specialReturn = true,
 	commentStyle = { italic = false },
 	background = {
-		dark = "dragon", -- wave, dragon
+		dark = "wave", -- wave, dragon
 		light = "lotus", -- lotus
 	},
 }
@@ -54,7 +54,8 @@ opt.inccommand = "split"
 opt.laststatus = 3
 opt.list = true
 opt.listchars = {
-	tab = "∙ ",
+	--tab = "⎸ ",
+	tab = "  ",
 	trail = "✕",
 	precedes = "<",
 	nbsp = "%",

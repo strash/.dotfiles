@@ -47,8 +47,8 @@ return require("packer").startup({
 
 
 		-- PLUGINS
-		--use("~/FOSS/everybody-wants-that-line.nvim")
-		use("strash/everybody-wants-that-line.nvim")
+		use("~/FOSS/everybody-wants-that-line.nvim")
+		--use("strash/everybody-wants-that-line.nvim")
 
 		use({
 			"hrsh7th/nvim-cmp",

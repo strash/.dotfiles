@@ -14,15 +14,15 @@ UU.merge_config(LM, M)
 UU.merge_config(KM, M)
 
 -- font
-local font_family = "JetBrains Mono"
-M.font_size = 13
-M.line_height = 1.03
+local font_family = "Iosevka Term SS04"
+M.font_size = 15
+M.line_height = 1.05
 M.dpi = 144.0
 M.text_blink_rate = 0
 M.text_blink_rate_rapid = 0
 M.text_background_opacity = 1.0
 M.font = wez.font({ family = font_family, italic = false })
-M.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+--M.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 M.font_rules = {
 	{
 		intensity = "Normal",

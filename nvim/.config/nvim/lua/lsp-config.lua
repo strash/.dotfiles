@@ -128,16 +128,32 @@ nvim_lsp.lua_ls.setup({
 
 local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.tsx", "*.ts", "*.jsx", },
-	command = "EslintFixAll",
-	group = auto_group,
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		-- highlight references
+		if client.server_capabilities.documentHighlightProvider then
+			vim.api.nvim_create_autocmd("CursorHold", {
+				callback = function() vim.lsp.buf.document_highlight() end,
+				group = auto_group,
+			})
+			vim.api.nvim_create_autocmd("CursorMoved", {
+				callback = function() vim.lsp.buf.clear_references() end,
+				group = auto_group,
+			})
+		end
+		-- formatting
+		if client.server_capabilities.documentFormattingProvider then
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				callback = function() vim.lsp.buf.format() end,
+				group = auto_group,
+			})
+		end
+	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.go", "*.lua" },
-	callback = function()
-		vim.lsp.buf.format()
-	end,
-	group = auto_group,
-})
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--	pattern = { "*.tsx", "*.ts", "*.jsx", },
+--	command = "EslintFixAll",
+--	group = auto_group,
+--})
