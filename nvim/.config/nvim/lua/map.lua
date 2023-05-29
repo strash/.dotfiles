@@ -37,26 +37,8 @@ local delete_wipe_window = function(cmd)
 	end
 end
 
-local toggle_buffer_manager = function()
-	buffer_manager_ui.toggle_quick_menu()
-end
-
-local open_neogit_window = function()
-	neogit.open()
-end
-
 local open_terminal = function()
 	vim.cmd("split | startinsert | terminal")
-end
-
-local open_oil = function()
-	oil.open(M.last_opened_dir)
-end
-
-local close_oil = function()
-	M.last_opened_dir = oil.get_current_dir()
-	oil.save({ confirm = false })
-	oil.close()
 end
 
 local grep_word_under_cursor = function()
@@ -66,6 +48,33 @@ local grep_word_under_cursor = function()
 	else
 		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
 	end
+end
+
+-- buffer manager
+local toggle_buffer_manager = function()
+	buffer_manager_ui.toggle_quick_menu()
+end
+
+-- neogit
+local open_neogit_window = function()
+	neogit.open()
+end
+
+-- oil.nvim
+local open_oil = function()
+	oil.open(M.last_opened_dir)
+end
+
+local open_oil_buffer = function(opts)
+	M.last_opened_dir = oil.get_current_dir()
+	oil.save({ confirm = false })
+	oil.select(opts)
+end
+
+local close_oil = function()
+	M.last_opened_dir = oil.get_current_dir()
+	oil.save({ confirm = false })
+	oil.close()
 end
 
 -- Global
@@ -218,8 +227,11 @@ vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = function(args)
 		if args.match == "oil" then
-			vim.keymap.set("n", "<C-c>", close_oil, { buffer = true })
-			vim.keymap.set("n", "q", close_oil, { buffer = true })
+			vim.keymap.set("n", "<CR>", function() open_oil_buffer(nil) end, { buffer = true })
+			vim.keymap.set("n", "<C-v>", function() open_oil_buffer({ vertical = true, }) end, { buffer = true })
+			vim.keymap.set("n", "<C-s>", function() open_oil_buffer({ horizontal = true, }) end, { buffer = true })
+			vim.keymap.set("n", "<C-c>", function() close_oil() end, { buffer = true })
+			vim.keymap.set("n", "q", function() close_oil() end, { buffer = true })
 		end
 	end,
 })
