@@ -231,6 +231,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 			vim.keymap.set("n", "<C-v>", function() open_oil_buffer({ vertical = true, }) end, { buffer = true })
 			vim.keymap.set("n", "<C-s>", function() open_oil_buffer({ horizontal = true, }) end, { buffer = true })
 			vim.keymap.set("n", "<C-c>", function() close_oil() end, { buffer = true })
+			vim.keymap.set("n", "<Esc>", function() close_oil() end, { buffer = true })
 			vim.keymap.set("n", "q", function() close_oil() end, { buffer = true })
 		end
 	end,
