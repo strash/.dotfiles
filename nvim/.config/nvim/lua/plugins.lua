@@ -87,6 +87,25 @@ return require("packer").startup({
 			end
 		})
 
+		use {
+			"stevearc/oil.nvim",
+			config = function()
+				require("oil").setup({
+					columns = {},
+					view_options = {
+						show_hidden = true,
+					},
+					progress = {
+						width = 100,
+						height = 12,
+						win_options = {
+							winblend = 0,
+						},
+					},
+				})
+			end
+		}
+
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",

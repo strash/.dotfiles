@@ -1,5 +1,9 @@
 local M = {}
 
+local neogit = require("neogit")
+local buffer_manager_ui = require("buffer_manager.ui")
+local oil = require("oil")
+
 -- leader key
 vim.g.mapleader = " "
 
@@ -9,6 +13,7 @@ local options = {
 }
 
 M.background_color = vim.opt.background
+M.last_opened_dir = "."
 
 local toggle_background_color = function()
 	if M.background_color == "dark" then
@@ -33,21 +38,31 @@ local delete_wipe_window = function(cmd)
 end
 
 local toggle_buffer_manager = function()
-	require("buffer_manager.ui").toggle_quick_menu()
+	buffer_manager_ui.toggle_quick_menu()
 end
 
 local open_neogit_window = function()
-	require("neogit").open()
+	neogit.open()
 end
 
 local open_terminal = function()
 	vim.cmd("split | startinsert | terminal")
 end
 
+local open_oil = function()
+	oil.open(M.last_opened_dir)
+end
+
+local close_oil = function()
+	M.last_opened_dir = oil.get_current_dir()
+	oil.save({ confirm = false })
+	oil.close()
+end
+
 local grep_word_under_cursor = function()
-	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$")
+	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$") or vim.o.filetype
 	if filetype then
-		vim.api.nvim_input([["xyiw:vim <C-R>x **/*]] .. filetype .. [[<CR>:cope<CR>]])
+		vim.api.nvim_input([[:vim <C-R><C-W> **/*]] .. filetype .. [[<CR>:cope<CR>]])
 	else
 		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
 	end
@@ -61,7 +76,8 @@ local global_map = {
 	{ key = "<leader>bd", cmd = function() delete_wipe_window("bd") end }, -- delete buffer
 	{ key = "<leader>bw", cmd = function() delete_wipe_window("bw") end }, -- wipe buffer
 	{ key = "<leader>bm", cmd = function() toggle_buffer_manager() end }, -- open buffer manager
-	{ key = "<leader>gn", cmd = "Explore" },                             -- open netrw
+	--{ key = "<leader>gn", cmd = "Explore" },                             -- open netrw
+	{ key = "<leader>gn", cmd = function() open_oil() end },             -- open oil
 	{ key = "<leader>cc", cmd = "cc" },                                  -- open first error
 	{ key = "<leader>cn", cmd = "cn" },                                  -- next entry point form the quicklist
 	{ key = "<leader>cp", cmd = "cp" },                                  -- prew entry point form the quicklist
@@ -193,12 +209,18 @@ for _, key in ipairs(packer_map) do
 	vim.keymap.set("n", packer_prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 end
 
-vim.api.nvim_create_autocmd({
-	"VimEnter",
-	"SourcePost",
-}, {
+vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
 	callback = function()
 		M.background_color = vim.o.background
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	callback = function(args)
+		if args.match == "oil" then
+			vim.keymap.set("n", "<C-c>", close_oil, { buffer = true })
+			vim.keymap.set("n", "q", close_oil, { buffer = true })
+		end
 	end,
 })
 
