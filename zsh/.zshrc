@@ -5,13 +5,10 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=true
 #export ARCHFLAGS="-arch -arm64"
 
 # source .zshenv and .zshrc
-alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo "$HOME/.dotfiles/zsh/.zshenv and .zshrc sourced""
+alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo '$HOME/.dotfiles/zsh/.zshenv and .zshrc sourced'"
 
 # pnpm
 alias cocka="pnpm update -g"
-
-# nvim
-#alias nvim="arch -arm64 nvim"
 
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && brew cleanup -s"
@@ -21,10 +18,7 @@ alias bdinstall="arch -arm64 brew bundle --no-lock" # install from dump
 
 alias bree="arch -arm64 brew install"
 
-# jino
-alias jino="ssh -p 49436 strash@ovz2.strash.pr46m.vps.myjino.ru"
-
-alias l="ls -laG"
+alias l="ls -lahG"
 
 alias cd="pushd"
 
@@ -67,7 +61,7 @@ zstyle ':vcs_info:*' stagedstr ●
 zstyle ':vcs_info:*' unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{white}%B%n%b %f %~ ${vcs_info_msg_0_}%(?00%F{red}feck %f)'
+PS1='%F{white}%B%n%b%f %~ ${vcs_info_msg_0_}%(?00%F{red}feck %f)'
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
