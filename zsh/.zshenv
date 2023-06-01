@@ -13,4 +13,5 @@ $HOME/.dotnet/tools:\
 /opt/homebrew/opt/postgresql@15/bin:\
 $HOME/Library/pnpm:\
 $HOME/go/bin:\
+/opt/homebrew/Caskroom/flutter/3.x.x/flutter/bin:\
 

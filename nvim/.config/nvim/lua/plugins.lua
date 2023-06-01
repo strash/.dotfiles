@@ -45,7 +45,6 @@ return require("packer").startup({
 			run = ":TSUpdateSync",
 		})
 
-
 		-- PLUGINS
 		use("~/FOSS/everybody-wants-that-line.nvim")
 		--use("strash/everybody-wants-that-line.nvim")
@@ -54,11 +53,16 @@ return require("packer").startup({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-buffer",
+				--"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-nvim-lsp-signature-help",
 				"L3MON4D3/LuaSnip",
 			},
+		})
+
+		use({
+			"akinsho/flutter-tools.nvim",
+			requires = "nvim-lua/plenary.nvim"
 		})
 
 		use({
