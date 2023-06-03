@@ -6,6 +6,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_cli
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lsp_servers = {
+	"bashls",
 	"clangd",
 	"csharp_ls",
 	"cssls",
@@ -13,8 +14,8 @@ local lsp_servers = {
 	"gopls",
 	"html",
 	"jsonls",
-	"dartls",
 	"tsserver",
+	--"dartls",
 	--"gdscript",
 	--"prismals",
 	--"pylsp",
@@ -124,6 +125,15 @@ nvim_lsp.lua_ls.setup({
 			},
 		},
 	},
+})
+
+-- flutter dart
+require("flutter-tools").setup({
+	lsp = {
+		on_attach = map.set_lsp_map,
+		capabilities = capabilities,
+		flags = flags,
+	}
 })
 
 local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
