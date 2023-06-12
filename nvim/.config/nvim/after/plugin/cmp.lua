@@ -19,10 +19,9 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp",                group_index = 1, priority = 1 },
-		{ name = "luasnip",                 group_index = 2, priority = 3 },
-		{ name = "buffer",                  group_index = 3, priority = 4 },
-		{ name = "calc",                    group_index = 4, priority = 5 },
-		{ name = "nvim_lsp_signature_help", group_index = 5, priority = 2 },
+		{ name = "nvim_lsp_signature_help", group_index = 2, priority = 2 },
+		{ name = "luasnip",                 group_index = 3, priority = 3 },
+		{ name = "buffer",                  group_index = 4, priority = 4 },
 	}),
 	snippet = {
 		expand = function(args)
@@ -43,9 +42,9 @@ cmp.setup({
 	}
 })
 
-cmp.setup.cmdline("/", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "buffer", priority = 7 }
-	}
-})
+--cmp.setup.cmdline("/", {
+--	mapping = cmp.mapping.preset.cmdline(),
+--	sources = {
+--		{ name = "buffer", priority = 7 }
+--	}
+--})
