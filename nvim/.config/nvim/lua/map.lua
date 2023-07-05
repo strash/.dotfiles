@@ -171,7 +171,7 @@ local telescope_map = {
 	{
 		key = "f",
 		cmd = function()
-			require("telescope.builtin").find_files({ hidden = true, no_ignore = true, })
+			require("telescope.builtin").find_files({ hidden = true, })
 		end
 	},
 	{
@@ -211,7 +211,7 @@ end
 -- Package manager
 local packer_prefix = "<leader>p"
 local packer_map = {
-	{ key = "s", cmd = "PackerSync" }
+	{ key = "s", cmd = "Lazy sync" }
 }
 
 for _, key in ipairs(packer_map) do

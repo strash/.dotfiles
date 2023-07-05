@@ -6,7 +6,8 @@ end
 
 opt.background = "dark"
 
-local colo = "kanagawa"
+--local colo = "kanagawa"
+local colo = "mellifluous"
 
 -- COLO KANAGAWA
 local kanagawa_config = {
@@ -20,7 +21,13 @@ local kanagawa_config = {
 		light = "lotus", -- lotus
 	},
 }
-for _, value in ipairs({ "functionStyle", "keywordStyle", "statementStyle", "typeStyle", "variablebuiltinStyle" }) do
+for _, value in ipairs({
+	"functionStyle",
+	"keywordStyle",
+	"statementStyle",
+	"typeStyle",
+	"variablebuiltinStyle",
+}) do
 	kanagawa_config[value] = { bold = true, italic = false }
 end
 require("kanagawa").setup(kanagawa_config)
@@ -34,6 +41,16 @@ vim.g[variant] = {
 	transparent_background = false,
 }
 
+-- COLO MELLIFLUOUS
+local mellifluous_config = {
+	color_set = "mellifluous", -- "mellifluous", "alduin", "mountain", "tender"
+	dim_inactive = true,
+	styles = {
+		comments = { italic = false },
+	},
+}
+require("mellifluous").setup(mellifluous_config)
+
 cmd.colo(colo)
 cmd.filetype("plugin on")
 cmd.filetype("plugin indent on")
@@ -43,6 +60,8 @@ cmd.syntax("on")
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
+opt.cmdheight = 0
+opt.colorcolumn = "+1"
 opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
@@ -62,13 +81,15 @@ opt.listchars = {
 }
 opt.number = true
 opt.relativenumber = true
-opt.shortmess = "aoOstTWI"
+opt.shortmess = "aoOsTW"
 opt.showbreak = ">>"
+opt.showcmd = false
+opt.showcmdloc = "statusline"
+opt.showtabline = 0
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
 opt.textwidth = 80
-opt.colorcolumn = "+1"
 opt.wildmenu = true
 opt.wrap = true
 

@@ -1,7 +1,7 @@
-require("everybody-wants-that-line").setup({
-	buffer = {
-		prefix = "",
-		symbol = "·",
-	},
-	prefix = " "
-})
+--require("everybody-wants-that-line").setup({
+--	buffer = {
+--		prefix = "",
+--		symbol = "·",
+--	},
+--	prefix = " "
+--})

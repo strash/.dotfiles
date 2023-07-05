@@ -1,4 +1,15 @@
-require("_packer_compiled")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
 local plug_autogroup = vim.api.nvim_create_augroup("StrPackGroup", {
 	clear = true
@@ -8,145 +19,154 @@ vim.api.nvim_create_autocmd({
 	"BufWritePost",
 }, {
 	pattern = "*/plugins.lua",
-	command = "source % | PackerSync",
+	command = "Lazy sync",
 	group = plug_autogroup
 })
 
-return require("packer").startup({
-	config = {
-		compile_path = vim.fn.stdpath("config") .. "/lua/_packer_compiled.lua",
-		autoremove = true,
-		display = {
-			open_fn = function()
-				return require("packer.util").float({ border = "rounded" })
-			end
-		}
+return require("lazy").setup({
+	-- COLORS
+	{
+		"rebelot/kanagawa.nvim",
+		build = ":KanagawaCompile",
 	},
-	function(use)
-		use("wbthomason/packer.nvim")
+
+	{
+		"mcchrish/zenbones.nvim",
+		dependencies = { "rktjmp/lush.nvim" },
+	},
+
+	{
+		"ramojus/mellifluous.nvim",
+	},
 
 
-		-- COLORS
-		use({
-			"rebelot/kanagawa.nvim",
-			run = ":KanagawaCompile",
-		})
+	-- CORE
+	{
+		"neovim/nvim-lspconfig",
+	},
 
-		use({
-			"mcchrish/zenbones.nvim",
-			requires = "rktjmp/lush.nvim",
-		})
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdateSync",
+	},
 
-		-- CORE
-		use("neovim/nvim-lspconfig")
+	-- PLUGINS
+	{
+		"strash/everybody-wants-that-line.nvim",
+		dev = true,
+	},
 
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdateSync",
-		})
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"L3MON4D3/LuaSnip",
+		},
+	},
 
-		-- PLUGINS
-		use("~/FOSS/everybody-wants-that-line.nvim")
-		--use("strash/everybody-wants-that-line.nvim")
+	{
+		"akinsho/flutter-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		ft = "dart",
+	},
 
-		use({
-			"hrsh7th/nvim-cmp",
-			requires = {
-				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-nvim-lsp-signature-help",
-				"L3MON4D3/LuaSnip",
-			},
-		})
+	{
+		"NeogitOrg/neogit",
+		dependencies = "nvim-lua/plenary.nvim",
+		init = function()
+			require("neogit").setup({
+				kind = "split",
+				disable_commit_confirmation = true,
+				disable_insert_on_commit = true,
+			})
+		end
+	},
 
-		use({
-			"akinsho/flutter-tools.nvim",
-			requires = "nvim-lua/plenary.nvim"
-		})
+	{
+		"j-morano/buffer_manager.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		init = function()
+			require("buffer_manager").setup({
+				width = 100,
+				height = 12,
+				focus_alternate_buffer = true,
+				short_file_names = true,
+				short_term_names = true,
+			})
+		end
+	},
 
-		use({
-			"TimUntersberger/neogit",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("neogit").setup({
-					kind = "split",
-					disable_commit_confirmation = true,
-					disable_insert_on_commit = true,
-				})
-			end
-		})
-
-		use({
-			"j-morano/buffer_manager.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("buffer_manager").setup({
+	{
+		"stevearc/oil.nvim",
+		init = function()
+			require("oil").setup({
+				columns = {},
+				view_options = {
+					show_hidden = true,
+				},
+				progress = {
 					width = 100,
 					height = 12,
-					focus_alternate_buffer = true,
-					short_file_names = true,
-					short_term_names = true,
-				})
-			end
-		})
+					win_options = {
+						winblend = 0,
+					},
+				},
+			})
+		end
+	},
 
-		use {
-			"stevearc/oil.nvim",
-			config = function()
-				require("oil").setup({
-					columns = {},
-					view_options = {
-						show_hidden = true,
-					},
-					progress = {
-						width = 100,
-						height = 12,
-						win_options = {
-							winblend = 0,
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		init = function()
+			require("telescope").setup({
+				defaults = {
+					sorting_strategy = "ascending",
+					layout_config = {
+						horizontal = {
+							height = 0.8,
+							prompt_position = "top",
+							width = 0.5
 						},
 					},
-				})
-			end
-		}
-
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("telescope").setup({
-					defaults = {
-						sorting_strategy = "ascending",
-						layout_config = {
-							horizontal = {
-								height = 0.8,
-								prompt_position = "top",
-								width = 0.5
-							},
-						},
-						prompt_prefix = " ",
-						path_display = { "absolute" },
-						history = false,
-						cache_picker = false,
-						preview = false,
-						color_devicons = false,
-						file_ignore_patterns = {
-							".DS_Store",
-							".git/",
-							".import/",
-							".godot/",
-							".android/build/",
-							"node_modules/",
-							"dist/",
-							"prisma/migrations/",
-							"target/",
-							"mini.nvim",
-							"obj/",
-							"bin/",
-						},
+					prompt_prefix = " ",
+					path_display = { "absolute" },
+					history = false,
+					cache_picker = false,
+					preview = false,
+					color_devicons = false,
+					file_ignore_patterns = {
+						".DS_Store",
+						".git/",
+						".import/",
+						".godot/",
+						".android/build/",
+						"node_modules/",
+						"dist/",
+						"prisma/migrations/",
+						"target/",
+						"mini.nvim",
+						"obj/",
+						"bin/",
 					},
-				})
-			end
-		})
-	end
+				},
+			})
+		end
+	},
+}, {
+	defaults = {
+		lazy = false,
+	},
+	dev = {
+		path = "~/FOSS",
+	},
+	checker = {
+		notify = false,
+	},
+	change_detection = {
+		notify = false,
+	},
 })
