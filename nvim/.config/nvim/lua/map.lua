@@ -14,6 +14,7 @@ local options = {
 
 M.background_color = vim.opt.background
 M.last_opened_dir = "."
+M.is_diffview_open = false
 
 local toggle_background_color = function()
 	if M.background_color == "dark" then
@@ -57,7 +58,7 @@ end
 
 -- neogit
 local open_neogit_window = function()
-	neogit.open()
+	neogit.open({})
 end
 
 -- oil.nvim
@@ -77,6 +78,16 @@ local close_oil = function()
 	oil.close()
 end
 
+-- diffview
+local toggle_diffview = function()
+	if M.is_diffview_open then
+		vim.cmd([[DiffviewClose]])
+	else
+		vim.cmd([[DiffviewOpen]])
+	end
+	M.is_diffview_open = not M.is_diffview_open
+end
+
 -- Global
 local global_map = {
 	{ key = "<Tab>",      cmd = "bn" },                                  -- next buffer
@@ -94,6 +105,7 @@ local global_map = {
 	{ key = "<leader>gt", cmd = function() open_terminal() end },        -- open terminal window
 	{ key = "<leader>bb", cmd = function() toggle_background_color() end }, -- toggle background color
 	{ key = "<leader>gg", cmd = function() open_neogit_window() end },   -- open neogit
+	{ key = "<leader>dd", cmd = function() toggle_diffview() end },      -- toggle diffview
 }
 
 for _, key in ipairs(global_map) do

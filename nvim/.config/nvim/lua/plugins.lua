@@ -25,37 +25,40 @@ vim.api.nvim_create_autocmd({
 
 return require("lazy").setup({
 	-- COLORS
+	-- kanagawa
 	{
 		"rebelot/kanagawa.nvim",
 		build = ":KanagawaCompile",
 	},
-
+	-- zenbones
 	{
 		"mcchrish/zenbones.nvim",
 		dependencies = { "rktjmp/lush.nvim" },
 	},
-
+	-- mellifluous
 	{
 		"ramojus/mellifluous.nvim",
 	},
 
 
 	-- CORE
+	-- lsp config
 	{
 		"neovim/nvim-lspconfig",
 	},
-
+	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdateSync",
 	},
 
 	-- PLUGINS
+	-- everybody wants that line
 	{
 		"strash/everybody-wants-that-line.nvim",
 		dev = true,
 	},
-
+	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -66,13 +69,13 @@ return require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 		},
 	},
-
+	-- flutter tools
 	{
 		"akinsho/flutter-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		ft = "dart",
 	},
-
+	-- neogit
 	{
 		"NeogitOrg/neogit",
 		dependencies = "nvim-lua/plenary.nvim",
@@ -84,7 +87,11 @@ return require("lazy").setup({
 			})
 		end
 	},
-
+	-- diffview
+	{
+		"sindrets/diffview.nvim",
+	},
+	-- buffer manager
 	{
 		"j-morano/buffer_manager.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
@@ -98,7 +105,7 @@ return require("lazy").setup({
 			})
 		end
 	},
-
+	-- oil
 	{
 		"stevearc/oil.nvim",
 		init = function()
@@ -117,7 +124,7 @@ return require("lazy").setup({
 			})
 		end
 	},
-
+	-- telescope
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
