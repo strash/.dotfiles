@@ -70,11 +70,11 @@ opt.formatoptions = "cqjp"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.laststatus = 2
+opt.laststatus = 3
 opt.list = true
 opt.listchars = {
-	--tab = "⎸ ",
-	tab = "  ",
+	tab = "⎸ ",
+	--tab = "  ",
 	trail = "✕",
 	precedes = "<",
 	nbsp = "%",
