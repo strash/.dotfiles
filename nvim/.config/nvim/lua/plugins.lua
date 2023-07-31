@@ -176,4 +176,7 @@ return require("lazy").setup({
 	change_detection = {
 		notify = false,
 	},
+	readme = {
+		enabled = false,
+	},
 })
