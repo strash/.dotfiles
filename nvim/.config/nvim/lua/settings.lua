@@ -6,8 +6,9 @@ end
 
 opt.background = "dark"
 
+local colo = "zenwritten"
 --local colo = "kanagawa"
-local colo = "mellifluous"
+--local colo = "mellifluous"
 
 -- COLO KANAGAWA
 local kanagawa_config = {
@@ -44,7 +45,7 @@ vim.g[variant] = {
 -- COLO MELLIFLUOUS
 local mellifluous_config = {
 	color_set = "mellifluous", -- "mellifluous", "alduin", "mountain", "tender"
-	dim_inactive = true,
+	dim_inactive = false,
 	styles = {
 		comments = { italic = false },
 	},
@@ -60,7 +61,7 @@ cmd.syntax("on")
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.colorcolumn = "+1"
 opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
@@ -70,7 +71,7 @@ opt.formatoptions = "cqjp"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.laststatus = 3
+opt.laststatus = 0
 opt.list = true
 opt.listchars = {
 	tab = "⎸ ",

@@ -14,7 +14,7 @@ UU.merge_config(LM, M)
 UU.merge_config(KM, M)
 
 -- font
-local font_family = "Iosevka Term SS04"
+local font_family = "Iosevka Term SS05"
 M.font_size = 15
 M.line_height = 1.05
 M.dpi = 144.0

@@ -58,6 +58,9 @@ return require("lazy").setup({
 		"strash/everybody-wants-that-line.nvim",
 		dev = true,
 	},
+	{
+		"b0o/incline.nvim",
+	},
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
