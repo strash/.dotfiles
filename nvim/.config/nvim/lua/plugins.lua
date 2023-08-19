@@ -72,6 +72,11 @@ return require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 		},
 	},
+	-- indent scope
+	{
+		"echasnovski/mini.indentscope",
+		version = false,
+	},
 	-- flutter tools
 	{
 		"akinsho/flutter-tools.nvim",

@@ -68,14 +68,15 @@ opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
 opt.formatoptions = "cqjp"
+opt.foldcolumn = "auto"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.laststatus = 0
+opt.laststatus = 3
 opt.list = true
 opt.listchars = {
-	tab = "⎸ ",
-	--tab = "  ",
+	--tab = "⎸ ",
+	tab = "  ",
 	trail = "✕",
 	precedes = "<",
 	nbsp = "%",
@@ -103,4 +104,4 @@ opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
 
-opt.statuscolumn = " %s%=%{v:relnum?v:relnum:v:lnum} "
+opt.statuscolumn = "%C %s%=%{v:relnum?v:relnum:v:lnum} "

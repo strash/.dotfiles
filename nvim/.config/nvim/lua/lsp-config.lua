@@ -133,7 +133,12 @@ require("flutter-tools").setup({
 		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
-	}
+		settings = {
+			lineLength = vim.o.textwidth,
+			renameFilesWithClasses = "always",
+			documentation = "full",
+		}
+	},
 })
 
 local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
