@@ -10,7 +10,7 @@ M.proj_dirs = {
 	"GAMEDEV",
 	"RUST",
 	"WEBDEV",
-	"go/src",
+	"go/src/github.com/strash",
 }
 
 M.config = {

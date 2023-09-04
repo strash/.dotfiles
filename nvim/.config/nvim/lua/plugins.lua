@@ -36,16 +36,12 @@ return require("lazy").setup({
 		dependencies = { "rktjmp/lush.nvim" },
 	},
 	-- mellifluous
-	{
-		"ramojus/mellifluous.nvim",
-	},
+	{ "ramojus/mellifluous.nvim" },
 
 
 	-- CORE
 	-- lsp config
-	{
-		"neovim/nvim-lspconfig",
-	},
+	{ "neovim/nvim-lspconfig" },
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -58,9 +54,8 @@ return require("lazy").setup({
 		"strash/everybody-wants-that-line.nvim",
 		dev = true,
 	},
-	{
-		"b0o/incline.nvim",
-	},
+	-- incline
+	{ "b0o/incline.nvim" },
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
@@ -72,11 +67,6 @@ return require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 		},
 	},
-	-- indent scope
-	{
-		"echasnovski/mini.indentscope",
-		version = false,
-	},
 	-- flutter tools
 	{
 		"akinsho/flutter-tools.nvim",
@@ -87,89 +77,22 @@ return require("lazy").setup({
 	{
 		"NeogitOrg/neogit",
 		dependencies = "nvim-lua/plenary.nvim",
-		init = function()
-			require("neogit").setup({
-				kind = "split",
-				disable_commit_confirmation = true,
-				disable_insert_on_commit = true,
-			})
-		end
 	},
 	-- diffview
-	{
-		"sindrets/diffview.nvim",
-	},
+	{ "sindrets/diffview.nvim" },
 	-- buffer manager
 	{
 		"j-morano/buffer_manager.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
-		init = function()
-			require("buffer_manager").setup({
-				width = 100,
-				height = 12,
-				focus_alternate_buffer = true,
-				short_file_names = true,
-				short_term_names = true,
-			})
-		end
 	},
 	-- oil
-	{
-		"stevearc/oil.nvim",
-		init = function()
-			require("oil").setup({
-				columns = {},
-				view_options = {
-					show_hidden = true,
-				},
-				progress = {
-					width = 100,
-					height = 12,
-					win_options = {
-						winblend = 0,
-					},
-				},
-			})
-		end
-	},
+	{ "stevearc/oil.nvim" },
+	-- fzf lua
+	{ "ibhagwan/fzf-lua" },
 	-- telescope
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
-		init = function()
-			require("telescope").setup({
-				defaults = {
-					sorting_strategy = "ascending",
-					layout_config = {
-						horizontal = {
-							height = 0.8,
-							prompt_position = "top",
-							width = 0.5
-						},
-					},
-					prompt_prefix = " ",
-					path_display = { "absolute" },
-					history = false,
-					cache_picker = false,
-					preview = false,
-					color_devicons = false,
-					file_ignore_patterns = {
-						".DS_Store",
-						".git/",
-						".import/",
-						".godot/",
-						".android/build/",
-						"node_modules/",
-						"dist/",
-						"prisma/migrations/",
-						"target/",
-						"mini.nvim",
-						"obj/",
-						"bin/",
-					},
-				},
-			})
-		end
 	},
 }, {
 	defaults = {

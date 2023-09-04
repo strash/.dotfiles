@@ -6,9 +6,9 @@ end
 
 opt.background = "dark"
 
-local colo = "zenwritten"
+--local colo = "zenwritten"
 --local colo = "kanagawa"
---local colo = "mellifluous"
+local colo = "mellifluous"
 
 -- COLO KANAGAWA
 local kanagawa_config = {
@@ -75,8 +75,8 @@ opt.inccommand = "split"
 opt.laststatus = 3
 opt.list = true
 opt.listchars = {
-	--tab = "⎸ ",
-	tab = "  ",
+	tab = "⎸ ",
+	--tab = "  ",
 	trail = "✕",
 	precedes = "<",
 	nbsp = "%",

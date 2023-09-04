@@ -63,18 +63,19 @@ end
 
 -- oil.nvim
 local open_oil = function()
-	oil.open(M.last_opened_dir)
+	--oil.open(M.last_opened_dir)
+	oil.open()
 end
 
 local open_oil_buffer = function(opts)
-	M.last_opened_dir = oil.get_current_dir()
-	oil.save({ confirm = false })
+	--M.last_opened_dir = oil.get_current_dir()
+	--oil.save({ confirm = false })
 	oil.select(opts)
 end
 
 local close_oil = function()
-	M.last_opened_dir = oil.get_current_dir()
-	oil.save({ confirm = false })
+	--M.last_opened_dir = oil.get_current_dir()
+	--oil.save({ confirm = false })
 	oil.close()
 end
 
@@ -114,9 +115,9 @@ for _, key in ipairs(global_map) do
 	else
 		vim.keymap.set("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
 	end
-	vim.keymap.set("i", "<C-C>", "<Esc>", options)                                           -- exit enstert mode
-	vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options)                                  -- exit insert mode in terminal
-	vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
+	vim.keymap.set("i", "<C-C>", "<Esc>", options)       -- exit enstert mode
+	vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
+	--vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
 end
 
 -- LSP
@@ -167,6 +168,30 @@ function M.set_lsp_map(_, bufnr)
 	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", vim.lsp.buf.code_action, opts)
 
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+end
+
+-- Fzf
+local fzf_prefix = "<leader>f"
+local fzf_map = {
+	{ key = "f",  cmd = function() require("fzf-lua").files() end },              -- files
+	{ key = "q",  cmd = function() require("fzf-lua").quickfix() end },           -- quickfix
+	{ key = "g",  cmd = function() require("fzf-lua").live_grep() end },          -- live grep
+	{ key = "lr", cmd = function() require("fzf-lua").lsp_references() end },     -- lsp references
+	{ key = "ld", cmd = function() require("fzf-lua").lsp_definitions() end },    -- lsp definitions
+	{ key = "lg", cmd = function() require("fzf-lua").lsp_declarations() end },   -- lsp declarations
+	{ key = "lt", cmd = function() require("fzf-lua").lsp_typedefs() end },       -- lsp typedefs
+	{ key = "li", cmd = function() require("fzf-lua").lsp_implementations() end }, -- lsp implementations
+	{ key = "la", cmd = function() require("fzf-lua").lsp_code_actions() end },   -- lsp code actions
+	{ key = "lf", cmd = function() require("fzf-lua").lsp_finder() end },         -- lsp finder for things under cursor
+	{ key = "lq", cmd = function() require("fzf-lua").diagnostics_workspace() end }, -- lsp diagnostics workspace
+}
+
+for _, key in ipairs(fzf_map) do
+	if type(key.cmd) == "function" then
+		vim.keymap.set("n", fzf_prefix .. key.key, key.cmd, options)
+	else
+		vim.keymap.set("n", fzf_prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
+	end
 end
 
 -- Telescope
@@ -240,8 +265,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = function(args)
 		if args.match == "oil" then
 			vim.keymap.set("n", "<CR>", function() open_oil_buffer(nil) end, { buffer = true })
-			vim.keymap.set("n", "<C-v>", function() open_oil_buffer({ vertical = true, }) end, { buffer = true })
-			vim.keymap.set("n", "<C-s>", function() open_oil_buffer({ horizontal = true, }) end, { buffer = true })
+			--vim.keymap.set("n", "<C-v>", function() open_oil_buffer({ vertical = true, }) end, { buffer = true })
+			--vim.keymap.set("n", "<C-s>", function() open_oil_buffer({ horizontal = true, }) end, { buffer = true })
 			vim.keymap.set("n", "<C-c>", function() close_oil() end, { buffer = true })
 			vim.keymap.set("n", "<Esc>", function() close_oil() end, { buffer = true })
 			vim.keymap.set("n", "q", function() close_oil() end, { buffer = true })
