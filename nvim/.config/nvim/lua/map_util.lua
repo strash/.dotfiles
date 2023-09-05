@@ -10,10 +10,24 @@ local exclude = {
 	},
 	by_filetype = {
 		{
-			ft = "dart",
-			paths = {
-				[[\.dart_tool]], "android", "ios", "build",
-			},
+			ft = { "dart" },
+			path = { [[\.dart_tool]], "android", "ios", "build", },
+		},
+		{
+			ft = { "go" },
+			path = { "media", },
+		},
+		{
+			ft = { "gd", "gdscript", "gdscript3", "res", "tres", "shader", "godot" },
+			fath = { [[\.import]], [[\.godot]], [[\.android/build]] },
+		},
+		{
+			ft = { "js", "ts" },
+			fath = { "node_modules", "prisma/migrations" },
+		},
+		{
+			ft = { "lua" },
+			fath = { "mini.nvim" },
 		},
 	}
 }
@@ -41,15 +55,19 @@ function M.find_files()
 			client["config"]["filetypes"] ~= nil then
 			local ft = client["config"]["filetypes"]
 			for _, value in ipairs(exclude.by_filetype) do
-				if vim.tbl_contains(ft, value.ft) then
-					ex = ex .. " -o " .. concat_find_path(value.paths, cwd)
-					break
+				local done = false
+				for _, filetype in ipairs(value.ft) do
+					if vim.tbl_contains(ft, filetype) then
+						ex = ex .. " -o " .. concat_find_path(value.path, cwd)
+						done = true
+						break
+					end
+					if done then break end
 				end
 			end
 		end
 	end
 	local cmd = [[find ]] .. cwd .. [[ -type f -not \(]] .. ex .. [[\)]]
-	vim.print(cmd)
 	return cmd
 end
 
