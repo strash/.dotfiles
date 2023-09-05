@@ -6,7 +6,7 @@ require("fzf-lua").setup({
 			horizontal = "right:50%",
 		},
 	},
-	files = {
-		cmd = "find " .. vim.fn.getcwd() .. [[ -type f -not -path '*/\.git/*']],
-	},
+	--files = {
+	--	cmd = "find " .. vim.fn.getcwd() .. [[ -type f -not -path '*/\.git/*']],
+	--},
 })

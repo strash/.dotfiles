@@ -1,8 +1,6 @@
-local M = {}
+local map_util = require("map_util")
 
-local neogit = require("neogit")
-local buffer_manager_ui = require("buffer_manager.ui")
-local oil = require("oil")
+local M = {}
 
 -- leader key
 vim.g.mapleader = " "
@@ -12,114 +10,25 @@ local options = {
 	silent = true,
 }
 
-M.background_color = vim.opt.background
-M.last_opened_dir = "."
-M.is_diffview_open = false
-
-local toggle_background_color = function()
-	if M.background_color == "dark" then
-		M.background_color = "light"
-		print(" lights on +")
-	else
-		M.background_color = "dark"
-		print(" lights off -")
-	end
-	vim.opt.background = M.background_color
-end
-
-local delete_wipe_window = function(cmd)
-	local mode = vim.fn.mode()
-	if type(mode) == "string" then
-		if (mode == "t" or mode:sub(0, 1) == "n") and vim.o.buftype == "terminal" then
-			vim.cmd(cmd .. "!")
-		else
-			vim.cmd(cmd)
-		end
-	end
-end
-
-local open_terminal = function()
-	vim.cmd("split | startinsert | terminal")
-end
-
---local grep_word_under_cursor = function()
---	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$") or vim.o.filetype
---	if filetype then
---		vim.api.nvim_input([[:vim <C-R><C-W> **/*]] .. filetype .. [[<CR>:cope<CR>]])
---	else
---		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
---	end
---end
-
--- buffer manager
-local toggle_buffer_manager = function()
-	buffer_manager_ui.toggle_quick_menu()
-end
-
--- neogit
-local open_neogit_window = function()
-	neogit.open({})
-end
-
--- oil.nvim
-local open_oil = function()
-	--oil.open(M.last_opened_dir)
-	oil.open()
-end
-
-local open_oil_buffer = function(opts)
-	--M.last_opened_dir = oil.get_current_dir()
-	--oil.save({ confirm = false })
-	oil.select(opts)
-end
-
-local close_oil = function()
-	--M.last_opened_dir = oil.get_current_dir()
-	--oil.save({ confirm = false })
-	oil.close()
-end
-
--- diffview
-local toggle_diffview = function()
-	if M.is_diffview_open then
-		vim.cmd([[DiffviewClose]])
-	else
-		vim.cmd([[DiffviewOpen]])
-	end
-	M.is_diffview_open = not M.is_diffview_open
-end
-
--- keymap helper
-local set_keymap = function(map, prefix, opts)
-	for _, key in ipairs(map) do
-		if type(key.cmd) == "function" then
-			vim.keymap.set("n", prefix .. key.key, key.cmd, opts)
-		else
-			vim.keymap.set("n", prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
-		end
-	end
-end
-
 -- Global
 local global_map = {
-	{ key = "<Tab>",      cmd = "bn" },                                  -- next buffer
-	{ key = "<S-Tab>",    cmd = "bp" },                                  -- prev buffer
-	{ key = "<leader>w",  cmd = "wa" },                                  -- write all buffers
-	{ key = "<leader>bd", cmd = function() delete_wipe_window("bd") end }, -- delete buffer
-	{ key = "<leader>bw", cmd = function() delete_wipe_window("bw") end }, -- wipe buffer
-	{ key = "<leader>bm", cmd = function() toggle_buffer_manager() end }, -- open buffer manager
-	--{ key = "<leader>gn", cmd = "Explore" },                             -- open netrw
-	{ key = "<leader>gn", cmd = function() open_oil() end },             -- open oil
-	{ key = "<leader>cc", cmd = "cc" },                                  -- open first error
-	{ key = "<leader>cn", cmd = "cn" },                                  -- next entry point form the quicklist
-	{ key = "<leader>cp", cmd = "cp" },                                  -- prew entry point form the quicklist
-	{ key = "<leader>gr", cmd = "so %" },                                -- source nvim config
-	{ key = "<leader>gt", cmd = function() open_terminal() end },        -- open terminal window
-	{ key = "<leader>bb", cmd = function() toggle_background_color() end }, -- toggle background color
-	{ key = "<leader>gg", cmd = function() open_neogit_window() end },   -- open neogit
-	{ key = "<leader>dd", cmd = function() toggle_diffview() end },      -- toggle diffview
+	{ key = "<Tab>",      cmd = "bn" },                                           -- next buffer
+	{ key = "<S-Tab>",    cmd = "bp" },                                           -- prev buffer
+	{ key = "<leader>w",  cmd = "wa" },                                           -- write all buffers
+	{ key = "<leader>bd", cmd = function() map_util.delete_wipe_window("bd") end }, -- delete buffer
+	{ key = "<leader>bw", cmd = function() map_util.delete_wipe_window("bw") end }, -- wipe buffer
+	{ key = "<leader>bm", cmd = function() map_util.toggle_buffer_manager() end }, -- open buffer manager
+	{ key = "<leader>gn", cmd = function() map_util.open_oil() end },             -- open oil
+	{ key = "<leader>cc", cmd = "cc" },                                           -- open first error
+	{ key = "<leader>cn", cmd = "cn" },                                           -- next entry point form the quicklist
+	{ key = "<leader>cp", cmd = "cp" },                                           -- prew entry point form the quicklist
+	{ key = "<leader>gr", cmd = "so %" },                                         -- source nvim config
+	{ key = "<leader>gt", cmd = function() map_util.open_terminal() end },        -- open terminal window
+	{ key = "<leader>bb", cmd = function() map_util.toggle_background_color() end }, -- toggle background color
+	{ key = "<leader>gg", cmd = function() map_util.open_neogit_window() end },   -- open neogit
+	{ key = "<leader>dd", cmd = function() map_util.toggle_diffview() end },      -- toggle diffview
 }
-set_keymap(global_map, "", options)
+map_util.set_keymap(global_map, "", options)
 vim.keymap.set("i", "<C-C>", "<Esc>", options)          -- exit enstert mode
 vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
 --vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
@@ -162,39 +71,36 @@ function M.set_lsp_map(_, bufnr)
 		{ key = "n", cmd = function() vim.diagnostic.goto_next() end },
 		{ key = "q", cmd = function() vim.diagnostic.setqflist() end },
 	}
-	set_keymap(lsp_map, lsp_prefix, opts)
+	map_util.set_keymap(lsp_map, lsp_prefix, opts)
 	--vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", vim.lsp.buf.code_action, opts)
 	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", function() require("fzf-lua").lsp_code_actions() end, opts)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
+-- Package manager
+local packer_prefix = "<leader>p"
+local packer_map = {
+	{ key = "s", cmd = "Lazy sync" }
+}
+map_util.set_keymap(packer_map, packer_prefix, options)
+
 -- Fzf
 local fzf_prefix = "<leader>f"
 local fzf_map = {
-	{ key = "f",  cmd = function() require("fzf-lua").files() end },              -- files
-	{ key = "q",  cmd = function() require("fzf-lua").quickfix() end },           -- quickfix
-	{ key = "gl", cmd = function() require("fzf-lua").live_grep() end },          -- live grep
-	{ key = "lr", cmd = function() require("fzf-lua").lsp_references() end },     -- lsp references
-	{ key = "ld", cmd = function() require("fzf-lua").lsp_definitions() end },    -- lsp definitions
-	{ key = "lg", cmd = function() require("fzf-lua").lsp_declarations() end },   -- lsp declarations
-	{ key = "lt", cmd = function() require("fzf-lua").lsp_typedefs() end },       -- lsp typedefs
-	{ key = "li", cmd = function() require("fzf-lua").lsp_implementations() end }, -- lsp implementations
-	{ key = "la", cmd = function() require("fzf-lua").lsp_code_actions() end },   -- lsp code actions
-	{ key = "lf", cmd = function() require("fzf-lua").lsp_finder() end },         -- lsp finder for things under cursor
-	{ key = "lq", cmd = function() require("fzf-lua").diagnostics_workspace() end }, -- lsp diagnostics workspace
+	{ key = "f",  cmd = function() require("fzf-lua").files({ cmd = map_util.find_files() }) end }, -- files
+	{ key = "q",  cmd = function() require("fzf-lua").quickfix() end },                          -- quickfix
+	{ key = "gl", cmd = function() require("fzf-lua").live_grep() end },                         -- live grep
+	{ key = "lr", cmd = function() require("fzf-lua").lsp_references() end },                    -- lsp references
+	{ key = "ld", cmd = function() require("fzf-lua").lsp_definitions() end },                   -- lsp definitions
+	{ key = "lg", cmd = function() require("fzf-lua").lsp_declarations() end },                  -- lsp declarations
+	{ key = "lt", cmd = function() require("fzf-lua").lsp_typedefs() end },                      -- lsp typedefs
+	{ key = "li", cmd = function() require("fzf-lua").lsp_implementations() end },               -- lsp implementations
+	{ key = "la", cmd = function() require("fzf-lua").lsp_code_actions() end },                  -- lsp code actions
+	{ key = "lf", cmd = function() require("fzf-lua").lsp_finder() end },                        -- lsp finder for things under cursor
+	{ key = "lq", cmd = function() require("fzf-lua").diagnostics_workspace() end },             -- lsp diagnostics workspace
 }
-set_keymap(fzf_map, fzf_prefix, options)
-local fzf_grep_word = function()
-	local mode = vim.api.nvim_get_mode()["mode"]
-	if mode ~= nil and type(mode) == "string" and #mode > 0 then
-		if string.sub(mode, 0):lower() == "n" then
-			vim.api.nvim_input([[viw:lua require("fzf-lua").grep_visual()<CR>]])
-		else
-			require("fzf-lua").grep_visual()
-		end
-	end
-end
-vim.keymap.set({ "n", "v" }, "<leader>fgg", fzf_grep_word, options)
+map_util.set_keymap(fzf_map, fzf_prefix, options)
+vim.keymap.set({ "n", "v" }, "<leader>fgg", function() map_util.fzf_grep_word() end, options)
 
 -- Telescope
 --local telescope_prefix = "<leader>t"
@@ -242,32 +148,6 @@ vim.keymap.set({ "n", "v" }, "<leader>fgg", fzf_grep_word, options)
 --	},
 --	{ key = "r", cmd = function() require("telescope.builtin").registers() end },
 --}
---set_keymap(telescope_map, telescope_prefix, options)
-
--- Package manager
-local packer_prefix = "<leader>p"
-local packer_map = {
-	{ key = "s", cmd = "Lazy sync" }
-}
-set_keymap(packer_map, packer_prefix, options)
-
-vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
-	callback = function()
-		M.background_color = vim.o.background
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	callback = function(args)
-		if args.match == "oil" then
-			vim.keymap.set("n", "<CR>", function() open_oil_buffer(nil) end, { buffer = true })
-			--vim.keymap.set("n", "<C-v>", function() open_oil_buffer({ vertical = true, }) end, { buffer = true })
-			--vim.keymap.set("n", "<C-s>", function() open_oil_buffer({ horizontal = true, }) end, { buffer = true })
-			vim.keymap.set("n", "<C-c>", function() close_oil() end, { buffer = true })
-			vim.keymap.set("n", "<Esc>", function() close_oil() end, { buffer = true })
-			vim.keymap.set("n", "q", function() close_oil() end, { buffer = true })
-		end
-	end,
-})
+--map_util.set_keymap(telescope_map, telescope_prefix, options)
 
 return M
