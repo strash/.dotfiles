@@ -42,14 +42,14 @@ local open_terminal = function()
 	vim.cmd("split | startinsert | terminal")
 end
 
-local grep_word_under_cursor = function()
-	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$") or vim.o.filetype
-	if filetype then
-		vim.api.nvim_input([[:vim <C-R><C-W> **/*]] .. filetype .. [[<CR>:cope<CR>]])
-	else
-		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
-	end
-end
+--local grep_word_under_cursor = function()
+--	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$") or vim.o.filetype
+--	if filetype then
+--		vim.api.nvim_input([[:vim <C-R><C-W> **/*]] .. filetype .. [[<CR>:cope<CR>]])
+--	else
+--		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
+--	end
+--end
 
 -- buffer manager
 local toggle_buffer_manager = function()
@@ -89,6 +89,17 @@ local toggle_diffview = function()
 	M.is_diffview_open = not M.is_diffview_open
 end
 
+-- keymap helper
+local set_keymap = function(map, prefix, opts)
+	for _, key in ipairs(map) do
+		if type(key.cmd) == "function" then
+			vim.keymap.set("n", prefix .. key.key, key.cmd, opts)
+		else
+			vim.keymap.set("n", prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
+		end
+	end
+end
+
 -- Global
 local global_map = {
 	{ key = "<Tab>",      cmd = "bn" },                                  -- next buffer
@@ -108,17 +119,10 @@ local global_map = {
 	{ key = "<leader>gg", cmd = function() open_neogit_window() end },   -- open neogit
 	{ key = "<leader>dd", cmd = function() toggle_diffview() end },      -- toggle diffview
 }
-
-for _, key in ipairs(global_map) do
-	if type(key.cmd) == "function" then
-		vim.keymap.set("n", key.key, key.cmd, options)
-	else
-		vim.keymap.set("n", key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
-	end
-	vim.keymap.set("i", "<C-C>", "<Esc>", options)       -- exit enstert mode
-	vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
-	--vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
-end
+set_keymap(global_map, "", options)
+vim.keymap.set("i", "<C-C>", "<Esc>", options)          -- exit enstert mode
+vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
+--vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
 
 -- LSP
 local opt = {
@@ -134,7 +138,6 @@ local opt = {
 	focus = true,
 	noautocmd = true,
 }
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 	vim.lsp.handlers.hover, opt
 )
@@ -143,10 +146,8 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 )
 
 local lsp_prefix = "<leader>s"
-
 function M.set_lsp_map(_, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
-
 	local lsp_map = {
 		{ key = "h", cmd = function() vim.lsp.buf.hover() end },
 		{ key = "r", cmd = function() vim.lsp.buf.rename() end },
@@ -161,12 +162,9 @@ function M.set_lsp_map(_, bufnr)
 		{ key = "n", cmd = function() vim.diagnostic.goto_next() end },
 		{ key = "q", cmd = function() vim.diagnostic.setqflist() end },
 	}
-
-	for _, key in ipairs(lsp_map) do
-		vim.keymap.set("n", lsp_prefix .. key.key, key.cmd, opts)
-	end
-	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", vim.lsp.buf.code_action, opts)
-
+	set_keymap(lsp_map, lsp_prefix, opts)
+	--vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", vim.lsp.buf.code_action, opts)
+	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", function() require("fzf-lua").lsp_code_actions() end, opts)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
@@ -175,7 +173,7 @@ local fzf_prefix = "<leader>f"
 local fzf_map = {
 	{ key = "f",  cmd = function() require("fzf-lua").files() end },              -- files
 	{ key = "q",  cmd = function() require("fzf-lua").quickfix() end },           -- quickfix
-	{ key = "g",  cmd = function() require("fzf-lua").live_grep() end },          -- live grep
+	{ key = "gl", cmd = function() require("fzf-lua").live_grep() end },          -- live grep
 	{ key = "lr", cmd = function() require("fzf-lua").lsp_references() end },     -- lsp references
 	{ key = "ld", cmd = function() require("fzf-lua").lsp_definitions() end },    -- lsp definitions
 	{ key = "lg", cmd = function() require("fzf-lua").lsp_declarations() end },   -- lsp declarations
@@ -185,75 +183,73 @@ local fzf_map = {
 	{ key = "lf", cmd = function() require("fzf-lua").lsp_finder() end },         -- lsp finder for things under cursor
 	{ key = "lq", cmd = function() require("fzf-lua").diagnostics_workspace() end }, -- lsp diagnostics workspace
 }
-
-for _, key in ipairs(fzf_map) do
-	if type(key.cmd) == "function" then
-		vim.keymap.set("n", fzf_prefix .. key.key, key.cmd, options)
-	else
-		vim.keymap.set("n", fzf_prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
+set_keymap(fzf_map, fzf_prefix, options)
+local fzf_grep_word = function()
+	local mode = vim.api.nvim_get_mode()["mode"]
+	if mode ~= nil and type(mode) == "string" and #mode > 0 then
+		if string.sub(mode, 0):lower() == "n" then
+			vim.api.nvim_input([[viw:lua require("fzf-lua").grep_visual()<CR>]])
+		else
+			require("fzf-lua").grep_visual()
+		end
 	end
 end
+vim.keymap.set({ "n", "v" }, "<leader>fgg", fzf_grep_word, options)
 
 -- Telescope
-local telescope_prefix = "<leader>t"
-local symbol_highlights = {
-	["string"] = "String",
-	["function"] = "Function",
-	["var"] = "@variable",
-	["associated"] = "Constant",
-	["parameter"] = "@attribute",
-}
-
-local telescope_map = {
-	{
-		key = "f",
-		cmd = function()
-			require("telescope.builtin").find_files({ hidden = true, })
-		end
-	},
-	{
-		key = "t",
-		cmd = function()
-			require("telescope.builtin").treesitter({ symbol_highlights = symbol_highlights, })
-		end
-	},
-	{
-		key = "s",
-		cmd = function()
-			return require("telescope.builtin").lsp_document_symbols({ symbol_highlights = symbol_highlights, })
-		end
-	},
-	{ key = "c", cmd = function() require("telescope.builtin").current_buffer_fuzzy_find() end },
-	{ key = "h", cmd = function() require("telescope.builtin").command_history() end },
-	{
-		key = "b",
-		cmd = function()
-			require("telescope.builtin").buffers(
-				{
-					show_all_buffers = true,
-					ignore_current_buffer = false,
-					sort_lastused = true,
-					sort_mru = true
-				}
-			)
-		end
-	},
-	{ key = "r", cmd = function() require("telescope.builtin").registers() end },
-}
-
-for _, key in ipairs(telescope_map) do
-	vim.keymap.set("n", telescope_prefix .. key.key, key.cmd, options)
-end
+--local telescope_prefix = "<leader>t"
+--local symbol_highlights = {
+--	["string"] = "String",
+--	["function"] = "Function",
+--	["var"] = "@variable",
+--	["associated"] = "Constant",
+--	["parameter"] = "@attribute",
+--}
+--
+--local telescope_map = {
+--	{
+--		key = "f",
+--		cmd = function()
+--			require("telescope.builtin").find_files({ hidden = true, })
+--		end
+--	},
+--	{
+--		key = "t",
+--		cmd = function()
+--			require("telescope.builtin").treesitter({ symbol_highlights = symbol_highlights, })
+--		end
+--	},
+--	{
+--		key = "s",
+--		cmd = function()
+--			return require("telescope.builtin").lsp_document_symbols({ symbol_highlights = symbol_highlights, })
+--		end
+--	},
+--	{ key = "c", cmd = function() require("telescope.builtin").current_buffer_fuzzy_find() end },
+--	{ key = "h", cmd = function() require("telescope.builtin").command_history() end },
+--	{
+--		key = "b",
+--		cmd = function()
+--			require("telescope.builtin").buffers(
+--				{
+--					show_all_buffers = true,
+--					ignore_current_buffer = false,
+--					sort_lastused = true,
+--					sort_mru = true
+--				}
+--			)
+--		end
+--	},
+--	{ key = "r", cmd = function() require("telescope.builtin").registers() end },
+--}
+--set_keymap(telescope_map, telescope_prefix, options)
 
 -- Package manager
 local packer_prefix = "<leader>p"
 local packer_map = {
 	{ key = "s", cmd = "Lazy sync" }
 }
-
-for _, key in ipairs(packer_map) do
-	vim.keymap.set("n", packer_prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", options)
-end
+set_keymap(packer_map, packer_prefix, options)
 
 vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
 	callback = function()

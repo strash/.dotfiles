@@ -50,12 +50,12 @@ return require("lazy").setup({
 
 	-- PLUGINS
 	-- everybody wants that line
-	{
-		"strash/everybody-wants-that-line.nvim",
-		dev = true,
-	},
+	--{
+	--	"strash/everybody-wants-that-line.nvim",
+	--	dev = true,
+	--},
 	-- incline
-	{ "b0o/incline.nvim" },
+	--{ "b0o/incline.nvim" },
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
@@ -90,10 +90,10 @@ return require("lazy").setup({
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
 	-- telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-	},
+	--{
+	--	"nvim-telescope/telescope.nvim",
+	--	dependencies = "nvim-lua/plenary.nvim",
+	--},
 }, {
 	defaults = {
 		lazy = false,
