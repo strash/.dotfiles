@@ -19,15 +19,15 @@ local exclude = {
 		},
 		{
 			ft = { "gd", "gdscript", "gdscript3", "res", "tres", "shader", "godot" },
-			fath = { [[\.import]], [[\.godot]], [[\.android/build]] },
+			path = { [[\.import]], [[\.godot]], [[\.android/build]] },
 		},
 		{
 			ft = { "js", "ts" },
-			fath = { "node_modules", "prisma/migrations" },
+			path = { "node_modules", "prisma/migrations" },
 		},
 		{
 			ft = { "lua" },
-			fath = { "mini.nvim" },
+			path = { "mini.nvim" },
 		},
 	}
 }

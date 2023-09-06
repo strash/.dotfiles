@@ -18,7 +18,7 @@ local kanagawa_config = {
 	specialReturn = true,
 	commentStyle = { italic = false },
 	background = {
-		dark = "wave", -- wave, dragon
+		dark = "dragon", -- wave, dragon
 		light = "lotus", -- lotus
 	},
 }
