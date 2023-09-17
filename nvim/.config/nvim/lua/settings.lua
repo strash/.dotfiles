@@ -9,7 +9,6 @@ opt.background = "dark"
 --local colo = "zenwritten"
 --local colo = "kanagawa"
 local colo = "mellifluous"
---local colo = "caret"
 
 -- COLO KANAGAWA
 local kanagawa_config = {
@@ -58,16 +57,6 @@ local mellifluous_config = {
 	},
 }
 require("mellifluous").setup(mellifluous_config)
-
--- COLO CARET
-local caret_config = {
-	options = {
-		styles = {
-			italic = false,
-		},
-	},
-}
-require("caret").setup(caret_config)
 
 cmd.colo(colo)
 cmd.filetype("plugin on")

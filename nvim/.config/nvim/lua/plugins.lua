@@ -37,9 +37,6 @@ return require("lazy").setup({
 	},
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
-	-- caret
-	{ "projekt0n/caret.nvim" },
-
 
 	-- CORE
 	-- lsp config
