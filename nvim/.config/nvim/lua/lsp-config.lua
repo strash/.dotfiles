@@ -9,6 +9,8 @@ local lsp_servers = {
 	"clangd",
 	"csharp_ls",
 	"cssls",
+	"docker_compose_language_service",
+	"dockerls",
 	"eslint",
 	"gopls",
 	"html",

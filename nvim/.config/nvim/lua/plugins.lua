@@ -37,6 +37,8 @@ return require("lazy").setup({
 	},
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
+	-- caret
+	{ "projekt0n/caret.nvim" },
 
 
 	-- CORE
@@ -67,6 +69,8 @@ return require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 		},
 	},
+	-- gitsigns
+	{ "lewis6991/gitsigns.nvim" },
 	-- flutter tools
 	{
 		"akinsho/flutter-tools.nvim",

@@ -9,6 +9,7 @@ opt.background = "dark"
 --local colo = "zenwritten"
 --local colo = "kanagawa"
 local colo = "mellifluous"
+--local colo = "caret"
 
 -- COLO KANAGAWA
 local kanagawa_config = {
@@ -49,8 +50,24 @@ local mellifluous_config = {
 	styles = {
 		comments = { italic = false },
 	},
+	flat_background = {
+		line_numbers = true,
+		floating_widndows = true,
+		file_tree = true,
+		cursor_line_number = true,
+	},
 }
 require("mellifluous").setup(mellifluous_config)
+
+-- COLO CARET
+local caret_config = {
+	options = {
+		styles = {
+			italic = false,
+		},
+	},
+}
+require("caret").setup(caret_config)
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
@@ -61,7 +78,7 @@ cmd.syntax("on")
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.colorcolumn = "+1"
 opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
@@ -72,7 +89,7 @@ opt.foldcolumn = "auto"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.laststatus = 3
+opt.laststatus = 2
 opt.list = true
 opt.listchars = {
 	tab = "⎸ ",
@@ -90,6 +107,7 @@ opt.showcmdloc = "statusline"
 opt.showtabline = 0
 opt.splitbelow = true
 opt.splitright = true
+opt.statusline = [[%( %H%q%)%( %<%{%pathshorten(bufname())%}%M%)%=%(%l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
 opt.wildmenu = true
