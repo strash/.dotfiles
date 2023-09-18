@@ -26,12 +26,10 @@ local global_map = {
 	{ key = "<leader>gt", cmd = function() map_util.open_terminal() end },        -- open terminal window
 	{ key = "<leader>bb", cmd = function() map_util.toggle_background_color() end }, -- toggle background color
 	{ key = "<leader>gg", cmd = function() map_util.open_neogit_window() end },   -- open neogit
-	{ key = "<leader>dd", cmd = function() map_util.toggle_diffview() end },      -- toggle diffview
 }
 map_util.set_keymap(global_map, "", options)
 vim.keymap.set("i", "<C-C>", "<Esc>", options)          -- exit enstert mode
 vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
---vim.keymap.set({ "n", "v" }, "<leader>f", function() grep_word_under_cursor() end, options) -- grep word under cursor
 
 -- LSP
 local opt = {
@@ -72,7 +70,6 @@ function M.set_lsp_map(_, bufnr)
 		{ key = "q", cmd = function() vim.diagnostic.setqflist() end },
 	}
 	map_util.set_keymap(lsp_map, lsp_prefix, opts)
-	--vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", vim.lsp.buf.code_action, opts)
 	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", function() require("fzf-lua").lsp_code_actions() end, opts)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end

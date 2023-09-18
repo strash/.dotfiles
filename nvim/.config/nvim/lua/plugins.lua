@@ -25,11 +25,6 @@ vim.api.nvim_create_autocmd({
 
 return require("lazy").setup({
 	-- COLORS
-	-- kanagawa
-	{
-		"rebelot/kanagawa.nvim",
-		build = ":KanagawaCompile",
-	},
 	-- zenbones
 	{
 		"mcchrish/zenbones.nvim",
@@ -48,13 +43,6 @@ return require("lazy").setup({
 	},
 
 	-- PLUGINS
-	-- everybody wants that line
-	--{
-	--	"strash/everybody-wants-that-line.nvim",
-	--	dev = true,
-	--},
-	-- incline
-	--{ "b0o/incline.nvim" },
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
@@ -62,12 +50,9 @@ return require("lazy").setup({
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"L3MON4D3/LuaSnip",
 		},
 	},
-	-- gitsigns
-	{ "lewis6991/gitsigns.nvim" },
 	-- flutter tools
 	{
 		"akinsho/flutter-tools.nvim",
@@ -79,8 +64,6 @@ return require("lazy").setup({
 		"NeogitOrg/neogit",
 		dependencies = "nvim-lua/plenary.nvim",
 	},
-	-- diffview
-	{ "sindrets/diffview.nvim" },
 	-- buffer manager
 	{
 		"j-morano/buffer_manager.nvim",
@@ -90,11 +73,6 @@ return require("lazy").setup({
 	{ "stevearc/oil.nvim" },
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
-	-- telescope
-	--{
-	--	"nvim-telescope/telescope.nvim",
-	--	dependencies = "nvim-lua/plenary.nvim",
-	--},
 }, {
 	defaults = {
 		lazy = false,

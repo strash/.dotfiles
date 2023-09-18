@@ -11,27 +11,27 @@ opt.background = "dark"
 local colo = "mellifluous"
 
 -- COLO KANAGAWA
-local kanagawa_config = {
-	globalStatus = true,
-	transparent = false,
-	specialException = true,
-	specialReturn = true,
-	commentStyle = { italic = false },
-	background = {
-		dark = "dragon", -- wave, dragon
-		light = "lotus", -- lotus
-	},
-}
-for _, value in ipairs({
-	"functionStyle",
-	"keywordStyle",
-	"statementStyle",
-	"typeStyle",
-	"variablebuiltinStyle",
-}) do
-	kanagawa_config[value] = { bold = true, italic = false }
-end
-require("kanagawa").setup(kanagawa_config)
+--local kanagawa_config = {
+--	globalStatus = true,
+--	transparent = false,
+--	specialException = true,
+--	specialReturn = true,
+--	commentStyle = { italic = false },
+--	background = {
+--		dark = "dragon", -- wave, dragon
+--		light = "lotus", -- lotus
+--	},
+--}
+--for _, value in ipairs({
+--	"functionStyle",
+--	"keywordStyle",
+--	"statementStyle",
+--	"typeStyle",
+--	"variablebuiltinStyle",
+--}) do
+--	kanagawa_config[value] = { bold = true, italic = false }
+--end
+--require("kanagawa").setup(kanagawa_config)
 
 -- COLO ZENBONES
 local variant = "zenwritten"

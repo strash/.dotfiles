@@ -2,26 +2,20 @@ local nvim_lsp = require("lspconfig")
 local map = require("map")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities(client_capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lsp_servers = {
 	"clangd",
 	"csharp_ls",
 	"cssls",
-	"docker_compose_language_service",
 	"dockerls",
 	"eslint",
 	"gopls",
 	"html",
 	"jsonls",
 	"tsserver",
-	--"bashls",
-	--"dartls",
-	--"gdscript",
-	--"prismals",
-	--"pylsp",
-	--"sourcekit",
 }
 
 local flags = {
@@ -145,32 +139,22 @@ require("flutter-tools").setup({
 
 local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
 
+local function filter_format_client(client)
+	return client.server_capabilities.documentFormattingProvider
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		-- highlight references
-		if client.server_capabilities.documentHighlightProvider then
-			vim.api.nvim_create_autocmd("CursorHold", {
-				callback = function() vim.lsp.buf.document_highlight() end,
-				group = auto_group,
-			})
-			vim.api.nvim_create_autocmd("CursorMoved", {
-				callback = function() vim.lsp.buf.clear_references() end,
-				group = auto_group,
-			})
-		end
-		-- formatting
+		-- formatting. not all clients need this autocommand
 		if client.server_capabilities.documentFormattingProvider then
 			vim.api.nvim_create_autocmd("BufWritePre", {
-				callback = function() vim.lsp.buf.format() end,
+				callback = function()
+					-- filter in case many active clienst
+					vim.lsp.buf.format({ filter = filter_format_client })
+				end,
 				group = auto_group,
 			})
 		end
 	end,
 })
-
---vim.api.nvim_create_autocmd("BufWritePre", {
---	pattern = { "*.tsx", "*.ts", "*.jsx", },
---	command = "EslintFixAll",
---	group = auto_group,
---})

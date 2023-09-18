@@ -94,8 +94,6 @@ function M.set_keymap(map, prefix, opts)
 end
 
 M.background_color = vim.opt.background
-M.last_opened_dir = "."
-M.is_diffview_open = false
 
 function M.toggle_background_color()
 	if M.background_color == "dark" then
@@ -123,15 +121,6 @@ function M.open_terminal()
 	vim.cmd("split | startinsert | terminal")
 end
 
---function M.grep_word_under_cursor()
---	local filetype = string.match(vim.api.nvim_buf_get_name(0), "%.%w*$") or vim.o.filetype
---	if filetype then
---		vim.api.nvim_input([[:vim <C-R><C-W> **/*]] .. filetype .. [[<CR>:cope<CR>]])
---	else
---		vim.notify("Filetype is nil. Can't grep that shit.", vim.log.levels.ERROR, {})
---	end
---end
-
 -- buffer manager
 function M.toggle_buffer_manager()
 	buffer_manager_ui.toggle_quick_menu()
@@ -144,30 +133,15 @@ end
 
 -- oil.nvim
 function M.open_oil()
-	--oil.open(M.last_opened_dir)
 	oil.open()
 end
 
 function M.open_oil_buffer(opts)
-	--M.last_opened_dir = oil.get_current_dir()
-	--oil.save({ confirm = false })
 	oil.select(opts)
 end
 
 function M.close_oil()
-	--M.last_opened_dir = oil.get_current_dir()
-	--oil.save({ confirm = false })
 	oil.close()
-end
-
--- diffview
-function M.toggle_diffview()
-	if M.is_diffview_open then
-		vim.cmd([[DiffviewClose]])
-	else
-		vim.cmd([[DiffviewOpen]])
-	end
-	M.is_diffview_open = not M.is_diffview_open
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
@@ -180,8 +154,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = function(args)
 		if args.match == "oil" then
 			vim.keymap.set("n", "<CR>", function() M.open_oil_buffer(nil) end, { buffer = true })
-			--vim.keymap.set("n", "<C-v>", function() M.open_oil_buffer({ vertical = true, }) end, { buffer = true })
-			--vim.keymap.set("n", "<C-s>", function() M.open_oil_buffer({ horizontal = true, }) end, { buffer = true })
 			vim.keymap.set("n", "<C-c>", function() M.close_oil() end, { buffer = true })
 			vim.keymap.set("n", "<Esc>", function() M.close_oil() end, { buffer = true })
 			vim.keymap.set("n", "q", function() M.close_oil() end, { buffer = true })
