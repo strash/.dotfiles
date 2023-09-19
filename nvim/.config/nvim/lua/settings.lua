@@ -73,6 +73,10 @@ opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
+opt.fillchars = {
+	foldopen = "⌄",
+	foldclose = ">",
+}
 opt.foldcolumn = "1"
 opt.formatoptions = "cqjp"
 opt.guicursor = { a = "blinkon0" }
@@ -81,8 +85,7 @@ opt.inccommand = "split"
 opt.laststatus = 2
 opt.list = true
 opt.listchars = {
-	tab = "⎸ ",
-	--tab = "  ",
+	tab = "│ ",
 	trail = "✕",
 	precedes = "<",
 	nbsp = "%",
