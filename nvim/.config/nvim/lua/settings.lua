@@ -73,8 +73,8 @@ opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
+opt.foldcolumn = "1"
 opt.formatoptions = "cqjp"
-opt.foldcolumn = "auto"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
@@ -94,8 +94,10 @@ opt.showbreak = ">>"
 opt.showcmd = false
 opt.showcmdloc = "statusline"
 opt.showtabline = 0
+opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
+opt.statuscolumn = " %C%s%=%{v:relnum?v:relnum:v:lnum}  "
 opt.statusline = [[%( %H%q%)%( %<%{%pathshorten(bufname())%}%M%)%=%(%l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
@@ -110,5 +112,3 @@ opt.smartindent = true
 opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
-
-opt.statuscolumn = "%C %s%=%{v:relnum?v:relnum:v:lnum} "
