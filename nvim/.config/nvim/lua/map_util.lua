@@ -128,7 +128,7 @@ end
 
 -- neogit
 function M.open_neogit_window()
-	neogit.open({})
+	neogit.open({ kind = "split" })
 end
 
 -- oil.nvim

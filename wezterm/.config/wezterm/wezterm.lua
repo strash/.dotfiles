@@ -14,9 +14,9 @@ UU.merge_config(LM, M)
 UU.merge_config(KM, M)
 
 -- font
-local font_family = "Iosevka Term SS17"
-M.font_size = 15.0
-M.line_height = 1.05
+local font_family = "SF Mono"
+M.font_size = 13
+M.line_height = 1.15
 M.text_blink_rate = 0
 M.text_blink_rate_rapid = 0
 M.text_background_opacity = 1.0
@@ -25,7 +25,7 @@ M.font = wez.font({ family = font_family, italic = false })
 M.font_rules = {
 	{
 		intensity = "Normal",
-		italic = true,
+		italic = false,
 		font = wez.font({ family = font_family, weight = "Regular" })
 	},
 }

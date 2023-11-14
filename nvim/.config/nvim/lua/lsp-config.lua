@@ -131,7 +131,7 @@ require("flutter-tools").setup({
 		flags = flags,
 		settings = {
 			lineLength = vim.o.textwidth,
-			renameFilesWithClasses = "always",
+			renameFilesWithClasses = "prompt",
 			documentation = "full",
 		}
 	},

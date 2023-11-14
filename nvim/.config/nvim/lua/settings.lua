@@ -1,3 +1,7 @@
+local M = {}
+
+local filepath = require("filepath")
+
 local opt, cmd = vim.opt, vim.cmd
 
 if not opt.termguicolors or opt.termguicolors ~= nil then
@@ -58,6 +62,11 @@ local mellifluous_config = {
 }
 require("mellifluous").setup(mellifluous_config)
 
+function M._get_path()
+	local path = filepath.get_filepath(filepath.get_bufnr())
+	return path["relative"].path .. path["relative"].filename
+end
+
 cmd.colo(colo)
 cmd.filetype("plugin on")
 cmd.filetype("plugin indent on")
@@ -67,7 +76,7 @@ cmd.syntax("on")
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.colorcolumn = "+1"
 opt.completeopt = { "menu", "noinsert", "noselect" }
 opt.cursorline = true
@@ -101,7 +110,9 @@ opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn = " %C%s%=%{v:relnum?v:relnum:v:lnum}  "
-opt.statusline = [[%( %H%q%)%( %<%{%pathshorten(bufname())%}%M%)%=%(%l↓ %3p%% %)]]
+--opt.statusline = [[%( %H%q%)%( %<%{%pathshorten(bufname())%}%M%)%=%(%l↓ %3p%% %)]]
+opt.statusline =
+[[%( %H%q%)%( %<%{%v:lua.require('settings')._get_path()%}%M%)%=%(%l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
 opt.wildmenu = true
@@ -115,3 +126,5 @@ opt.smartindent = true
 opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
+
+return M

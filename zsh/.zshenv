@@ -7,6 +7,7 @@ $HOME/.dotfiles:\
 /sbin:\
 /Library/Apple/usr/bin:\
 $HOME/Library/Android/sdk/platform-tools:\
+$HOME/Library/Android/sdk/emulator:\
 $HOME/Library/Python/3.x/bin:\
 $HOME/.dotnet/tools:\
 /opt/homebrew/Cellar/lua-language-server/3.x.x/libexec/bin/macOS/lua-language-server:\
