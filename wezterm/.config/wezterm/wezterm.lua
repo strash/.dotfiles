@@ -21,12 +21,11 @@ M.text_blink_rate = 0
 M.text_blink_rate_rapid = 0
 M.text_background_opacity = 1.0
 M.font = wez.font({ family = font_family, italic = false })
---M.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 M.font_rules = {
 	{
 		intensity = "Normal",
 		italic = false,
-		font = wez.font({ family = font_family, weight = "Regular" })
+		font = wez.font({ family = font_family, weight = "Medium" })
 	},
 }
 

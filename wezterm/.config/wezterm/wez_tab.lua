@@ -2,16 +2,12 @@ local wez = require("wezterm")
 local EL = require("wez_el")
 local M = {}
 
-local hex_to_char = function(x)
-	return string.char(tonumber(x, 16))
-end
-
-local unescape = function(url)
-	return url:gsub("%%(%x%x)", hex_to_char)
-end
-
 function M.get_cwd(tab)
-	return unescape(tab.active_pane.current_working_dir:match("[^/]+$"):upper())
+	local dir = tab.active_pane.current_working_dir
+	if dir ~= nil then
+		return dir.file_path:match("[^/]+$"):upper()
+	end
+	return " ↑ PROJECTS ↑ "
 end
 
 function M.get_zoom(tab)
