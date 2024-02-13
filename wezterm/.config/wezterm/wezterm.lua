@@ -14,20 +14,8 @@ UU.merge_config(LM, M)
 UU.merge_config(KM, M)
 
 -- font
-local font_family = "SF Mono"
-M.font_size = 13
-M.line_height = 1.15
-M.text_blink_rate = 0
-M.text_blink_rate_rapid = 0
-M.text_background_opacity = 1.0
-M.font = wez.font({ family = font_family, italic = false })
-M.font_rules = {
-	{
-		intensity = "Normal",
-		italic = false,
-		font = wez.font({ family = font_family, weight = "Medium" })
-	},
-}
+M.font_size = 13.5
+M.font = wez.font({ family = "Maple Mono" })
 
 -- tabbar
 M.hide_tab_bar_if_only_one_tab = false
