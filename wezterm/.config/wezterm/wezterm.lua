@@ -15,7 +15,7 @@ UU.merge_config(KM, M)
 
 -- font
 M.font_size = 13.5
-M.font = wez.font({ family = "Maple Mono" })
+M.font = wez.font("Maple Mono")
 
 -- tabbar
 M.hide_tab_bar_if_only_one_tab = false
@@ -27,11 +27,9 @@ M.status_update_interval = 10000
 -- window
 M.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 M.window_close_confirmation = "NeverPrompt"
-M.force_reverse_video_cursor = false
 M.native_macos_fullscreen_mode = true
 M.show_update_window = false
 M.exit_behavior = "Hold"
-M.window_background_opacity = 1.0
 M.default_cwd = wez.home_dir .. "/.dotfiles"
 
 -- colorscheme
