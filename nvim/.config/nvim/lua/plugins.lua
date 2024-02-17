@@ -53,12 +53,6 @@ return require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 		},
 	},
-	-- flutter tools
-	{
-		"akinsho/flutter-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		ft = "dart",
-	},
 	-- neogit
 	{
 		"NeogitOrg/neogit",

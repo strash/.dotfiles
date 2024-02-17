@@ -16,6 +16,7 @@ UU.merge_config(KM, M)
 -- font
 M.font_size = 13.5
 M.font = wez.font("Maple Mono")
+M.freetype_load_flags = "FORCE_AUTOHINT"
 
 -- tabbar
 M.hide_tab_bar_if_only_one_tab = false

@@ -10,6 +10,7 @@ local lsp_servers = {
 	"clangd",
 	"csharp_ls",
 	"cssls",
+	"dartls",
 	"dockerls",
 	"eslint",
 	"gopls",
@@ -120,20 +121,6 @@ nvim_lsp.lua_ls.setup({
 				checkThirdParty = false,
 			},
 		},
-	},
-})
-
--- flutter dart
-require("flutter-tools").setup({
-	lsp = {
-		on_attach = map.set_lsp_map,
-		capabilities = capabilities,
-		flags = flags,
-		settings = {
-			lineLength = vim.o.textwidth,
-			renameFilesWithClasses = "prompt",
-			documentation = "full",
-		}
 	},
 })
 
