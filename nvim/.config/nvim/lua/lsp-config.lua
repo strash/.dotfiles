@@ -16,6 +16,7 @@ local lsp_servers = {
 	"gopls",
 	"html",
 	"jsonls",
+	"svelte",
 	"tsserver",
 }
 

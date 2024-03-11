@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup({
 		"regex",
 		"scheme",
 		"sql",
+		"svelte",
 		"todotxt",
 		"tsx",
 		"typescript",
@@ -25,7 +26,6 @@ require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	incremental_selection = {
 		enable = false,
-		disable = { "dart" },
 	},
 	highlight = {
 		enable = true,
