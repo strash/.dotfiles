@@ -17,6 +17,7 @@ local lsp_servers = {
 	"html",
 	"jsonls",
 	"svelte",
+	"tailwindcss",
 	"tsserver",
 }
 

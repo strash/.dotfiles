@@ -83,7 +83,7 @@ zstyle ':completion:*' keep-prefix true
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}%D %d%f'
 zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}%d (errors: %e)%f'
 zstyle ':completion:*:*:*:*:messages' format ' %F{purple}%d%f'
-zstyle ':completion:*:*:*:*:warnings' format ' %F{red}feck%f'
+zstyle ':completion:*:*:*:*:warnings' format ' %F{red}fuck%f'
 
 zstyle :compinstall filename "$HOME/.zshrc"
 
@@ -106,7 +106,7 @@ zstyle ':vcs_info:*' stagedstr ●
 zstyle ':vcs_info:*' unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{white}%B%n%b%f %~ ${vcs_info_msg_0_}%(?00%F{red}feck %f)'
+PS1='%F{white}%B%n%b%f %~ ${vcs_info_msg_0_}%(?00%F{red}fuck %f)'
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
