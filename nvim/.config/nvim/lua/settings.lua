@@ -48,11 +48,9 @@ vim.g[variant] = {
 
 -- COLO MELLIFLUOUS
 local mellifluous_config = {
-	color_set = "mellifluous", -- "mellifluous", "alduin", "mountain", "tender"
+	color_set = "mellifluous", -- "mellifluous", "alduin", "mountain", "tender", "kanagawa_dragon"
+	neutral = true,
 	dim_inactive = false,
-	styles = {
-		comments = { italic = false },
-	},
 	flat_background = {
 		line_numbers = true,
 		floating_widndows = true,
