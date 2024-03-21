@@ -14,16 +14,12 @@ local exclude = {
 			path = { [[\.dart_tool]], "android", "ios", "build", },
 		},
 		{
-			ft = { "go" },
-			path = { "media", },
-		},
-		{
 			ft = { "gd", "gdscript", "gdscript3", "res", "tres", "shader", "godot" },
 			path = { [[\.import]], [[\.godot]], [[\.android/build]] },
 		},
 		{
-			ft = { "js", "ts" },
-			path = { "node_modules", "prisma/migrations" },
+			ft = { "html", "css", "js", "ts", "go" },
+			path = { "node_modules", "prisma/migrations", "media" },
 		},
 		{
 			ft = { "lua" },
@@ -32,13 +28,13 @@ local exclude = {
 	}
 }
 
-local function concat_find_path(list, cwd)
+local function concat_find_path(list)
 	local s = ""
 	for i, value in ipairs(list) do
 		if i == 1 then
-			s = s .. [[ -path ']] .. cwd .. [[/]] .. value .. [[/*' ]]
+			s = s .. [[ -path '*/]] .. value .. [[/*' ]]
 		else
-			s = s .. [[ -o -path ']] .. cwd .. [[/]] .. value .. [[/*' ]]
+			s = s .. [[ -o -path '*/]] .. value .. [[/*' ]]
 		end
 	end
 	return s
@@ -46,7 +42,7 @@ end
 
 function M.find_files()
 	local cwd = vim.fn.getcwd()
-	local ex = concat_find_path(exclude.common, cwd)
+	local ex = concat_find_path(exclude.common)
 	local clients = vim.lsp.get_active_clients()
 	if clients ~= nil and #clients > 0 then
 		local client = clients[1]
@@ -58,7 +54,7 @@ function M.find_files()
 				local done = false
 				for _, filetype in ipairs(value.ft) do
 					if vim.tbl_contains(ft, filetype) then
-						ex = ex .. " -o " .. concat_find_path(value.path, cwd)
+						ex = ex .. " -o " .. concat_find_path(value.path)
 						done = true
 						break
 					end
