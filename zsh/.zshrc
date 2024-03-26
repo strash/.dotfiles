@@ -8,7 +8,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=true
 alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo '.zshenv and .zshrc are sourced at path $HOME/.dotfiles/zsh/'"
 
 # pnpm
-alias cocka="pnpm update -g"
+alias cocka="bun update -g"
 
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && brew cleanup -s"

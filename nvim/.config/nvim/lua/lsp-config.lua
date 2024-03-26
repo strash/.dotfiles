@@ -9,16 +9,24 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp_servers = {
 	"clangd",
 	"csharp_ls",
-	"cssls",
+	--"cssls",
 	"dartls",
 	"dockerls",
-	"eslint",
+	--"eslint",
 	"gopls",
-	"html",
-	"jsonls",
-	"svelte",
-	"tailwindcss",
-	"tsserver",
+	--"html",
+	--"jsonls",
+	--"tailwindcss",
+	--"tsserver",
+}
+
+local node_lsp_servers = {
+	{ "cssls",       { "vscode-css-language-server", "--stdio" } },
+	{ "eslint",      { "vscode-eslint-language-server", "--stdio" } },
+	{ "html",        { "ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", "" } },
+	{ "jsonls",      { "vscode-json-language-server", "--stdio" } },
+	{ "tailwindcss", { "tailwindcss-language-server", "--stdio" } },
+	{ "tsserver",    { "typescript-language-server", "--stdio" } }
 }
 
 local flags = {
@@ -31,6 +39,16 @@ for _, server in ipairs(lsp_servers) do
 		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
+	})
+end
+
+-- run node lsp servers with bun runtime
+for _, server in ipairs(node_lsp_servers) do
+	nvim_lsp[server[1]].setup({
+		on_attach = map.set_lsp_map,
+		capabilities = capabilities,
+		flags = flags,
+		cmd = vim.list_extend({ "bunx", "--bun" }, server[2]),
 	})
 end
 
