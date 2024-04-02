@@ -33,13 +33,7 @@ return require("lazy").setup({
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-
+	{ "folke/tokyonight.nvim" },
 	-- CORE
 	-- lsp config
 	{ "neovim/nvim-lspconfig" },
@@ -74,6 +68,18 @@ return require("lazy").setup({
 	{ "stevearc/oil.nvim" },
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
+	-- barbecue
+	{
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		opts = {
+		}
+	},
 }, {
 	defaults = {
 		lazy = false,
