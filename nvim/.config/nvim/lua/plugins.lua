@@ -34,6 +34,7 @@ return require("lazy").setup({
 	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
+
 	-- CORE
 	-- lsp config
 	{ "neovim/nvim-lspconfig" },
@@ -52,6 +53,7 @@ return require("lazy").setup({
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
 			"L3MON4D3/LuaSnip",
+			"onsails/lspkind.nvim",
 		},
 	},
 	-- neogit
@@ -79,6 +81,12 @@ return require("lazy").setup({
 		},
 		opts = {
 		}
+	},
+	-- indent blanklines
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
 	},
 }, {
 	defaults = {
