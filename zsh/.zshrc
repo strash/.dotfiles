@@ -113,3 +113,6 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+
+# bun completions
+[ -s "/Users/strash/.bun/_bun" ] && source "/Users/strash/.bun/_bun"

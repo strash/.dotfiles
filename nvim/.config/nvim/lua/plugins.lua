@@ -32,6 +32,13 @@ return require("lazy").setup({
 	},
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
+	-- tokyonight
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
 	-- CORE
 	-- lsp config

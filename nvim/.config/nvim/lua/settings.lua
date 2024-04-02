@@ -12,7 +12,8 @@ opt.background = "dark"
 
 --local colo = "zenwritten"
 --local colo = "kanagawa"
-local colo = "mellifluous"
+--local colo = "mellifluous"
+local colo = "tokyonight"
 
 -- COLO KANAGAWA
 --local kanagawa_config = {
@@ -59,6 +60,12 @@ local mellifluous_config = {
 	},
 }
 require("mellifluous").setup(mellifluous_config)
+
+local tokyonight_config = {
+	style = "night",
+	day_brightness = 0.2
+}
+require("tokyonight").setup(tokyonight_config)
 
 function M._get_path()
 	local path = filepath.get_filepath(filepath.get_bufnr())
