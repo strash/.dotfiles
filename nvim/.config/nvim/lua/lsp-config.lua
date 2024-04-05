@@ -150,18 +150,27 @@ local function filter_format_client(client)
 	return client.server_capabilities.documentFormattingProvider
 end
 
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		-- formatting. not all clients need this autocommand
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				callback = function()
-					-- filter in case many active clienst
-					vim.lsp.buf.format({ filter = filter_format_client })
-				end,
-				group = auto_group,
-			})
+		local lsp_clients = vim.lsp.get_active_clients()
+		local filename = vim.api.nvim_buf_get_name(args.buf)
+		local f = filename:match("[^.]+$") or ""
+		local can_format = false
+		for _, client in ipairs(lsp_clients) do
+			if can_format == true then
+				break
+			end
+			for _, value in ipairs(client.config.filetypes) do
+				if value == f then
+					can_format = true
+					break
+				end
+			end
+		end
+		-- filter in case many active clienst
+		if can_format then
+			vim.lsp.buf.format({ filter = filter_format_client })
 		end
 	end,
+	group = auto_group,
 })

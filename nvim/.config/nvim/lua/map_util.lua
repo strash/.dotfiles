@@ -6,12 +6,12 @@ local M = {}
 
 local exclude = {
 	common = {
-		[[\.git]], [[\.idea]],
+		[[\.git]], [[\.idea]], [[node_modules]], [[pb_data/storage]], [[pb_data/backups]], [[ios]], [[android]],
 	},
 	by_filetype = {
 		{
 			ft = { "dart" },
-			path = { [[\.dart_tool]], "android", "ios", "build", },
+			path = { [[\.dart_tool]], [[android]], [[ios]], [[build]], },
 		},
 		{
 			ft = { "gd", "gdscript", "gdscript3", "res", "tres", "shader", "godot" },
@@ -19,11 +19,11 @@ local exclude = {
 		},
 		{
 			ft = { "html", "css", "js", "ts", "go" },
-			path = { "node_modules", "prisma/migrations", "media" },
+			path = { [[node_modules]], [[prisma/migrations]] },
 		},
 		{
 			ft = { "lua" },
-			path = { "mini.nvim" },
+			path = { [[mini.nvim]] },
 		},
 	}
 }
@@ -94,10 +94,8 @@ M.background_color = vim.opt.background
 function M.toggle_background_color()
 	if M.background_color == "dark" then
 		M.background_color = "light"
-		print(" lights on +")
 	else
 		M.background_color = "dark"
-		print(" lights off -")
 	end
 	vim.opt.background = M.background_color
 end

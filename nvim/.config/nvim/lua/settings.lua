@@ -13,7 +13,8 @@ opt.background = "dark"
 --local colo = "zenwritten"
 --local colo = "kanagawa"
 --local colo = "mellifluous"
-local colo = "tokyonight"
+--local colo = "tokyonight"
+local colo = "astrotheme"
 
 -- COLO KANAGAWA
 --local kanagawa_config = {
@@ -48,7 +49,7 @@ vim.g[variant] = {
 }
 
 -- COLO MELLIFLUOUS
-local mellifluous_config = {
+require("mellifluous").setup({
 	color_set = "mellifluous", -- "mellifluous", "alduin", "mountain", "tender", "kanagawa_dragon"
 	neutral = true,
 	dim_inactive = false,
@@ -58,14 +59,20 @@ local mellifluous_config = {
 		file_tree = true,
 		cursor_line_number = true,
 	},
-}
-require("mellifluous").setup(mellifluous_config)
+})
 
-local tokyonight_config = {
+-- COLO TOKYONIGHT
+require("tokyonight").setup({
 	style = "night",
 	day_brightness = 0.2
-}
-require("tokyonight").setup(tokyonight_config)
+})
+
+-- COLO ASTROTHEME
+require("astrotheme").setup({
+	style = {
+		inactive = false,
+	}
+})
 
 function M._get_path()
 	local path = filepath.get_filepath(filepath.get_bufnr())
