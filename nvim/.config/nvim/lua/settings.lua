@@ -14,7 +14,8 @@ opt.background = "dark"
 --local colo = "kanagawa"
 --local colo = "mellifluous"
 --local colo = "tokyonight"
-local colo = "astrotheme"
+--local colo = "astrotheme"
+local colo = "oxocarbon"
 
 -- COLO KANAGAWA
 --local kanagawa_config = {
