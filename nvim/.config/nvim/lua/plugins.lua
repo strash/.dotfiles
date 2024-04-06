@@ -36,8 +36,6 @@ return require("lazy").setup({
 	{ "folke/tokyonight.nvim" },
 	-- astronvim
 	{ "AstroNvim/astrotheme" },
-	-- oxocarbon
-	{ "nyoom-engineering/oxocarbon.nvim" },
 
 	-- CORE
 	-- lsp config
