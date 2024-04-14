@@ -16,7 +16,7 @@ local global_map = {
 	{ key = "<S-Tab>",    cmd = "bp" },                                           -- prev buffer
 	{ key = "<leader>w",  cmd = "wa" },                                           -- write all buffers
 	{ key = "<leader>bd", cmd = function() map_util.delete_wipe_window("bd") end }, -- delete buffer
-	{ key = "<leader>bw", cmd = function() map_util.delete_wipe_window("bw") end }, -- wipe buffer
+	--{ key = "<leader>bw", cmd = function() map_util.delete_wipe_window("bw") end }, -- wipe buffer
 	{ key = "<leader>bm", cmd = function() map_util.toggle_buffer_manager() end }, -- open buffer manager
 	{ key = "<leader>o",  cmd = function() map_util.open_oil() end },             -- open oil
 	{ key = "<leader>cc", cmd = "cc" },                                           -- open first error

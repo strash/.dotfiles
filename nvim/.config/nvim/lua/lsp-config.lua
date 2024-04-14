@@ -18,13 +18,14 @@ local lsp_servers = {
 	--"jsonls",
 	--"tailwindcss",
 	--"tsserver",
+	--"svelte",
 }
 
 local node_lsp_servers = {
 	{ "cssls",       { "vscode-css-language-server", "--stdio" } },
-	{ "eslint",      { "vscode-eslint-language-server", "--stdio" } },
 	{ "html",        { "ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", "" } },
 	{ "jsonls",      { "vscode-json-language-server", "--stdio" } },
+	{ "svelte",      { "svelte-language-server", "--stdio" } },
 	{ "tailwindcss", { "tailwindcss-language-server", "--stdio" } },
 	{ "tsserver",    { "typescript-language-server", "--stdio" } }
 }
