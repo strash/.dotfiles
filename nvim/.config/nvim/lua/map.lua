@@ -14,7 +14,7 @@ local options = {
 local global_map = {
 	{ key = "<Tab>",      cmd = "bn" },                                           -- next buffer
 	{ key = "<S-Tab>",    cmd = "bp" },                                           -- prev buffer
-	{ key = "<leader>w",  cmd = "wa" },                                           -- write all buffers
+	{ key = "<leader>w",  cmd = "w" },                                            -- write buffers
 	{ key = "<leader>bd", cmd = function() map_util.delete_wipe_window("bd") end }, -- delete buffer
 	--{ key = "<leader>bw", cmd = function() map_util.delete_wipe_window("bw") end }, -- wipe buffer
 	{ key = "<leader>bm", cmd = function() map_util.toggle_buffer_manager() end }, -- open buffer manager

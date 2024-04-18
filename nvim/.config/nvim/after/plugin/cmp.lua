@@ -1,5 +1,7 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local devicons = require('nvim-web-devicons')
+local lspkind = require('lspkind')
 
 cmp.setup({
 	experimental = {
@@ -24,15 +26,15 @@ cmp.setup({
 	},
 	formatting = {
 		format = function(entry, vim_item)
-			if vim.tbl_contains({ 'path' }, entry.source.name) then
-				local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+			if vim.tbl_contains({ "path" }, entry.source.name) then
+				local icon, hl_group = devicons.get_icon(entry:get_completion_item().label)
 				if icon then
 					vim_item.kind = icon
 					vim_item.kind_hl_group = hl_group
 					return vim_item
 				end
 			end
-			return require('lspkind').cmp_format({ with_text = false })(entry, vim_item)
+			return lspkind.cmp_format()(entry, vim_item)
 		end
 	},
 })
