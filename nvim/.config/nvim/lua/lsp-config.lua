@@ -87,7 +87,7 @@ nvim_lsp.gdscript.setup({
 
 -- bashls
 nvim_lsp.bashls.setup({
-	cmd = { "bash-language-server", "start" },
+	cmd = { "bunx", "--bun", "bash-language-server", "start" },
 	cmd_env = {
 		GLOB_PATTERN = "*@(.zsh|.sh|.inc|.bash|.command)",
 	},

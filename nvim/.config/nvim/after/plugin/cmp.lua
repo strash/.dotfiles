@@ -4,6 +4,11 @@ local devicons = require('nvim-web-devicons')
 local lspkind = require('lspkind')
 
 cmp.setup({
+	window = {
+		documentation = {
+			max_width = 0
+		},
+	},
 	experimental = {
 		ghost_text = true,
 	},
@@ -25,6 +30,7 @@ cmp.setup({
 		end
 	},
 	formatting = {
+		expandable_indicator = false,
 		format = function(entry, vim_item)
 			if vim.tbl_contains({ "path" }, entry.source.name) then
 				local icon, hl_group = devicons.get_icon(entry:get_completion_item().label)
