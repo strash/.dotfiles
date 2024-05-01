@@ -30,6 +30,8 @@ brew "node"
 brew "pkg-config"
 # Object-relational database system
 brew "postgresql@16", link: true
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
