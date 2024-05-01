@@ -34,8 +34,6 @@ return require("lazy").setup({
 	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
-	-- astronvim
-	{ "AstroNvim/astrotheme" },
 
 	-- CORE
 	-- lsp config

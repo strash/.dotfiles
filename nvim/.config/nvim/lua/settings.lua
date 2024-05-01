@@ -13,8 +13,7 @@ opt.background = "dark"
 --local colo = "zenwritten"
 --local colo = "kanagawa"
 --local colo = "mellifluous"
---local colo = "tokyonight"
-local colo = "astrotheme"
+local colo = "tokyonight"
 
 -- COLO KANAGAWA
 --local kanagawa_config = {
@@ -65,13 +64,6 @@ require("mellifluous").setup({
 require("tokyonight").setup({
 	style = "night",
 	day_brightness = 0.2
-})
-
--- COLO ASTROTHEME
-require("astrotheme").setup({
-	style = {
-		inactive = false,
-	}
 })
 
 function M._get_path()
