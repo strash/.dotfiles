@@ -62,7 +62,8 @@ require("mellifluous").setup({
 
 -- COLO TOKYONIGHT
 require("tokyonight").setup({
-	style = "night",
+	style = "night", -- storm, moon, night
+	light_style = "day",
 	day_brightness = 0.2
 })
 
