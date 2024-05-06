@@ -48,7 +48,7 @@ end
 ---@param path string
 ---@return filepath_cache_path_part_split
 local function split_path_and_filename(path)
-	local f = path:match("[^/]+$") or ""
+	local f = path:match("[^/\\]+$") or ""
 	local p = path:sub(0, #path - #f)
 	return { path = p, shorten = vim.fn.pathshorten(p), filename = f }
 end
@@ -78,18 +78,17 @@ function M.get_filepath(buf_id)
 		else
 			path_parts.full = split_path_and_filename(fullpath)
 			---@type string
-			local relative = vim.fn.bufname()
-			if #relative ~= 0 then
-				-- if buffer was opened with lsp go to ...
-				local _, r_e = fullpath:find(vim.fn.getcwd(0), 0, true)
-				if r_e ~= nil then
-					local rel = fullpath:sub(r_e + 2)
-					relative = #rel ~= 0 and "./" .. rel or ""
-				else
-					relative = "./" .. relative
-				end
-				path_parts.relative = split_path_and_filename(relative)
+			local relative = ""
+			local cwd = vim.fn.getcwd(0)
+			local cwd_root_dir = split_path_and_filename(cwd)
+			local _, r_e = fullpath:find(cwd_root_dir.path, 0, true)
+			if r_e ~= nil then
+				local rel = fullpath:sub(r_e + 1)
+				relative = #rel ~= 0 and "~/" .. rel or ""
+			else
+				relative = "~/" .. relative
 			end
+			path_parts.relative = split_path_and_filename(relative)
 			cache[fullpath] = path_parts
 		end
 	end
