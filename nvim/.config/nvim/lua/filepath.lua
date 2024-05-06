@@ -80,13 +80,12 @@ function M.get_filepath(buf_id)
 			---@type string
 			local relative = ""
 			local cwd = vim.fn.getcwd(0)
-			local cwd_root_dir = split_path_and_filename(cwd)
-			local _, r_e = fullpath:find(cwd_root_dir.path, 0, true)
+			local _, r_e = fullpath:find(cwd, 0, true)
 			if r_e ~= nil then
-				local rel = fullpath:sub(r_e + 1)
-				relative = #rel ~= 0 and "~/" .. rel or ""
+				local rel = fullpath:sub(r_e + 2)
+				relative = #rel ~= 0 and "./" .. rel or ""
 			else
-				relative = "~/" .. relative
+				relative = "./" .. relative
 			end
 			path_parts.relative = split_path_and_filename(relative)
 			cache[fullpath] = path_parts

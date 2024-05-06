@@ -18,13 +18,12 @@ local get_filepath = function(filepath, is_relative)
 		else
 			local relative = ""
 			local cwd = vim.fn.getcwd(0)
-			local cwd_root_dir = split_path_and_filename(cwd)
-			local _, r_e = filepath:find(cwd_root_dir.path, 0, true)
+			local _, r_e = filepath:find(cwd, 0, true)
 			if r_e ~= nil then
-				local rel = filepath:sub(r_e + 1)
-				relative = #rel ~= 0 and "~/" .. rel or ""
+				local rel = filepath:sub(r_e + 2)
+				relative = #rel ~= 0 and "./" .. rel or ""
 			else
-				relative = "~/" .. relative
+				relative = "./" .. relative
 			end
 			return split_path_and_filename(relative)
 		end
