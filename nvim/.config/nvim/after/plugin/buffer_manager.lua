@@ -5,5 +5,5 @@ require("buffer_manager").setup({
 	short_file_names = false,
 	short_term_names = true,
 	loop_nav = true,
-	show_indicators = "after",
+	show_indicators = "before",
 })

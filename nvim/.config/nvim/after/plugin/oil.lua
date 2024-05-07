@@ -1,8 +1,18 @@
 require("oil").setup({
+	default_file_explorer = true,
 	columns = {
+		"icon",
+		--"size",
+	},
+	win_options = {
+		signcolumn = "auto",
+	},
+	lsp_file_methods = {
+		autosave_changes = true,
 	},
 	view_options = {
 		show_hidden = true,
+		natural_order = true,
 	},
 	float = {
 		padding = 10,
