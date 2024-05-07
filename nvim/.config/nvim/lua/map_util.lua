@@ -6,55 +6,55 @@ local M = {}
 
 local exclude = {
 	common = {
-		[[\.git]], [[\.idea]], [[node_modules]], [[pb_data/storage]], [[pb_data/backups]], [[ios]], [[android]],
+		[['\.git']], [['\.idea']], [['^\.DS_Store$']],
+		[['*.jpg']], [['*.jpeg']], [['*.png']], [['*.gif']],
+		[['*.otf']], [['*.ttf']],
 	},
 	by_filetype = {
 		{
 			ft = { "dart" },
-			path = { [[\.dart_tool]], [[android]], [[ios]], [[build]], },
+			path = { [['\.dart_tool']], [[android]], [[ios]], [[build]], },
 		},
 		{
 			ft = { "gd", "gdscript", "gdscript3", "res", "tres", "shader", "godot" },
-			path = { [[\.import]], [[\.godot]], [[\.android/build]] },
+			path = { [['\.import']], [['\.godot']], [['\.android/build']] },
 		},
 		{
-			ft = { "html", "css", "js", "ts", "go" },
-			path = { [[node_modules]], [[prisma/migrations]] },
+			ft = { "html", "css", "js", "ts", "tsx", "jsx", "svelte", "vue", "go" },
+			path = {
+				[[node_modules]], [['prisma/migrations']],
+				[['pb_data/storage']], [['pb_data/backups']],
+				[['\.svelte-kit']], [['bun.lockb']],
+			},
 		},
 		{
 			ft = { "lua" },
-			path = { [[mini.nvim]] },
+			path = { [['mini.nvim']] },
 		},
 	}
 }
 
-local function concat_find_path(list)
+local function exclude_paths(list)
 	local s = ""
-	for i, value in ipairs(list) do
-		if i == 1 then
-			s = s .. [[ -path '*/]] .. value .. [[/*' ]]
-		else
-			s = s .. [[ -o -path '*/]] .. value .. [[/*' ]]
-		end
+	for _, value in ipairs(list) do
+		s = s .. [[ -E ]] .. value .. [[ ]]
 	end
 	return s
 end
 
 function M.find_files()
 	local cwd = vim.fn.getcwd()
-	local ex = concat_find_path(exclude.common)
+	local ex = exclude_paths(exclude.common)
 	local clients = vim.lsp.get_active_clients()
 	if clients ~= nil and #clients > 0 then
 		local client = clients[1]
-		if client ~= nil and
-			client["config"] ~= nil and
-			client["config"]["filetypes"] ~= nil then
+		if client ~= nil and client["config"] ~= nil and client["config"]["filetypes"] ~= nil then
 			local ft = client["config"]["filetypes"]
 			for _, value in ipairs(exclude.by_filetype) do
 				local done = false
 				for _, filetype in ipairs(value.ft) do
 					if vim.tbl_contains(ft, filetype) then
-						ex = ex .. " -o " .. concat_find_path(value.path)
+						ex = ex .. exclude_paths(value.path)
 						done = true
 						break
 					end
@@ -63,7 +63,7 @@ function M.find_files()
 			end
 		end
 	end
-	local cmd = [[find ]] .. cwd .. [[ -type f -not \(]] .. ex .. [[\)]]
+	local cmd = [[fd --full-path ]] .. cwd .. [[ --type f -H ]] .. ex
 	return cmd
 end
 

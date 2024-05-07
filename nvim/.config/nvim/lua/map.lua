@@ -83,18 +83,17 @@ map_util.set_keymap(packer_map, packer_prefix, options)
 
 -- Fzf
 local fzf_prefix = "<leader>f"
-local files_opt = { cmd = map_util.find_files() }
 local fzf_map = {
-	{ key = "f", cmd = function() require("fzf-lua").files(files_opt) end },     -- files
-	{ key = "g", cmd = function() require("fzf-lua").live_grep() end },          -- live grep
-	{ key = "u", cmd = function() require("fzf-lua").lsp_finder() end },         -- lsp finder for things under cursor
-	{ key = "r", cmd = function() require("fzf-lua").lsp_references() end },     -- lsp references
-	{ key = "d", cmd = function() require("fzf-lua").lsp_definitions() end },    -- lsp definitions
-	{ key = "c", cmd = function() require("fzf-lua").lsp_declarations() end },   -- lsp declarations
-	{ key = "t", cmd = function() require("fzf-lua").lsp_typedefs() end },       -- lsp typedefs
-	{ key = "i", cmd = function() require("fzf-lua").lsp_implementations() end }, -- lsp implementations
-	{ key = "q", cmd = function() require("fzf-lua").quickfix() end },           -- quickfix
-	{ key = "e", cmd = function() require("fzf-lua").diagnostics_workspace() end }, -- lsp diagnostics workspace
+	{ key = "f", cmd = function() require("fzf-lua").files({ cmd = map_util.find_files() }) end }, -- files
+	{ key = "g", cmd = function() require("fzf-lua").live_grep() end },                         -- live grep
+	{ key = "u", cmd = function() require("fzf-lua").lsp_finder() end },                        -- lsp finder for things under cursor
+	{ key = "r", cmd = function() require("fzf-lua").lsp_references() end },                    -- lsp references
+	{ key = "d", cmd = function() require("fzf-lua").lsp_definitions() end },                   -- lsp definitions
+	{ key = "c", cmd = function() require("fzf-lua").lsp_declarations() end },                  -- lsp declarations
+	{ key = "t", cmd = function() require("fzf-lua").lsp_typedefs() end },                      -- lsp typedefs
+	{ key = "i", cmd = function() require("fzf-lua").lsp_implementations() end },               -- lsp implementations
+	{ key = "q", cmd = function() require("fzf-lua").quickfix() end },                          -- quickfix
+	{ key = "e", cmd = function() require("fzf-lua").diagnostics_workspace() end },             -- lsp diagnostics workspace
 }
 map_util.set_keymap(fzf_map, fzf_prefix, options)
 -- grep a word under cursor
