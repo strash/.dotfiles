@@ -34,12 +34,6 @@ return require("lazy").setup({
 	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
-	-- catppuccin
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-	},
 
 	-- CORE
 	-- lsp config

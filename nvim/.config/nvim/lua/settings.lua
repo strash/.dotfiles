@@ -13,8 +13,7 @@ opt.background = "dark"
 --local colo = "zenwritten"
 --local colo = "kanagawa"
 --local colo = "mellifluous"
---local colo = "tokyonight"
-local colo = "catppuccin"
+local colo = "tokyonight"
 
 -- COLO KANAGAWA
 --local kanagawa_config = {
@@ -65,51 +64,7 @@ require("mellifluous").setup({
 require("tokyonight").setup({
 	style = "night", -- storm, moon, night
 	light_style = "day",
-	day_brightness = 0.2
-})
-
-require("catppuccin").setup({
-	flavor = "mocha", -- auto, latte, frappe, macchiato, mocha
-	background = {
-		light = "latte",
-		dark = "mocha",
-	},
-	term_colors = true,
-	default_integrations = false,
-	integrations = {
-		cmp = true,
-		barbecue = {
-			dim_dirname = true,
-			bold_basename = true,
-			dim_context = true,
-			alt_background = true,
-		},
-		indent_blankline = {
-			enabled = true,
-			scope_color = "text",
-			colored_indent_levels = false,
-		},
-		neogit = true,
-		native_lsp = {
-			enabled = true,
-			virtual_text = {
-				errors = { "italic" },
-				hints = { "italic" },
-				warnings = { "italic" },
-				information = { "italic" },
-			},
-			underlines = {
-				errors = { "underline" },
-				hints = { "underline" },
-				warnings = { "underline" },
-				information = { "underline" },
-			},
-			inlay_hints = {
-				background = true,
-			},
-		},
-		treesitter = true,
-	},
+	day_brightness = 0.25,
 })
 
 function M._get_path()

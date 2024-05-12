@@ -29,8 +29,10 @@ local global_map = {
 	{ key = "<leader>r",  cmd = function() vim.lsp.buf.rename() end },            -- rename
 }
 map_util.set_keymap(global_map, "", options)
-vim.keymap.set("i", "<C-C>", "<Esc>", options)          -- exit insert mode
-vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options) -- exit insert mode in terminal
+vim.keymap.set("i", "<C-C>", "<Esc>", options)            -- exit insert mode
+vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options)   -- exit insert mode in terminal
+vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", options) -- scroll up and align the cursor
+vim.keymap.set({ "n", "v" }, "<C-b>", "<C-b>zz", options) -- scroll down and align the cursor
 
 -- LSP
 local opt = {
