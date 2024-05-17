@@ -45,8 +45,8 @@ end
 function M.find_files()
 	local cwd = vim.fn.getcwd()
 	local ex = exclude_paths(exclude.common)
-	local clients = vim.lsp.get_active_clients()
-	if clients ~= nil and #clients > 0 then
+	local clients = vim.lsp.get_clients()
+	if #clients > 0 then
 		local client = clients[1]
 		if client ~= nil and client["config"] ~= nil and client["config"]["filetypes"] ~= nil then
 			local ft = client["config"]["filetypes"]

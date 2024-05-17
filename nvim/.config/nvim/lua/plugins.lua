@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -26,12 +26,12 @@ vim.api.nvim_create_autocmd({
 return require("lazy").setup({
 	-- COLORS
 	-- zenbones
-	{
-		"mcchrish/zenbones.nvim",
-		dependencies = { "rktjmp/lush.nvim" },
-	},
+	-- {
+	-- 	"mcchrish/zenbones.nvim",
+	-- 	dependencies = { "rktjmp/lush.nvim" },
+	-- },
 	-- mellifluous
-	{ "ramojus/mellifluous.nvim" },
+	-- { "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
 
@@ -49,11 +49,9 @@ return require("lazy").setup({
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
 			"onsails/lspkind.nvim",
 		},
 	},

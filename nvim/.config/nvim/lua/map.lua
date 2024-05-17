@@ -34,46 +34,31 @@ vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options)   -- exit insert mode in
 vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", options) -- scroll up and align the cursor
 vim.keymap.set({ "n", "v" }, "<C-b>", "<C-b>zz", options) -- scroll down and align the cursor
 
--- LSP
-local opt = {
-	relative = "cursor",
-	max_width = 120,
-	wrap = true,
-	wrap_at = 118,
-	pad_top = 0,
-	pad_bottom = 0,
-	style = "minimal",
-	border = "rounded",
-	focusable = true,
-	focus = true,
-	noautocmd = true,
-}
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-	vim.lsp.handlers.hover, opt
-)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-	vim.lsp.handlers.signature_help, opt
-)
-
 local lsp_prefix = "<leader>s"
 function M.set_lsp_map(_, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	local lsp_map = {
-		{ key = "h", cmd = function() vim.lsp.buf.hover() end },
+		-- [INFO]: use K instead
+		--{ key = "h", cmd = function() vim.lsp.buf.hover() end },
 		{ key = "d", cmd = function() vim.lsp.buf.definition() end },
 		{ key = "c", cmd = function() vim.lsp.buf.declaration() end },
 		{ key = "i", cmd = function() vim.lsp.buf.implementation() end },
 		{ key = "r", cmd = function() vim.lsp.buf.references() end },
+		-- [INFO]: autoformat on save is used
 		--{ key = "f", cmd = function() vim.lsp.buf.format() end },
+		-- [INFO]: not using it anyways
 		--{ key = "e", cmd = function() vim.lsp.buf.signature_help() end },
-		{ key = "s", cmd = function() vim.diagnostic.open_float() end },
-		{ key = "p", cmd = function() vim.diagnostic.goto_prev() end },
-		{ key = "n", cmd = function() vim.diagnostic.goto_next() end },
+		-- [INFO]: use <C-W>d or <C-W><C-D> instead
+		--{ key = "s", cmd = function() vim.diagnostic.open_float() end },
+		-- [INFO]: use [d instead
+		--{ key = "p", cmd = function() vim.diagnostic.goto_prev() end },
+		-- [INFO]: use ]d instead
+		--{ key = "n", cmd = function() vim.diagnostic.goto_next() end },
 		{ key = "q", cmd = function() vim.diagnostic.setqflist() end },
 	}
 	map_util.set_keymap(lsp_map, lsp_prefix, opts)
 	vim.keymap.set({ "n", "v" }, lsp_prefix .. "a", function() require("fzf-lua").lsp_code_actions() end, opts)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 end
 
 -- Package manager

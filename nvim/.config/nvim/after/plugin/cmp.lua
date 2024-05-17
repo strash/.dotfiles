@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
 local devicons = require('nvim-web-devicons')
 local lspkind = require('lspkind')
 
@@ -31,14 +30,13 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "luasnip",  group_index = 1, priority = 40 },
 		{ name = "nvim_lsp", group_index = 1, priority = 30 },
 		{ name = "path",     group_index = 1, priority = 20 },
 		{ name = "buffer",   group_index = 2, priority = 10 },
 	}),
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body)
+			vim.snippet.expand(args.body)
 		end
 	},
 	formatting = {
