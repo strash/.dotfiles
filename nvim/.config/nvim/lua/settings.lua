@@ -81,7 +81,7 @@ function M._get_diagnostic_count()
 		if #src > 0 then
 			return src .. ", " .. value
 		end
-		return src .. value
+		return value
 	end
 
 	local empty_diagnostic = "[OK]"
@@ -89,19 +89,18 @@ function M._get_diagnostic_count()
 	if vim.diagnostic.is_enabled() then
 		---@type number[]
 		local count = vim.diagnostic.count(nil)
-		local a = vim.tbl_values(count)
 		local res = ""
-		if a[vim.diagnostic.severity.E] ~= nil then
-			res = append(res, "E:" .. a[vim.diagnostic.severity.E])
+		if count[vim.diagnostic.severity.ERROR] ~= nil then
+			res = append(res, "E:" .. count[vim.diagnostic.severity.ERROR])
 		end
-		if a[vim.diagnostic.severity.W] ~= nil then
-			res = append(res, "W:" .. a[vim.diagnostic.severity.W])
+		if count[vim.diagnostic.severity.WARN] ~= nil then
+			res = append(res, "W:" .. count[vim.diagnostic.severity.WARN])
 		end
-		if a[vim.diagnostic.severity.I] ~= nil then
-			res = append(res, "I:" .. a[vim.diagnostic.severity.I])
+		if count[vim.diagnostic.severity.INFO] ~= nil then
+			res = append(res, "I:" .. count[vim.diagnostic.severity.INFO])
 		end
-		if a[vim.diagnostic.severity.N] ~= nil then
-			res = append(res, "H:" .. a[vim.diagnostic.severity.H])
+		if count[vim.diagnostic.severity.HINT] ~= nil then
+			res = append(res, "H:" .. count[vim.diagnostic.severity.HINT])
 		end
 		if #res > 0 then
 			return "[" .. res .. "]"
