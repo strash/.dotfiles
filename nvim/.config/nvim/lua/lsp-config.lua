@@ -156,8 +156,8 @@ local function filter_format_client(client)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(l_args)
-		local client = vim.lsp.get_client_by_id(l_args.data.client_id)
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		-- formatting. not all clients need this autocommand
 		if client ~= nil and
 			(client.supports_method("documentFormattingProvider") or

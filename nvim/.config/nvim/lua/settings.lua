@@ -155,7 +155,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn = "%C%s%=%{v:relnum?v:relnum:v:lnum} "
 opt.statusline =
-[[%( %H%q%)%( %<%{%v:lua.require('settings')._get_path()%}%M%)%=%( %{%v:lua.require('settings')._get_diagnostic_count()%} %l↓ %3p%% %)]]
+[[%( %H%q%)%( %<%{%v:lua.require('settings')._get_path()%}%M%)%=%( %{%v:lua.require('settings')._get_diagnostic_count()%}  %l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
 opt.wildmenu = true
@@ -169,5 +169,13 @@ opt.smartindent = true
 opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
+
+-- set commentstring for dart files
+vim.api.nvim_create_autocmd("BufNew", {
+	pattern = "*.dart",
+	callback = function(args)
+		vim.bo[args.buf].commentstring = "// %s"
+	end
+})
 
 return M

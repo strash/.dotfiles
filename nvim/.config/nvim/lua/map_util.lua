@@ -48,7 +48,9 @@ function M.find_files()
 	local clients = vim.lsp.get_clients()
 	if #clients > 0 then
 		local client = clients[1]
-		if client ~= nil and client["config"] ~= nil and client["config"]["filetypes"] ~= nil then
+		if client ~= nil and
+			client["config"] ~= nil and
+			client["config"]["filetypes"] ~= nil then
 			local ft = client["config"]["filetypes"]
 			for _, value in ipairs(exclude.by_filetype) do
 				local done = false
