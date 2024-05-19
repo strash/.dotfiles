@@ -26,14 +26,19 @@ vim.api.nvim_create_autocmd({
 return require("lazy").setup({
 	-- COLORS
 	-- zenbones
-	-- {
-	-- 	"mcchrish/zenbones.nvim",
-	-- 	dependencies = { "rktjmp/lush.nvim" },
-	-- },
+	{
+		"mcchrish/zenbones.nvim",
+		dependencies = { "rktjmp/lush.nvim" },
+	},
 	-- mellifluous
-	-- { "ramojus/mellifluous.nvim" },
+	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
+	{
+		"cdmill/neomodern.nvim",
+		lazy = false,
+		priority = 1000,
+	},
 
 	-- CORE
 	-- lsp config

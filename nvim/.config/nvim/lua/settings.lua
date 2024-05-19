@@ -14,7 +14,8 @@ opt.background = "dark"
 --local colo = "kanagawa"
 --local colo = "mellifluous"
 --local colo = "tokyonight"
-local colo = "default"
+--local colo = "default"
+local colo = "neomodern"
 
 -- COLO KANAGAWA
 --local kanagawa_config = {
@@ -67,6 +68,11 @@ require("tokyonight").setup({
 	light_style = "day",
 	day_brightness = 0.25,
 })
+
+require("neomodern").setup({
+	style = "iceclimber", -- iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
+})
+require("neomodern").load()
 
 function M._get_path()
 	local path = filepath.get_filepath(filepath.get_bufnr())
@@ -134,7 +140,7 @@ opt.formatoptions = "cqjp"
 opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
-opt.laststatus = 3
+opt.laststatus = 2
 opt.list = true
 opt.listchars = {
 	tab = "▏ ",
