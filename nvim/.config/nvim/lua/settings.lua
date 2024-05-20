@@ -69,7 +69,9 @@ require("tokyonight").setup({
 	day_brightness = 0.25,
 })
 
+-- COLO NEOMODERN
 require("neomodern").setup({
+	-- only works if `cmd.colo(colo)` is not setted
 	style = "iceclimber", -- iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
 })
 require("neomodern").load()

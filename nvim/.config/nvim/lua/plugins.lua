@@ -34,11 +34,7 @@ return require("lazy").setup({
 	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
-	{
-		"cdmill/neomodern.nvim",
-		lazy = false,
-		priority = 1000,
-	},
+	{ "cdmill/neomodern.nvim" },
 
 	-- CORE
 	-- lsp config
