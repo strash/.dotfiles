@@ -1,12 +1,5 @@
 local M = {}
-
-local filepath = require("filepath")
-
 local opt, cmd = vim.opt, vim.cmd
-
-if not opt.termguicolors or opt.termguicolors ~= nil then
-	opt.termguicolors = true
-end
 
 opt.background = "dark"
 
@@ -15,52 +8,33 @@ opt.background = "dark"
 --local colo = "mellifluous"
 --local colo = "tokyonight"
 --local colo = "default"
-local colo = "neomodern"
+local colo = "coffeecat" -- neomodern, iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
 
 -- COLO KANAGAWA
---local kanagawa_config = {
---	globalStatus = true,
---	transparent = false,
---	specialException = true,
---	specialReturn = true,
---	commentStyle = { italic = false },
---	background = {
---		dark = "dragon", -- wave, dragon
---		light = "lotus", -- lotus
---	},
---}
---for _, value in ipairs({
---	"functionStyle",
---	"keywordStyle",
---	"statementStyle",
---	"typeStyle",
---	"variablebuiltinStyle",
---}) do
---	kanagawa_config[value] = { bold = true, italic = false }
---end
---require("kanagawa").setup(kanagawa_config)
-
--- COLO ZENBONES
--- local variant = "zenwritten"
---colo = variant
--- vim.g[variant] = {
--- 	italic_comments = false,
--- 	colorize_diagnostic_underline_text = true,
--- 	transparent_background = false,
--- }
+require("kanagawa").setup({
+	globalStatus = true,
+	transparent = false,
+	specialException = true,
+	specialReturn = true,
+	commentStyle = { italic = false },
+	background = {
+		dark = "dragon", -- wave, dragon
+		light = "lotus", -- lotus
+	},
+})
 
 -- COLO MELLIFLUOUS
--- require("mellifluous").setup({
--- 	color_set = "mellifluous", -- "mellifluous", "alduin", "mountain", "tender", "kanagawa_dragon"
--- 	neutral = true,
--- 	dim_inactive = false,
--- 	flat_background = {
--- 		line_numbers = true,
--- 		floating_widndows = true,
--- 		file_tree = true,
--- 		cursor_line_number = true,
--- 	},
--- })
+require("mellifluous").setup({
+	color_set = "mellifluous", -- mellifluous, alduin, mountain, tender, kanagawa_dragon
+	neutral = true,
+	dim_inactive = false,
+	flat_background = {
+		line_numbers = true,
+		floating_widndows = true,
+		file_tree = true,
+		cursor_line_number = true,
+	},
+})
 
 -- COLO TOKYONIGHT
 require("tokyonight").setup({
@@ -68,55 +42,6 @@ require("tokyonight").setup({
 	light_style = "day",
 	day_brightness = 0.25,
 })
-
--- COLO NEOMODERN
-require("neomodern").setup({
-	-- only works if `cmd.colo(colo)` is not setted
-	style = "iceclimber", -- iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
-})
-require("neomodern").load()
-
-function M._get_path()
-	local path = filepath.get_filepath(filepath.get_bufnr())
-	return path["relative"].path .. path["relative"].filename
-end
-
-function M._get_diagnostic_count()
-	---append to diagnostic string
-	---@param src string
-	---@param value string
-	local function append(src, value)
-		if #src > 0 then
-			return src .. ", " .. value
-		end
-		return value
-	end
-
-	local empty_diagnostic = "[OK]"
-
-	if vim.diagnostic.is_enabled() then
-		---@type number[]
-		local count = vim.diagnostic.count(nil)
-		local res = ""
-		if count[vim.diagnostic.severity.ERROR] ~= nil then
-			res = append(res, "E:" .. count[vim.diagnostic.severity.ERROR])
-		end
-		if count[vim.diagnostic.severity.WARN] ~= nil then
-			res = append(res, "W:" .. count[vim.diagnostic.severity.WARN])
-		end
-		if count[vim.diagnostic.severity.INFO] ~= nil then
-			res = append(res, "I:" .. count[vim.diagnostic.severity.INFO])
-		end
-		if count[vim.diagnostic.severity.HINT] ~= nil then
-			res = append(res, "H:" .. count[vim.diagnostic.severity.HINT])
-		end
-		if #res > 0 then
-			return "[" .. res .. "]"
-		end
-		return empty_diagnostic
-	end
-	return empty_diagnostic
-end
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
@@ -163,7 +88,9 @@ opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn = "%C%s%=%{v:relnum?v:relnum:v:lnum} "
 opt.statusline =
-[[%( %H%q%)%( %<%{%v:lua.require('settings')._get_path()%}%M%)%=%( %{%v:lua.require('settings')._get_diagnostic_count()%}  %l↓ %3p%% %)]]
+	[[%( %H%q%)]] ..
+	[[%( %<%{%v:lua.require('filepath').get_path()%}%M%)]] ..
+	[[%=%( %{%v:lua.require('diagnostics').get_diagnostic_count()%}  %l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
 opt.wildmenu = true
@@ -179,7 +106,7 @@ opt.softtabstop = 0
 opt.tabstop = 4
 
 -- set commentstring for dart files
-vim.api.nvim_create_autocmd("BufNew", {
+vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
 	pattern = "*.dart",
 	callback = function(args)
 		vim.bo[args.buf].commentstring = "// %s"

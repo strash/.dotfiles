@@ -7,22 +7,22 @@ local M = {}
 ---@type { [string]: filepath_cache_path_parts }
 local cache = {}
 
----@alias laststatus
+---@alias a_laststatus
 ---| 0 #never
 ---| 1 #only if there are at least two windows
 ---| 2 #always
 ---| 3 #always and ONLY the last window
 
 ---Static. Returns `laststatus`
----@return laststatus
-function M.laststatus()
+---@return a_laststatus
+local function laststatus()
 	return vim.o.laststatus
 end
 
 ---Static. Check if statusline on focused window
 ---@return boolean
-function M.is_focused()
-	if M.laststatus() == 3 then
+local function is_focused()
+	if laststatus() == 3 then
 		return true
 	end
 	return tonumber(vim.g.actual_curwin) == tonumber(vim.api.nvim_get_current_win())
@@ -30,12 +30,12 @@ end
 
 ---Static. Returns current buffer number
 ---@return integer
-function M.get_bufnr()
+local function get_bufnr()
 	local bufnr = 0
-	if M.laststatus() == 3 then
+	if laststatus() == 3 then
 		bufnr = tonumber(vim.api.nvim_get_current_buf()) or 0
 	else
-		if M.is_focused() then
+		if is_focused() then
 			bufnr = tonumber(vim.g.actual_curbuf) or 0
 		else
 			bufnr = tonumber(vim.api.nvim_get_current_buf()) or 0
@@ -56,7 +56,7 @@ end
 ---Returns path to the file
 ---@param buf_id number
 ---@return filepath_cache_path_parts
-function M.get_filepath(buf_id)
+local function get_filepath(buf_id)
 	---@type filepath_cache_path_parts
 	local path_parts = {
 		relative = {
@@ -92,6 +92,11 @@ function M.get_filepath(buf_id)
 		end
 	end
 	return path_parts
+end
+
+function M.get_path()
+	local path = get_filepath(get_bufnr())
+	return path["relative"].path .. path["relative"].filename
 end
 
 return M

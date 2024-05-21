@@ -30,11 +30,18 @@ return require("lazy").setup({
 		"mcchrish/zenbones.nvim",
 		dependencies = { "rktjmp/lush.nvim" },
 	},
+	-- kanagawa
+	{ "rebelot/kanagawa.nvim" },
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
 	-- tokyonight
 	{ "folke/tokyonight.nvim" },
-	{ "cdmill/neomodern.nvim" },
+	{
+		"cdmill/neomodern.nvim",
+		config = function()
+			require("neomodern").setup()
+		end,
+	},
 
 	-- CORE
 	-- lsp config
