@@ -1,6 +1,14 @@
 local M = {}
 local opt, cmd = vim.opt, vim.cmd
 
+-- set commentstring for dart files
+vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
+	pattern = "*.dart",
+	callback = function(args)
+		vim.bo[args.buf].commentstring = "// %s"
+	end
+})
+
 opt.background = "dark"
 
 --local colo = "zenwritten"
@@ -9,39 +17,6 @@ opt.background = "dark"
 --local colo = "tokyonight"
 --local colo = "default"
 local colo = "coffeecat" -- neomodern, iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
-
--- COLO KANAGAWA
-require("kanagawa").setup({
-	globalStatus = true,
-	transparent = false,
-	specialException = true,
-	specialReturn = true,
-	commentStyle = { italic = false },
-	background = {
-		dark = "dragon", -- wave, dragon
-		light = "lotus", -- lotus
-	},
-})
-
--- COLO MELLIFLUOUS
-require("mellifluous").setup({
-	color_set = "mellifluous", -- mellifluous, alduin, mountain, tender, kanagawa_dragon
-	neutral = true,
-	dim_inactive = false,
-	flat_background = {
-		line_numbers = true,
-		floating_widndows = true,
-		file_tree = true,
-		cursor_line_number = true,
-	},
-})
-
--- COLO TOKYONIGHT
-require("tokyonight").setup({
-	style = "night", -- storm, moon, night
-	light_style = "day",
-	day_brightness = 0.25,
-})
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
@@ -104,13 +79,5 @@ opt.smartindent = true
 opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
-
--- set commentstring for dart files
-vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
-	pattern = "*.dart",
-	callback = function(args)
-		vim.bo[args.buf].commentstring = "// %s"
-	end
-})
 
 return M

@@ -31,11 +31,50 @@ return require("lazy").setup({
 		dependencies = { "rktjmp/lush.nvim" },
 	},
 	-- kanagawa
-	{ "rebelot/kanagawa.nvim" },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				globalStatus = true,
+				transparent = false,
+				specialException = true,
+				specialReturn = true,
+				commentStyle = { italic = false },
+				background = {
+					dark = "dragon", -- wave, dragon
+					light = "lotus", -- lotus
+				},
+			})
+		end,
+	},
 	-- mellifluous
-	{ "ramojus/mellifluous.nvim" },
+	{
+		"ramojus/mellifluous.nvim",
+		config = function()
+			require("mellifluous").setup({
+				color_set = "mellifluous", -- mellifluous, alduin, mountain, tender, kanagawa_dragon
+				neutral = true,
+				dim_inactive = false,
+				flat_background = {
+					line_numbers = true,
+					floating_widndows = true,
+					file_tree = true,
+					cursor_line_number = true,
+				},
+			})
+		end,
+	},
 	-- tokyonight
-	{ "folke/tokyonight.nvim" },
+	{
+		"folke/tokyonight.nvim",
+		config = function()
+			require("tokyonight").setup({
+				style = "night", -- storm, moon, night
+				light_style = "day",
+				day_brightness = 0.25,
+			})
+		end,
+	},
 	{
 		"cdmill/neomodern.nvim",
 		config = function()
