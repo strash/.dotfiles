@@ -92,6 +92,8 @@ return require("lazy").setup({
 	},
 
 	-- PLUGINS
+	-- icons
+	{ "nvim-tree/nvim-web-devicons" },
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
@@ -116,17 +118,6 @@ return require("lazy").setup({
 	{ "stevearc/oil.nvim" },
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
-	-- barbecue
-	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		opts = {}
-	},
 	-- indent blanklines
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -134,17 +125,8 @@ return require("lazy").setup({
 		opts = {},
 	},
 }, {
-	defaults = {
-		lazy = false,
-	},
 	dev = {
 		path = "~/FOSS",
-	},
-	checker = {
-		notify = false,
-	},
-	change_detection = {
-		notify = false,
 	},
 	readme = {
 		enabled = false,

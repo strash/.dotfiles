@@ -15,8 +15,8 @@ opt.background = "dark"
 --local colo = "kanagawa"
 --local colo = "mellifluous"
 --local colo = "tokyonight"
---local colo = "default"
-local colo = "coffeecat" -- neomodern, iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
+--local colo = "coffeecat" -- neomodern, iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
+local colo = "default"
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
@@ -27,7 +27,7 @@ cmd.syntax("on")
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.colorcolumn = "+1"
 opt.completeopt = { "menu", "noinsert", "noselect", "popup" }
 opt.cursorline = true
@@ -53,7 +53,7 @@ opt.listchars = {
 opt.number = true
 opt.relativenumber = true
 opt.shortmess = "aoOstTWCF"
-opt.showbreak = "<<- "
+opt.showbreak = "<<< "
 opt.showcmd = false
 opt.showcmdloc = "statusline"
 opt.showtabline = 0
