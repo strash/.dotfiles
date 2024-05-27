@@ -38,6 +38,8 @@ vim.keymap.set({ "n", "v" }, "<C-b>", "<C-b>zz", options) -- scroll down and ali
 vim.keymap.set({ "n", "i", "s" }, "<CR>", function()
 	if vim.snippet.active() then
 		return "<CMD>lua vim.snippet.stop()<CR>"
+	else
+		return "<CR>"
 	end
 end, { expr = true })
 
