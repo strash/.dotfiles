@@ -34,6 +34,13 @@ vim.keymap.set("t", "<C-Esc>", [[<C-\><C-N>]], options)   -- exit insert mode in
 vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", options) -- scroll up and align the cursor
 vim.keymap.set({ "n", "v" }, "<C-b>", "<C-b>zz", options) -- scroll down and align the cursor
 
+-- cancel snippet
+vim.keymap.set({ "n", "i", "s" }, "<CR>", function()
+	if vim.snippet.active() then
+		return "<CMD>lua vim.snippet.stop()<CR>"
+	end
+end, { expr = true })
+
 local lsp_prefix = "<leader>s"
 function M.set_lsp_map(_, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
