@@ -2,6 +2,8 @@ local neogit = require("neogit")
 local buffer_manager_ui = require("buffer_manager.ui")
 local oil = require("oil")
 
+---@alias map_table { mode?: string|string[], key: string, cmd: string|function, opts?: vim.keymap.set.Opts }
+
 local M = {}
 
 local exclude = {
@@ -80,15 +82,25 @@ function M.fzf_grep_word()
 	end
 end
 
--- keymap helper
+---Keymap helper.
+---"map_table.mode" is "n" by default.
+---"map_table.opts" and "opts" are going to be merged. Values from "map_table.opts" will override values form "opts" if any.
+---@param map map_table[]
+---@param prefix? string
+---@param opts? vim.keymap.set.Opts
 function M.set_keymap(map, prefix, opts)
 	for _, key in ipairs(map) do
-		if type(key.cmd) == "function" then
-			vim.keymap.set("n", prefix .. key.key, key.cmd, opts)
-		else
-			vim.keymap.set("n", prefix .. key.key, "<Cmd>" .. key.cmd .. "<CR>", opts)
-		end
+		local merged_opts = vim.tbl_deep_extend("keep", key.opts or {}, opts or {})
+		local mode = key.mode or "n"
+		vim.keymap.set(mode, (prefix or "") .. key.key, key.cmd, merged_opts)
 	end
+end
+
+---Wrap key in command
+---@param key string
+---@return string
+function M.wrap_in_cmd(key)
+	return "<CMD>" .. key .. "<CR>"
 end
 
 M.background_color = vim.opt.background
@@ -146,14 +158,25 @@ vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	callback = function(args)
-		if args.match == "oil" then
-			vim.keymap.set("n", "<CR>", function() M.open_oil_buffer(nil) end, { buffer = true })
-			vim.keymap.set("n", "<C-c>", function() M.close_oil() end, { buffer = true })
-			vim.keymap.set("n", "<Esc>", function() M.close_oil() end, { buffer = true })
-			vim.keymap.set("n", "q", function() M.close_oil() end, { buffer = true })
-		end
+---@type vim.keymap.set.Opts
+local oil_opts = { buffer = true }
+---@type map_table[]
+local oil_map = {
+	{ key = "<CR>",  cmd = function() M.open_oil_buffer() end, opts = { desc = "open buffer under cursor" } },
+	{ key = "<C-c>", cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
+	{ key = "<ESC>", cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
+	{ key = "q",     cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
+}
+---@type map_table[]
+local oil_remap = {
+	{ key = "w", cmd = M.wrap_in_cmd("w"), opts = { desc = [[override global "save all buffers" to save only oil buffer]] } }
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "oil",
+	callback = function()
+		M.set_keymap(oil_map, nil, oil_opts)
+		M.set_keymap(oil_remap, "<leader>", oil_opts)
 	end,
 })
 
