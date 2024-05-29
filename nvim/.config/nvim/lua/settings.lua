@@ -68,6 +68,7 @@ opt.statusline =
 	[[%=%( %{%v:lua.require('diagnostics').get_diagnostic_count()%}  %l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
+opt.updatetime = 500
 opt.wildmenu = true
 opt.wrap = true
 
