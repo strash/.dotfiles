@@ -157,12 +157,13 @@ end
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
-		if not vim.lsp.inlay_hint.is_enabled({ bufnr = nil }) then
-			vim.lsp.inlay_hint.enable(true)
-		end
+		-- inlay hints
+		-- if not vim.lsp.inlay_hint.is_enabled({ bufnr = nil }) then
+		-- 	vim.lsp.inlay_hint.enable(true)
+		-- end
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client ~= nil then
-			-- formatting. not all clients need this autocommand
+			-- formatting
 			if client.supports_method("documentFormattingProvider") or
 				client.supports_method("[textDocument/formatting]") then
 				vim.api.nvim_create_autocmd("BufWritePre", {
@@ -175,23 +176,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					group = auto_group,
 				})
 			end
+			-- highlight
+			if client.supports_method("textDocument/documentHighlight") then
+				vim.api.nvim_create_autocmd("CursorHold", {
+					callback = function()
+						vim.lsp.buf.document_highlight()
+					end,
+					nested = true,
+					group = auto_group
+				})
+
+				vim.api.nvim_create_autocmd("CursorMoved", {
+					callback = function()
+						vim.lsp.buf.clear_references()
+					end,
+					nested = true,
+					group = auto_group
+				})
+			end
 		end
 	end,
 	group = auto_group,
-})
-
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		vim.lsp.buf.document_highlight()
-	end,
-	nested = true,
-	group = auto_group
-})
-
-vim.api.nvim_create_autocmd("CursorMoved", {
-	callback = function()
-		vim.lsp.buf.clear_references()
-	end,
-	nested = true,
-	group = auto_group
 })

@@ -43,6 +43,7 @@ opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
 opt.laststatus = 2
+opt.linebreak = true
 opt.list = true
 opt.listchars = {
 	tab = "▏ ",
