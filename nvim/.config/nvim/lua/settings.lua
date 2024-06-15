@@ -24,10 +24,18 @@ cmd.filetype("plugin indent on")
 cmd.syntax("enable")
 cmd.syntax("on")
 
+function Status_path()
+	local path = vim.fn.expand("%:~:.")
+	if path == "" or vim.bo.buftype ~= "" then
+		return "%t"
+	end
+	return path
+end
+
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.colorcolumn = "+1"
 opt.completeopt = { "menu", "noinsert", "noselect", "popup" }
 opt.cursorline = true
@@ -65,7 +73,7 @@ opt.splitright = true
 opt.statuscolumn = "%C%s%=%{v:relnum?v:relnum:v:lnum} "
 opt.statusline =
 	[[%( %H%q%)]] ..
-	[[%( %<%{%v:lua.require('filepath').get_path()%}%M%)]] ..
+	[[%( %<%{%v:lua.Status_path()%}%M%)]] ..
 	[[%=%( %{%v:lua.require('diagnostics').get_diagnostic_count()%}  %l↓ %3p%% %)]]
 opt.swapfile = false
 opt.textwidth = 80
