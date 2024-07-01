@@ -14,12 +14,12 @@ local options = {
 ---Global
 ---@type map_table[]
 local global_map = {
-	{ mode = "n",          key = "<Tab>",   cmd = map_util.wrap_in_cmd("bn"), opts = { desc = "next buffer" } },
-	{ mode = "n",          key = "<S-Tab>", cmd = map_util.wrap_in_cmd("bp"), opts = { desc = "prev buffer" } },
-	{ mode = "i",          key = "<C-C>",   cmd = "<ESC>",                    opts = { desc = "exit insert mode" } },
-	{ mode = "t",          key = "<C-ESC>", cmd = [[<C-\><C-N>]],             opts = { desc = "exit insert mode in terminal" } },
-	{ mode = { "n", "v" }, key = "<C-d>",   cmd = "<C-d>zz",                  opts = { desc = "scroll up and align the cursor" } },
-	{ mode = { "n", "v" }, key = "<C-u>",   cmd = "<C-u>zz",                  opts = { desc = "scroll down and align the cursor" } },
+	{ mode = "n", key = "<Tab>",   cmd = map_util.wrap_in_cmd("bn"), opts = { desc = "next buffer" } },
+	{ mode = "n", key = "<S-Tab>", cmd = map_util.wrap_in_cmd("bp"), opts = { desc = "prev buffer" } },
+	{ mode = "i", key = "<C-C>",   cmd = "<ESC>",                    opts = { desc = "exit insert mode" } },
+	{ mode = "t", key = "<C-ESC>", cmd = [[<C-\><C-N>]],             opts = { desc = "exit insert mode in terminal" } },
+	-- { mode = { "n", "v" }, key = "<C-d>",   cmd = "<C-d>zz",                  opts = { desc = "scroll up and align the cursor" } },
+	-- { mode = { "n", "v" }, key = "<C-u>",   cmd = "<C-u>zz",                  opts = { desc = "scroll down and align the cursor" } },
 	{
 		mode = { "n", "i", "s" },
 		key = "<CR>",

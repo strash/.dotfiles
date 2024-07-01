@@ -6,5 +6,5 @@ require("buffer_manager").setup({
 	short_term_names = true,
 	loop_nav = true,
 	show_indicators = nil,
-	order_buffers = "filename",
+	order_buffers = nil,
 })
