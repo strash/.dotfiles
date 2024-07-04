@@ -25,18 +25,8 @@ vim.api.nvim_create_autocmd({
 
 return require("lazy").setup({
 	-- COLORS
-	-- zenbones
-	{
-		"mcchrish/zenbones.nvim",
-		dependencies = { "rktjmp/lush.nvim" },
-	},
-	-- kanagawa
-	{ "rebelot/kanagawa.nvim" },
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
-	-- tokyonight
-	{ "folke/tokyonight.nvim" },
-	{ "cdmill/neomodern.nvim" },
 
 	-- CORE
 	-- lsp config
@@ -76,20 +66,15 @@ return require("lazy").setup({
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 	-- oil
-	{
-		"stevearc/oil.nvim",
-		-- v2.10.0
-		-- commit = "0883b10",
-		-- pin = true,
-	},
+	{ "stevearc/oil.nvim" },
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
 	-- indent blanklines
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {},
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	opts = {},
+	-- },
 }, {
 	dev = {
 		path = "~/FOSS",
