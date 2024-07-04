@@ -14,12 +14,12 @@ require("oil").setup({
 		show_hidden = true,
 		natural_order = true,
 	},
-	progress = {
-		width = 100,
-		height = 12,
-		win_options = {
-			winblend = 0,
-		},
-	},
-	watch_for_changes = true,
+	-- progress = {
+	-- 	width = 100,
+	-- 	height = 12,
+	-- 	win_options = {
+	-- 		winblend = 0,
+	-- 	},
+	-- },
+	-- watch_for_changes = true,
 })

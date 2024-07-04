@@ -48,8 +48,13 @@ return require("lazy").setup({
 	},
 
 	-- PLUGINS
-	-- icons
-	{ "nvim-tree/nvim-web-devicons" },
+	{
+		"echasnovski/mini.icons",
+		config = function()
+			require("mini.icons").setup()
+			MiniIcons.mock_nvim_web_devicons()
+		end
+	},
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
@@ -71,7 +76,12 @@ return require("lazy").setup({
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 	-- oil
-	{ "stevearc/oil.nvim" },
+	{
+		"stevearc/oil.nvim",
+		-- v2.10.0
+		-- commit = "0883b10",
+		-- pin = true,
+	},
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
 	-- indent blanklines
