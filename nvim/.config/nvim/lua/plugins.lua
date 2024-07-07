@@ -63,12 +63,6 @@ return require("lazy").setup({
 	{ "stevearc/oil.nvim" },
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
-	-- indent blanklines
-	-- {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	main = "ibl",
-	-- 	opts = {},
-	-- },
 }, {
 	dev = {
 		path = "~/FOSS",
