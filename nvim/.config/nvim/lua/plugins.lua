@@ -38,13 +38,7 @@ return require("lazy").setup({
 	},
 
 	-- PLUGINS
-	{
-		"echasnovski/mini.icons",
-		config = function()
-			require("mini.icons").setup()
-			MiniIcons.mock_nvim_web_devicons()
-		end
-	},
+	{ "echasnovski/mini.icons" },
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
