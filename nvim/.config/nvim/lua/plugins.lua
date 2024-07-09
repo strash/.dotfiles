@@ -63,6 +63,8 @@ return require("lazy").setup({
 	{ "stevearc/oil.nvim" },
 	-- fzf lua
 	{ "ibhagwan/fzf-lua" },
+	-- pretty quickfix
+	{ "yorickpeterse/nvim-pqf" },
 }, {
 	dev = {
 		path = "~/FOSS",
