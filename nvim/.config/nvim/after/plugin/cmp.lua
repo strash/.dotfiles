@@ -5,19 +5,19 @@ cmp.setup({
 	view = {
 		entries = "custom",
 	},
-	window = {
-		completion = cmp.config.window.bordered {
-			col_offset = -2,
-			side_padding = 0,
-			border = "rounded",
-			winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-		},
-		documentation = cmp.config.window.bordered {
-			border = "rounded",
-			winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-			max_width = 0,
-		},
-	},
+	-- window = {
+	-- 	completion = cmp.config.window.bordered {
+	-- 		col_offset = -2,
+	-- 		side_padding = 0,
+	-- 		border = "rounded",
+	-- 		winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+	-- 	},
+	-- 	documentation = cmp.config.window.bordered {
+	-- 		border = "rounded",
+	-- 		winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+	-- 		max_width = 0
+	-- 	},
+	-- },
 	experimental = {
 		ghost_text = true,
 	},
@@ -40,10 +40,9 @@ cmp.setup({
 	},
 	formatting = {
 		expandable_indicator = false,
-		fields = { "kind", "abbr", "menu" },
+		fields = { "kind", "abbr" },
 		format = lspkind.cmp_format({
 			mode = "symbol",
-			maxwidth = 30,
 			ellipsis_char = "…",
 			show_labelDetails = true,
 			before = function(entry, vim_item)
@@ -55,6 +54,7 @@ cmp.setup({
 						return vim_item
 					end
 				end
+				vim_item.menu = nil
 				return vim_item
 			end
 		}),

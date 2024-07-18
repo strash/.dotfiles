@@ -18,8 +18,12 @@ local global_map = {
 	{ mode = "n", key = "<S-Tab>", cmd = map_util.wrap_in_cmd("bp"), opts = { desc = "prev buffer" } },
 	{ mode = "i", key = "<C-C>",   cmd = "<ESC>",                    opts = { desc = "exit insert mode" } },
 	{ mode = "t", key = "<C-ESC>", cmd = [[<C-\><C-N>]],             opts = { desc = "exit insert mode in terminal" } },
-	-- { mode = { "n", "v" }, key = "<C-d>",   cmd = "<C-d>zz",                  opts = { desc = "scroll up and align the cursor" } },
-	-- { mode = { "n", "v" }, key = "<C-u>",   cmd = "<C-u>zz",                  opts = { desc = "scroll down and align the cursor" } },
+	{
+		mode = "i",
+		key = "<C-s><C-g>",
+		cmd = function() vim.lsp.buf.signature_help() end,
+		opts = { desc = "signature help" }
+	},
 	{
 		mode = { "n", "i", "s" },
 		key = "<CR>",
@@ -47,6 +51,7 @@ local global_w_leader_map = {
 	{ key = "cp", cmd = map_util.wrap_in_cmd("cp"),                        opts = { desc = "prew entry point form the quicklist" } },
 	{ key = "so", cmd = map_util.wrap_in_cmd("so %"),                      opts = { desc = "source nvim config" } },
 	{ key = "tt", cmd = function() map_util.open_terminal() end,           opts = { desc = "open terminal window" } },
+	{ key = "ih", cmd = function() map_util.toggle_inlay_hints() end,      opts = { desc = "toggle inlay hints" } },
 	{ key = "bb", cmd = function() map_util.toggle_background_color() end, opts = { desc = "toggle background color" } },
 	{ key = "gg", cmd = function() map_util.open_neogit_window() end,      opts = { desc = "open neogit" } },
 	{ key = "r",  cmd = function() vim.lsp.buf.rename() end,               opts = { desc = "rename" } },
@@ -73,7 +78,6 @@ function M.set_lsp_map(_, bufnr)
 		},
 	}
 	map_util.set_keymap(lsp_map, lsp_prefix, opts)
-	vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 end
 
 -- Package manager

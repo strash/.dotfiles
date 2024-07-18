@@ -151,21 +151,15 @@ local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
 ---@param client vim.lsp.Client
 ---@return (boolean|lsp.DocumentFormattingOptions)?
 local function filter_format_client(client)
-	return client.supports_method("documentFormattingProvider") or
-		client.supports_method("[textDocument/formatting]")
+	return client.supports_method("textDocument/formatting")
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
-		-- inlay hints
-		-- if not vim.lsp.inlay_hint.is_enabled({ bufnr = nil }) then
-		-- 	vim.lsp.inlay_hint.enable(true)
-		-- end
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client ~= nil then
 			-- formatting
-			if client.supports_method("documentFormattingProvider") or
-				client.supports_method("[textDocument/formatting]") then
+			if client.supports_method("textDocument/formatting") then
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					callback = function()
 						-- filter in case many active clienst

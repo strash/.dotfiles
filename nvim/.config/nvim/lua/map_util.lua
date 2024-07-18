@@ -84,7 +84,7 @@ end
 
 ---Keymap helper.
 ---"map_table.mode" is "n" by default.
----"map_table.opts" and "opts" are going to be merged. Values from "map_table.opts" will override values form "opts" if any.
+---"map_table.opts" and "opts" are going to be merged. Values from "map_table.opts" will override values from "opts" if any.
 ---@param map map_table[]
 ---@param prefix? string
 ---@param opts? vim.keymap.set.Opts
@@ -137,6 +137,11 @@ end
 -- neogit
 function M.open_neogit_window()
 	neogit.open({ kind = "split" })
+end
+
+-- inlay hints
+function M.toggle_inlay_hints()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = nil }))
 end
 
 -- oil.nvim
