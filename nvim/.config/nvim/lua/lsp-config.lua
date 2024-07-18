@@ -147,24 +147,21 @@ nvim_lsp.lua_ls.setup({
 
 local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
 
----format filter callback
----@param client vim.lsp.Client
----@return (boolean|lsp.DocumentFormattingOptions)?
-local function filter_format_client(client)
-	return client.supports_method("textDocument/formatting")
-end
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client ~= nil then
 			-- formatting
-			if client.supports_method("textDocument/formatting") then
+			if client.supports_method("textDocument/formatting") or
+				client.supports_method("documentFormattingProvider") then
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					callback = function()
 						-- filter in case many active clienst
 						vim.lsp.buf.format({
-							filter = filter_format_client
+							filter = function(buf_client)
+								return buf_client.supports_method("textDocument/formatting") or
+									client.supports_method("documentFormattingProvider")
+							end
 						})
 					end,
 					group = auto_group,
