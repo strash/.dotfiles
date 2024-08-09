@@ -10,6 +10,9 @@ alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshr
 # pnpm
 alias cocka="bun update -g"
 
+# firebase
+alias firebase_update="curl -sL https://firebase.tools | upgrade=true bash"
+
 # brew
 alias booba="arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && brew cleanup -s"
 alias boocka="booba && cocka"
