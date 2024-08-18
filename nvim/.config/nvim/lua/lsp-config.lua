@@ -147,11 +147,11 @@ nvim_lsp.lua_ls.setup({
 
 local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
 
+-- formatting
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client ~= nil then
-			-- formatting
 			if client.supports_method("textDocument/formatting") or
 				client.supports_method("documentFormattingProvider") then
 				vim.api.nvim_create_autocmd("BufWritePre", {
@@ -165,24 +165,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 						})
 					end,
 					group = auto_group,
-				})
-			end
-			-- highlight
-			if client.supports_method("textDocument/documentHighlight") then
-				vim.api.nvim_create_autocmd("CursorHold", {
-					callback = function()
-						vim.lsp.buf.document_highlight()
-					end,
-					nested = true,
-					group = auto_group
-				})
-
-				vim.api.nvim_create_autocmd("CursorMoved", {
-					callback = function()
-						vim.lsp.buf.clear_references()
-					end,
-					nested = true,
-					group = auto_group
 				})
 			end
 		end
