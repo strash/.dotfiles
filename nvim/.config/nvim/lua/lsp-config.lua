@@ -22,10 +22,10 @@ local lsp_servers = {
 }
 
 local node_lsp_servers = {
+	{ "html",        { "vscode-html-language-server", "--stdio" } },
 	{ "cssls",       { "vscode-css-language-server", "--stdio" } },
-	{ "html",        { "ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", "" } },
 	{ "jsonls",      { "vscode-json-language-server", "--stdio" } },
-	{ "svelte",      { "svelte-language-server", "--stdio" } },
+	{ "svelte",      { "svelteserver", "--stdio" } },
 	{ "tailwindcss", { "tailwindcss-language-server", "--stdio" } },
 	{ "tsserver",    { "typescript-language-server", "--stdio" } }
 }
