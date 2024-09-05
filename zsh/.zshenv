@@ -15,7 +15,7 @@ $HOME/.dotnet/tools:\
 $HOME/Library/pnpm:\
 $HOME/go/bin:\
 /usr/local/go/bin:\
-/opt/homebrew/Caskroom/flutter/3.x.x/flutter/bin:\
+$HOME/Developer/flutter/bin:\
 $HOME/.pub-cache/bin:\
 $HOME/.bun/bin:\
 

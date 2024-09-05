@@ -119,3 +119,5 @@ export PATH="$PNPM_HOME:$PATH"
 
 # bun completions
 [ -s "/Users/strash/.bun/_bun" ] && source "/Users/strash/.bun/_bun"
+
+source <(fzf --zsh)
