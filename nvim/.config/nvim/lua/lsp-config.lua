@@ -27,7 +27,7 @@ local node_lsp_servers = {
 	{ "jsonls",      { "vscode-json-language-server", "--stdio" } },
 	{ "svelte",      { "svelteserver", "--stdio" } },
 	{ "tailwindcss", { "tailwindcss-language-server", "--stdio" } },
-	{ "tsserver",    { "typescript-language-server", "--stdio" } }
+	{ "ts_ls",       { "typescript-language-server", "--stdio" } }
 }
 
 local flags = {
