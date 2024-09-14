@@ -1,6 +1,8 @@
 require("mellifluous").setup({
-	color_set = "mellifluous", -- mellifluous, alduin, mountain, tender, kanagawa_dragon
-	neutral = true,
+	colorset = "mellifluous", -- mellifluous, alduin, mountain, tender, kanagawa_dragon
+	mellifluous = {
+		neutral = true,
+	},
 	dim_inactive = false,
 	flat_background = {
 		line_numbers = true,
