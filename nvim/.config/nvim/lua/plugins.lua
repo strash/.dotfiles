@@ -28,6 +28,9 @@ return require("lazy").setup({
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim" },
 
+	-- lavish
+	{ "ferdinandrau/lavish.nvim" },
+
 	-- CORE
 	-- lsp config
 	{ "neovim/nvim-lspconfig" },
