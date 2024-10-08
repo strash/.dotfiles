@@ -1,3 +1,7 @@
 -- neomodern
 -- { "cdmill/neomodern.nvim" },
--- require("neomodern").setup()
+local p = require("plugin_loader").load("neomodern")
+
+if p ~= nil then
+	require("neomodern").setup()
+end

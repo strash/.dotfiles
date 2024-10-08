@@ -26,25 +26,34 @@ vim.api.nvim_create_autocmd({
 return require("lazy").setup({
 	-- COLORS
 	-- mellifluous
-	{ "ramojus/mellifluous.nvim" },
+	{ "ramojus/mellifluous.nvim", lazy = false },
 
 	-- lavish
-	{ "ferdinandrau/lavish.nvim" },
+	{ "ferdinandrau/lavish.nvim", lazy = false },
 
 	-- CORE
 	-- lsp config
-	{ "neovim/nvim-lspconfig" },
+	{ "neovim/nvim-lspconfig",    lazy = false },
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdateSync",
+		lazy = false,
 	},
 
 	-- PLUGINS
-	{ "echasnovski/mini.icons" },
+	{ "echasnovski/mini.icons", lazy = false },
+	-- blink
+	{
+		"saghen/blink.cmp",
+		lazy = false,
+		version = "v0.*",
+	},
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
+		enabled = false,
+		lazy = false,
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
@@ -55,19 +64,21 @@ return require("lazy").setup({
 	-- neogit
 	{
 		"NeogitOrg/neogit",
+		lazy = false,
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 	-- buffer manager
 	{
 		"j-morano/buffer_manager.nvim",
+		lazy = false,
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 	-- oil
-	{ "stevearc/oil.nvim" },
+	{ "stevearc/oil.nvim",      lazy = false },
 	-- fzf lua
-	{ "ibhagwan/fzf-lua" },
+	{ "ibhagwan/fzf-lua",       lazy = false },
 	-- pretty quickfix
-	{ "yorickpeterse/nvim-pqf" },
+	{ "yorickpeterse/nvim-pqf", lazy = false },
 }, {
 	dev = {
 		path = "~/FOSS",

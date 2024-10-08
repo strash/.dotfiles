@@ -1,6 +1,7 @@
-local neogit = require("neogit")
-local buffer_manager_ui = require("buffer_manager.ui")
-local oil = require("oil")
+local neogit = require("plugin_loader").load("neogit")
+local buffer_manager_ui = require("plugin_loader").load("buffer_manager.ui")
+local oil = require("plugin_loader").load("oil")
+local fzf_lua = require("plugin_loader").load("fzf-lua")
 
 ---@alias map_table { mode?: string|string[], key: string, cmd: string|function, opts?: vim.keymap.set.Opts }
 
@@ -72,12 +73,13 @@ function M.find_files()
 end
 
 function M.fzf_grep_word()
+	if fzf_lua == nil then return end
 	local mode = vim.api.nvim_get_mode()["mode"]
 	if mode ~= nil and type(mode) == "string" and #mode > 0 then
 		if string.sub(mode, 0):lower() == "n" then
 			vim.api.nvim_input([[viw:lua require("fzf-lua").grep_visual()<CR>]])
 		else
-			require("fzf-lua").grep_visual()
+			fzf_lua.grep_visual()
 		end
 	end
 end
@@ -131,11 +133,13 @@ end
 
 -- buffer manager
 function M.toggle_buffer_manager()
+	if buffer_manager_ui == nil then return end
 	buffer_manager_ui.toggle_quick_menu()
 end
 
 -- neogit
 function M.open_neogit_window()
+	if neogit == nil then return end
 	neogit.open({ kind = "split" })
 end
 
@@ -146,14 +150,17 @@ end
 
 -- oil.nvim
 function M.open_oil()
+	if oil == nil then return end
 	oil.open()
 end
 
 function M.open_oil_buffer(opts)
+	if oil == nil then return end
 	oil.select(opts)
 end
 
 function M.close_oil()
+	if oil == nil then return end
 	oil.close()
 end
 
@@ -163,26 +170,28 @@ vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
 	end,
 })
 
----@type vim.keymap.set.Opts
-local oil_opts = { buffer = true }
----@type map_table[]
-local oil_map = {
-	{ key = "<CR>",  cmd = function() M.open_oil_buffer() end, opts = { desc = "open buffer under cursor" } },
-	{ key = "<C-c>", cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
-	{ key = "<ESC>", cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
-	{ key = "q",     cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
-}
----@type map_table[]
-local oil_remap = {
-	{ key = "w", cmd = M.wrap_in_cmd("w"), opts = { desc = [[override global "save all buffers" to save only oil buffer]] } }
-}
+if oil ~= nil then
+	---@type vim.keymap.set.Opts
+	local oil_opts = { buffer = true }
+	---@type map_table[]
+	local oil_map = {
+		{ key = "<CR>",  cmd = function() M.open_oil_buffer() end, opts = { desc = "open buffer under cursor" } },
+		{ key = "<C-c>", cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
+		{ key = "<ESC>", cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
+		{ key = "q",     cmd = function() M.close_oil() end,       opts = { desc = "close oil" } },
+	}
+	---@type map_table[]
+	local oil_remap = {
+		{ key = "w", cmd = M.wrap_in_cmd("w"), opts = { desc = [[override global "save all buffers" to save only oil buffer]] } }
+	}
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "oil",
-	callback = function()
-		M.set_keymap(oil_map, nil, oil_opts)
-		M.set_keymap(oil_remap, "<leader>", oil_opts)
-	end,
-})
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "oil",
+		callback = function()
+			M.set_keymap(oil_map, nil, oil_opts)
+			M.set_keymap(oil_remap, "<leader>", oil_opts)
+		end,
+	})
+end
 
 return M

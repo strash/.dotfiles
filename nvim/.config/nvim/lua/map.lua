@@ -58,6 +58,8 @@ local global_w_leader_map = {
 }
 map_util.set_keymap(global_w_leader_map, global_leader, options)
 
+local fzf_lua = require("plugin_loader").load("fzf-lua")
+
 function M.set_lsp_map(_, bufnr)
 	local lsp_prefix = "<leader>s"
 	---@type vim.keymap.set.Opts
@@ -73,7 +75,9 @@ function M.set_lsp_map(_, bufnr)
 			mode = { "n", "v" },
 			key = "a",
 			cmd = function()
-				require("fzf-lua").lsp_code_actions()
+				if fzf_lua ~= nil then
+					fzf_lua.lsp_code_actions()
+				end
 			end
 		},
 	}
@@ -87,28 +91,31 @@ local packer_map = { { key = "s", cmd = map_util.wrap_in_cmd("Lazy sync") } }
 map_util.set_keymap(packer_map, packer_prefix, options)
 
 -- Fzf
-local fzf_prefix = "<leader>f"
----@type map_table[]
-local fzf_map = {
-	{ key = "f", cmd = function() require("fzf-lua").files({ cmd = map_util.find_files() }) end, opts = { desc = "find files" } },
-	{ key = "g", cmd = function() require("fzf-lua").live_grep() end,                            opts = { desc = "live grep" } },
-	{ key = "u", cmd = function() require("fzf-lua").lsp_finder() end,                           opts = { desc = "lsp finder for things under cursor" } },
-	{ key = "r", cmd = function() require("fzf-lua").lsp_references() end,                       opts = { desc = "lsp references" } },
-	{ key = "d", cmd = function() require("fzf-lua").lsp_definitions() end,                      opts = { desc = "lsp definitions" } },
-	{ key = "c", cmd = function() require("fzf-lua").lsp_declarations() end,                     opts = { desc = "lsp declarations" } },
-	{ key = "t", cmd = function() require("fzf-lua").lsp_typedefs() end,                         opts = { desc = "lsp typedefs" } },
-	{ key = "i", cmd = function() require("fzf-lua").lsp_implementations() end,                  opts = { desc = "lsp implementations" } },
-	{ key = "q", cmd = function() require("fzf-lua").quickfix() end,                             opts = { desc = "search in quickfix" } },
-	{ key = "e", cmd = function() require("fzf-lua").diagnostics_workspace() end,                opts = { desc = "lsp diagnostics workspace" } },
-	{
-		mode = { "n", "v" },
-		key = "w",
-		cmd = function()
-			map_util.fzf_grep_word()
-		end,
-		opts = { desc = "grep a word under cursor" }
-	},
-}
-map_util.set_keymap(fzf_map, fzf_prefix, options)
+if fzf_lua ~= nil then
+	local fzf_prefix = "<leader>f"
+
+	---@type map_table[]
+	local fzf_map = {
+		{ key = "f", cmd = function() require("fzf-lua").files({ cmd = map_util.find_files() }) end, opts = { desc = "find files" } },
+		{ key = "g", cmd = function() require("fzf-lua").live_grep() end,                            opts = { desc = "live grep" } },
+		{ key = "u", cmd = function() require("fzf-lua").lsp_finder() end,                           opts = { desc = "lsp finder for things under cursor" } },
+		{ key = "r", cmd = function() require("fzf-lua").lsp_references() end,                       opts = { desc = "lsp references" } },
+		{ key = "d", cmd = function() require("fzf-lua").lsp_definitions() end,                      opts = { desc = "lsp definitions" } },
+		{ key = "c", cmd = function() require("fzf-lua").lsp_declarations() end,                     opts = { desc = "lsp declarations" } },
+		{ key = "t", cmd = function() require("fzf-lua").lsp_typedefs() end,                         opts = { desc = "lsp typedefs" } },
+		{ key = "i", cmd = function() require("fzf-lua").lsp_implementations() end,                  opts = { desc = "lsp implementations" } },
+		{ key = "q", cmd = function() require("fzf-lua").quickfix() end,                             opts = { desc = "search in quickfix" } },
+		{ key = "e", cmd = function() require("fzf-lua").diagnostics_workspace() end,                opts = { desc = "lsp diagnostics workspace" } },
+		{
+			mode = { "n", "v" },
+			key = "w",
+			cmd = function()
+				map_util.fzf_grep_word()
+			end,
+			opts = { desc = "grep a word under cursor" }
+		},
+	}
+	map_util.set_keymap(fzf_map, fzf_prefix, options)
+end
 
 return M
