@@ -31,9 +31,18 @@ return require("lazy").setup({
 	-- lavish
 	{ "ferdinandrau/lavish.nvim", lazy = false },
 
+	-- zenbones
+	{
+		"mcchrish/zenbones.nvim",
+		dependencies = { "rktjmp/lush.nvim" },
+	},
+
+	-- tokyonight
+	{ "folke/tokyonight.nvim", lazy = false },
+
 	-- CORE
 	-- lsp config
-	{ "neovim/nvim-lspconfig",    lazy = false },
+	{ "neovim/nvim-lspconfig", lazy = false },
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -48,12 +57,13 @@ return require("lazy").setup({
 		"saghen/blink.cmp",
 		lazy = false,
 		version = "v0.*",
+		-- enabled = false,
 	},
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
-		enabled = false,
 		lazy = false,
+		enabled = false,
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
@@ -66,6 +76,7 @@ return require("lazy").setup({
 		"NeogitOrg/neogit",
 		lazy = false,
 		dependencies = "nvim-lua/plenary.nvim",
+		-- enabled = false,
 	},
 	-- buffer manager
 	{
