@@ -3,11 +3,63 @@ local map = require("map")
 local nvim_lsp = require("plugin_loader").load("lspconfig")
 
 if nvim_lsp ~= nil then
+	--- @type lsp.ClientCapabilities
+	local overrides = {
+		textDocument = {
+			completion = {
+				completionItem = {
+					snippetSupport = true,
+					commitCharactersSupport = true,
+					preselectSupport = true,
+					deprecatedSupport = true,
+					insertReplaceSupport = true,
+					labelDetailsSupport = true,
+					tagSupport = {
+						valueSet = {
+							1, -- Deprecated
+						}
+					},
+					resolveSupport = {
+						properties = {
+							"documentation",
+							"detail",
+							"additionalTextEdits",
+							"sortText",
+							"filterText",
+							"insertText",
+							"textEdit",
+							"insertTextFormat",
+							"insertTextMode",
+						},
+					},
+					insertTextModeSupport = {
+						valueSet = {
+							1, -- asIs
+							2, -- adjustIndentation
+						}
+					},
+				},
+				contextSupport = true,
+				insertTextMode = 1,
+				completionList = {
+					itemDefaults = {
+						"commitCharacters",
+						"editRange",
+						"insertTextFormat",
+						"insertTextMode",
+						"data",
+					}
+				},
+			}
+		}
+	}
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities.textDocument.completion.completionItem.snippetSupport = true;
+	-- capabilities = vim.tbl_deep_extend("force", capabilities, overrides)
+
 	local cmp_nvim_lsp = require("plugin_loader").load("cmp_nvim_lsp")
 	if cmp_nvim_lsp ~= nil then
 		capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
 	end
 
 	local lsp_servers = {

@@ -57,13 +57,15 @@ return require("lazy").setup({
 		"saghen/blink.cmp",
 		lazy = false,
 		version = "v0.*",
-		-- enabled = false,
+		enabled = false,
 	},
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
 		lazy = false,
-		enabled = false,
+		url = "https://github.com/iguanacucumber/magazine.nvim",
+		version = false,
+		-- enabled = false,
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
