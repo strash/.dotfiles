@@ -28,11 +28,13 @@ if p ~= nil then
 		lsp = {
 			on_attach = map.set_lsp_map,
 			capabilities = capabilities,
+			flags = {
+				debounce_text_changes = 150,
+			},
 			settings = {
-				renameFilesWithClasses = "always", -- "prompt" | "always"
-				lineLength = vim.o.textwidth,
+				lineLength = 80,
+				renameFilesWithClasses = "always",
 				documentation = "full",
-				updateImportsOnRename = true,
 			}
 		}
 	})
