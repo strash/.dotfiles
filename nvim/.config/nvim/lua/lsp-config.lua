@@ -66,7 +66,7 @@ if nvim_lsp ~= nil then
 		"clangd",
 		"csharp_ls",
 		--"cssls",
-		"dartls",
+		-- "dartls",
 		"dockerls",
 		--"eslint",
 		"gopls",

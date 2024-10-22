@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd({
 
 return require("lazy").setup({
 	-- COLORS
+
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim", lazy = false },
 
@@ -41,6 +42,7 @@ return require("lazy").setup({
 	{ "folke/tokyonight.nvim", lazy = false },
 
 	-- CORE
+
 	-- lsp config
 	{ "neovim/nvim-lspconfig", lazy = false },
 	-- treesitter
@@ -51,6 +53,8 @@ return require("lazy").setup({
 	},
 
 	-- PLUGINS
+
+	-- mini icons
 	{ "echasnovski/mini.icons", lazy = false },
 	-- blink
 	{
@@ -63,7 +67,7 @@ return require("lazy").setup({
 	{
 		"hrsh7th/nvim-cmp",
 		lazy = false,
-		url = "https://github.com/iguanacucumber/magazine.nvim",
+		-- url = "https://github.com/iguanacucumber/magazine.nvim",
 		version = false,
 		-- enabled = false,
 		dependencies = {
@@ -92,6 +96,12 @@ return require("lazy").setup({
 	{ "ibhagwan/fzf-lua",       lazy = false },
 	-- pretty quickfix
 	{ "yorickpeterse/nvim-pqf", lazy = false },
+	-- flutter tools
+	{
+		"nvim-flutter/flutter-tools.nvim",
+		lazy = false,
+		dependencies = "nvim-lua/plenary.nvim",
+	},
 }, {
 	dev = {
 		path = "~/FOSS",
