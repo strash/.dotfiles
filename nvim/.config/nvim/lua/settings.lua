@@ -14,10 +14,10 @@ opt.background = "dark"
 -- local colo = "zenwritten"
 -- local colo = "kanagawa"
 -- local colo = "mellifluous"
-local colo = "lavish"
+-- local colo = "lavish"
 -- local colo = "tokyonight"
 -- local colo = "coffeecat" -- neomodern, iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
--- local colo = "default"
+local colo = "default"
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
