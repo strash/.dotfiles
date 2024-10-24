@@ -5,11 +5,11 @@ local M = {}
 local home = wez.home_dir
 
 M.proj_dirs = {
-	"APPDEV",
-	"FOSS",
-	"GAMEDEV",
-	"RUST",
-	"WEBDEV",
+	"Developer/APPDEV",
+	"Developer/FOSS",
+	"Developer/GAMEDEV",
+	"Developer/RUST",
+	"Developer/WEBDEV",
 	"go/src/github.com/strash",
 }
 

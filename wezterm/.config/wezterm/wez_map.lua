@@ -11,10 +11,14 @@ M.config = {
 		-- reload config
 		{ key = "r",     mods = "CMD",        action = A.ReloadConfiguration },
 		-- launcher
-		{ key = "s", mods = "LEADER", action = A.ShowLauncherArgs({
-			flags = "LAUNCH_MENU_ITEMS",
-			title = "- OPEN -",
-		}) },
+		{
+			key = "s",
+			mods = "LEADER",
+			action = A.ShowLauncherArgs({
+				flags = "LAUNCH_MENU_ITEMS",
+				title = "- OPEN -",
+			})
+		},
 		-- panes
 		{ key = "h",     mods = "LEADER",     action = A.ActivatePaneDirection("Left") },
 		{ key = "l",     mods = "LEADER",     action = A.ActivatePaneDirection("Right") },
@@ -26,7 +30,7 @@ M.config = {
 		{ key = "t",     mods = "CMD",        action = A.SpawnTab("DefaultDomain") },
 		{ key = "w",     mods = "CMD",        action = A.CloseCurrentTab({ confirm = true }) },
 		{ key = "Tab",   mods = "CTRL",       action = A.ActivateTabRelative(1) },
-		{ key = "Tab",   mods = "CTRL|SHIFT", action = A.ActivateTabRelative( -1) },
+		{ key = "Tab",   mods = "CTRL|SHIFT", action = A.ActivateTabRelative(-1) },
 		-- windows
 		{ key = "Enter", mods = "ALT",        action = A.ToggleFullScreen },
 		{ key = "n",     mods = "CMD",        action = A.SpawnWindow },
@@ -45,7 +49,8 @@ M.config = {
 		{ key = "d",     mods = "LEADER",     action = A.ShowDebugOverlay },
 
 		-- key table b
-		{ key = "b",
+		{
+			key = "b",
 			mods = "LEADER",
 			action = A.ActivateKeyTable({
 				name = "b",
@@ -55,7 +60,8 @@ M.config = {
 			})
 		},
 		-- key table w (panes)
-		{ key = "w",
+		{
+			key = "w",
 			mods = "LEADER",
 			action = A.ActivateKeyTable({
 				name = "w",
@@ -69,7 +75,7 @@ M.config = {
 	key_tables = {
 		b = {
 			-- tabs
-			{ key = "h", action = A.MoveTabRelative( -1) },
+			{ key = "h", action = A.MoveTabRelative(-1) },
 			{ key = "l", action = A.MoveTabRelative(1) },
 		},
 		w = {

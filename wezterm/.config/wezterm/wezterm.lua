@@ -14,9 +14,12 @@ UU.merge_config(LM, M)
 UU.merge_config(KM, M)
 
 -- font
-M.font_size = 13.5
+M.font_size = 14.0
+M.line_height = 1.0
 M.font = wez.font("Maple Mono")
 M.freetype_load_flags = "FORCE_AUTOHINT"
+-- M.freetype_load_target = "VerticalLcd"
+-- M.freetype_render_target = "HorizontalLcd"
 
 -- tabbar
 M.hide_tab_bar_if_only_one_tab = false
