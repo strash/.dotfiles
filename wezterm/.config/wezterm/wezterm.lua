@@ -21,6 +21,10 @@ M.freetype_load_flags = "FORCE_AUTOHINT"
 -- M.freetype_load_target = "VerticalLcd"
 -- M.freetype_render_target = "HorizontalLcd"
 
+-- cursor
+-- M.cursor_blink_on = true
+M.cursor_blink_rate = 800
+
 -- tabbar
 M.hide_tab_bar_if_only_one_tab = false
 M.use_fancy_tab_bar = false
