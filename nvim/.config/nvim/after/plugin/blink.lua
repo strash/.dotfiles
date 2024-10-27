@@ -9,6 +9,8 @@ if p ~= nil then
 			select_next = { "<Down>", "<C-n>" },
 			scroll_documentation_up = "<C-k>",
 			scroll_documentation_down = "<C-j>",
+			show_documentation = "<C-h>",
+			hide_documentation = "<C-h>",
 		},
 		highlight = {
 			use_nvim_cmp_as_default = true,
@@ -30,7 +32,12 @@ if p ~= nil then
 		windows = {
 			documentation = {
 				max_width = 90,
-				max_height = 47,
+				max_height = 40,
+				auto_show = true,
+				auto_show_delay_ms = 250,
+			},
+			ghost_text = {
+				enabled = true,
 			},
 		},
 	})
