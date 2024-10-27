@@ -24,9 +24,11 @@ if p ~= nil then
 		trigger = {
 			completion = {
 				blocked_trigger_characters = { " ", "\n", "\t", "{", "}", "," },
+				show_on_insert_blocked_trigger_characters = { "'", '"', "(" },
 			},
 			signature_help = {
-				enabled = true
+				enabled = true,
+				show_on_insert_on_trigger_character = false,
 			}
 		},
 		windows = {
