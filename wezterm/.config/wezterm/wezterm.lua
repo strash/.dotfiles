@@ -38,7 +38,7 @@ M.window_close_confirmation = "NeverPrompt"
 M.native_macos_fullscreen_mode = true
 M.show_update_window = false
 M.exit_behavior = "Hold"
-M.default_cwd = wez.home_dir .. "/.dotfiles"
+M.default_cwd = wez.home_dir -- .. "/.dotfiles"
 
 -- colorscheme
 --M.color_scheme = "GitHub Dark"
