@@ -4,7 +4,7 @@ if p ~= nil then
 	require("lavish").setup({
 		style = {
 			italic_comments = true,
-			transparent = true,
+			transparent = false,
 		},
 	})
 end

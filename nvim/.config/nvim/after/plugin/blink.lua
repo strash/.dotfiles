@@ -3,28 +3,28 @@ local p = require("plugin_loader").load("blink.cmp")
 if p ~= nil then
 	require("blink.cmp").setup({
 		keymap = {
-			show = "<C-f>",
-			accept = "<CR>",
-			select_prev = { "<Up>", "<C-p>" },
-			select_next = { "<Down>", "<C-n>" },
-			scroll_documentation_up = "<C-k>",
-			scroll_documentation_down = "<C-j>",
-			show_documentation = "<C-h>",
-			hide_documentation = "<C-h>",
-		},
-		highlight = {
-			use_nvim_cmp_as_default = true,
-		},
-		nerd_font_variant = "mono",
-		accept = {
-			auto_brackets = {
-				enabled = false
-			}
+			["<CR>"] = { "accept", "select_and_accept" },
+			["<C-f>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-e>"] = { "hide" },
+			["<C-p>"] = { "select_prev" },
+			["<C-n>"] = { "select_next" },
+			["<C-k>"] = { "scroll_documentation_up" },
+			["<C-j>"] = { "scroll_documentation_down" },
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
+			["<Tab>"] = {
+				function(cmp)
+					if cmp.is_in_snippet() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+				"snippet_forward", "fallback"
+			},
 		},
 		trigger = {
 			completion = {
 				blocked_trigger_characters = { " ", "\n", "\t", "{", "}", "," },
-				show_on_insert_blocked_trigger_characters = { "'", '"', "(" },
 			},
 			signature_help = {
 				enabled = true,
@@ -42,5 +42,9 @@ if p ~= nil then
 				enabled = true,
 			},
 		},
+		-- highlight = {
+		-- 	use_nvim_cmp_as_default = true,
+		-- },
+		-- nerd_font_variant = "mono",
 	})
 end
