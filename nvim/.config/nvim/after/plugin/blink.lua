@@ -33,7 +33,6 @@ if p ~= nil then
 		},
 		windows = {
 			documentation = {
-				max_width = 90,
 				max_height = 40,
 				auto_show = true,
 				auto_show_delay_ms = 250,
