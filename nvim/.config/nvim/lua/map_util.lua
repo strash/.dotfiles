@@ -84,6 +84,43 @@ function M.fzf_grep_word()
 	end
 end
 
+function M.format_and_save_all_buffers()
+	local api, lsp = vim.api, vim.lsp
+	local buffers = api.nvim_list_bufs()
+	for _, buf in ipairs(buffers) do
+		if not api.nvim_buf_is_loaded(buf)
+			or not api.nvim_buf_is_valid(buf)
+			or not vim.bo[buf].modified then
+			goto continue
+		end
+		local clients = lsp.get_clients({ bufnr = buf })
+		if #clients > 0 then
+			local client_id = nil
+			for _, client in ipairs(clients) do
+				if client.attached_buffers[buf] then
+					-- NOTE: `supports_method` is not reliable because it is
+					-- assumes that the method is supported by the client even
+					-- if it doesn't. But it kind of works soooo...
+					if client.supports_method("textDocument/formatting", { bufnr = buf })
+						or client.supports_method("documentFormattingProvider", { bufnr = buf }) then
+						client_id = client.id
+						break
+					end
+				end
+			end
+			if client_id ~= nil then
+				api.nvim_buf_call(buf, function()
+					lsp.buf.format({ bufnr = buf, id = client_id })
+				end)
+			end
+		end
+		api.nvim_buf_call(buf, function()
+			vim.cmd("write")
+		end)
+		::continue::
+	end
+end
+
 ---Keymap helper.
 ---"map_table.mode" is "n" by default.
 ---"map_table.opts" and "opts" are going to be merged. Values from "map_table.opts" will override values from "opts" if any.
@@ -129,6 +166,11 @@ end
 
 function M.open_terminal()
 	vim.cmd("split | startinsert | terminal")
+end
+
+-- prints selected decimal as hexadecimal
+function M.decimal_to_hexadecimal()
+	vim.api.nvim_input([[<ESC>:lua vim.print(vim.fn.printf("hexadecimal: %X", <C-R><C-W>))<CR>]])
 end
 
 -- buffer manager

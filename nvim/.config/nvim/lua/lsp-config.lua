@@ -15,9 +15,7 @@ if nvim_lsp ~= nil then
 					insertReplaceSupport = true,
 					labelDetailsSupport = true,
 					tagSupport = {
-						valueSet = {
-							1, -- Deprecated
-						}
+						valueSet = { 1, --[[Deprecated]] }
 					},
 					resolveSupport = {
 						properties = {
@@ -33,10 +31,7 @@ if nvim_lsp ~= nil then
 						},
 					},
 					insertTextModeSupport = {
-						valueSet = {
-							1, -- asIs
-							2, -- adjustIndentation
-						}
+						valueSet = { 1, --[[asIs]] 2, --[[adjustIndentation]] }
 					},
 				},
 				contextSupport = true,
@@ -158,17 +153,17 @@ if nvim_lsp ~= nil then
 	-- lua
 	local runtime_path = vim.split(package.path, ";")
 	local runtime_file = vim.api.nvim_get_runtime_file("", true)
-	local idxs = {}
-	for i, v in ipairs(runtime_file) do
-		if v:find("everybody-wants-that-line.nvim", 0, true) or v:match(".local/share/nvim/site$") then
-			table.insert(idxs, i)
-		end
-	end
-	for i = #idxs, 1, -1 do
-		table.remove(runtime_file, idxs[i])
-	end
-	table.insert(runtime_path, "lua/?.lua")
-	table.insert(runtime_path, "lua/?/init.lua")
+	-- local idxs = {}
+	-- for i, v in ipairs(runtime_file) do
+	-- 	if v:find("everybody-wants-that-line.nvim", 0, true) or v:match(".local/share/nvim/site$") then
+	-- 		table.insert(idxs, i)
+	-- 	end
+	-- end
+	-- for i = #idxs, 1, -1 do
+	-- 	table.remove(runtime_file, idxs[i])
+	-- end
+	-- table.insert(runtime_path, "lua/?.lua")
+	-- table.insert(runtime_path, "lua/?/init.lua")
 
 	nvim_lsp.lua_ls.setup({
 		on_attach = map.set_lsp_map,
@@ -199,34 +194,5 @@ if nvim_lsp ~= nil then
 				},
 			},
 		},
-	})
-
-	local auto_group = vim.api.nvim_create_augroup("LspAuGroup", { clear = true })
-
-	-- formatting
-	vim.api.nvim_create_autocmd("LspAttach", {
-		callback = function(args)
-			local client = vim.lsp.get_client_by_id(args.data.client_id)
-			if client ~= nil then
-				if client.supports_method("textDocument/formatting") or
-					client.supports_method("documentFormattingProvider") then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						callback = function()
-							-- filter in case many active clienst
-							vim.lsp.buf.format({
-								filter = function(buf_client)
-									return buf_client.supports_method(
-											"textDocument/formatting") or
-										client.supports_method(
-											"documentFormattingProvider")
-								end
-							})
-						end,
-						group = auto_group,
-					})
-				end
-			end
-		end,
-		group = auto_group,
 	})
 end

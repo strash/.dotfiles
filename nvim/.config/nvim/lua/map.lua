@@ -42,19 +42,25 @@ map_util.set_keymap(global_map, nil, options)
 local global_leader = "<leader>"
 ---@type map_table[]
 local global_w_leader_map = {
-	{ key = "w",  cmd = map_util.wrap_in_cmd("wa"),                        opts = { desc = "write all buffer" } },
-	{ key = "bd", cmd = function() map_util.delete_wipe_window("bd") end,  opts = { desc = "delete buffer" } },
-	{ key = "bm", cmd = function() map_util.toggle_buffer_manager() end,   opts = { desc = "open buffer manager" } },
-	{ key = "o",  cmd = function() map_util.open_oil() end,                opts = { desc = "open oil" } },
-	{ key = "cc", cmd = map_util.wrap_in_cmd("cc"),                        opts = { desc = "open first error" } },
-	{ key = "cn", cmd = map_util.wrap_in_cmd("cn"),                        opts = { desc = "next entry point form the quicklist" } },
-	{ key = "cp", cmd = map_util.wrap_in_cmd("cp"),                        opts = { desc = "prew entry point form the quicklist" } },
-	{ key = "so", cmd = map_util.wrap_in_cmd("so %"),                      opts = { desc = "source nvim config" } },
-	{ key = "tt", cmd = function() map_util.open_terminal() end,           opts = { desc = "open terminal window" } },
-	{ key = "ih", cmd = function() map_util.toggle_inlay_hints() end,      opts = { desc = "toggle inlay hints" } },
-	{ key = "bb", cmd = function() map_util.toggle_background_color() end, opts = { desc = "toggle background color" } },
-	{ key = "gg", cmd = function() map_util.open_neogit_window() end,      opts = { desc = "open neogit" } },
-	{ key = "r",  cmd = function() vim.lsp.buf.rename() end,               opts = { desc = "rename" } },
+	{ key = "w",  cmd = function() map_util.format_and_save_all_buffers() end, opts = { desc = "format and write all buffer" } },
+	{ key = "bd", cmd = function() map_util.delete_wipe_window("bd") end,      opts = { desc = "delete buffer" } },
+	{ key = "bm", cmd = function() map_util.toggle_buffer_manager() end,       opts = { desc = "open buffer manager" } },
+	{ key = "o",  cmd = function() map_util.open_oil() end,                    opts = { desc = "open oil" } },
+	{ key = "cc", cmd = map_util.wrap_in_cmd("cc"),                            opts = { desc = "open first error" } },
+	{ key = "cn", cmd = map_util.wrap_in_cmd("cn"),                            opts = { desc = "next entry point form the quicklist" } },
+	{ key = "cp", cmd = map_util.wrap_in_cmd("cp"),                            opts = { desc = "prew entry point form the quicklist" } },
+	{ key = "so", cmd = map_util.wrap_in_cmd("so %"),                          opts = { desc = "source nvim config" } },
+	{ key = "tt", cmd = function() map_util.open_terminal() end,               opts = { desc = "open terminal window" } },
+	{ key = "ih", cmd = function() map_util.toggle_inlay_hints() end,          opts = { desc = "toggle inlay hints" } },
+	{ key = "bb", cmd = function() map_util.toggle_background_color() end,     opts = { desc = "toggle background color" } },
+	{ key = "gg", cmd = function() map_util.open_neogit_window() end,          opts = { desc = "open neogit" } },
+	{ key = "r",  cmd = function() vim.lsp.buf.rename() end,                   opts = { desc = "rename" } },
+	{
+		mode = { "v" },
+		key = "dh",
+		cmd = function() map_util.decimal_to_hexadecimal() end,
+		opts = { desc = "prints selected decimal as hexadecimal" },
+	},
 }
 map_util.set_keymap(global_w_leader_map, global_leader, options)
 
