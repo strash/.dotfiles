@@ -10,7 +10,7 @@ local function append(src, value)
 	return value
 end
 
-local empty_diagnostic = "| OK |"
+local empty_diagnostic = "│ OK │"
 
 function M.get_diagnostic_count()
 	if vim.diagnostic.is_enabled() then
