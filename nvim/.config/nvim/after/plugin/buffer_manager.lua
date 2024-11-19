@@ -6,7 +6,7 @@ if p ~= nil then
 		height = 30,
 		focus_alternate_buffer = true,
 		short_term_names = true,
-		show_indicators = "after:%#a+",
+		show_indicators = nil,
 		order_buffers = nil,
 	})
 end
