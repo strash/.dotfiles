@@ -67,7 +67,7 @@ opt.statuscolumn =
 	[[  %C %=]] ..
 	[[%{%v:relnum?"%#NonText#":"%#StatusLine#"%}]] ..
 	[[%{v:relnum?v:relnum:v:lnum}%* ]] ..
-	[[%s ]]
+	[[%s]]
 opt.statusline =
 	[[ %(%H%q%)]] ..
 	[[%( %<%{%v:lua.require('util').status_path()%}%M%)]] ..
