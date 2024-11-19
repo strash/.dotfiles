@@ -31,7 +31,7 @@ opt.bufhidden = "wipe"
 opt.cmdheight = 1
 opt.colorcolumn = "+1" -- "+1" - show the column, "" - hide
 opt.completeopt = { "menu", "noinsert", "noselect", "popup" }
-opt.cursorline = true
+opt.cursorline = false
 opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
 opt.fillchars = {
@@ -63,12 +63,15 @@ opt.signcolumn = "yes"
 opt.smoothscroll = true
 opt.splitbelow = true
 opt.splitright = true
-opt.statuscolumn = "%C%s%=%{v:relnum?v:relnum:v:lnum} "
+opt.statuscolumn =
+	[[ %C%s %=]] ..
+	[[%{%v:relnum?"%#NonText#":"%#StatusLine#"%}]] ..
+	[[%{v:relnum?v:relnum:v:lnum}%*   ]]
 opt.statusline =
-	[[%( %H%q%)]] ..
+	[[ %(%H%q%)]] ..
 	[[%( %<%{%v:lua.require('util').status_path()%}%M%)]] ..
 	[[%=%( %{%v:lua.require('diagnostics').get_diagnostic_count()%}]] ..
-	[[ →%02c ↓%{%v:lua.require('util').line_nr(0)%}/%L %03p%% %)]]
+	[[ →%02c ↓%{%v:lua.require('util').line_nr(0)%}/%L %03p%%%)  ]]
 opt.swapfile = false
 opt.textwidth = 80
 opt.updatetime = 500

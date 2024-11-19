@@ -19,23 +19,24 @@ function M.get_diagnostic_count()
 		local res = ""
 		if count[vim.diagnostic.severity.ERROR] ~= nil then
 			local c = count[vim.diagnostic.severity.ERROR]
-			res = append(res, "E:" .. c)
+			res = append(res, "%#DiagnosticError#" .. c .. "%*")
 		end
 		if count[vim.diagnostic.severity.WARN] ~= nil then
 			local c = count[vim.diagnostic.severity.WARN]
-			res = append(res, "W:" .. c)
+			res = append(res, "%#DiagnosticWarn#" .. c .. "%*")
 		end
 		if count[vim.diagnostic.severity.INFO] ~= nil then
 			local c = count[vim.diagnostic.severity.INFO]
-			res = append(res, "I:" .. c)
+			res = append(res, "%#DiagnosticInfo#" .. c .. "%*")
 		end
 		if count[vim.diagnostic.severity.HINT] ~= nil then
 			local c = count[vim.diagnostic.severity.HINT]
-			res = append(res, "H:" .. c)
+			res = append(res, "%#DiagnosticHint#" .. c .. "%*")
 		end
 
 		if #res > 0 then
-			return "│ " .. res .. " │"
+			-- return "│ " .. res .. " │"
+			return "• " .. res .. " •"
 		end
 	end
 	return empty_diagnostic

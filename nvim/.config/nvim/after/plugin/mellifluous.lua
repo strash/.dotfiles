@@ -5,6 +5,16 @@ if p ~= nil then
 		colorset = "mellifluous", -- mellifluous, alduin, mountain, tender, kanagawa_dragon
 		mellifluous = {
 			neutral = true,
+			highlight_overrides = {
+				dark = function(highlighter, colors)
+					highlighter.set("StatusLine", { bg = colors.bg, fg = colors.fg:darkened(15) })
+					highlighter.set("StatusLineNC", { bg = colors.bg, fg = colors.fg:darkened(60) })
+				end,
+				light = function(highlighter, colors)
+					highlighter.set("StatusLine", { bg = colors.bg, fg = colors.fg:lightened(15) })
+					highlighter.set("StatusLineNC", { bg = colors.bg, fg = colors.fg:lightened(60) })
+				end,
+			},
 		},
 		dim_inactive = false,
 		flat_background = {
