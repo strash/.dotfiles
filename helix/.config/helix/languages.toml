@@ -1,4 +1,5 @@
-[[language]]
-name = "gdscript"
-roots = ["project.godot"]
-language-server = { command = "nc", args = ["localhost", "6008"], language-id = "gdscript" }
+# [[language]]
+# name = "gdscript"
+# roots = ["project.godot"]
+# language-server = { command = "nc", args = ["localhost", "6008"], language-id = "gdscript" }
+
