@@ -26,6 +26,9 @@ if p ~= nil then
 			"tsx",
 			"typescript",
 		},
+		sync_install = true,
+		ignore_install = {},
+		modules = {},
 		auto_install = true,
 		incremental_selection = {
 			enable = false,

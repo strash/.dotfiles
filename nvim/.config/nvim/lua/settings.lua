@@ -36,7 +36,7 @@ opt.cursorlineopt = { "number", "screenline" }
 opt.fileencoding = "utf-8"
 opt.fillchars = {
 	foldopen = "⌄",
-	foldclose = ">",
+	foldclose = "+",
 }
 opt.foldcolumn = "1"
 opt.formatoptions = "cqjp"
@@ -55,7 +55,7 @@ opt.listchars = {
 opt.number = true
 opt.relativenumber = true
 opt.shortmess = "aoOstTWCF"
-opt.showbreak = "<<< "
+opt.showbreak = "↩︎ "
 opt.showcmd = false
 opt.showcmdloc = "statusline"
 opt.showtabline = 0
@@ -64,9 +64,10 @@ opt.smoothscroll = true
 opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn =
-	[[ %C%s %=]] ..
+	[[  %C %=]] ..
 	[[%{%v:relnum?"%#NonText#":"%#StatusLine#"%}]] ..
-	[[%{v:relnum?v:relnum:v:lnum}%*   ]]
+	[[%{v:relnum?v:relnum:v:lnum}%* ]] ..
+	[[%s ]]
 opt.statusline =
 	[[ %(%H%q%)]] ..
 	[[%( %<%{%v:lua.require('util').status_path()%}%M%)]] ..
