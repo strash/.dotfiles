@@ -32,10 +32,14 @@ return require("lazy").setup({
 	-- lavish
 	{ "ferdinandrau/lavish.nvim", lazy = false },
 
+	-- flexoki
+	{ "nuvic/flexoki-nvim",       lazy = false },
+
 	-- zenbones
 	{
 		"mcchrish/zenbones.nvim",
 		dependencies = { "rktjmp/lush.nvim" },
+		lazy = false,
 	},
 
 	-- tokyonight
