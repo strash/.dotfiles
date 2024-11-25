@@ -32,6 +32,18 @@ if p ~= nil then
 			}
 		},
 		windows = {
+			autocomplete = {
+				draw = {
+					components = {
+						kind_icon = {
+							text = function(ctx)
+								local icon, _, _ = MiniIcons.get("lsp", ctx.kind)
+								return icon .. ctx.icon_gap
+							end
+						},
+					},
+				},
+			},
 			documentation = {
 				max_height = 40,
 				auto_show = true,
