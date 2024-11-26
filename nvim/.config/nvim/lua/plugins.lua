@@ -27,7 +27,8 @@ return require("lazy").setup({
 	-- COLORS
 
 	-- mellifluous
-	{ "ramojus/mellifluous.nvim", lazy = false },
+	-- { "ramojus/mellifluous.nvim", lazy = false },
+	{ "ramojus/mellifluous.nvim", dev = true },
 
 	-- lavish
 	{ "ferdinandrau/lavish.nvim", lazy = false },
@@ -109,7 +110,7 @@ return require("lazy").setup({
 	},
 }, {
 	dev = {
-		path = "~/FOSS",
+		path = "~/Developer/FOSS",
 	},
 	readme = {
 		enabled = false,

@@ -102,16 +102,22 @@ if fzf_lua ~= nil then
 
 	---@type map_table[]
 	local fzf_map = {
-		{ key = "f", cmd = function() require("fzf-lua").files({ cmd = map_util.find_files() }) end, opts = { desc = "find files" } },
-		{ key = "g", cmd = function() require("fzf-lua").live_grep() end,                            opts = { desc = "live grep" } },
-		{ key = "u", cmd = function() require("fzf-lua").lsp_finder() end,                           opts = { desc = "lsp finder for things under cursor" } },
-		{ key = "r", cmd = function() require("fzf-lua").lsp_references() end,                       opts = { desc = "lsp references" } },
-		{ key = "d", cmd = function() require("fzf-lua").lsp_definitions() end,                      opts = { desc = "lsp definitions" } },
-		{ key = "c", cmd = function() require("fzf-lua").lsp_declarations() end,                     opts = { desc = "lsp declarations" } },
-		{ key = "t", cmd = function() require("fzf-lua").lsp_typedefs() end,                         opts = { desc = "lsp typedefs" } },
-		{ key = "i", cmd = function() require("fzf-lua").lsp_implementations() end,                  opts = { desc = "lsp implementations" } },
-		{ key = "q", cmd = function() require("fzf-lua").quickfix() end,                             opts = { desc = "search in quickfix" } },
-		{ key = "e", cmd = function() require("fzf-lua").diagnostics_workspace() end,                opts = { desc = "lsp diagnostics workspace" } },
+		{ key = "f", cmd = function() fzf_lua.files({ cmd = map_util.find_files() }) end, opts = { desc = "find files" } },
+		{ key = "g", cmd = function() fzf_lua.live_grep() end,                            opts = { desc = "live grep" } },
+		{ key = "u", cmd = function() fzf_lua.lsp_finder() end,                           opts = { desc = "lsp finder for things under cursor" } },
+		{ key = "r", cmd = function() fzf_lua.lsp_references() end,                       opts = { desc = "lsp references" } },
+		{ key = "d", cmd = function() fzf_lua.lsp_definitions() end,                      opts = { desc = "lsp definitions" } },
+		{ key = "c", cmd = function() fzf_lua.lsp_declarations() end,                     opts = { desc = "lsp declarations" } },
+		{ key = "t", cmd = function() fzf_lua.lsp_typedefs() end,                         opts = { desc = "lsp typedefs" } },
+		{ key = "i", cmd = function() fzf_lua.lsp_implementations() end,                  opts = { desc = "lsp implementations" } },
+		{ key = "q", cmd = function() fzf_lua.quickfix() end,                             opts = { desc = "search in quickfix" } },
+		{ key = "e", cmd = function() fzf_lua.diagnostics_workspace() end,                opts = { desc = "lsp diagnostics workspace" } },
+		{
+			mode = { "n", "v" },
+			key = "b",
+			cmd = function() fzf_lua.builtin() end,
+			opts = { desc = "builtin" }
+		},
 		{
 			mode = { "n", "v" },
 			key = "w",
