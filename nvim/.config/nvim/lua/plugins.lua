@@ -27,51 +27,46 @@ return require("lazy").setup({
 	-- COLORS
 
 	-- mellifluous
-	-- { "ramojus/mellifluous.nvim", lazy = false },
 	{ "ramojus/mellifluous.nvim", dev = true },
 
 	-- lavish
-	{ "ferdinandrau/lavish.nvim", lazy = false },
+	{ "ferdinandrau/lavish.nvim" },
 
 	-- flexoki
-	{ "nuvic/flexoki-nvim",       lazy = false },
+	{ "nuvic/flexoki-nvim" },
 
 	-- zenbones
 	{
 		"mcchrish/zenbones.nvim",
 		dependencies = { "rktjmp/lush.nvim" },
-		lazy = false,
 	},
 
 	-- tokyonight
-	{ "folke/tokyonight.nvim", lazy = false },
+	{ "folke/tokyonight.nvim", },
 
 	-- CORE
 
 	-- lsp config
-	{ "neovim/nvim-lspconfig", lazy = false },
+	{ "neovim/nvim-lspconfig", },
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdateSync",
-		lazy = false,
 	},
 
 	-- PLUGINS
 
 	-- mini icons
-	{ "echasnovski/mini.icons", lazy = false },
+	{ "echasnovski/mini.icons", },
 	-- blink
 	{
 		"saghen/blink.cmp",
-		lazy = false,
 		version = "v0.*",
 		-- enabled = false,
 	},
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
-		lazy = false,
 		-- url = "https://github.com/iguanacucumber/magazine.nvim",
 		version = false,
 		enabled = false,
@@ -85,26 +80,31 @@ return require("lazy").setup({
 	-- neogit
 	{
 		"NeogitOrg/neogit",
-		lazy = false,
 		dependencies = "nvim-lua/plenary.nvim",
 		-- enabled = false,
 	},
 	-- buffer manager
 	{
 		"j-morano/buffer_manager.nvim",
-		lazy = false,
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 	-- oil
-	{ "stevearc/oil.nvim",      lazy = false },
+	{ "stevearc/oil.nvim", },
+	-- quicker
+	{
+		"stevearc/quicker.nvim",
+		event = "FileType qf",
+	},
 	-- fzf lua
-	{ "ibhagwan/fzf-lua",       lazy = false },
+	{ "ibhagwan/fzf-lua", },
 	-- pretty quickfix
-	{ "yorickpeterse/nvim-pqf", lazy = false },
+	{
+		"yorickpeterse/nvim-pqf",
+		enabled = false,
+	},
 	-- flutter tools
 	{
 		"nvim-flutter/flutter-tools.nvim",
-		lazy = false,
 		dependencies = "nvim-lua/plenary.nvim",
 		enabled = false,
 	},
