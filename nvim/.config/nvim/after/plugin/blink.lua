@@ -1,7 +1,7 @@
 local p = require("plugin_loader").load("blink.cmp")
 
 if p ~= nil then
-	require("blink.cmp").setup({
+	p.setup({
 		keymap = {
 			["<CR>"] = { "accept", "select_and_accept", "fallback" },
 			["<C-f>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
@@ -22,17 +22,11 @@ if p ~= nil then
 				"snippet_forward", "fallback"
 			},
 		},
-		trigger = {
-			completion = {
-				blocked_trigger_characters = { " ", "\n", "\t", "{", "}", "," },
+		completion = {
+			trigger = {
+				show_on_blocked_trigger_characters = { " ", "\n", "\t", "{", "}", "," },
 			},
-			signature_help = {
-				enabled = true,
-				show_on_insert_on_trigger_character = false,
-			}
-		},
-		windows = {
-			autocomplete = {
+			menu = {
 				draw = {
 					components = {
 						kind_icon = {
@@ -41,17 +35,37 @@ if p ~= nil then
 								return icon .. ctx.icon_gap
 							end
 						},
+						label_description = {
+							ellipsis = false,
+							width = { max = 30 },
+							text = function(ctx)
+								if #ctx.label_description > 30 then
+									---@type string
+									local desc = ctx.label_description
+									return desc:sub(0, 10) .. "…" .. desc:sub(#desc - 18, #desc)
+								end
+								return ctx.label_description
+							end
+						}
 					},
 				},
 			},
 			documentation = {
-				max_height = 40,
 				auto_show = true,
 				auto_show_delay_ms = 250,
+				window = {
+					max_height = 40,
+				}
 			},
 			ghost_text = {
 				enabled = true,
 			},
 		},
+		signature_help = {
+			enabled = true,
+			trigger = {
+				show_on_insert_on_trigger_character = false,
+			}
+		}
 	})
 end
