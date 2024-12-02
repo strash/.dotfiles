@@ -28,6 +28,7 @@ if p ~= nil then
 			},
 			menu = {
 				draw = {
+					columns = { { "kind_icon" }, { "label" } },
 					components = {
 						kind_icon = {
 							text = function(ctx)
@@ -54,6 +55,8 @@ if p ~= nil then
 				auto_show = true,
 				auto_show_delay_ms = 250,
 				window = {
+					min_width = 20,
+					max_width = 80,
 					max_height = 40,
 				}
 			},
