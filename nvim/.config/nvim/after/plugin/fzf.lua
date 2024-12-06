@@ -9,7 +9,7 @@ if p ~= nil then
 			preview = {
 				horizontal = "right:50%",
 				vertical = "up:%50",
-				layout = "vertical",
+				layout = "horizontal",
 			},
 		},
 	})
