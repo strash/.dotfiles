@@ -53,7 +53,7 @@ if p ~= nil then
 			},
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 250,
+				auto_show_delay_ms = 100,
 				window = {
 					min_width = 20,
 					max_width = 80,
@@ -64,11 +64,11 @@ if p ~= nil then
 				enabled = true,
 			},
 		},
-		signature_help = {
-			enabled = true,
-			trigger = {
-				show_on_insert_on_trigger_character = false,
-			}
-		}
+		-- signature_help = {
+		-- 	enabled = true,
+		-- 	trigger = {
+		-- 		show_on_insert_on_trigger_character = false,
+		-- 	}
+		-- }
 	})
 end
