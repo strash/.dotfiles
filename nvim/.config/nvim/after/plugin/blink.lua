@@ -10,17 +10,6 @@ if p ~= nil then
 			["<C-n>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "scroll_documentation_up", "fallback" },
 			["<C-j>"] = { "scroll_documentation_down", "fallback" },
-			["<S-Tab>"] = { "snippet_backward", "fallback" },
-			["<Tab>"] = {
-				function(cmp)
-					if cmp.is_in_snippet() then
-						return cmp.accept()
-					else
-						return cmp.select_and_accept()
-					end
-				end,
-				"snippet_forward", "fallback"
-			},
 		},
 		completion = {
 			trigger = {
@@ -64,11 +53,5 @@ if p ~= nil then
 				enabled = true,
 			},
 		},
-		-- signature_help = {
-		-- 	enabled = true,
-		-- 	trigger = {
-		-- 		show_on_insert_on_trigger_character = false,
-		-- 	}
-		-- }
 	})
 end
