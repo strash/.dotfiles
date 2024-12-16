@@ -27,13 +27,10 @@ return require("lazy").setup({
 	-- COLORS
 
 	-- mellifluous
-	{ "ramojus/mellifluous.nvim", dev = true },
+	{ "ramojus/mellifluous.nvim", dev = false },
 
 	-- lavish
 	{ "ferdinandrau/lavish.nvim" },
-
-	-- flexoki
-	{ "nuvic/flexoki-nvim" },
 
 	-- zenbones
 	{
