@@ -13,7 +13,7 @@ if p ~= nil then
 		},
 		completion = {
 			trigger = {
-				show_on_blocked_trigger_characters = { " ", "\n", "\t", "{", "}", "," },
+				show_on_x_blocked_trigger_characters = { "{", "}", ",", "(", ")" },
 			},
 			menu = {
 				draw = {
@@ -48,9 +48,6 @@ if p ~= nil then
 					max_width = 80,
 					max_height = 40,
 				}
-			},
-			ghost_text = {
-				enabled = true,
 			},
 		},
 	})
