@@ -12,6 +12,9 @@ if p ~= nil then
 			["<C-j>"] = { "scroll_documentation_down", "fallback" },
 		},
 		completion = {
+			keyword = {
+				range = "full",
+			},
 			trigger = {
 				show_on_x_blocked_trigger_characters = { "{", "}", ",", "(", ")" },
 			},
