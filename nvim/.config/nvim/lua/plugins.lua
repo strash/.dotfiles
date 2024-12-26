@@ -29,9 +29,6 @@ return require("lazy").setup({
 	-- mellifluous
 	{ "ramojus/mellifluous.nvim", dev = false },
 
-	-- lavish
-	{ "ferdinandrau/lavish.nvim" },
-
 	-- zenbones
 	{
 		"mcchrish/zenbones.nvim",
@@ -61,19 +58,6 @@ return require("lazy").setup({
 		version = "v0.*",
 		-- enabled = false,
 	},
-	-- cmp
-	{
-		"hrsh7th/nvim-cmp",
-		-- url = "https://github.com/iguanacucumber/magazine.nvim",
-		version = false,
-		enabled = false,
-		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-			"onsails/lspkind.nvim",
-		},
-	},
 	-- neogit
 	{
 		"NeogitOrg/neogit",
@@ -94,17 +78,6 @@ return require("lazy").setup({
 	},
 	-- fzf lua
 	{ "ibhagwan/fzf-lua", },
-	-- pretty quickfix
-	{
-		"yorickpeterse/nvim-pqf",
-		enabled = false,
-	},
-	-- flutter tools
-	{
-		"nvim-flutter/flutter-tools.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		enabled = false,
-	},
 }, {
 	dev = {
 		path = "~/Developer/FOSS",
