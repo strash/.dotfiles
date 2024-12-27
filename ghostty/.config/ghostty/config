@@ -6,9 +6,11 @@ theme = dark:Guezwhoz,light:xcodelight
 
 mouse-hide-while-typing = true
 
+adjust-cursor-thickness = 2
+
 window-padding-color = extend-always
 
 macos-titlebar-style = native
 
-keybind = super+shift+t=toggle_quick_terminal
+keybind = cmd+shift+t=toggle_quick_terminal
 
