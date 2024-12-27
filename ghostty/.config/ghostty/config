@@ -1,0 +1,14 @@
+font-family = Maple Mono
+font-family = SF Mono
+font-size = 14
+
+theme = dark:Guezwhoz,light:xcodelight
+
+mouse-hide-while-typing = true
+
+window-padding-color = extend-always
+
+macos-titlebar-style = native
+
+keybind = super+shift+t=toggle_quick_terminal
+
