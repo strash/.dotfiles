@@ -41,7 +41,7 @@ opt.fillchars = {
 }
 opt.foldcolumn = "1"
 opt.formatoptions = "cqjp"
-opt.guicursor = { a = "blinkon0" }
+-- opt.guicursor = { a = "blinkon0" }
 opt.hlsearch = false
 opt.inccommand = "split"
 opt.laststatus = 2
@@ -76,7 +76,7 @@ opt.statusline =
 	[[ →%02c ↓%{%v:lua.require('util').line_nr(0)%}/%L %03p%%%)  ]]
 opt.swapfile = false
 opt.textwidth = 80
-opt.updatetime = 500
+-- opt.updatetime = 500
 opt.wildmenu = true
 opt.wrap = true
 
