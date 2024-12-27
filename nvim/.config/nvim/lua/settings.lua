@@ -12,13 +12,9 @@ vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
 opt.background = "dark"
 
 -- local colo = "zenwritten"
--- local colo = "kanagawa"
-local colo = "mellifluous"
--- local colo = "lavish"
 -- local colo = "tokyonight"
--- local colo = "coffeecat" -- neomodern, iceclimber, coffeecat, darkforest, campfire, roseprime, daylight
--- local colo = "flexoki"
 -- local colo = "default"
+local colo = "mellifluous"
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
@@ -41,7 +37,12 @@ opt.fillchars = {
 }
 opt.foldcolumn = "1"
 opt.formatoptions = "cqjp"
--- opt.guicursor = { a = "blinkon0" }
+opt.guicursor = {
+	"n-v-ve-c-o-r-cr:block",
+	"i-ci-sm:ver25",
+	"n-c-i-ci-sm:blinkwait700-blinkoff500-blinkon500",
+	"a:Cursor/lCursor",
+}
 opt.hlsearch = false
 opt.inccommand = "split"
 opt.laststatus = 2
