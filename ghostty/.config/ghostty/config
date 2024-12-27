@@ -10,6 +10,8 @@ adjust-cursor-thickness = 2
 
 window-padding-color = extend-always
 
+unfocused-split-opacity = 1
+
 macos-titlebar-style = native
 
 keybind = cmd+shift+t=toggle_quick_terminal
