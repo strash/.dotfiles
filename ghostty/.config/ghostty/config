@@ -14,7 +14,7 @@ unfocused-split-opacity = 1
 
 macos-titlebar-style = native
 
-keybind = cmd+shift+t=toggle_quick_terminal
+keybind = ctrl+b>t=toggle_quick_terminal
 
 keybind = ctrl+b>j=goto_split:bottom
 keybind = ctrl+b>k=goto_split:top
