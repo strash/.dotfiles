@@ -28,7 +28,7 @@ alias bree="arch -arm64 brew install"
 
 alias l="ls -lahG"
 
-alias cd="pushd"
+# alias cd="pushd"
 
 ###-begin-flutter-completion-###
 
