@@ -14,10 +14,10 @@ local options = {
 ---Global
 ---@type map_table[]
 local global_map = {
-	{ mode = "n", key = "<Tab>",   cmd = map_util.wrap_in_cmd("bn"), opts = { desc = "next buffer" } },
-	{ mode = "n", key = "<S-Tab>", cmd = map_util.wrap_in_cmd("bp"), opts = { desc = "prev buffer" } },
-	{ mode = "i", key = "<C-C>",   cmd = "<ESC>",                    opts = { desc = "exit insert mode" } },
-	{ mode = "t", key = "<C-ESC>", cmd = [[<C-\><C-N>]],             opts = { desc = "exit insert mode in terminal" } },
+	{ mode = "n", key = "<Tab>",      cmd = map_util.wrap_in_cmd("bn"), opts = { desc = "next buffer" } },
+	{ mode = "n", key = "<S-Tab>",    cmd = map_util.wrap_in_cmd("bp"), opts = { desc = "prev buffer" } },
+	{ mode = "i", key = "<C-C>",      cmd = "<ESC>",                    opts = { desc = "exit insert mode" } },
+	{ mode = "t", key = "<ESC><ESC>", cmd = [[<C-\><C-N>]],             opts = { desc = "exit insert mode in terminal" } },
 	{
 		mode = "i",
 		key = "<C-s><C-g>",
@@ -34,7 +34,7 @@ local global_map = {
 				return "<CR>"
 			end
 		end,
-		opts = { desc = "scroll down and align the cursor", expr = true }
+		opts = { desc = "stop snippet", expr = true }
 	},
 }
 map_util.set_keymap(global_map, nil, options)
