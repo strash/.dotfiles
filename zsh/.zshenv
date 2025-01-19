@@ -15,9 +15,10 @@ $HOME/.dotnet/tools:\
 $HOME/Library/pnpm:\
 $HOME/go/bin:\
 /usr/local/go/bin:\
-$HOME/Developer/flutter/bin:\
+$HOME/flutter/bin:\
 $HOME/.pub-cache/bin:\
 $HOME/.bun/bin:\
 $GHOSTTY_BIN_DIR:\
 $HOME/zig:\
+$HOME/zig/zls:\
 

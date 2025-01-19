@@ -35,6 +35,7 @@ if nvim_lsp ~= nil then
 		--"tailwindcss",
 		--"tsserver",
 		--"svelte",
+		"zls",
 	}
 
 	local node_lsp_servers = {

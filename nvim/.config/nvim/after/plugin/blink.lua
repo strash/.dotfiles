@@ -19,12 +19,12 @@ if p ~= nil then
 				show_on_x_blocked_trigger_characters = { "{", "}", ",", "(", ")" },
 			},
 			menu = {
-				auto_show = false,
-				-- auto_show = function(ctx)
-				-- 	return ctx.mode ~= "cmdline" and not vim.tbl_contains(
-				-- 		{ "/", "?" }, vim.fn.getcmdtype()
-				-- 	)
-				-- end,
+				-- auto_show = false,
+				auto_show = function(ctx)
+					return ctx.mode ~= "cmdline" and not vim.tbl_contains(
+						{ "/", "?" }, vim.fn.getcmdtype()
+					)
+				end,
 				draw = {
 					columns = { { "kind_icon" }, { "label" } },
 					components = {
