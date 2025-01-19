@@ -19,4 +19,5 @@ $HOME/Developer/flutter/bin:\
 $HOME/.pub-cache/bin:\
 $HOME/.bun/bin:\
 $GHOSTTY_BIN_DIR:\
+$HOME/zig:\
 
