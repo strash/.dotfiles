@@ -114,7 +114,7 @@ zstyle ':vcs_info:*' stagedstr ●
 zstyle ':vcs_info:*' unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{grey}%B%n%b%f %~ ${vcs_info_msg_0_}%(?00%F{red}fuck %f)'
+PS1=' %F{green} %B%n%b%f %~ ${vcs_info_msg_0_}%(?00%F{red}fuck %f)'
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
