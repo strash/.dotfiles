@@ -104,17 +104,17 @@ compinit
 
 # Prompt theme
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '[%F{grey}%b|%a%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' formats '[%F{grey}%b%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' branchformat '[%F{grey}%b:%r%f%F{red}%u%F{yellow}%c%f] '
-zstyle ':vcs_info:*' hgrevformat '[%F{grey}%r:%h%f%F{red}%u%F{yellow}%c%f] '
+zstyle ':vcs_info:*' actionformats '%F{243}[%b|%a%f%F{red}%u%F{yellow}%c%f%F{243}]%f '
+zstyle ':vcs_info:*' formats '%F{243}[%b%f%F{red}%u%F{yellow}%c%f%F{243}]%f '
+zstyle ':vcs_info:*' branchformat '%F{243}[%b:%r%f%F{red}%u%F{yellow}%c%f%F{243}]%f '
+zstyle ':vcs_info:*' hgrevformat '%F{243}[%r:%h%f%F{red}%u%F{yellow}%c%f%F{243}]%f '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' stagedstr ●
 zstyle ':vcs_info:*' unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1=' %F{green} %B%n%b%f %~ ${vcs_info_msg_0_}%(?00%F{red}fuck %f)'
+PS1=' %F{99}%B%n%b%f %F{33}%~%f ${vcs_info_msg_0_}%(?00%F{214}fuck %f)'
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
