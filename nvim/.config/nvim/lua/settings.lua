@@ -30,7 +30,6 @@ opt.colorcolumn = "+1" -- "+1" - show the column, "" - hide
 opt.completeopt = { "menu", "noinsert", "noselect", "popup" }
 opt.cursorline = false
 opt.cursorlineopt = { "number", "screenline" }
-opt.fileencoding = "utf-8"
 opt.fillchars = {
 	foldopen = "⌄",
 	foldclose = "+",
@@ -43,9 +42,7 @@ opt.guicursor = {
 	"n-c-i-ci-sm:blinkwait700-blinkoff500-blinkon500",
 	"a:Cursor/lCursor",
 }
-opt.hlsearch = false
 opt.inccommand = "split"
-opt.laststatus = 2
 opt.linebreak = true
 opt.list = true
 opt.listchars = {
@@ -58,8 +55,6 @@ opt.number = true
 opt.relativenumber = true
 opt.shortmess = "aoOstTWCF"
 opt.showbreak = "↩︎ "
-opt.showcmd = false
-opt.showcmdloc = "statusline"
 opt.showtabline = 0
 opt.signcolumn = "yes"
 opt.smoothscroll = true
@@ -77,16 +72,13 @@ opt.statusline =
 	[[ →%02c ↓%{%v:lua.require('util').line_nr(0)%}/%L %03p%%%)  ]]
 opt.swapfile = false
 opt.textwidth = 80
--- opt.updatetime = 500
 opt.wildmenu = true
 opt.wrap = true
 
-opt.autoindent = true
 opt.copyindent = true
 opt.expandtab = false
 opt.shiftwidth = 4
 opt.smartindent = true
-opt.smarttab = true
 opt.softtabstop = 0
 opt.tabstop = 4
 

@@ -1,5 +1,3 @@
-local map = require("map")
-
 local nvim_lsp = require("plugin_loader").load("lspconfig")
 
 if nvim_lsp ~= nil then
@@ -50,7 +48,6 @@ if nvim_lsp ~= nil then
 	-- all lsps
 	for _, server in ipairs(lsp_servers) do
 		nvim_lsp[server].setup({
-			on_attach = map.set_lsp_map,
 			capabilities = capabilities,
 			flags = flags,
 		})
@@ -59,7 +56,6 @@ if nvim_lsp ~= nil then
 	-- run node lsp servers with bun runtime
 	for _, server in ipairs(node_lsp_servers) do
 		nvim_lsp[server[1]].setup({
-			on_attach = map.set_lsp_map,
 			capabilities = capabilities,
 			flags = flags,
 			cmd = vim.list_extend({ "bunx", "--bun" }, server[2]),
@@ -68,7 +64,6 @@ if nvim_lsp ~= nil then
 
 	-- rust
 	nvim_lsp.rust_analyzer.setup({
-		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
 		["rust-analyzer"] = {
@@ -93,7 +88,6 @@ if nvim_lsp ~= nil then
 		cmd = { "nc", "localhost", "6008" },
 		filetypes = { "gd", "gdscript", "gdscript3", "res", "tres", "shader", "godot" },
 		root_dir = nvim_lsp.util.root_pattern("project.godot", ".git"),
-		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
 	})
@@ -107,7 +101,6 @@ if nvim_lsp ~= nil then
 		filetypes = { "zsh", "sh" },
 		root_dir = nvim_lsp.util.find_git_ancestor,
 		single_file_support = true,
-		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
 	})
@@ -115,20 +108,8 @@ if nvim_lsp ~= nil then
 	-- lua
 	local runtime_path = vim.split(package.path, ";")
 	local runtime_file = vim.api.nvim_get_runtime_file("", true)
-	-- local idxs = {}
-	-- for i, v in ipairs(runtime_file) do
-	-- 	if v:find("everybody-wants-that-line.nvim", 0, true) or v:match(".local/share/nvim/site$") then
-	-- 		table.insert(idxs, i)
-	-- 	end
-	-- end
-	-- for i = #idxs, 1, -1 do
-	-- 	table.remove(runtime_file, idxs[i])
-	-- end
-	-- table.insert(runtime_path, "lua/?.lua")
-	-- table.insert(runtime_path, "lua/?/init.lua")
 
 	nvim_lsp.lua_ls.setup({
-		on_attach = map.set_lsp_map,
 		capabilities = capabilities,
 		flags = flags,
 		settings = {
