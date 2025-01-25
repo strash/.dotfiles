@@ -4,8 +4,8 @@ if p ~= nil then
 	p.setup({
 		keymap = {
 			["<CR>"] = { "accept", "select_and_accept", "fallback" },
-			["<C-f>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
-			["<C-e>"] = { "hide", "fallback" },
+			["<C-e>"] = { "show", "hide", "fallback" },
+			["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
 			["<C-p>"] = { "select_prev", "fallback" },
 			["<C-n>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "scroll_documentation_up", "fallback" },
@@ -57,6 +57,14 @@ if p ~= nil then
 					max_width = 80,
 					max_height = 40,
 				}
+			},
+		},
+		signature = {
+			enabled = true,
+			trigger = {
+				enabled = false,
+				show_on_trigger_character = false,
+				show_on_insert_on_trigger_character = false,
 			},
 		},
 	})
