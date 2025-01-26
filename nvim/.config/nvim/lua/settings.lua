@@ -62,7 +62,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn =
 	[[  %C %=]] ..
-	[[%{%v:relnum?"%#NonText#":"%#StatusLine#"%}]] ..
+	[[%{%v:relnum?"%#NonText#":"%#Normal#"%}]] ..
 	[[%{v:relnum?v:relnum:v:lnum}%* ]] ..
 	[[%s]]
 opt.statusline =
