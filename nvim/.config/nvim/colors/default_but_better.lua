@@ -34,7 +34,7 @@ if vim.o.background == "dark" then
 	vim.cmd("highlight SpellCap cterm=undercurl gui=undercurl guisp=#E0C685")
 	vim.cmd("highlight SpellRare cterm=undercurl gui=undercurl guisp=#40BEBF")
 	vim.cmd("highlight SpellLocal cterm=undercurl gui=undercurl guisp=#81BBE4")
-	vim.cmd("highlight Pmenu guibg=#232424")
+	vim.cmd("highlight Pmenu guifg=#A1A5A3 guibg=#1E1F1F")
 	vim.cmd("highlight PmenuSel guibg=#323433")
 	vim.cmd("highlight Type guifg=#75BDB1")
 	vim.cmd("highlight Statement gui=NONE guifg=#96BD89")
@@ -43,15 +43,19 @@ if vim.o.background == "dark" then
 	vim.cmd("highlight @variable guifg=#D3D5D3")
 	vim.cmd("highlight Delimiter guifg=#9FA3A0")
 	vim.cmd("highlight DaignosticDeprecated gui=strikethrough guisp=#E09085")
-	vim.cmd("highlight FloatBorder gui=NONE guifg=NONE guibg=#232424")
+	vim.cmd("highlight FloatBorder gui=NONE guifg=NONE guibg=#1E1F1F")
 	vim.cmd("highlight FloatShadow guibg=#4C4E5D blend=80")
 	vim.cmd("highlight FloatShadowThrough guibg=#4C4E5D blend=100")
 
+	-- blink
+	vim.cmd("highlight BlinkCmpLabelMatch gui=bold guifg=#D3D5D3")
+
 	-- fzf lua
-	vim.cmd("highlight FzfLuaBorder guifg=#232424 guibg=#232424")
-	vim.cmd("highlight FzfLuaTitle gui=bold guifg=#D3D5D3 guibg=#232424")
+	vim.cmd("highlight FzfLuaFzfMatch gui=bold guifg=#D3D5D3")
+	vim.cmd("highlight FzfLuaBorder guifg=#1E1F1F guibg=#1E1F1F")
+	vim.cmd("highlight FzfLuaTitle gui=bold guifg=#D3D5D3 guibg=#1E1F1F")
 	vim.cmd("highlight FzfLuaPreviewBorder guifg=#0E1010 guibg=#0E1010")
-	vim.cmd("highlight FzfLuaFzfCursorLine guifg=#D3D5D3 guibg=#0E1010")
+	vim.cmd("highlight FzfLuaFzfCursorLine guifg=#D3D5D3 guibg=#323433")
 else
 	vim.cmd("highlight Normal guifg=#232A28 guibg=#ECEEEE")
 	vim.cmd("highlight NonText guifg=#A9BCB9")
@@ -73,7 +77,7 @@ else
 	vim.cmd("highlight SpellCap cterm=undercurl gui=undercurl guisp=#BD8600")
 	vim.cmd("highlight SpellRare cterm=undercurl gui=undercurl guisp=#2991A3")
 	vim.cmd("highlight SpellLocal cterm=undercurl gui=undercurl guisp=#2471A8")
-	vim.cmd("highlight Pmenu guibg=#F7F8F8")
+	vim.cmd("highlight Pmenu guifg=#5D6F6A guibg=#F7F8F8")
 	vim.cmd("highlight PmenuSel guibg=#FFFFFF")
 	vim.cmd("highlight Type guifg=#008F77")
 	vim.cmd("highlight Statement gui=NONE guifg=#2B8000")
@@ -86,11 +90,15 @@ else
 	vim.cmd("highlight FloatShadow guibg=#A9BCB9 blend=80")
 	vim.cmd("highlight FloatShadowThrough guibg=#A9BCB9 blend=100")
 
+	-- blink
+	vim.cmd("highlight BlinkCmpLabelMatch gui=bold guifg=#232A28")
+
 	-- fzf lua
+	vim.cmd("highlight FzfLuaFzfMatch gui=bold guifg=#232A28")
 	vim.cmd("highlight FzfLuaBorder guifg=#F7F8F8 guibg=#F7F8F8")
 	vim.cmd("highlight FzfLuaTitle gui=bold guifg=#232A28 guibg=#F7F8F8")
 	vim.cmd("highlight FzfLuaPreviewBorder guifg=#ECEEEE guibg=#ECEEEE")
-	vim.cmd("highlight FzfLuaFzfCursorLine guifg=#232A28 guibg=#ECEEEE")
+	vim.cmd("highlight FzfLuaFzfCursorLine guifg=#232A28 guibg=#FFFFFF")
 end
 
 vim.cmd("highlight Todo gui=bold")
@@ -160,7 +168,6 @@ vim.cmd("highlight! link BlinkCmpScrollBarThumb PmenuThumb")
 vim.cmd("highlight! link BlinkCmpScrollBarGutter PmenuSbar")
 -- vim.cmd("highlight! BlinkCmpLabel Pmenu")
 vim.cmd("highlight! link BlinkCmpLabelDeprecated DaignosticDeprecated")
-vim.cmd("highlight! link BlinkCmpLabelMatch Folded")
 vim.cmd("highlight! link BlinkCmpGhostText NonText")
 vim.cmd("highlight! link BlinkCmpKind Type")
 vim.cmd("highlight! link BlinkCmpKindText String")
@@ -217,7 +224,6 @@ vim.cmd("highlight! link FzfLuaTabTitle FzfLuaTitle")
 vim.cmd("highlight! link FzfLuaTabMarker ModeMsg")
 vim.cmd("highlight! link FzfLuaLiveSym NormalFloat")
 vim.cmd("highlight! link FzfLuaFzfHeader NormalFloat")
-vim.cmd("highlight! link FzfLuaFzfMatch Folded")
 vim.cmd("highlight! link FzfLuaFzfScrollbar PmenuSbar")
 vim.cmd("highlight! link FzfLuaFzfSeparator NormalFloat")
 vim.cmd("highlight! link FzfLuaFzfGutter Pmenu")
