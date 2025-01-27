@@ -13,8 +13,8 @@ opt.background = "dark"
 
 -- local colo = "zenwritten"
 -- local colo = "tokyonight"
--- local colo = "default"
-local colo = "mellifluous"
+-- local colo = "mellifluous"
+local colo = "default_but_better"
 
 cmd.colo(colo)
 cmd.filetype("plugin on")
