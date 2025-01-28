@@ -28,8 +28,8 @@ opt.bufhidden = "wipe"
 opt.cmdheight = 1
 opt.colorcolumn = "+1" -- "+1" - show the column, "" - hide
 opt.completeopt = { "menu", "noinsert", "noselect", "popup" }
-opt.cursorline = false
-opt.cursorlineopt = { "number", "screenline" }
+opt.cursorline = true
+opt.cursorlineopt = "both"
 opt.fillchars = {
 	foldopen = "⌄",
 	foldclose = "+",
@@ -62,7 +62,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn =
 	[[  %C %=]] ..
-	[[%{%v:relnum?"%#NonText#":"%#Normal#"%}]] ..
+	-- [[%{%v:relnum?"%#NonText#":"%#CursorLine#"%}]] ..
 	[[%{v:relnum?v:relnum:v:lnum}%* ]] ..
 	[[%s]]
 opt.statusline =

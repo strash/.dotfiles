@@ -20,7 +20,7 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.WARN] = important_sign,
 			[vim.diagnostic.severity.INFO] = not_important_sign,
 			[vim.diagnostic.severity.HINT] = not_important_sign,
-		}
+		},
 	}
 })
 
