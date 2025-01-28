@@ -47,6 +47,7 @@ if vim.o.background == "dark" then
 	vim.cmd("highlight FloatBorder gui=NONE guifg=NONE guibg=#1E1F1F")
 	vim.cmd("highlight FloatShadow guibg=#4C4E5D blend=80")
 	vim.cmd("highlight FloatShadowThrough guibg=#4C4E5D blend=100")
+	vim.cmd("highlight ColorColumn guibg=#1E1F1F")
 
 	-- blink
 	vim.cmd("highlight BlinkCmpLabelMatch gui=bold guifg=#CBCCCD")
@@ -91,6 +92,7 @@ else
 	vim.cmd("highlight FloatBorder gui=NONE guifg=NONE guibg=#F7F8F8")
 	vim.cmd("highlight FloatShadow guibg=#A9BCB9 blend=80")
 	vim.cmd("highlight FloatShadowThrough guibg=#A9BCB9 blend=100")
+	vim.cmd("highlight ColorColumn guibg=#F7F8F8")
 
 	-- blink
 	vim.cmd("highlight BlinkCmpLabelMatch gui=bold guifg=#181B1A")
@@ -111,7 +113,6 @@ vim.cmd("highlight! link LineNr NonText")
 vim.cmd("highlight! link LineNrAbove LineNr")
 vim.cmd("highlight! link LineNrBelow LineNr")
 vim.cmd("highlight! link SignColumn NonText")
-vim.cmd("highlight! link ColorColumn NonText")
 vim.cmd("highlight! link Conceal NonText")
 vim.cmd("highlight! link CursorColumn CursorLine")
 vim.cmd("highlight! link CursorLineNr Normal")
