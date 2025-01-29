@@ -27,16 +27,15 @@ return require("lazy").setup({
 	-- COLORS
 
 	-- mellifluous
-	{ "ramojus/mellifluous.nvim", dev = false },
-
+	-- {
+	-- 	"ramojus/mellifluous.nvim",
+	-- 	dev = false,
+	-- },
 	-- zenbones
-	{
-		"mcchrish/zenbones.nvim",
-		dependencies = { "rktjmp/lush.nvim" },
-	},
-
-	-- tokyonight
-	{ "folke/tokyonight.nvim", },
+	-- {
+	-- 	"mcchrish/zenbones.nvim",
+	-- 	dependencies = { "rktjmp/lush.nvim" },
+	-- },
 
 	-- CORE
 
@@ -75,6 +74,7 @@ return require("lazy").setup({
 	{
 		"stevearc/quicker.nvim",
 		event = "FileType qf",
+		enabled = false,
 	},
 	-- fzf lua
 	{ "ibhagwan/fzf-lua", },
