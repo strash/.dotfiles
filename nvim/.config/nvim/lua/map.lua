@@ -82,7 +82,7 @@ if fzf_lua ~= nil then
 		{ mode = "n",          key = "e", cmd = function() fzf_lua.diagnostics_workspace() end,                opts = { desc = "lsp diagnostics workspace" } },
 		{ mode = "n",          key = "r", cmd = function() fzf_lua.lsp_references() end,                       opts = { desc = "lsp references" } },
 		{ mode = "n",          key = "s", cmd = function() fzf_lua.lsp_document_symbols() end,                 opts = { desc = "lsp workspace symbols" } },
-		{ mode = "n",          key = "a", cmd = function() fzf_lua.lsp_code_actions() end,                     opts = { desc = "lsp code actions" } },
+		{ mode = { "n", "v" }, key = "a", cmd = function() fzf_lua.lsp_code_actions() end,                     opts = { desc = "lsp code actions" } },
 	}
 	map_util.set_keymap(fzf_map, fzf_prefix, options)
 end
