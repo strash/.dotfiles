@@ -14,10 +14,10 @@ vim.cmd("highlight clear NormalFloat")
 vim.cmd("highlight clear FloatBorder")
 
 if vim.o.background == "dark" then
-	vim.cmd("highlight Normal guifg=#C5C7C9 guibg=#0F0F10")
+	vim.cmd("highlight Normal guifg=#C0C1C4 guibg=#0F0F10")
 	vim.cmd("highlight NonText guifg=#4C4E5D")
 	vim.cmd("highlight Comment gui=italic guifg=#8C8673")
-	vim.cmd("highlight Title gui=bold guifg=#C5C7C9")
+	vim.cmd("highlight Title gui=bold guifg=#C0C1C4")
 	vim.cmd("highlight Directory guifg=#439FB1")
 	vim.cmd("highlight ErrorMsg guifg=#E09085")
 	vim.cmd("highlight WarningMsg guifg=#E0C685")
@@ -40,7 +40,7 @@ if vim.o.background == "dark" then
 	vim.cmd("highlight Statement gui=NONE guifg=#BD75A5")
 	vim.cmd("highlight Identifier guifg=#85B1D1")
 	vim.cmd("highlight Constant gui=bold guifg=#85B1D1")
-	vim.cmd("highlight @variable guifg=#C5C7C9 guibg=NONE")
+	vim.cmd("highlight @variable guifg=#C0C1C4 guibg=NONE")
 	vim.cmd("highlight String guifg=#8F9193")
 	vim.cmd("highlight Number guifg=#E09085")
 	vim.cmd("highlight Delimiter guifg=#A9ABAD")
@@ -51,13 +51,13 @@ if vim.o.background == "dark" then
 	vim.cmd("highlight ColorColumn guibg=#19191A")
 
 	-- blink
-	vim.cmd("highlight BlinkCmpLabelMatch gui=bold guifg=#C5C7C9")
+	vim.cmd("highlight BlinkCmpLabelMatch gui=bold guifg=#C0C1C4")
 
 	-- fzf lua
 	vim.cmd("highlight FzfLuaBorder guifg=#1E1E1F guibg=#1E1E1F")
-	vim.cmd("highlight FzfLuaTitle gui=bold guifg=#C5C7C9 guibg=#1E1E1F")
+	vim.cmd("highlight FzfLuaTitle gui=bold guifg=#C0C1C4 guibg=#1E1E1F")
 	vim.cmd("highlight FzfLuaPreviewBorder guifg=#0F0F10 guibg=#0F0F10")
-	vim.cmd("highlight FzfLuaFzfCursorLine guifg=#C5C7C9 guibg=#2C2E30")
+	vim.cmd("highlight FzfLuaFzfCursorLine guifg=#C0C1C4 guibg=#2C2E30")
 else
 	vim.cmd("highlight Normal guifg=#18191B guibg=#ECEDEE")
 	vim.cmd("highlight NonText guifg=#BCBFC2")
