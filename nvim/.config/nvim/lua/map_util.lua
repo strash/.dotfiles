@@ -34,6 +34,10 @@ local exclude = {
 			ft = { "lua" },
 			path = { [['mini.nvim']] },
 		},
+		{
+			ft = { "zig", "zon" },
+			path = { [['\.zig-cache']] },
+		},
 	}
 }
 
