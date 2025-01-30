@@ -70,12 +70,6 @@ return require("lazy").setup({
 	},
 	-- oil
 	{ "stevearc/oil.nvim", },
-	-- quicker
-	{
-		"stevearc/quicker.nvim",
-		event = "FileType qf",
-		enabled = false,
-	},
 	-- fzf lua
 	{ "ibhagwan/fzf-lua", },
 }, {
