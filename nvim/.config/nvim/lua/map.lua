@@ -14,18 +14,18 @@ local options = {
 ---Global
 ---@type map_table[]
 local global_map = {
-	{ mode = "n",          key = "<Tab>",      cmd = map_util.wrap_in_cmd("bn"),                  opts = { desc = "next buffer" } },
-	{ mode = "n",          key = "<S-Tab>",    cmd = map_util.wrap_in_cmd("bp"),                  opts = { desc = "prev buffer" } },
-	{ mode = "n",          key = "grn",        cmd = function() vim.lsp.buf.rename() end,         opts = { desc = "rename" } },
-	{ mode = "n",          key = "grr",        cmd = function() vim.lsp.buf.references() end,     opts = { desc = "lsp references" } },
-	{ mode = "n",          key = "gri",        cmd = function() vim.lsp.buf.implementation() end, opts = { desc = "lsp implementations" } },
-	{ mode = "n",          key = "grd",        cmd = function() vim.lsp.buf.definition() end,     opts = { desc = "lsp go to definition" } },
-	{ mode = "n",          key = "grq",        cmd = function() vim.diagnostic.setqflist() end,   opts = { desc = "show diagnostics" } },
-	{ mode = { "n", "v" }, key = "gra",        cmd = function() vim.lsp.buf.code_action() end,    opts = { desc = "lsp code actions" } },
-	{ mode = "n",          key = "grh",        cmd = map_util.wrap_in_cmd("noh"),                 opts = { desc = "stop the highlighting for the hlsearch" } },
+	{ mode = "n", key = "<Tab>",      cmd = map_util.wrap_in_cmd("bn"),                  opts = { desc = "next buffer" } },
+	{ mode = "n", key = "<S-Tab>",    cmd = map_util.wrap_in_cmd("bp"),                  opts = { desc = "prev buffer" } },
+	{ mode = "n", key = "grn",        cmd = function() vim.lsp.buf.rename() end,         opts = { desc = "rename" } },
+	-- { mode = "n", key = "grr",        cmd = function() vim.lsp.buf.references() end,     opts = { desc = "lsp references" } },
+	{ mode = "n", key = "gri",        cmd = function() vim.lsp.buf.implementation() end, opts = { desc = "lsp implementations" } },
+	{ mode = "n", key = "gd",         cmd = function() vim.lsp.buf.definition() end,     opts = { desc = "lsp go to definition" } },
+	-- { mode = "n",          key = "grq",        cmd = function() vim.diagnostic.setqflist() end,   opts = { desc = "show diagnostics" } },
+	-- { mode = { "n", "v" }, key = "gra",        cmd = function() vim.lsp.buf.code_action() end,    opts = { desc = "lsp code actions" } },
+	{ mode = "n", key = "grh",        cmd = map_util.wrap_in_cmd("noh"),                 opts = { desc = "stop the highlighting for the hlsearch" } },
 	-- { mode = "i",          key = "<C-s>",      cmd = function() vim.lsp.buf.signature_help() end, opts = { desc = "signature help" } },
-	{ mode = "i",          key = "<C-c>",      cmd = "<ESC>",                                     opts = { desc = "exit insert mode" } },
-	{ mode = "t",          key = "<ESC><ESC>", cmd = [[<C-\><C-n>]],                              opts = { desc = "exit insert mode in terminal" } },
+	{ mode = "i", key = "<C-c>",      cmd = "<ESC>",                                     opts = { desc = "exit insert mode" } },
+	{ mode = "t", key = "<ESC><ESC>", cmd = [[<C-\><C-n>]],                              opts = { desc = "exit insert mode in terminal" } },
 	{
 		mode = { "n", "i", "s" },
 		key = "<CR>",
@@ -80,7 +80,9 @@ if fzf_lua ~= nil then
 		{ mode = "n",          key = "g", cmd = function() fzf_lua.live_grep() end,                            opts = { desc = "live grep" } },
 		{ mode = { "n", "v" }, key = "w", cmd = function() map_util.fzf_grep_word() end,                       opts = { desc = "grep a word under cursor" } },
 		{ mode = "n",          key = "e", cmd = function() fzf_lua.diagnostics_workspace() end,                opts = { desc = "lsp diagnostics workspace" } },
-		{ mode = "n",          key = "q", cmd = function() fzf_lua.quickfix() end,                             opts = { desc = "search in quickfix" } },
+		{ mode = "n",          key = "r", cmd = function() fzf_lua.lsp_references() end,                       opts = { desc = "lsp references" } },
+		{ mode = "n",          key = "s", cmd = function() fzf_lua.lsp_document_symbols() end,                 opts = { desc = "lsp workspace symbols" } },
+		{ mode = "n",          key = "a", cmd = function() fzf_lua.lsp_code_actions() end,                     opts = { desc = "lsp code actions" } },
 	}
 	map_util.set_keymap(fzf_map, fzf_prefix, options)
 end
