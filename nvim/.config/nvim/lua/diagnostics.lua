@@ -25,31 +25,31 @@ vim.diagnostic.config({
 })
 
 -- local ok_diagnostic = "│ OK │"
-local ok_diagnostic = "• OK •"
+local ok_diagnostic = "OK •"
 
 function M.get_diagnostic_count()
 	if vim.diagnostic.is_enabled() then
 		---@type number[]
 		local diagnostics = vim.diagnostic.count(nil)
 		local res = ""
-		if diagnostics[vim.diagnostic.severity.ERROR] ~= nil then
-			local c = diagnostics[vim.diagnostic.severity.ERROR]
-			res = append(res, "%#DiagnosticError#" .. c .. "%*")
-		end
-		if diagnostics[vim.diagnostic.severity.WARN] ~= nil then
-			local c = diagnostics[vim.diagnostic.severity.WARN]
-			res = append(res, "%#DiagnosticWarn#" .. c .. "%*")
+		if diagnostics[vim.diagnostic.severity.HINT] ~= nil then
+			local c = diagnostics[vim.diagnostic.severity.HINT]
+			res = append(res, "%#DiagnosticHint#" .. c .. "%*")
 		end
 		if diagnostics[vim.diagnostic.severity.INFO] ~= nil then
 			local c = diagnostics[vim.diagnostic.severity.INFO]
 			res = append(res, "%#DiagnosticInfo#" .. c .. "%*")
 		end
-		if diagnostics[vim.diagnostic.severity.HINT] ~= nil then
-			local c = diagnostics[vim.diagnostic.severity.HINT]
-			res = append(res, "%#DiagnosticHint#" .. c .. "%*")
+		if diagnostics[vim.diagnostic.severity.WARN] ~= nil then
+			local c = diagnostics[vim.diagnostic.severity.WARN]
+			res = append(res, "%#DiagnosticWarn#" .. c .. "%*")
+		end
+		if diagnostics[vim.diagnostic.severity.ERROR] ~= nil then
+			local c = diagnostics[vim.diagnostic.severity.ERROR]
+			res = append(res, "%#DiagnosticError#" .. c .. "%*")
 		end
 		if #res > 0 then
-			return "• " .. res .. " •"
+			return res .. " •"
 		end
 	end
 	return ok_diagnostic
