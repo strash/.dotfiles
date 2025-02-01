@@ -30,6 +30,7 @@ if nvim_lsp ~= nil then
 		"gopls",
 		--"html",
 		--"jsonls",
+		"ocamllsp",
 		--"tailwindcss",
 		--"tsserver",
 		--"svelte",

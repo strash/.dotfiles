@@ -12,7 +12,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # source .zshenv and .zshrc
 alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo '.zshenv and .zshrc are sourced at path $HOME/.dotfiles/zsh/'"
 
-# pnpm
+# bun
 alias cocka="bun update -g"
 
 # firebase
@@ -29,6 +29,7 @@ alias bree="arch -arm64 brew install"
 alias l="ls -lahG"
 
 # alias cd="pushd"
+
 
 ###-begin-flutter-completion-###
 
@@ -75,6 +76,7 @@ fi
 
 ###-end-flutter-completion-###
 
+
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' list-colors ''
@@ -102,6 +104,7 @@ fpath+=$HOME/.zfunc
 compinit
 # End of lines added by compinstall
 
+
 # Prompt theme
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats '%F{243}[%b|%a%f%F{red}%u%F{yellow}%c%f%F{243}]%f '
@@ -116,13 +119,18 @@ precmd() { vcs_info }
 setopt prompt_subst
 PS1=' %F{99}%B%n%b%f %F{33}%~%f ${vcs_info_msg_0_}%(?00%F{214}fuck %f)'
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
 
 # bun completions
 [ -s "/Users/strash/.bun/_bun" ] && source "/Users/strash/.bun/_bun"
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/strash/.opam/opam-init/init.zsh' ]] || source '/Users/strash/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
 
 source <(fzf --zsh)
