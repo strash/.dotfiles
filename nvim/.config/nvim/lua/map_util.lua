@@ -38,6 +38,10 @@ local exclude = {
 			ft = { "zig", "zon" },
 			path = { [['\.zig-cache']] },
 		},
+		{
+			ft = { "ml", "opam", "dune-project", "dune" },
+			path = { [['_build']] },
+		},
 	}
 }
 
