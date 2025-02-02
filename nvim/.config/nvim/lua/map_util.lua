@@ -39,7 +39,7 @@ local exclude = {
 			path = { [['\.zig-cache']] },
 		},
 		{
-			ft = { "ml", "opam", "dune-project", "dune" },
+			ft = { "ml", "mli", "opam", "dune-project", "dune" },
 			path = { [['_build']] },
 		},
 	}
