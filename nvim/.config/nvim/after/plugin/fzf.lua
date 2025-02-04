@@ -5,8 +5,10 @@ if p ~= nil then
 		-- "telescope",
 		fzf_colors = true,
 		winopts = {
-			width = 0.85,
-			height = 0.97,
+			-- width = 0.85,
+			-- height = 0.97,
+			width = 1.0,
+			height = 1.0,
 			preview = {
 				horizontal = "right:50%",
 				vertical = "up:%50",
