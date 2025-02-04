@@ -20,7 +20,7 @@ local global_map = {
 	-- { mode = "n", key = "grr",        cmd = function() vim.lsp.buf.references() end,     opts = { desc = "lsp references" } },
 	{ mode = "n", key = "gri",        cmd = function() vim.lsp.buf.implementation() end, opts = { desc = "lsp implementations" } },
 	{ mode = "n", key = "gd",         cmd = function() vim.lsp.buf.definition() end,     opts = { desc = "lsp go to definition" } },
-	-- { mode = "n",          key = "grq",        cmd = function() vim.diagnostic.setqflist() end,   opts = { desc = "show diagnostics" } },
+	{ mode = "n", key = "grq",        cmd = function() vim.diagnostic.setqflist() end,   opts = { desc = "show diagnostics" } },
 	-- { mode = { "n", "v" }, key = "gra",        cmd = function() vim.lsp.buf.code_action() end,    opts = { desc = "lsp code actions" } },
 	{ mode = "n", key = "grh",        cmd = map_util.wrap_in_cmd("noh"),                 opts = { desc = "stop the highlighting for the hlsearch" } },
 	-- { mode = "i",          key = "<C-s>",      cmd = function() vim.lsp.buf.signature_help() end, opts = { desc = "signature help" } },

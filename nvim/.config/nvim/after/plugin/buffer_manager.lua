@@ -7,6 +7,6 @@ if p ~= nil then
 		focus_alternate_buffer = true,
 		short_term_names = true,
 		show_indicators = nil,
-		order_buffers = nil,
+		order_buffers = "fullpath",
 	})
 end
