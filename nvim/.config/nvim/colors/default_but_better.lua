@@ -26,10 +26,10 @@ local fg_1 = { dark = UC.brighter(fg.dark, -8), light = UC.brighter(fg.light, 20
 local fg_2 = { dark = UC.brighter(fg.dark, -13), light = UC.brighter(fg.light, 30) }
 local fg_3 = { dark = UC.brighter(fg.dark, -21), light = UC.brighter(fg.light, 40) }
 local fg_4 = { dark = UC.saturate(UC.brighter(fg.dark, -40), 10), light = UC.saturate(UC.brighter(fg.light, 51), -7) }
-local fg_err = { dark = UC.hsv_to_dec({ 350, 41, 80 }), light = UC.hsv_to_dec({ 350, 100, 74 }) }
-local fg_warn = { dark = UC.hsv_to_dec({ 43, 41, 80 }), light = UC.hsv_to_dec({ 43, 100, 71 }) }
-local fg_info = { dark = UC.hsv_to_dec({ 208, 41, 80 }), light = UC.hsv_to_dec({ 208, 100, 67 }) }
-local fg_hint = { dark = UC.hsv_to_dec({ 185, 60, 60 }), light = UC.hsv_to_dec({ 185, 100, 55 }) }
+local fg_err = { dark = UC.hsv_to_dec({ 350, 41, 73 }), light = UC.hsv_to_dec({ 350, 100, 74 }) }
+local fg_warn = { dark = UC.hsv_to_dec({ 43, 41, 71 }), light = UC.hsv_to_dec({ 43, 100, 71 }) }
+local fg_info = { dark = UC.hsv_to_dec({ 208, 41, 72 }), light = UC.hsv_to_dec({ 208, 100, 67 }) }
+local fg_hint = { dark = UC.hsv_to_dec({ 185, 65, 62 }), light = UC.hsv_to_dec({ 185, 100, 55 }) }
 local fg_primary = { dark = UC.hsv_to_dec({ 160, 56, 66 }), light = UC.hsv_to_dec({ 160, 100, 50 }) }
 local fg_secondary = { dark = UC.hsv_to_dec({ 208, 40, 71 }), light = UC.hsv_to_dec({ 208, 67, 70 }) }
 local fg_tertiary = { dark = UC.hsv_to_dec({ 320, 40, 68 }), light = UC.hsv_to_dec({ 320, 70, 60 }) }
