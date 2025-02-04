@@ -27,12 +27,12 @@ local fg_2 = { dark = UC.brighter(fg.dark, -13), light = UC.brighter(fg.light, 3
 local fg_3 = { dark = UC.brighter(fg.dark, -21), light = UC.brighter(fg.light, 40) }
 local fg_4 = { dark = UC.saturate(UC.brighter(fg.dark, -40), 10), light = UC.saturate(UC.brighter(fg.light, 51), -7) }
 local fg_err = { dark = UC.hsv_to_dec({ 350, 41, 80 }), light = UC.hsv_to_dec({ 350, 100, 74 }) }
-local fg_warn = { dark = UC.hsv_to_dec({ 43, 41, 80 }), light = UC.hsv_to_dec({ 43, 100, 74 }) }
-local fg_info = { dark = UC.hsv_to_dec({ 90, 41, 70 }), light = UC.hsv_to_dec({ 90, 96, 65 }) }
-local fg_hint = { dark = UC.hsv_to_dec({ 185, 61, 57 }), light = UC.hsv_to_dec({ 185, 100, 55 }) }
-local fg_primary = { dark = UC.hsv_to_dec({ 160, 55, 69 }), light = UC.hsv_to_dec({ 160, 100, 50 }) }
-local fg_secondary = { dark = UC.hsv_to_dec({ 208, 40, 74 }), light = UC.hsv_to_dec({ 208, 67, 70 }) }
-local fg_tertiary = { dark = UC.hsv_to_dec({ 300, 43, 70 }), light = UC.hsv_to_dec({ 300, 70, 60 }) }
+local fg_warn = { dark = UC.hsv_to_dec({ 43, 41, 80 }), light = UC.hsv_to_dec({ 43, 100, 71 }) }
+local fg_info = { dark = UC.hsv_to_dec({ 208, 41, 80 }), light = UC.hsv_to_dec({ 208, 100, 67 }) }
+local fg_hint = { dark = UC.hsv_to_dec({ 185, 65, 59 }), light = UC.hsv_to_dec({ 185, 100, 55 }) }
+local fg_primary = { dark = UC.hsv_to_dec({ 160, 50, 64 }), light = UC.hsv_to_dec({ 160, 100, 50 }) }
+local fg_secondary = { dark = UC.hsv_to_dec({ 208, 42, 71 }), light = UC.hsv_to_dec({ 208, 67, 70 }) }
+local fg_tertiary = { dark = UC.hsv_to_dec({ 320, 40, 66 }), light = UC.hsv_to_dec({ 320, 70, 60 }) }
 local fg_primary_variant = {
 	dark = UC.brighter(fg_primary.dark, -10),
 	light = UC.saturate(UC.brighter(fg_primary.light, 6), -30)
@@ -46,7 +46,7 @@ local fg_tertiary_variant = {
 	light = UC.saturate(UC.brighter(fg_tertiary.light, 5), -16)
 }
 
-local bg = { dark = UC.hsv_to_dec({ 215, 2, 3 }), light = UC.hsv_to_dec({ 205, 1, 95 }) }
+local bg = { dark = UC.hsv_to_dec({ 215, 4, 5 }), light = UC.hsv_to_dec({ 205, 1, 95 }) }
 local bg_1 = { dark = UC.brighter(bg.dark, 2), light = UC.brighter(bg.light, -2) }
 local bg_2 = { dark = UC.brighter(bg.dark, 4), light = UC.brighter(bg.light, 4) }
 local bg_3 = { dark = UC.brighter(bg_2.dark, 7), light = UC.brighter(bg_2.light, -2) }
@@ -54,7 +54,7 @@ local bg_4 = { dark = UC.brighter(bg.dark, 9), light = UC.brighter(bg.light, -5)
 local bg_5 = { dark = UC.brighter(bg_4.dark, 15), light = UC.brighter(bg_4.light, -9) }
 local bg_err = { dark = UC.hsv_to_dec({ 350, 41, 22 }), light = UC.hsv_to_dec({ 350, 7, 91 }) }
 local bg_warn = { dark = UC.hsv_to_dec({ 43, 41, 22 }), light = UC.hsv_to_dec({ 43, 7, 91 }) }
-local bg_info = { dark = UC.hsv_to_dec({ 128, 41, 22 }), light = UC.hsv_to_dec({ 128, 7, 89 }) }
+local bg_info = { dark = UC.hsv_to_dec({ 208, 41, 22 }), light = UC.hsv_to_dec({ 208, 7, 89 }) }
 local bg_hint = { dark = UC.hsv_to_dec({ 185, 41, 22 }), light = UC.hsv_to_dec({ 185, 7, 89 }) }
 
 local brightness = vim.o.background
@@ -71,7 +71,7 @@ hi(0, "CurSearch", { bg = bg_5[brightness] })
 hi(0, "CursorLine", { bg = bg_1[brightness] })
 hi(0, "Visual", { bg = bg_4[brightness] })
 hi(0, "Folded", { fg = fg_3[brightness], bg = bg_1[brightness] })
-hi(0, "Added", { fg = fg_info[brightness], bg = bg_info[brightness] })
+hi(0, "Added", { fg = fg_primary[brightness], bg = bg_hint[brightness] })
 hi(0, "Changed", { bg = bg_3[brightness] })
 hi(0, "Removed", { fg = fg_err[brightness], bg = bg_err[brightness] })
 hi(0, "SpellBad", { cterm = { underline = true }, undercurl = true, sp = fg_err[brightness] })
