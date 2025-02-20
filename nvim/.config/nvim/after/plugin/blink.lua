@@ -3,7 +3,7 @@ local p = require("plugin_loader").load("blink.cmp")
 if p ~= nil then
 	p.setup({
 		keymap = {
-			["<CR>"] = { "accept", "select_and_accept", "fallback" },
+			["<CR>"] = { "accept", "fallback" },
 			["<C-e>"] = { "show", "hide", "fallback" },
 			["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
 			["<C-p>"] = { "select_prev", "fallback" },
@@ -18,8 +18,14 @@ if p ~= nil then
 			trigger = {
 				show_on_x_blocked_trigger_characters = { "{", "}", ",", "(", ")" },
 			},
+			list = {
+				selection = {
+					preselect = false,
+					auto_insert = false,
+				},
+			},
 			menu = {
-				auto_show = false,
+				auto_show = true,
 				draw = {
 					columns = { { "kind_icon" }, { "label" } },
 					components = {
