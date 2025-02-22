@@ -19,20 +19,20 @@ vim.cmd("highlight clear FloatBorder")
 vim.cmd("highlight clear Todo")
 
 local fg = {
-	dark = UC.hsv_to_dec({ 160, 5, 72 }),
+	dark = UC.hsv_to_dec({ 160, 5, 74 }),
 	light = UC.hsv_to_dec({ 160, 15, 30 }),
 }
-local fg_1 = { dark = UC.brighter(fg.dark, -8), light = UC.brighter(fg.light, 20) }
-local fg_2 = { dark = UC.brighter(fg.dark, -13), light = UC.brighter(fg.light, 30) }
-local fg_3 = { dark = UC.brighter(fg.dark, -21), light = UC.brighter(fg.light, 40) }
+local fg_1 = { dark = UC.brighter(fg.dark, -9), light = UC.brighter(fg.light, 15) }
+local fg_2 = { dark = UC.brighter(fg.dark, -13), light = UC.brighter(fg.light, 23) }
+local fg_3 = { dark = UC.brighter(fg.dark, -21), light = UC.brighter(fg.light, 36) }
 local fg_4 = { dark = UC.saturate(UC.brighter(fg.dark, -40), 10), light = UC.saturate(UC.brighter(fg.light, 51), -7) }
-local fg_err = { dark = UC.hsv_to_dec({ 350, 41, 76 }), light = UC.hsv_to_dec({ 350, 100, 74 }) }
+local fg_err = { dark = UC.hsv_to_dec({ 350, 41, 76 }), light = UC.hsv_to_dec({ 350, 100, 75 }) }
 local fg_warn = { dark = UC.hsv_to_dec({ 43, 41, 72 }), light = UC.hsv_to_dec({ 43, 100, 71 }) }
 local fg_info = { dark = UC.hsv_to_dec({ 208, 41, 72 }), light = UC.hsv_to_dec({ 208, 100, 67 }) }
-local fg_hint = { dark = UC.hsv_to_dec({ 185, 65, 69 }), light = UC.hsv_to_dec({ 185, 100, 58 }) }
-local fg_primary = { dark = UC.hsv_to_dec({ 160, 56, 72 }), light = UC.hsv_to_dec({ 160, 100, 50 }) }
-local fg_secondary = { dark = UC.hsv_to_dec({ 208, 40, 72 }), light = UC.hsv_to_dec({ 208, 67, 70 }) }
-local fg_tertiary = { dark = UC.hsv_to_dec({ 320, 40, 72 }), light = UC.hsv_to_dec({ 320, 70, 70 }) }
+local fg_hint = { dark = UC.hsv_to_dec({ 185, 65, 67 }), light = UC.hsv_to_dec({ 185, 90, 60 }) }
+local fg_primary = { dark = UC.hsv_to_dec({ 160, 56, 72 }), light = UC.hsv_to_dec({ 160, 100, 60 }) }
+local fg_secondary = { dark = UC.hsv_to_dec({ 208, 40, 76 }), light = UC.hsv_to_dec({ 208, 80, 70 }) }
+local fg_tertiary = { dark = UC.hsv_to_dec({ 280, 40, 70 }), light = UC.hsv_to_dec({ 280, 60, 80 }) }
 local fg_primary_variant = {
 	dark = UC.brighter(fg_primary.dark, -10),
 	light = UC.saturate(UC.brighter(fg_primary.light, 6), -30)
@@ -50,8 +50,8 @@ local bg = { dark = UC.hsv_to_dec({ 160, 100, 7 }), light = UC.hsv_to_dec({ 160,
 local bg_1 = { dark = UC.brighter(bg.dark, 5), light = UC.brighter(bg.light, -2) }
 local bg_2 = { dark = UC.brighter(bg.dark, 4), light = UC.brighter(bg.light, 4) }
 local bg_3 = { dark = UC.brighter(bg_2.dark, 7), light = UC.brighter(bg_2.light, -2) }
-local bg_4 = { dark = UC.brighter(bg.dark, 12), light = UC.brighter(bg.light, -5) }
-local bg_5 = { dark = UC.brighter(bg_4.dark, 18), light = UC.brighter(bg_4.light, -9) }
+local bg_4 = { dark = UC.brighter(bg.dark, 14), light = UC.brighter(bg.light, -5) }
+local bg_5 = { dark = UC.brighter(bg_4.dark, 18), light = UC.brighter(bg_4.light, -11) }
 local bg_err = { dark = UC.hsv_to_dec({ 350, 41, 22 }), light = UC.hsv_to_dec({ 350, 7, 91 }) }
 local bg_warn = { dark = UC.hsv_to_dec({ 43, 41, 22 }), light = UC.hsv_to_dec({ 43, 7, 91 }) }
 local bg_info = { dark = UC.hsv_to_dec({ 208, 41, 22 }), light = UC.hsv_to_dec({ 208, 7, 89 }) }

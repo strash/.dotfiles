@@ -117,7 +117,7 @@ zstyle ':vcs_info:*' stagedstr ●
 zstyle ':vcs_info:*' unstagedstr ●
 precmd() { vcs_info }
 setopt prompt_subst
-PS1=' %F{99}%B%n%b%f %F{33}%~%f ${vcs_info_msg_0_}%(?00%F{214}fuck %f)'
+PS1='%F{99}%B%n%b%f %F{33}%~%f ${vcs_info_msg_0_}%(?00%F{214}fuck %f)'
 
 
 # bun completions
