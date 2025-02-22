@@ -19,7 +19,7 @@ vim.cmd("highlight clear FloatBorder")
 vim.cmd("highlight clear Todo")
 
 local fg = {
-	dark = UC.hsv_to_dec({ 160, 5, 74 }),
+	dark = UC.hsv_to_dec({ 160, 5, 75 }),
 	light = UC.hsv_to_dec({ 160, 15, 30 }),
 }
 local fg_1 = { dark = UC.brighter(fg.dark, -9), light = UC.brighter(fg.light, 15) }
@@ -30,9 +30,9 @@ local fg_err = { dark = UC.hsv_to_dec({ 350, 41, 76 }), light = UC.hsv_to_dec({ 
 local fg_warn = { dark = UC.hsv_to_dec({ 43, 41, 72 }), light = UC.hsv_to_dec({ 43, 100, 71 }) }
 local fg_info = { dark = UC.hsv_to_dec({ 208, 41, 72 }), light = UC.hsv_to_dec({ 208, 100, 67 }) }
 local fg_hint = { dark = UC.hsv_to_dec({ 185, 65, 67 }), light = UC.hsv_to_dec({ 185, 90, 60 }) }
-local fg_primary = { dark = UC.hsv_to_dec({ 160, 56, 72 }), light = UC.hsv_to_dec({ 160, 100, 60 }) }
-local fg_secondary = { dark = UC.hsv_to_dec({ 208, 40, 76 }), light = UC.hsv_to_dec({ 208, 80, 70 }) }
-local fg_tertiary = { dark = UC.hsv_to_dec({ 280, 40, 70 }), light = UC.hsv_to_dec({ 280, 60, 80 }) }
+local fg_primary = { dark = UC.hsv_to_dec({ 160, 90, 70 }), light = UC.hsv_to_dec({ 160, 100, 60 }) }
+local fg_secondary = { dark = UC.hsv_to_dec({ 208, 47, 76 }), light = UC.hsv_to_dec({ 208, 80, 70 }) }
+local fg_tertiary = { dark = UC.hsv_to_dec({ 285, 50, 70 }), light = UC.hsv_to_dec({ 285, 60, 70 }) }
 local fg_primary_variant = {
 	dark = UC.brighter(fg_primary.dark, -10),
 	light = UC.saturate(UC.brighter(fg_primary.light, 6), -30)
@@ -42,8 +42,8 @@ local fg_secondary_variant = {
 	light = UC.saturate(UC.brighter(fg_secondary.light, 3), -43)
 }
 local fg_tertiary_variant = {
-	dark = UC.saturate(UC.brighter(fg_tertiary.dark, -5), -12),
-	light = UC.saturate(UC.brighter(fg_tertiary.light, 5), -16)
+	dark = UC.saturate(UC.brighter(fg_tertiary.dark, -5), -7),
+	light = UC.saturate(UC.brighter(fg_tertiary.light, 5), -10)
 }
 
 local bg = { dark = UC.hsv_to_dec({ 160, 100, 7 }), light = UC.hsv_to_dec({ 160, 1, 96 }) }
