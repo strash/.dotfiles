@@ -22,6 +22,7 @@ if p ~= nil then
 			"ocamllex",
 			"prisma",
 			"regex",
+			"rescript",
 			"scheme",
 			"sql",
 			"svelte",

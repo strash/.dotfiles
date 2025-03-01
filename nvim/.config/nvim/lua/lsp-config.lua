@@ -43,7 +43,8 @@ if nvim_lsp ~= nil then
 		{ "jsonls",      { "vscode-json-language-server", "--stdio" } },
 		{ "svelte",      { "svelteserver", "--stdio" } },
 		{ "tailwindcss", { "tailwindcss-language-server", "--stdio" } },
-		{ "ts_ls",       { "typescript-language-server", "--stdio" } }
+		{ "ts_ls",       { "typescript-language-server", "--stdio" } },
+		{ "rescriptls",  { "rescript-language-server", "--stdio" } },
 	}
 
 	-- all lsps
