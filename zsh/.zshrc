@@ -12,6 +12,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # source .zshenv and .zshrc
 alias sz="source $HOME/.dotfiles/zsh/.zshenv && source $HOME/.dotfiles/zsh/.zshrc && echo '.zshenv and .zshrc are sourced at path $HOME/.dotfiles/zsh/'"
 
+# go
+alias go_clean="go clean -x -cache -modcache"
+
 # bun
 alias cocka="bun update -g"
 
