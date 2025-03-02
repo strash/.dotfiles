@@ -6,6 +6,7 @@ $HOME/.dotfiles:\
 /usr/sbin:\
 /sbin:\
 /Library/Apple/usr/bin:\
+$HOME/Library/Android/sdk/cmdline-tools/latest/bin:\
 $HOME/Library/Android/sdk/platform-tools:\
 $HOME/Library/Android/sdk/emulator:\
 $HOME/Library/Python/3.x/bin:\
