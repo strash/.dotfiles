@@ -22,7 +22,7 @@ local global_map = {
 	{ mode = "n", key = "gd",         cmd = function() vim.lsp.buf.definition() end,     opts = { desc = "lsp go to definition" } },
 	{ mode = "n", key = "grq",        cmd = function() vim.diagnostic.setqflist() end,   opts = { desc = "show diagnostics" } },
 	-- { mode = { "n", "v" }, key = "gra",        cmd = function() vim.lsp.buf.code_action() end,    opts = { desc = "lsp code actions" } },
-	{ mode = "n", key = "grh",        cmd = map_util.wrap_in_cmd("noh"),                 opts = { desc = "stop the highlighting for the hlsearch" } },
+	-- { mode = "n", key = "grh",        cmd = map_util.wrap_in_cmd("noh"),                 opts = { desc = "stop the highlighting for the hlsearch" } },
 	-- { mode = "i",          key = "<C-s>",      cmd = function() vim.lsp.buf.signature_help() end, opts = { desc = "signature help" } },
 	{ mode = "i", key = "<C-c>",      cmd = "<ESC>",                                     opts = { desc = "exit insert mode" } },
 	{ mode = "t", key = "<ESC><ESC>", cmd = [[<C-\><C-n>]],                              opts = { desc = "exit insert mode in terminal" } },
