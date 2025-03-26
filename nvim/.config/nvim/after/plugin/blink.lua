@@ -63,7 +63,7 @@ if p ~= nil then
 		signature = {
 			enabled = true,
 			trigger = {
-				enabled = false,
+				-- enabled = false,
 				show_on_trigger_character = false,
 				show_on_insert_on_trigger_character = false,
 			},
