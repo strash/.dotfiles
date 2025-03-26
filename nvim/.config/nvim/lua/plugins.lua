@@ -54,6 +54,7 @@ return require("lazy").setup({
 	-- blink
 	{
 		"saghen/blink.cmp",
+		version = "v1.*",
 		-- enabled = false,
 	},
 	-- neogit
