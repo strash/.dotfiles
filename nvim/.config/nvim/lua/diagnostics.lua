@@ -14,6 +14,7 @@ local important_sign = "→"
 local not_important_sign = "•"
 
 vim.diagnostic.config({
+	virtual_text = true,
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = important_sign,

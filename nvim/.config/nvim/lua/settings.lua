@@ -9,11 +9,10 @@ vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
 	end
 })
 
+vim.o.winborder = "solid"
+
 opt.background = "dark"
 
--- local colo = "zenwritten"
--- local colo = "tokyonight"
--- local colo = "mellifluous"
 local colo = "default_but_better"
 
 cmd.colo(colo)
@@ -22,12 +21,13 @@ cmd.filetype("plugin indent on")
 cmd.syntax("enable")
 cmd.syntax("on")
 
+
 opt.autowrite = true
 opt.autowriteall = true
 opt.bufhidden = "wipe"
 opt.cmdheight = 1
 opt.colorcolumn = "+1" -- "+1" - show the column, "" - hide
-opt.completeopt = { "menu", "noinsert", "noselect", "popup" }
+opt.completeopt = { "fuzzy", "menu", "noinsert", "noselect", "popup" }
 opt.cursorline = true
 opt.cursorlineopt = "both"
 opt.fillchars = {

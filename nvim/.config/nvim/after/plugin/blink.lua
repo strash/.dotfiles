@@ -5,7 +5,7 @@ if p ~= nil then
 		keymap = {
 			["<CR>"] = { "accept", "fallback" },
 			["<C-e>"] = { "show", "hide", "fallback" },
-			["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+			-- ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
 			["<C-p>"] = { "select_prev", "fallback" },
 			["<C-n>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "scroll_documentation_up", "fallback" },
@@ -25,6 +25,7 @@ if p ~= nil then
 				},
 			},
 			menu = {
+				border = "none",
 				auto_show = true,
 				draw = {
 					columns = { { "kind_icon" }, { "label" } },
@@ -61,7 +62,7 @@ if p ~= nil then
 			},
 		},
 		signature = {
-			enabled = true,
+			enabled = false,
 			trigger = {
 				-- enabled = false,
 				show_on_trigger_character = false,
