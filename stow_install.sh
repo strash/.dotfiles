@@ -2,22 +2,25 @@
 
 # git
 rm $HOME/.gitconfig
-stow -R git
+stow -S git
 
 # godot
-rm $HOME/Library/Application\ Support/Godot/editor_settings-3.tres
-rm $HOME/Library/Application\ Support/Godot/script_templates/blocks.gd
-stow -R godot
+# rm $HOME/Library/Application\ Support/Godot/editor_settings-3.tres
+# rm $HOME/Library/Application\ Support/Godot/script_templates/blocks.gd
+# stow -R godot
 
 # neovim
 rm -rf $HOME/.config/nvim/init.lua $HOME/.config/nvim/lua
-stow -R nvim
+stow -S nvim
 
 # wezterm
-rm $HOME/.config/wezterm/wezterm.lua
-stow -R wezterm
+# rm $HOME/.config/wezterm/wezterm.lua
+# stow -R wezterm
 
 # zsh
 rm $HOME/.zshenv $HOME/.zshrc
-stow -R zsh
+stow -S zsh
 
+# ghostty
+rm $HOME/.config/ghostty/config
+stow -S ghostty
