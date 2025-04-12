@@ -1,20 +1,42 @@
-theme = "nightfox"
+theme = "default"
 
 [editor]
-cursorline = true
 shell = ["zsh", "-c"]
 line-number = "relative"
-rulers = [80]
+cursorline = true
+completion-timeout = 50
 preview-completion-insert = false
-popup-border = "none"
+completion-trigger-len = 1
+rulers = [80]
+end-of-line-diagnostics = "hint"
+
+[editor.statusline]
+left = ["mode", "spinner", "spacer", "version-control", "spacer", "file-name", "file-modification-indicator"]
+right = ["workspace-diagnostics", "selections", "position", "position-percentage"]
+
+[editor.cursor-shape]
+insert = "bar"
 
 [editor.file-picker]
 hidden = false
 
+[editor.whitespace.render]
+nbsp = "all"
+nnbsp = "all"
+
 [editor.indent-guides]
 render = true
 
+[editor.gutters]
+layout = ["diagnostics", "spacer", "line-numbers", "spacer", "diff", "spacer"]
+
 [editor.soft-wrap]
 enable = true
+
+[editor.smart-tab]
+supersede-menu = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [keys.insert]

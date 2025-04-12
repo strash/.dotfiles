@@ -1,4 +1,4 @@
-macos-icon = xray
+# macos-icon = xray
 
 font-family = Maple Mono
 font-family = SF Mono
@@ -17,6 +17,8 @@ window-padding-color = extend-always
 unfocused-split-opacity = 1
 
 macos-titlebar-style = native
+
+macos-option-as-alt = true
 
 #keybind = ctrl+b>t=toggle_quick_terminal
 

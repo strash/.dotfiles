@@ -14,7 +14,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [core]
-	editor = nvim
+	editor = hx
 [diff]
 	tool = nvimdiff
 [merge]

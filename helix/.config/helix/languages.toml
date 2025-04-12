@@ -3,3 +3,9 @@
 # roots = ["project.godot"]
 # language-server = { command = "nc", args = ["localhost", "6008"], language-id = "gdscript" }
 
+[[language]]
+name = "dart"
+diagnostic-severity = "hint"
+ 
+[language-server.dart]
+config = { closingLabels = true, outline = true, flutterOutline = true, dart = { showTodos = true, renameFilesWithClasses = "prompt" } }
