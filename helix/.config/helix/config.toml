@@ -11,7 +11,7 @@ rulers = [80]
 end-of-line-diagnostics = "hint"
 
 [editor.statusline]
-left = ["mode", "spinner", "spacer", "version-control", "spacer", "file-name", "file-modification-indicator"]
+left = ["mode", "version-control", "file-name", "file-modification-indicator"]
 right = ["workspace-diagnostics", "selections", "position", "position-percentage"]
 
 [editor.cursor-shape]
@@ -38,5 +38,3 @@ supersede-menu = true
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
-
-[keys.insert]
