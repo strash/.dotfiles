@@ -1,26 +1,13 @@
 local M = {}
 local opt, cmd = vim.opt, vim.cmd
 
--- set commentstring for dart files
-vim.api.nvim_create_autocmd({ "BufNew", "BufEnter" }, {
-	pattern = "*.dart",
-	callback = function(args)
-		vim.bo[args.buf].commentstring = "// %s"
-	end
-})
-
-vim.o.winborder = "solid"
+-- vim.o.winborder = "solid"
 
 opt.background = "dark"
 
 local colo = "default_but_better"
 
 cmd.colo(colo)
-cmd.filetype("plugin on")
-cmd.filetype("plugin indent on")
-cmd.syntax("enable")
-cmd.syntax("on")
-
 
 opt.autowrite = true
 opt.autowriteall = true
@@ -28,7 +15,7 @@ opt.bufhidden = "wipe"
 opt.cmdheight = 1
 opt.colorcolumn = "+1" -- "+1" - show the column, "" - hide
 opt.completeopt = { "fuzzy", "menu", "noinsert", "noselect", "popup" }
-opt.cursorline = true
+-- opt.cursorline = true
 opt.cursorlineopt = "both"
 opt.fillchars = {
 	foldopen = "⌄",
@@ -62,14 +49,13 @@ opt.splitbelow = true
 opt.splitright = true
 opt.statuscolumn =
 	[[  %C %=]] ..
-	-- [[%{%v:relnum?"%#NonText#":"%#CursorLine#"%}]] ..
 	[[%{v:relnum?v:relnum:v:lnum}%* ]] ..
 	[[%s]]
 opt.statusline =
 	[[ %(%H%q%)]] ..
-	[[%( %<%{%v:lua.require('util').status_path()%}%M%)]] ..
+	[[%( %<%{%v:lua.require('util.statusline').status_path()%}%M%)]] ..
 	[[%=%( %{%v:lua.require('diagnostics').get_diagnostic_count()%}]] ..
-	[[ →%02c ↓%{%v:lua.require('util').line_nr(0)%}/%L %03p%%%)  ]]
+	[[ →%02c ↓%{%v:lua.require('util.statusline').line_nr(0)%}/%L %03p%%%)  ]]
 opt.swapfile = false
 opt.textwidth = 80
 opt.wildmenu = true

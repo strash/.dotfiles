@@ -56,7 +56,7 @@ if p ~= nil then
 				auto_show_delay_ms = 100,
 				window = {
 					min_width = 20,
-					max_width = 80,
+					max_width = 100,
 					max_height = 40,
 				}
 			},
@@ -64,7 +64,7 @@ if p ~= nil then
 		signature = {
 			enabled = false,
 			trigger = {
-				-- enabled = false,
+				enabled = false,
 				show_on_trigger_character = false,
 				show_on_insert_on_trigger_character = false,
 			},

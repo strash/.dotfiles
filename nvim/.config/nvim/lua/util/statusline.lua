@@ -2,9 +2,9 @@ local M = {}
 
 function M.status_path()
 	local path = vim.fn.expand("%:~:.")
-	if path == "" or vim.bo.buftype ~= "" then
-		return "%t"
-	end
+	-- if path == "" or vim.bo.buftype ~= "" then
+	-- 	return "%t"
+	-- end
 	return path
 end
 
