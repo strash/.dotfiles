@@ -38,3 +38,16 @@ supersede-menu = true
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
+
+[keys.normal]
+C-y = "scroll_up"
+C-e = "scroll_down"
+
+[keys.normal.space]
+w = ":write-all"
+F = "file_picker_in_current_buffer_directory"
+
+[keys.insert]
+C-y = "scroll_up"
+C-e = "scroll_down"
+
