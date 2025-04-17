@@ -24,8 +24,8 @@ hidden = false
 nbsp = "all"
 nnbsp = "all"
 
-[editor.indent-guides]
-render = true
+# [editor.indent-guides]
+# render = true
 
 [editor.gutters]
 layout = ["diagnostics", "spacer", "line-numbers", "spacer", "diff", "spacer"]
@@ -42,6 +42,7 @@ cursor-line = "warning"
 [keys.normal]
 C-y = "scroll_up"
 C-e = "scroll_down"
+S-k = "hover"
 
 [keys.normal.space]
 w = ":write-all"
