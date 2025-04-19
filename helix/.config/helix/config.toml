@@ -1,4 +1,4 @@
-theme = "default"
+theme = "yo"
 
 [editor]
 shell = ["zsh", "-c"]
@@ -12,7 +12,7 @@ end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = ["file-name", "file-modification-indicator"]
-right = ["workspace-diagnostics", "version-control", "position", "position-percentage"]
+right = ["workspace-diagnostics", "version-control", "selections", "position", "position-percentage"]
 
 [editor.cursor-shape]
 insert = "bar"
