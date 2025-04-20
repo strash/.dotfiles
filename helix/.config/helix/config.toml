@@ -24,8 +24,9 @@ hidden = false
 nbsp = "all"
 nnbsp = "all"
 
-# [editor.indent-guides]
-# render = true
+[editor.indent-guides]
+render = true
+skip-levels = 1
 
 [editor.gutters]
 layout = ["diagnostics", "spacer", "line-numbers", "spacer", "diff", "spacer"]
