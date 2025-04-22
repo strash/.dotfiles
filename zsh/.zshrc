@@ -137,3 +137,5 @@ PS1='%F{99}%B%n%b%f %F{33}%~%f ${vcs_info_msg_0_}%(?00%F{214}fuck %f)'
 
 
 source <(fzf --zsh)
+
+eval "$(starship init zsh)"
