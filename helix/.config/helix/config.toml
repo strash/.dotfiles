@@ -1,7 +1,8 @@
-theme = "yo"
+theme = "kinda_nvim_light"
 
 [editor]
-shell = ["zsh", "-c"]
+color-modes = true
+# shell = ["zsh", "-c"]
 line-number = "relative"
 cursorline = true
 completion-timeout = 50
@@ -12,7 +13,7 @@ end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = ["file-name", "file-modification-indicator"]
-right = ["workspace-diagnostics", "version-control", "selections", "position", "position-percentage"]
+right = ["workspace-diagnostics", "version-control", "position", "position-percentage"]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -43,7 +44,6 @@ cursor-line = "warning"
 [keys.normal]
 C-y = "scroll_up"
 C-e = "scroll_down"
-# S-k = "hover"
 
 [keys.normal.space]
 w = ":write-all"
