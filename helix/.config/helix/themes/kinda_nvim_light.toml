@@ -1,3 +1,9 @@
+# Theme  : kinda_nvim_light (light)
+# 
+# Author : Strash familev.imen.otchestvovich@gmail.com
+# License: MIT
+# 
+# GitHub : https://github.com/strash/kinda_nvim.hx
 
 "ui.background" = { bg ="bg", fg = "fg_4" }
 "ui.background.separator" = { bg = "bg", fg = "fg_4" }
@@ -32,19 +38,19 @@
 "ui.picker.header" = { fg = "fg_3", modifiers = [ "bold" ] }
 "ui.picker.header.column.active" = { fg = "fg", modifiers = [ "bold" ] }
 
-"ui.window" = { fg = "bg_3" }
+"ui.window" = { fg = "fg_4" }
 
 "ui.help" = { bg = "bg_2", fg = "fg_4" }
 
-"ui.text" = { fg = "fg_2" }
+"ui.text" = { fg = "fg" }
 "ui.text.focus" = { fg = "fg", modifiers = [ "bold" ] }
 "ui.text.inactive" = { fg = "fg_2" }
 "ui.text.info" = { fg = "fg_2" }
 "ui.text.directory" = { fg = "fg_secondary" }
 
 "ui.virtual" = { fg = "fg_4" }
-"ui.virtual.ruler" = { bg = "bg_2" }
-"ui.virtual.indent-guide" = { fg = "bg_1" }
+"ui.virtual.ruler" = { bg = "bg_1" }
+"ui.virtual.indent-guide" = { fg = "bg_4" }
 "ui.virtual.inlay-hint" = { fg = "fg_4" }
 "ui.virtual.wrap" = { fg = "fg_4" }
 "ui.virtual.jump-label" = { fg = "fg_4" }
@@ -93,7 +99,7 @@
 "constant" = { fg = "fg", modifiers = [ "bold" ] }
 "constant.builtin" = { fg = "fg_primary_variant", modifiers = [ "bold" ] }
 "constant.character" = { fg = "fg_tertiary_variant", modifiers = [ "bold" ] }
-"constant.numeric" = { fg = "fg_err", modifiers = [ "bold" ] }
+"constant.numeric" = { fg = "fg_err" }
 
 "string" = { fg = "fg_2" }
 "string.regexp" = { fg = "fg_tertiary_variant" }
@@ -172,3 +178,4 @@ bg_err = "#E8D8DB"
 bg_warn = "#E8E3D8"
 bg_info = "#D3DCE3"
 bg_hint = "#D3E2E3"
+

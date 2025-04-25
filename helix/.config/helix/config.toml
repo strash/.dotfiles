@@ -12,7 +12,7 @@ rulers = [80]
 end-of-line-diagnostics = "hint"
 
 [editor.statusline]
-left = ["file-name", "file-modification-indicator"]
+left =  ["file-name", "file-modification-indicator"]
 right = ["workspace-diagnostics", "version-control", "position", "position-percentage"]
 
 [editor.cursor-shape]

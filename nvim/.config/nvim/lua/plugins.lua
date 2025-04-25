@@ -37,6 +37,9 @@ return require("lazy").setup({
 	-- 	dependencies = { "rktjmp/lush.nvim" },
 	-- },
 
+	-- kinda nvim
+	{ "strash/kinda_nvim" },
+
 	-- CORE
 
 	-- lsp config

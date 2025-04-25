@@ -5,7 +5,7 @@ local opt, cmd = vim.opt, vim.cmd
 
 opt.background = "dark"
 
-local colo = "default_but_better"
+local colo = "kinda_nvim"
 
 cmd.colo(colo)
 
