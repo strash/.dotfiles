@@ -3,13 +3,15 @@
 # roots = ["project.godot"]
 # language-server = { command = "nc", args = ["localhost", "6008"], language-id = "gdscript" }
  
-[language-server.dart]
+[language-server.dartls]
+command = "dart"
+args = ["language-server", "--protocol=lsp"]
 config = { closingLabels = true, outline = true, flutterOutline = true, dart = { showTodos = true, renameFilesWithClasses = "prompt" } }
 
 [[language]]
 name = "dart"
 diagnostic-severity = "hint"
-language-servers = ["dart"]
+language-servers = ["dartls"]
 
 [language-server.bashls]
 command = "bunx"
