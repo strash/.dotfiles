@@ -16,6 +16,9 @@ end-of-line-diagnostics = "hint"
 left =  ["file-name", "file-modification-indicator"]
 right = ["workspace-diagnostics", "version-control", "position", "position-percentage"]
 
+[editor.lsp]
+auto-signature-help = false
+
 [editor.cursor-shape]
 insert = "bar"
 
@@ -53,3 +56,4 @@ F = "file_picker_in_current_buffer_directory"
 [keys.insert]
 C-y = "scroll_up"
 C-e = "scroll_down"
+C-s = "signature_help"
