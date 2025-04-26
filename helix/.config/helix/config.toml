@@ -1,4 +1,4 @@
-theme = "kinda_nvim_light"
+theme = "kinda_nvim"
 
 [editor]
 color-modes = true
