@@ -11,3 +11,35 @@ name = "dart"
 diagnostic-severity = "hint"
 language-servers = ["dart"]
 
+[language-server.bashls]
+command = "bunx"
+args = ["--bun", "bash-language-server", "start"]
+
+[language-server.cssls]
+command = "bunx"
+args = ["--bun", "vscode-css-language-server", "--stdio"]
+
+[language-server.html]
+command = "bunx"
+args = ["--bun", "vscode-html-language-server", "--stdio"]
+
+[language-server.jsonls]
+command = "bunx"
+args = ["--bun", "vscode-json-language-server", "--stdio"]
+
+[language-server.svelte]
+command = "bunx"
+args = ["--bun", "svelteserver", "--stdio"]
+
+[language-server.tailwindcss]
+command = "bunx"
+args = ["--bun", "tailwindcss-language-server", "--stdio"]
+
+[language-server.typescript]
+command = "bunx"
+args = ["--bun", "typescript-language-server", "--stdio"]
+
+[language-server.yamlls]
+command = "bunx"
+args = ["--bun", "yaml-language-server", "--stdio"]
+

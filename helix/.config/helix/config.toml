@@ -3,6 +3,7 @@ theme = "kinda_nvim_light"
 [editor]
 color-modes = true
 # shell = ["zsh", "-c"]
+shell = ["fish", "-c"]
 line-number = "relative"
 cursorline = true
 completion-timeout = 50
