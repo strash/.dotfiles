@@ -17,6 +17,10 @@ language-servers = ["dartls"]
 command = "bunx"
 args = ["--bun", "bash-language-server", "start"]
 
+[language-server.biome]
+command = "bunx"
+args = ["--bun", "biome", "lsp-proxy"]
+
 [language-server.cssls]
 command = "bunx"
 args = ["--bun", "vscode-css-language-server", "--stdio"]
@@ -28,6 +32,11 @@ args = ["--bun", "vscode-html-language-server", "--stdio"]
 [language-server.jsonls]
 command = "bunx"
 args = ["--bun", "vscode-json-language-server", "--stdio"]
+
+[[language]]
+name = "json"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
 
 [language-server.svelte]
 command = "bunx"
@@ -41,7 +50,32 @@ args = ["--bun", "tailwindcss-language-server", "--stdio"]
 command = "bunx"
 args = ["--bun", "typescript-language-server", "--stdio"]
 
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
 [language-server.yamlls]
 command = "bunx"
 args = ["--bun", "yaml-language-server", "--stdio"]
 
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
