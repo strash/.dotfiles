@@ -43,7 +43,7 @@ enable = true
 supersede-menu = true
 
 [editor.inline-diagnostics]
-cursor-line = "warning"
+cursor-line = "hint"
 
 [keys.normal]
 C-y = "scroll_up"
