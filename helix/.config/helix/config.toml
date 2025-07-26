@@ -15,6 +15,7 @@ end-of-line-diagnostics = "hint"
 [editor.statusline]
 left =  ["file-name", "file-modification-indicator"]
 right = ["workspace-diagnostics", "separator", "selections", "separator", "position", "position-percentage"]
+workspace-diagnostics = ["error", "warning", "hint", "info"]
 
 [editor.lsp]
 auto-signature-help = false
@@ -52,6 +53,8 @@ C-e = "scroll_down"
 [keys.normal.space]
 w = ":write-all"
 F = "file_picker_in_current_buffer_directory"
+o = "file_explorer_in_current_buffer_directory"
+O = "file_explorer_in_current_directory"
 
 [keys.insert]
 C-y = "scroll_up"
