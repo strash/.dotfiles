@@ -55,6 +55,8 @@ w = ":write-all"
 F = "file_picker_in_current_buffer_directory"
 o = "file_explorer_in_current_buffer_directory"
 O = "file_explorer_in_current_directory"
+e = "no_op"
+E = "no_op"
 
 [keys.insert]
 C-y = "scroll_up"
