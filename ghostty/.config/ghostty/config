@@ -4,7 +4,7 @@ font-family = Maple Mono
 font-family = SF Mono
 font-size = 13.5
 
-theme = dark:Guezwhoz,light:xcodelight
+theme = dark:Matrix,light:Melange Light
 
 mouse-hide-while-typing = true
 
