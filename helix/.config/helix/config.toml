@@ -14,7 +14,8 @@ end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left =  ["file-name", "file-modification-indicator"]
-right = ["workspace-diagnostics", "separator", "selections", "separator", "position", "position-percentage"]
+right = ["workspace-diagnostics", "selections", "position"]
+# right = ["workspace-diagnostics", "separator", "selections", "separator", "position", "position-percentage"]
 workspace-diagnostics = ["error", "warning", "hint", "info"]
 
 [editor.lsp]
