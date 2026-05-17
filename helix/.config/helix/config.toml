@@ -20,6 +20,7 @@ workspace-diagnostics = ["error", "warning", "hint", "info"]
 
 [editor.lsp]
 auto-signature-help = false
+display-inlay-hints = false
 
 [editor.cursor-shape]
 insert = "bar"

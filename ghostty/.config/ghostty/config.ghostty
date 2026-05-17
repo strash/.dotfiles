@@ -19,6 +19,7 @@ unfocused-split-opacity = 1
 macos-titlebar-style = native
 
 macos-option-as-alt = true
+alpha-blending = linear-corrected
 
 #keybind = ctrl+b>t=toggle_quick_terminal
 

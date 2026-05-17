@@ -13,6 +13,17 @@ name = "dart"
 diagnostic-severity = "hint"
 language-servers = ["dartls"]
 
+[language-server.nimlangserver]
+command = "nimlangserver"
+args = ["--lsp", "--stdio"]
+config = { checkOnSave = true, formatOnSave = true, inlayHints = { typeHints = true, exceptionHints = true, parameterHints = true } }
+
+[[language]]
+name = "nim"
+language-servers = [ "nimlangserver" ]
+formatter = { command = "nph", args = [ "-" ] }
+auto-format = true
+
 [language-server.bashls]
 command = "bunx"
 args = ["--bun", "bash-language-server", "start"]
