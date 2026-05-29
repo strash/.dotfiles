@@ -1,0 +1,4 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_initialized:4300
+SETUVAR fish_user_paths:/Users/strash/Library/Android/sdk/cmdline\x2dtools/latest/bin\x1e/Users/strash/Library/Android/sdk/platform\x2dtools\x1e/opt/homebrew/opt/postgresql\x4016/bin\x1e/Users/strash/zig\x1e/Users/strash/zig/zls\x1e/opt/homebrew/bin\x1e/Users/strash/\x2edotfiles\x1e/Users/strash/\x2ebun/bin\x1e/Users/strash/go/bin\x1e/Users/strash/flutter/bin\x1e/Users/strash/\x2ecargo/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS\x1e/Users/strash/\x2enimble/bin

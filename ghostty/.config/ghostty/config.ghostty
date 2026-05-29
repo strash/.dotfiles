@@ -2,9 +2,10 @@
 
 font-family = Maple Mono NF
 font-family = SF Mono
-font-size = 13.5
+font-size = 13
+font-feature = +calt, +liga, +dlig
 
-theme = dark:Matrix,light:Melange Light
+theme = dark:Ayu,light:Iceberg Light
 
 mouse-hide-while-typing = true
 
@@ -19,7 +20,7 @@ unfocused-split-opacity = 1
 macos-titlebar-style = native
 
 macos-option-as-alt = true
-alpha-blending = linear-corrected
+# alpha-blending = linear-corrected
 
 #keybind = ctrl+b>t=toggle_quick_terminal
 

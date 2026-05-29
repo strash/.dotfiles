@@ -1,12 +1,14 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-abbr -a -- l 'ls -lahG'
 abbr -a -- go_clean 'go clean -x -cache -modcache'
-abbr -a -- boocka 'arch -arm64 brew update && arch -arm64 brew outdated && arch -arm64 brew upgrade --greedy && brew cleanup -s && brew autoremove && bun update -g'
+abbr -a -- boocka 'brew update && brew outdated && brew upgrade --greedy && brew cleanup -s && brew autoremove && bun update -g'
 abbr -a -- firebase_update 'curl -sL https://firebase.tools | upgrade=true bash'
 abbr -a -- bdump 'brew bundle dump --describe -f'
-abbr -a -- bdinstall 'arch -arm64 brew bundle --no-lock'
-abbr -a -- bree 'arch -arm64 brew install'
+abbr -a -- bdinstall 'brew bundle --no-lock'
+abbr -a -- reload 'source $HOME/.config/fish/config.fish'
 
 starship init fish | source
+
+# Mole shell completion
+set -l output (mole completion fish 2>/dev/null); and echo "$output" | source
