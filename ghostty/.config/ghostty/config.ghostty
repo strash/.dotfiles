@@ -9,11 +9,14 @@ theme = dark:Ayu,light:Iceberg Light
 
 mouse-hide-while-typing = true
 
+adjust-cell-height = 5%
+adjust-cursor-height = 5%
 adjust-cursor-thickness = 2
 
-window-padding-x = 4
-window-padding-y = 4
+window-padding-x = 2
+window-padding-y = 0
 window-padding-color = extend-always
+window-padding-balance = true
 
 unfocused-split-opacity = 1
 
