@@ -23,3 +23,4 @@ $GHOSTTY_BIN_DIR:\
 $HOME/zig:\
 $HOME/zig/zls:\
 $HOME/.cargo/bin:\
+. "$HOME/.cargo/env"
